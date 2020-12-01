@@ -113,30 +113,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\ApplicationPOO\ApplicationPOO\Adresse.h" />
-    <ClInclude Include="..\..\ApplicationPOO\ApplicationPOO\Article.h" />
-    <ClInclude Include="..\..\ApplicationPOO\ApplicationPOO\Client.h" />
-    <ClInclude Include="..\..\ApplicationPOO\ApplicationPOO\Commande.h" />
-    <ClInclude Include="..\..\ApplicationPOO\ApplicationPOO\Cout.h" />
-    <ClInclude Include="..\..\ApplicationPOO\ApplicationPOO\Facture.h" />
-    <ClInclude Include="..\..\ApplicationPOO\ApplicationPOO\Personne.h" />
-    <ClInclude Include="..\..\ApplicationPOO\ApplicationPOO\Personnel.h" />
-    <ClInclude Include="..\..\ApplicationPOO\ApplicationPOO\Societe.h" />
     <ClInclude Include="AdminForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Adresse.h" />
+    <ClInclude Include="Article.h" />
+    <ClInclude Include="Client.h" />
+    <ClInclude Include="Commande.h" />
+    <ClInclude Include="Cout.h" />
+    <ClInclude Include="Facture.h" />
+    <ClInclude Include="Personne.h" />
+    <ClInclude Include="Personnel.h" />
+    <ClInclude Include="Societe.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\ApplicationPOO\ApplicationPOO\Adresse.cpp" />
-    <ClCompile Include="..\..\ApplicationPOO\ApplicationPOO\Article.cpp" />
-    <ClCompile Include="..\..\ApplicationPOO\ApplicationPOO\Client.cpp" />
-    <ClCompile Include="..\..\ApplicationPOO\ApplicationPOO\Commande.cpp" />
-    <ClCompile Include="..\..\ApplicationPOO\ApplicationPOO\Cout.cpp" />
-    <ClCompile Include="..\..\ApplicationPOO\ApplicationPOO\Facture.cpp" />
-    <ClCompile Include="..\..\ApplicationPOO\ApplicationPOO\Personne.cpp" />
-    <ClCompile Include="..\..\ApplicationPOO\ApplicationPOO\Personnel.cpp" />
-    <ClCompile Include="..\..\ApplicationPOO\ApplicationPOO\Societe.cpp" />
     <ClCompile Include="AdminForm.cpp" />
+    <ClCompile Include="Adresse.cpp" />
+    <ClCompile Include="Article.cpp" />
+    <ClCompile Include="Client.cpp" />
+    <ClCompile Include="Commande.cpp" />
+    <ClCompile Include="Cout.cpp" />
+    <ClCompile Include="Facture.cpp" />
+    <ClCompile Include="Personne.cpp" />
+    <ClCompile Include="Personnel.cpp" />
+    <ClCompile Include="Societe.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -18,31 +18,31 @@
     <ClInclude Include="AdminForm.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ApplicationPOO\ApplicationPOO\Adresse.h">
+    <ClInclude Include="Adresse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ApplicationPOO\ApplicationPOO\Personne.h">
+    <ClInclude Include="Personne.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ApplicationPOO\ApplicationPOO\Commande.h">
+    <ClInclude Include="Commande.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ApplicationPOO\ApplicationPOO\Client.h">
+    <ClInclude Include="Client.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ApplicationPOO\ApplicationPOO\Article.h">
+    <ClInclude Include="Article.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ApplicationPOO\ApplicationPOO\Cout.h">
+    <ClInclude Include="Cout.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ApplicationPOO\ApplicationPOO\Personnel.h">
+    <ClInclude Include="Personnel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ApplicationPOO\ApplicationPOO\Facture.h">
+    <ClInclude Include="Facture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ApplicationPOO\ApplicationPOO\Societe.h">
+    <ClInclude Include="Societe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,31 +50,31 @@
     <ClCompile Include="AdminForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ApplicationPOO\ApplicationPOO\Adresse.cpp">
+    <ClCompile Include="Article.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ApplicationPOO\ApplicationPOO\Personne.cpp">
+    <ClCompile Include="Personne.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ApplicationPOO\ApplicationPOO\Commande.cpp">
+    <ClCompile Include="Commande.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ApplicationPOO\ApplicationPOO\Cout.cpp">
+    <ClCompile Include="Cout.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ApplicationPOO\ApplicationPOO\Facture.cpp">
+    <ClCompile Include="Facture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ApplicationPOO\ApplicationPOO\Client.cpp">
+    <ClCompile Include="Client.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ApplicationPOO\ApplicationPOO\Personnel.cpp">
+    <ClCompile Include="Personnel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ApplicationPOO\ApplicationPOO\Societe.cpp">
+    <ClCompile Include="Societe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ApplicationPOO\ApplicationPOO\Article.cpp">
+    <ClCompile Include="Adresse.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
