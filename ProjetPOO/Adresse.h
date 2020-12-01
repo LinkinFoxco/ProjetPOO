@@ -3,7 +3,7 @@
 
 class Adresse
 {
-protected:
+public:
 	int m_reference;
 	int m_numAdresse;
 	std::string m_ville;

@@ -31,8 +31,8 @@ public:
 	void modifierDateEmission(std::string date) { m_dateEmission = date; }
 	void modifierDatePaiement(std::string date) { m_datePaiement = date; }
 	void modifierMoyenDePaiement(moyenDePaiement mdpaiment) { m_moyenPaiement = mdpaiment; }
-	void modifier2LPrenom() { m_2Lprenom = m_client.m_prenom[0] + m_client.m_prenom[1]; }
-	void modifier2LNom() { m_2Lprenom = m_client.m_nom[0] + m_client.m_nom[1]; }
+	void modifier2LPrenom() { m_2Lprenom = m_client.obtenirPPrenom()[0] + m_client.obtenirPPrenom()[1]; }
+	void modifier2LNom() { m_2Lprenom = m_client.obtenirPNom()[0] + m_client.obtenirPNom()[1]; }
 	void modifier3LVille();
 
 protected:
