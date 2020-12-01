@@ -13,6 +13,7 @@ private:
 public:
 	Adresse();
 	Adresse(int, int, System::String^, System::String^, System::String^);
+
 	System::String^ SELECT();
 	System::String^ INSERT();
 	System::String^ UPDATE();
@@ -23,4 +24,8 @@ public:
 	System::String^ getCodePostal() { return this->m_codePostal; };
 	System::String^ getRue() { return this->m_rue; };
 
+	void modifierNumAdresse(int Nnum) { m_numAdresse = Nnum; }
+	void modifierVille(System::String^ Nville) { m_ville = Nville; }
+	void modifierCodePostal(System::String^ NcodePostal) { m_codePostal = NcodePostal; }
+	void modifierRue(System::String^ Nrue) { m_rue = Nrue; }
 };
