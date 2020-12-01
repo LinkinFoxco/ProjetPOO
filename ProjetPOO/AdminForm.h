@@ -315,7 +315,7 @@ namespace ProjetPOO{
 #pragma endregion
 	private: void iniDataSet(System::String^ table)
 	{
-		System::String^ connectionString = "Data Source=.;Initial Catalog=Test;Integrated Security=True;Pooling=False";
+		System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
 		System::String^ sql = "SELECT * FROM " + table;
 		System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
 		System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
@@ -336,7 +336,7 @@ namespace ProjetPOO{
 	private: System::Void Modifier_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		iniDataSet("employe");
+		iniDataSet("adresse");
 	}
 	private: System::Void Nouveau_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
