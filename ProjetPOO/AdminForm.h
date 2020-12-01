@@ -12,10 +12,10 @@ namespace ProjetPOO{
 	/// <summary>
 	/// Summary for MyForm
 	/// </summary>
-	public ref class MyForm : public System::Windows::Forms::Form
+	public ref class AdminForm : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm(void)
+		AdminForm(void)
 		{
 			InitializeComponent();
 			//
@@ -27,7 +27,7 @@ namespace ProjetPOO{
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~MyForm()
+		~AdminForm()
 		{
 			if (components)
 			{
@@ -85,7 +85,7 @@ namespace ProjetPOO{
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(AdminForm::typeid));
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->IDPersonne = (gcnew System::Windows::Forms::TextBox());
 			this->IDPersonneTxT = (gcnew System::Windows::Forms::Label());
@@ -114,7 +114,7 @@ namespace ProjetPOO{
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->Size = System::Drawing::Size(545, 320);
 			this->dataGridView1->TabIndex = 0;
-			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dataGridView1_CellContentClick);
+			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &AdminForm::dataGridView1_CellContentClick);
 			// 
 			// IDPersonne
 			// 
@@ -132,7 +132,7 @@ namespace ProjetPOO{
 			this->IDPersonneTxT->Size = System::Drawing::Size(66, 13);
 			this->IDPersonneTxT->TabIndex = 2;
 			this->IDPersonneTxT->Text = L"ID Personne";
-			this->IDPersonneTxT->Click += gcnew System::EventHandler(this, &MyForm::IDPersonneTxT_Click);
+			this->IDPersonneTxT->Click += gcnew System::EventHandler(this, &AdminForm::IDPersonneTxT_Click);
 			// 
 			// NomTxT
 			// 
@@ -214,12 +214,13 @@ namespace ProjetPOO{
 			// 
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 80));
+			this->label4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"label4.Image")));
 			this->label4->Location = System::Drawing::Point(12, 211);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(264, 120);
 			this->label4->TabIndex = 11;
 			this->label4->Text = L"SQL";
-			this->label4->Click += gcnew System::EventHandler(this, &MyForm::label4_Click);
+			this->label4->Click += gcnew System::EventHandler(this, &AdminForm::label4_Click);
 			// 
 			// Nouveau
 			// 
@@ -230,7 +231,7 @@ namespace ProjetPOO{
 			this->Nouveau->TabIndex = 12;
 			this->Nouveau->Text = L"Nouveau";
 			this->Nouveau->UseVisualStyleBackColor = true;
-			this->Nouveau->Click += gcnew System::EventHandler(this, &MyForm::Nouveau_Click);
+			this->Nouveau->Click += gcnew System::EventHandler(this, &AdminForm::Nouveau_Click);
 			// 
 			// Modifier
 			// 
@@ -241,7 +242,7 @@ namespace ProjetPOO{
 			this->Modifier->TabIndex = 13;
 			this->Modifier->Text = L"Modifier";
 			this->Modifier->UseVisualStyleBackColor = true;
-			this->Modifier->Click += gcnew System::EventHandler(this, &MyForm::Modifier_Click);
+			this->Modifier->Click += gcnew System::EventHandler(this, &AdminForm::Modifier_Click);
 			// 
 			// Supprimer
 			// 
@@ -306,7 +307,7 @@ namespace ProjetPOO{
 			this->Controls->Add(this->dataGridView1);
 			this->Name = L"MyForm";
 			this->Text = L"XxXSQL DOMINATORXxX";
-			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			this->Load += gcnew System::EventHandler(this, &AdminForm::MyForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();

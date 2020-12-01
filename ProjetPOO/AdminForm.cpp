@@ -8,7 +8,7 @@ int main(array<String^>^ args)
 {
     Application::EnableVisualStyles();
     Application::SetCompatibleTextRenderingDefault(false);
-    ProjetPOO::MyForm form;
+    ProjetPOO::AdminForm form;
     Application::Run(% form);
 
     return 0;
