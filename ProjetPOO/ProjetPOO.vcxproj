@@ -119,6 +119,7 @@
     <ClInclude Include="Adresse.h" />
     <ClInclude Include="Article.h" />
     <ClInclude Include="Client.h" />
+    <ClInclude Include="CL_CAD.h" />
     <ClInclude Include="Commande.h" />
     <ClInclude Include="Cout.h" />
     <ClInclude Include="Facture.h" />
@@ -131,6 +132,7 @@
     <ClCompile Include="Adresse.cpp" />
     <ClCompile Include="Article.cpp" />
     <ClCompile Include="Client.cpp" />
+    <ClCompile Include="CL_CAD.cpp" />
     <ClCompile Include="Commande.cpp" />
     <ClCompile Include="Cout.cpp" />
     <ClCompile Include="Facture.cpp" />
