@@ -7,7 +7,7 @@ public:
 	Adresse obtenirAdresseDomicile() { return m_adresseDomicile; }
 	void modifierAdresseDomicile(int position) { m_adresseDomicile = m_adresse[position]; }
 
-private :
+protected:
 	Adresse m_adresseDomicile;
 	std::string m_dateEmbauche;
 	Personnel& superieur;

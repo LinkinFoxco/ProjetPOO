@@ -4,11 +4,12 @@
 
 class Personne
 {
-public:
+protected:
 	std::string m_nom;
 	std::string m_prenom;
 	std::vector<Adresse> m_adresse;
 
+public:
 	void ajouterAdresse(Adresse NAdresse) { m_adresse.push_back(NAdresse); }
 	void retirerAdresse(Adresse);
 

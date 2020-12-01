@@ -25,7 +25,7 @@ public:
 	void modifierRemise(int valeur, int position) { Marge[position] = valeur; }
 	void modifierDemarque(int valeur, int position) { Marge[position] = valeur; }
 
-private:
+protected:
 	int CoutHT = 0;
 	int CoutTVA = 0;
 	int CoutTTC = 0;

@@ -13,7 +13,7 @@ public:
 	void modifierStocke(int nombre) { m_stocke += nombre; }
 	void modifierNomArticle(std::string NNom) { m_nomArticle = NNom; }
 
-private:
+protected:
 	int m_reference;
 	int m_stocke;
 	std::string m_nomArticle;
