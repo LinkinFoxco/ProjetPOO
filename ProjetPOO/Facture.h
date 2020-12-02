@@ -1,7 +1,8 @@
 #pragma once
 #include "Commande.h"
+#include "Societe.h"
 
-class Facture : public Commande
+ref class Facture : public Commande
 {
 private:
 	int m_reference;

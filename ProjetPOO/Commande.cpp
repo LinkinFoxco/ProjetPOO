@@ -33,7 +33,7 @@ void Commande::modifier3LVille()
 System::String^ Commande::SELECT()
 {
 	throw gcnew System::NotImplementedException();
-	return "SELECT ID, L2_Nom, L2_Prenom, L3_Ville, Annee_Commande, Date_Emission, Date_Livraison, Date_Paiement, Moyen_Paiement, Nb_Total_Article, Prix_Total_HT, Prix_Total_TVA, Prix_Total_TTC, Quantite_Article_Commande, ID_Client, ID_Facture FROM Commande";
+	return "SELECT ID, L2_Nom, L2_Prenom, L3_Ville, Annee_Commande, Date_Emission, Date_Livraison, Date_Paiement, Moyen_Paiement, Nb_Total_Article, Prix_Total_HT, Prix_Total_TVA, Prix_Total_TTC, Quantite_Article_Commande, ID_Client, ID_Facture FROM Commande;";
 }
 
 System::String^ Commande::INSERT()

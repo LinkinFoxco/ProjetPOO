@@ -13,7 +13,7 @@ public:
 	int obtenirCoutDifferenceTVA() { return CoutTVA-CoutHT; }
 	int obtenirCoutTTC() { return CoutTTC; }
 	int obtenirCoutDifferenceTTC() { return CoutTTC-CoutTVA; }
-
+	int obtenirReference() { return m_reference; }
 	int obtenirTVA(int position) { return TVA[position]; }
 	int obtenirMarge(int position) { return Marge[position]; }
 	int obtenirRemise(int position) { return Remise[position]; }
@@ -32,11 +32,12 @@ public:
 	System::String^ DELETE();
 
 private:
+	int m_reference;
 	int CoutHT = 0;
 	int CoutTVA = 0;
 	int CoutTTC = 0;
-	static int TVA[4];
-	static int Marge[4];
-	static int Remise[3];
-	static int Demarque[4];
+	array<int>^ TVA = gcnew array<int>(4) { 0, 10, 15, 20 };
+	array<int>^ Marge = gcnew array<int>(4) { 0, 5, 10, 15 };
+	array<int>^ Remise = gcnew array<int>(3) { 0, 5, 6 };
+	array<int>^ Demarque = gcnew array<int>(4) { 0, 2, 3, 5 };
 };

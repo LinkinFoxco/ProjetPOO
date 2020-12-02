@@ -3,13 +3,13 @@
 System::String^ Client::SELECTClient()
 {
 	throw gcnew System::NotImplementedException();
-	return "SELECT ID, Date_Naissance, ID_Personne FROM Client";
+	return "SELECT ID, Date_Naissance, ID_Personne FROM Client;";
 }
 
 System::String^ Client::SELECTPossede()
 {
 	throw gcnew System::NotImplementedException();
-	return "SELECT ID, ID_Client, Adresse_Facturation, Adresse_Livraison FROM possede_";
+	return "SELECT ID, ID_Client, Adresse_Facturation, Adresse_Livraison FROM possede_;";
 }
 
 System::String^ Client::INSERTClient()

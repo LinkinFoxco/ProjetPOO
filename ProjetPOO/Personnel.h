@@ -1,15 +1,25 @@
 #pragma once
 #include "Personne.h"
+#include "Societe.h"
 
-class Personnel : public Personne
+ref class Personnel : public Personne
 {
 public:
-	Adresse obtenirAdresseDomicile() { return m_adresseDomicile; }
+	Adresse^ obtenirAdresseDomicile() { return m_adresseDomicile; }
+	System::String^ obtenirDateEmbauche() { return m_dateEmbauche; }
+	Personnel^ obtenirSuperieur() { return superieur; }
+	Societe^ obtenirSociete() { return m_societe; }
 	void modifierAdresseDomicile(int position) { m_adresseDomicile = m_adresse[position]; }
 
-protected:
-	Adresse m_adresseDomicile;
-	std::string m_dateEmbauche;
-	Personnel& superieur;
+	System::String^ SELECT();
+	System::String^ INSERT();
+	System::String^ UPDATE();
+	System::String^ DELETE();
+
+private :
+	Adresse^ m_adresseDomicile;
+	System::String^ m_dateEmbauche;
+	Personnel^ superieur;
+	Societe^ m_societe;
 };
 
