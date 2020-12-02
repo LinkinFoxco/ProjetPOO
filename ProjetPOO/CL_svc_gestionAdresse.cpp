@@ -9,10 +9,10 @@ DataSet^ NS_Svc::CL_svc_gestionAdresse::listeAdresse(String^ dataTableName)
 	return Adrdonnee;
 }
 
-int NS_Svc::CL_svc_gestionAdresse::ajouter(int reference, int num, String^ ville, String^ codePostale, String^ rue)
+int NS_Svc::CL_svc_gestionAdresse::ajouter(int num, String^ ville, String^ codePostale, String^ rue)
 {
 	int reference;
-	adresse->modifierNumAdresse(reference);
+	adresse->modifierNumAdresse(num);
 	adresse->modifierVille(ville);
 	adresse->modifierCodePostal(codePostale);
 	adresse->modifierRue(rue);
