@@ -51,6 +51,9 @@
     <ClInclude Include="FactureForm.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="PossedeClientAdresses.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdminForm.cpp">
@@ -87,6 +90,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FactureForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PossedeClientAdresses.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

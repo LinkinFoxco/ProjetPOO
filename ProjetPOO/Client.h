@@ -6,15 +6,11 @@ ref class Client : public Personne
 protected:
 	int reference;
 	System::String^ m_dateNaissance;
-	Adresse^ m_adresseLivraison;
-	Adresse^ m_adresseFacturation;
 
 public:
 
-	Client(System::String^ NdateNaissance, Adresse^ NadresseLivraison, Adresse^ NadresseFacturation) {
+	Client(System::String^ NdateNaissance) {
 		m_dateNaissance = NdateNaissance;
-		m_adresseLivraison = NadresseLivraison;
-		m_adresseFacturation = NadresseFacturation;
 	}
 	int obtenirCReference() { return reference; }
 	System::String^ obtenirDateNaissance() { return m_dateNaissance; }
