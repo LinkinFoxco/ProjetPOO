@@ -19,13 +19,10 @@ public:
 	void modifierAdresseLivraison(int position) { m_adresseLivraison = m_adresse[position]; }
 	void modifierAdresseFacturation(int position) { m_adresseFacturation = m_adresse[position]; }
 
-	System::String^ SELECTClient();
-	System::String^ SELECTPossede();
-	System::String^ INSERTClient();
-	System::String^ INSERTPossede();
-	System::String^ UPDATEClient();
-	System::String^ UPDATEPossede();
-	System::String^ DELETEClient();
-	System::String^ DELETEPossede();
+private:
+	const int numClient;
+	std::string dateNaissance;
+	Adresse m_adresseLivraison;
+	Adresse m_adresseFacturation;
 };
 

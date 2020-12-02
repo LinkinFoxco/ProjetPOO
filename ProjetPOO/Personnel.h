@@ -1,5 +1,6 @@
 #pragma once
 #include "Personne.h"
+using namespace NS_Composants;
 
 using namespace NS_Composants;
 

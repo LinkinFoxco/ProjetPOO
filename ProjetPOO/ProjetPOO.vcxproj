@@ -122,6 +122,7 @@
     <ClInclude Include="CL_CAD.h" />
     <ClInclude Include="CL_svc_gestionClient.h" />
     <ClInclude Include="CL_svc_gestionPersonne.h" />
+    <ClInclude Include="CL_svc_gestionPersonnel.h" />
     <ClInclude Include="Commande.h" />
     <ClInclude Include="Cout.h" />
     <ClInclude Include="Facture.h" />
@@ -137,6 +138,7 @@
     <ClCompile Include="CL_CAD.cpp" />
     <ClCompile Include="CL_svc_gestionClient.cpp" />
     <ClCompile Include="CL_svc_gestionPersonne.cpp" />
+    <ClCompile Include="CL_svc_gestionPersonnel.cpp" />
     <ClCompile Include="Commande.cpp" />
     <ClCompile Include="Cout.cpp" />
     <ClCompile Include="Facture.cpp" />

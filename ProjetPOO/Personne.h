@@ -1,26 +1,22 @@
 #pragma once
 #include "Adresse.h"
 #include <cliext/vector>
-namespace NS_Composants
+
+ref class Personne
 {
-	ref class Personne
-	{
-	public:
-		int m_reference;
-		System::String^ m_nom;
-		System::String^ m_prenom;
-		cliext::vector<Adresse> m_adresse;
+public:
+	std::string m_nom;
+	std::string m_prenom;
+	std::vector<Adresse> m_adresse;
 
-		void ajouterAdresse(Adresse NAdresse) { m_adresse.push_back(NAdresse); }
-		void retirerAdresse(Adresse);
+	void ajouterAdresse(Adresse NAdresse) { m_adresse.push_back(NAdresse); }
+	void retirerAdresse(Adresse);
 
-		System::String^ obtenirPNom() { return m_nom; }
-		System::String^ obtenirPPrenom() { return m_prenom; }
-		Adresse obtenirPAdresse(int position) { return m_adresse[position]; }
-		cliext::vector<Adresse> obtenirPAdresseTout() { return m_adresse; }
+	System::String^ obtenirPNom() { return m_nom; }
+	System::String^ obtenirPPrenom() { return m_prenom; }
+	Adresse obtenirPAdresse(int position) { return m_adresse[position]; }
+	cliext::vector<Adresse> obtenirPAdresseTout() { return m_adresse; }
 
-		void modifierPNom(System::String^ Nnom) { m_nom = Nnom; }
-		void modifierPPrenom(System::String^ Nprenom) { m_prenom = Nprenom; }
-		void modifierP_Reference(int Nreference) { m_reference = Nreference; }
-	};
-}
+	void modifierPNom(std::string Nnom) { m_nom = Nnom; }
+	void modifierPPrenom(std::string Nprenom) { m_prenom = Nprenom; }
+};
