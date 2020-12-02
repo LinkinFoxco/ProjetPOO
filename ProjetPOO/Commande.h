@@ -1,7 +1,8 @@
 #pragma once
-#include <vector>
+#include <cliext/vector>
 #include "Article.h"
 #include "Client.h"
+#include "Facture.h"
 
 enum class moyenDePaiement {
 	CB,
@@ -14,12 +15,12 @@ enum class moyenDePaiement {
 	//Obelos_d_or,
 };
 
-typedef struct qttArticle {
+ref struct qttArticle {
 	Article m_article;
 	int quantite;
 };
 
-class Commande
+ref class Commande
 {
 public:
 	void calculPanier(); //calcul totalArticle; totalPrixHT; totalPrixTVA; totalPrixTTC;
@@ -27,29 +28,51 @@ public:
 	void retirerArticles(Article);
 	void modifierAnnee(int NAnnee) { m_annee = NAnnee; }
 	void modifier(qttArticle art) { m_articles.push_back(art); }
-	void modifierDateLivraison(std::string date) { m_dateLivraison = date; }
-	void modifierDateEmission(std::string date) { m_dateEmission = date; }
-	void modifierDatePaiement(std::string date) { m_datePaiement = date; }
+	void modifierDateLivraison(System::String^ date) { m_dateLivraison = date; }
+	void modifierDateEmission(System::String^ date) { m_dateEmission = date; }
+	void modifierDatePaiement(System::String^ date) { m_datePaiement = date; }
 	void modifierMoyenDePaiement(moyenDePaiement mdpaiment) { m_moyenPaiement = mdpaiment; }
 	void modifier2LPrenom() { m_2Lprenom = m_client.m_prenom[0] + m_client.m_prenom[1]; }
 	void modifier2LNom() { m_2Lprenom = m_client.m_nom[0] + m_client.m_nom[1]; }
 	void modifier3LVille();
 
+	int obtenirReference() { return m_reference; }
+	int obtenirAnnee() { return m_annee; }
+	System::String^ obtenirDateLivraison() { return m_dateLivraison; }
+	System::String^ obtenirDateEmission() { return m_dateEmission; }
+	System::String^ obtenirDatePaiement() { return m_datePaiement; }
+	moyenDePaiement obtenirMoyenDePaiement() { return m_moyenPaiement; }
+	int obtenirTotalArticle() { return m_totalArticle; }
+	int obtenirTotalPrixHT() { return m_totalPrixHT; }
+	int obtenirTotalPrixTVA() { return m_totalPrixTVA; }
+	int obtenirTotalPrixTTC() { return m_totalPrixTTC; }
+	System::String^ obtenir2LPrenom() { return m_2Lprenom; }
+	System::String^ obtenir2LNom() { return m_2Lnom; }
+	System::String^ obtenir3LVille() { return m_3Lville; }
+	Client obtenirClient() { return m_client; }
+	Facture obtenirFacture() { return m_facture; }
+
+	System::String^ SELECT();
+	System::String^ INSERT();
+	System::String^ UPDATE();
+	System::String^ DELETE();
+
 protected:
+	int m_reference;
 	int m_annee;
-	std::vector<qttArticle> m_articles;
-	std::string m_dateLivraison;
-	std::string m_dateEmission;
-	std::string m_datePaiement;
+	cliext::vector<qttArticle> m_articles;
+	System::String^ m_dateLivraison;
+	System::String^ m_dateEmission;
+	System::String^ m_datePaiement;
 	moyenDePaiement m_moyenPaiement;
 	int m_totalArticle;
 	int m_totalPrixHT;
 	int m_totalPrixTVA;
 	int m_totalPrixTTC;
-	std::string m_2Lprenom;
-	std::string m_2Lnom;
-	std::string m_3Lville;
+	System::String^ m_2Lprenom;
+	System::String^ m_2Lnom;
+	System::String^ m_3Lville;
 	Client m_client;
-
+	Facture m_facture;
 };
 

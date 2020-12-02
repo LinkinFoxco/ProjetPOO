@@ -1,6 +1,6 @@
 #pragma once
 
-class Cout
+ref class Cout
 {
 public:
 	void calculerCoutTVA(int position) { CoutTVA = TVA[position]/100 * CoutHT + CoutHT; }
@@ -24,6 +24,11 @@ public:
 	void modifierMarge(int valeur, int position) { Marge[position] = valeur; }
 	void modifierRemise(int valeur, int position) { Marge[position] = valeur; }
 	void modifierDemarque(int valeur, int position) { Marge[position] = valeur; }
+
+	System::String^ SELECT();
+	System::String^ INSERT();
+	System::String^ UPDATE();
+	System::String^ DELETE();
 
 private:
 	int CoutHT = 0;
