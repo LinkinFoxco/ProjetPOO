@@ -23,7 +23,8 @@ public:
 
 	void modifierAdresseLivraison(int position) { m_adresseLivraison = obtenirPAdresse(position); }
 	void modifierAdresseFacturation(int position) { m_adresseFacturation = obtenirPAdresse(position); }
-	void modifierDateNaissance(System::String^ NDateNaissance) { m_dateNaissance = NDateNaissance; }
+	void modifierdateNaissance(System::String^ DateN) { dateNaissance = DateN; }
+	void modifierIDclient(int idC) { numClient = idC; }
 
 	System::String^ SELECT();
 	System::String^ INSERT();
