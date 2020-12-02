@@ -25,13 +25,9 @@ public:
 	void modifierAdresseFacturation(int position) { m_adresseFacturation = obtenirPAdresse(position); }
 	void modifierDateNaissance(System::String^ NDateNaissance) { m_dateNaissance = NDateNaissance; }
 
-	System::String^ SELECTClient();
-	System::String^ SELECTPossede();
-	System::String^ INSERTClient();
-	System::String^ INSERTPossede();
-	System::String^ UPDATEClient();
-	System::String^ UPDATEPossede();
-	System::String^ DELETEClient();
-	System::String^ DELETEPossede();
+	System::String^ SELECT();
+	System::String^ INSERT();
+	System::String^ UPDATE();
+	System::String^ DELETE();
 };
 
