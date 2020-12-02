@@ -15,7 +15,7 @@ System::String^ Client::SELECTPossede()
 System::String^ Client::INSERTClient()
 {
 	throw gcnew System::NotImplementedException();
-	return "INSERT INTO Client (Date_Naissance, ID_Personne) VALUES ('" + this->obtenirDateNaissance() + "', " + this->obtenirReference() + "');SELECT @@IDENTITY;";
+	return "INSERT INTO Client (Date_Naissance, ID_Personne) VALUES ('" + this->obtenirDateNaissance() + "', " + this->obtenirPReference() + "');SELECT @@IDENTITY;";
 }
 
 System::String^ Client::INSERTPossede()
@@ -27,19 +27,19 @@ System::String^ Client::INSERTPossede()
 System::String^ Client::UPDATEClient()
 {
 	throw gcnew System::NotImplementedException();
-	return "UPDATE Client SET Date_Naissance = '" + this->obtenirDateNaissance() + "', ID_Personne = '" + this->obtenirReference() + "' WHERE(ID = " + this->obtenirReference() + ");";
+	return "UPDATE Client SET Date_Naissance = '" + this->obtenirDateNaissance() + "', ID_Personne = '" + this->obtenirPReference() + "' WHERE(ID = " + this->obtenirPReference() + ");";
 }
 
 System::String^ Client::UPDATEPossede()
 {
 	throw gcnew System::NotImplementedException();
-	return "UPDATE possede_ SET ID_Client = '" + this->obtenirDateNaissance() + "', Adresse_Facturation = '" + this->obtenirAdresseFacturation() + "', Adresse_Livraison = '" + this->obtenirAdresseLivraison() + "' WHERE(ID = " + this->obtenirReference() + ");";
+	return "UPDATE possede_ SET ID_Client = '" + this->obtenirDateNaissance() + "', Adresse_Facturation = '" + this->obtenirAdresseFacturation() + "', Adresse_Livraison = '" + this->obtenirAdresseLivraison() + "' WHERE(ID = " + this->obtenirPReference() + ");";
 }
 
 System::String^ Client::DELETEClient()
 {
 	throw gcnew System::NotImplementedException();
-	return "DELETE FROM Client WHERE(ID = " + this->obtenirReference() + ");";
+	return "DELETE FROM Client WHERE(ID = " + this->obtenirPReference() + ");";
 }
 
 System::String^ Client::DELETEPossede()

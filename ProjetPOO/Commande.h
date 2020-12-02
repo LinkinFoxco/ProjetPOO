@@ -24,16 +24,16 @@ ref class Commande
 {
 public:
 	void calculPanier(); //calcul totalArticle; totalPrixHT; totalPrixTVA; totalPrixTTC;
-	void ajouterArticles(qttArticle^ Nqttarticle) { m_articles.push_back(Nqttarticle); }
+	void ajouterArticles(qttArticle^ Nqttarticle) { m_articles.Add(Nqttarticle); }
 	void retirerArticles(Article);
 	void modifierAnnee(int NAnnee) { m_annee = NAnnee; }
-	void modifier(qttArticle^ art) { m_articles.push_back(art); }
+	void modifier(qttArticle^ art) { m_articles.Add(art); }
 	void modifierDateLivraison(System::String^ date) { m_dateLivraison = date; }
 	void modifierDateEmission(System::String^ date) { m_dateEmission = date; }
 	void modifierDatePaiement(System::String^ date) { m_datePaiement = date; }
 	void modifierMoyenDePaiement(moyenDePaiement mdpaiment) { m_moyenPaiement = mdpaiment; }
-	void modifier2LPrenom() { m_2Lprenom = m_client.obtenirPPrenom()[0] + m_client.obtenirPPrenom()[1]; }
-	void modifier2LNom() { m_2Lprenom = m_client.obtenirPNom()[0] + m_client.obtenirPNom()[1]; }
+	void modifier2LPrenom() { m_2Lprenom = System::Convert::ToString(m_client->obtenirPPrenom()[0]) + System::Convert::ToString(m_client->obtenirPPrenom()[1]); }
+	void modifier2LNom() { m_2Lprenom = System::Convert::ToString(m_client->obtenirPNom()[0]) + System::Convert::ToString(m_client->obtenirPNom()[1]); }
 	void modifier3LVille();
 
 	int obtenirReference() { return m_reference; }
@@ -60,7 +60,7 @@ public:
 protected:
 	int m_reference;
 	int m_annee;
-	cliext::vector<qttArticle^> m_articles;
+	List<qttArticle^> m_articles;
 	System::String^ m_dateLivraison;
 	System::String^ m_dateEmission;
 	System::String^ m_datePaiement;
