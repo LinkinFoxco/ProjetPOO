@@ -5,7 +5,7 @@
 ref class Adresse
 {
 private:
-	int m_reference;
+	int referenceAdresse;
 	int m_numAdresse;
 	System::String^ m_ville;
 	System::String^ m_codePostal;
@@ -21,7 +21,7 @@ public:
 	System::String^ DELETE();
 
 	int obtenirNumAdresse() { return this->m_numAdresse; };
-	int obtenirReference() { return this->m_reference; };
+	int obtenirReference() { return this->referenceAdresse; };
 	System::String^ obtenirVille() { return this->m_ville; };
 	System::String^ obtenirCodePostal() { return this->m_codePostal; };
 	System::String^ obtenirRue() { return this->m_rue; };

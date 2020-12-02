@@ -13,7 +13,11 @@ namespace NS_Svc
 		Client^ client;
 		DataSet^ Cdonnee;
 	public:
-		CL_svc_gestionClient();
+		CL_svc_gestionClient() {
+			Ccad = gcnew CL_CAD();
+			client = gcnew Client();
+			Cdonnee = gcnew DataSet();
+		};
 		DataSet^ listeClient(String^);
 		int ajouter(int, String^);
 		void modifier(int, int, String^);

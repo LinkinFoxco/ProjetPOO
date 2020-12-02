@@ -48,9 +48,6 @@
     <ClInclude Include="CL_CAD.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CL_svc_gestionPersonne.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CL_svc_gestionPersonnel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -99,9 +96,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CL_CAD.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CL_svc_gestionPersonne.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CL_svc_gestionClient.cpp">

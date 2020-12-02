@@ -2,7 +2,7 @@
 #include "Client.h"
 
 Adresse::Adresse(){
-	m_reference = 0;
+	referenceAdresse = -1;
 	m_numAdresse = 0;
 	m_ville = "";
 	m_codePostal = "";
@@ -10,7 +10,7 @@ Adresse::Adresse(){
 }
 
 Adresse::Adresse(int ref, int num, System::String^ ville, System::String^ codePostal, System::String^ rue){
-	this->m_reference = ref;
+	this->referenceAdresse = ref;
 	this->m_numAdresse = num;
 	this->m_ville = ville;
 	this->m_codePostal = codePostal;

@@ -13,10 +13,14 @@ namespace NS_Svc
 	protected:
 		CL_CAD^ Pcad;
 		Personnel^ personnel;
-		DataSet^ Pdonnee;
+		DataSet^ donneePersonnel;
 
 	public:
-		CL_svc_gestionPersonnel();
+		CL_svc_gestionPersonnel() {
+			Pcad = gcnew CL_CAD();
+			personnel = gcnew Personnel();
+			donneePersonnel = gcnew DataSet();
+		};
 		DataSet^ listePersonnel(String^);
 		int ajouter(int, String^, Personnel^);
 		void modifier(int, String^, Personnel^);
@@ -26,7 +30,7 @@ namespace NS_Svc
 }
 /*	Adresse^ m_adresseDomicile;
 	System::String^ m_dateEmbauche;
-	Personnel^ superieur;
+	Personnel^ m_superieur;
 */
 
 
