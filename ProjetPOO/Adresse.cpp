@@ -18,7 +18,7 @@ Adresse::Adresse(int ref, int num, System::String^ ville, System::String^ codePo
 
 System::String^ Adresse::SELECT(void){
 	throw gcnew System::NotImplementedException();
-	return "SELECT ID, Numero_De_Rue, Rue, Code_Postal, Ville FROM Adresse";
+	return "SELECT ID, Numero_De_Rue, Rue, Code_Postal, Ville FROM Adresse;";
 }
 
 System::String^ Adresse::INSERT(void){

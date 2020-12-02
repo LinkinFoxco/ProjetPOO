@@ -5,7 +5,7 @@
 ref class Personnel : public Personne
 {
 public:
-	Adresse obtenirAdresseDomicile() { return m_adresseDomicile; }
+	Adresse^ obtenirAdresseDomicile() { return m_adresseDomicile; }
 	System::String^ obtenirDateEmbauche() { return m_dateEmbauche; }
 	Personnel^ obtenirSuperieur() { return superieur; }
 	Societe^ obtenirSociete() { return m_societe; }
@@ -17,7 +17,7 @@ public:
 	System::String^ DELETE();
 
 private :
-	Adresse m_adresseDomicile;
+	Adresse^ m_adresseDomicile;
 	System::String^ m_dateEmbauche;
 	Personnel^ superieur;
 	Societe^ m_societe;
