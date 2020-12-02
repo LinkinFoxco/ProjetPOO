@@ -23,10 +23,10 @@ System::String^ Personne::INSERT()
 
 System::String^ Personne::UPDATE()
 {
-	return "UPDATE Personne SET Nom_Personne = '" + this->obtenirPNom() + "', Prenom_Personne = '" + this->obtenirPPrenom() + "' WHERE(ID = " + this->obtenirPReference() + ");";
+	return "UPDATE Personne SET Nom_Personne = '" + this->obtenirPNom() + "', Prenom_Personne = '" + this->obtenirPPrenom() + "' WHERE(ID = " + this->obtenirReferencePersonnel() + ");";
 }
 
 System::String^ Personne::DELETE()
 {
-	return "DELETE FROM Personne WHERE(ID = '" + this->obtenirPReference() + ");";
+	return "DELETE FROM Personne WHERE(ID = '" + this->obtenirReferencePersonnel() + ");";
 }

@@ -9,13 +9,13 @@ private:
 	System::String^ m_nom;
 	System::String^ m_prenom;
 	List<Adresse^>^ m_adresse = gcnew List<Adresse^>();
-	int reference;
+	int referencePersonne;
 
 public:
 	void ajouterAdresse(Adresse^ NAdresse) { m_adresse->Add(NAdresse); }
 	void retirerAdresse(Adresse^);
 
-	int obtenirPReference() { return reference; }
+	int obtenirReferencePersonnel() { return referencePersonne; }
 	System::String^ obtenirPNom() { return m_nom; }
 	System::String^ obtenirPPrenom() { return m_prenom; }
 	Adresse^ obtenirPAdresse(int position) { return m_adresse[position]; }

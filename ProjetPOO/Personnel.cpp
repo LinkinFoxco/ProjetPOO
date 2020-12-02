@@ -9,9 +9,9 @@ System::String^ Personnel::INSERT(){
 }
 
 System::String^ Personnel::UPDATE(){
-    return "UPDATE Personnel SET Date_Embauche = '" + this->obtenirDateEmbauche() + "', ID_Personne = '" + this->obtenirReference() + "', ID_Societe = '" + this->obtenirSociete() + "', ID_Personnel = '" + this->obtenirSuperieur() + "', ID_Adresse = '" + this->obtenirAdresseDomicile() + "' WHERE(ID = " + this->obtenirReference() + ");";
+    return "UPDATE Personnel SET Date_Embauche = '" + this->obtenirDateEmbauche() + "', ID_Personne = '" + this->obtenirReferencePersonnel() + "', ID_Societe = '" + this->obtenirSociete() + "', ID_Personnel = '" + this->obtenirSuperieur() + "', ID_Adresse = '" + this->obtenirAdresseDomicile() + "' WHERE(ID = " + this->obtenirReference() + ");";
 }
 
 System::String^ Personnel::DELETE(){
-    return "DELETE FROM Personnel WHERE(ID = " + this->obtenirReference() + ");";
+    return "DELETE FROM Personnel WHERE(ID = " + this->obtenirReferencePersonnel() + ");";
 }

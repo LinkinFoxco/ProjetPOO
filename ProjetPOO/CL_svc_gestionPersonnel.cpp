@@ -25,14 +25,14 @@ void NS_Svc::CL_svc_gestionClient::modifier(int position, int n_client, String^ 
 	client->modifierAdresseLivraison(position);
 	client->modifierAdresseFacturation(position);
 	client->modifierdateNaissance(Dnaissance);
-	client->modifierIDclient(n_client);
+	client->modifierReferenceClient(n_client);
 
 	Ccad->actionRows(client->UPDATEClient());
 }
 
 void NS_Svc::CL_svc_gestionClient::supprimer(int IDc)
 {
-	client->modifierIDclient(IDc);
+	client->modifierReferenceClient(IDc);
 
 	Ccad->actionRows(client->DELETEClient());
 }
