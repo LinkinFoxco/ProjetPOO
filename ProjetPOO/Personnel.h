@@ -24,7 +24,6 @@ public:
 
 private :
 	int reference;
-	int id_personne;
 	Adresse^ m_adresseDomicile;
 	System::String^ m_dateEmbauche;
 	Personnel^ superieur;

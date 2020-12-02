@@ -24,5 +24,4 @@ namespace NS_Svc
 	System::String^ dateNaissance;
 	Adresse m_adresseLivraison;
 	Adresse m_adresseFacturation;
-	Personne m_client;
 */
