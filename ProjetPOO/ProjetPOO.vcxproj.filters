@@ -89,8 +89,5 @@
     <ClCompile Include="CL_svc_gestionPersonne.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CL_map_TBPERSONNE.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

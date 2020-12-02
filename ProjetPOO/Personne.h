@@ -5,6 +5,7 @@
 ref class Personne
 {
 public:
+	int m_reference;
 	System::String^ m_nom;
 	System::String^ m_prenom;
 	cliext::vector<Adresse> m_adresse;
@@ -19,4 +20,5 @@ public:
 
 	void modifierPNom(System::String^ Nnom) { m_nom = Nnom; }
 	void modifierPPrenom(System::String^ Nprenom) { m_prenom = Nprenom; }
+	void modifierP_Reference(int Nreference) { m_reference = Nreference; }
 };

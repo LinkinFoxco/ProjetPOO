@@ -134,7 +134,6 @@
     <ClCompile Include="Article.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="CL_CAD.cpp" />
-    <ClCompile Include="CL_map_TBPERSONNE.cpp" />
     <ClCompile Include="CL_svc_gestionPersonne.cpp" />
     <ClCompile Include="Commande.cpp" />
     <ClCompile Include="Cout.cpp" />
