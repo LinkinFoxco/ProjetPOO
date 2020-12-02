@@ -51,6 +51,9 @@
     <ClInclude Include="CL_svc_gestionPersonne.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CL_svc_gestionPersonnel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdminForm.cpp">
@@ -90,6 +93,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CL_map_TBPERSONNE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CL_svc_gestionPersonnel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

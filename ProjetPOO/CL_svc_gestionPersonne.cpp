@@ -19,6 +19,6 @@ int NS_Svc::CL_svc_gestionPersonne::ajouter(String^, String^)
 {
 	int id_personne;
 
-	personne->modifierPNom
+	personne->modifierPNom;
 	return 0;
 }
