@@ -1,5 +1,4 @@
 #include "Adresse.h"
-#include "Client.h"
 
 Adresse::Adresse(){
 	referenceAdresse = -1;
@@ -26,9 +25,9 @@ System::String^ Adresse::INSERT(void){
 }
 
 System::String^ Adresse::UPDATE(void){
-	return "UPDATE Adresse SET Numero_De_Rue = '" + this->obtenirNumAdresse() + "', Rue = '" + this->obtenirRue() + "', Code_Postal = '" + this->obtenirCodePostal() + "', Ville = '" + this->obtenirVille() + "' WHERE(ID = " + this->obtenirReference() + ");";
+	return "UPDATE Adresse SET Numero_De_Rue = '" + this->obtenirNumAdresse() + "', Rue = '" + this->obtenirRue() + "', Code_Postal = '" + this->obtenirCodePostal() + "', Ville = '" + this->obtenirVille() + "' WHERE(ID = " + this->obtenirReferenceAdresse() + ");";
 }
 
 System::String^ Adresse::DELETE(void){
-	return "DELETE FROM Adresse WHERE(ID = " + this->obtenirReference() + ");";
+	return "DELETE FROM Adresse WHERE(ID = " + this->obtenirReferenceAdresse() + ");";
 }
