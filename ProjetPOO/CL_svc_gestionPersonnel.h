@@ -12,11 +12,11 @@ namespace NS_Svc {
 		CL_CAD^ cad;
 		Personnel^ personnel;
 		DataSet^ donnee;
-
+		
 	public:
 		CL_svc_gestionPersonnel();
 		DataSet^ listePersonnel(String^);
-		int ajouter(String^, String^);
+		int ajouter(Adresse^, String^, Personnel^, Societe^);
 		void modifier(int, String^, String^);
 		void supprimer(int);
 	};

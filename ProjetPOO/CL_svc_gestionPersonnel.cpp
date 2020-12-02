@@ -14,7 +14,11 @@ DataSet^ NS_Svc::CL_svc_gestionPersonnel::listePersonnel(String^ dataTableName) 
 	return donnee;
 }
 
-int NS_Svc::CL_svc_gestionPersonnel::ajouter(String^, String^) {
+int NS_Svc::CL_svc_gestionPersonnel::ajouter(Adresse^, String^, Personnel^, Societe^) {
+	Adresse^ m_adresseDomicile;
+	System::String^ m_dateEmbauche;
+	Personnel^ superieur;
+	Societe^ m_societe;
 
 }
 void NS_Svc::CL_svc_gestionPersonnel::modifier(int, String^, String^) {
