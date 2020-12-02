@@ -21,7 +21,7 @@ System::String^ Client::INSERTClient()
 System::String^ Client::INSERTPossede()
 {
 	throw gcnew System::NotImplementedException();
-	return "INSERT INTO possede_ (ID_Client, Adresse_Facturation, Adresse_Livraison) VALUES ('" + this->obtenirNumClient() + "', " + this->obtenirAdresseFacturation() + "', " + this->obtenirAdresseLivraison() + "');SELECT @@IDENTITY;";
+	return "INSERT INTO possede_ (ID_Client, Adresse_Facturation, Adresse_Livraison) VALUES ('" + this->obtenirNumClient() + "', '" + this->obtenirAdresseFacturation() + "', '" + this->obtenirAdresseLivraison() + "');SELECT @@IDENTITY;";
 }
 
 System::String^ Client::UPDATEClient()
