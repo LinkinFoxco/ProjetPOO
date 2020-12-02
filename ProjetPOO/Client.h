@@ -6,8 +6,8 @@ ref class Client : public Personne
 protected:
 	const int numClient;
 	System::String^ dateNaissance;
-	Adresse m_adresseLivraison;
-	Adresse m_adresseFacturation;
+	Adresse^ m_adresseLivraison;
+	Adresse^ m_adresseFacturation;
 	Personne m_client;
 
 public:
