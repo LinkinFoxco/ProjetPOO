@@ -42,10 +42,6 @@ public:
 
 
 	int obtenirReferenceCommande() { return referenceCommande; }
-	System::String^ obtenirDateLivraison() { return m_dateLivraison; }
-	System::String^ obtenirDateEmission() { return m_dateEmission; }
-	System::String^ obtenirDatePaiement() { return m_datePaiement; }
-	moyenDePaiement obtenirMoyenDePaiement() { return m_moyenPaiement; }
 	int obtenirTotalArticle() { return m_totalArticle; }
 	int obtenirTotalPrixHT() { return m_totalPrixHT; }
 	int obtenirTotalPrixTVA() { return m_totalPrixTVA; }
@@ -53,6 +49,10 @@ public:
 	System::String^ obtenir2LPrenom() { return m_2Lprenom; }
 	System::String^ obtenir2LNom() { return m_2Lnom; }
 	System::String^ obtenir3LVille() { return m_3Lville; }
+	System::String^ obtenirDateLivraison() { return m_dateLivraison; }
+	System::String^ obtenirDateEmission() { return m_dateEmission; }
+	System::String^ obtenirDatePaiement() { return m_datePaiement; }
+	moyenDePaiement obtenirMoyenDePaiement() { return m_moyenPaiement; }
 	Client^ obtenirClient() { return m_client; }
 	Facture^ obtenirFacture() { return m_facture; }
 
@@ -63,18 +63,18 @@ public:
 
 protected:
 	int referenceCommande;
-	List<qttArticle^> m_articles;
-	System::String^ m_dateLivraison;
-	System::String^ m_dateEmission;
-	System::String^ m_datePaiement;
-	moyenDePaiement m_moyenPaiement;
 	int m_totalArticle;
 	int m_totalPrixHT;
 	int m_totalPrixTVA;
 	int m_totalPrixTTC;
+	List<qttArticle^> m_articles;
 	System::String^ m_2Lprenom;
 	System::String^ m_2Lnom;
 	System::String^ m_3Lville;
+	System::String^ m_dateLivraison;
+	System::String^ m_dateEmission;
+	System::String^ m_datePaiement;
+	moyenDePaiement m_moyenPaiement;
 	Client^ m_client;
 	Facture^ m_facture;
 };
