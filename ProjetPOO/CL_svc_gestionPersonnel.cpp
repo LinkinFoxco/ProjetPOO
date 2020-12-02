@@ -33,7 +33,7 @@ void NS_Svc::CL_svc_gestionPersonnel::modifier(int position, String^ dateEmbauch
 
 void NS_Svc::CL_svc_gestionPersonnel::supprimer(int P_reference)
 {
-	personnel->modifierReference(P_reference);
+	personnel->modifierReferencePersonnel(P_reference);
 
 	Pcad->actionRows(personnel->DELETE());
 }
