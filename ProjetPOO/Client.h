@@ -6,6 +6,8 @@ ref class Client : public Personne
 protected:
 	int referenceClient;
 	System::String^ m_dateNaissance;
+	Adresse^ m_adresseLivraison;
+	Adresse^ m_adresseFacturation;
 
 public:
 

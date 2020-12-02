@@ -15,7 +15,7 @@ public:
 	void ajouterAdresse(Adresse^ NAdresse) { m_adresse->Add(NAdresse); }
 	void retirerAdresse(Adresse^);
 
-	int obtenirReferencePersonnel() { return referencePersonne; }
+	int obtenirReferencePersonne() { return referencePersonne; }
 	System::String^ obtenirPNom() { return m_nom; }
 	System::String^ obtenirPPrenom() { return m_prenom; }
 	Adresse^ obtenirPAdresse(int position) { return m_adresse[position]; }
