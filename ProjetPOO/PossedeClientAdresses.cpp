@@ -5,13 +5,13 @@ System::String^ PossedeClientAdresses::SELECT() {
 }
 
 System::String^ PossedeClientAdresses::INSERT() {
-	return "INSERT INTO possede_ (ID_Client, Adresse_Facturation, Adresse_Livraison) VALUES ('" + this->obtenirCReference() + "', '" + (this->obtenirNumAdresse() + " " + this->obtenirRue() + ", " + this->obtenirCodePostal() + " " + this->obtenirVille()) + "', '" + (this->Livraison->obtenirNumAdresse() + " " + this->Livraison->obtenirRue() + ", " + this->Livraison->obtenirCodePostal() + " " + this->Livraison->obtenirVille()) + "');SELECT @@IDENTITY;";
+	return "INSERT INTO possede_ (ID_Client, Adresse_Facturation, Adresse_Livraison) VALUES ('" + this->m_Client->obtenirReferenceClient() + "', '" + (this->m_AdresseFacturation->obtenirNumAdresse() + " " + this->m_AdresseFacturation->obtenirRue() + ", " + this->m_AdresseFacturation->obtenirCodePostal() + " " + this->m_AdresseFacturation->obtenirVille()) + "', '" + (this->m_AdresseLivraison->obtenirNumAdresse() + " " + this->m_AdresseLivraison->obtenirRue() + ", " + this->m_AdresseLivraison->obtenirCodePostal() + " " + this->m_AdresseLivraison->obtenirVille()) + "');SELECT @@IDENTITY;";
 }
 
 System::String^ PossedeClientAdresses::UPDATE() {
-	return "UPDATE possede_ SET ID_Client = '" + this->obtenirCReference() + "', Adresse_Facturation = '" + (this->obtenirNumAdresse() + " " + this->obtenirRue() + ", " + this->obtenirCodePostal() + " " + this->obtenirVille()) + "', Adresse_Livraison = '" + (this->Livraison->obtenirNumAdresse() + " " + this->Livraison->obtenirRue() + ", " + this->Livraison->obtenirCodePostal() + " " + this->Livraison->obtenirVille()) + "' WHERE(ID = " + this->obtenirReference() + ");";
+	return "UPDATE possede_ SET ID_Client = '" + this->m_Client->obtenirReferenceClient() + "', Adresse_Facturation = '" + (this->m_AdresseFacturation->obtenirNumAdresse() + " " + this->m_AdresseFacturation->obtenirRue() + ", " + this->m_AdresseFacturation->obtenirCodePostal() + " " + this->m_AdresseFacturation->obtenirVille()) + "', Adresse_Livraison = '" + (this->m_AdresseLivraison->obtenirNumAdresse() + " " + this->m_AdresseLivraison->obtenirRue() + ", " + this->m_AdresseLivraison->obtenirCodePostal() + " " + this->m_AdresseLivraison->obtenirVille()) + "' WHERE(ID = " + this->obtenirReference() + ");";
 }
 
 System::String^ PossedeClientAdresses::DELETE() {
-	return "DELETE FROM possede_ WHERE(ID = " + this->obtenirCReference() + ");";
+	return "DELETE FROM possede_ WHERE(ID = " + this->m_Client->obtenirReferenceClient() + ");";
 }

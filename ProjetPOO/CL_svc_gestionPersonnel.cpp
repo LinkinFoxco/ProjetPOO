@@ -5,10 +5,10 @@
 
 DataSet^ NS_Svc::CL_svc_gestionPersonnel::listePersonnel(String^ dataTableName)
 {
-	Pdonnee->Clear();
-	Pdonnee = Pcad->getRows(personnel->SELECT(), dataTableName);
+	donneePersonnel->Clear();
+	donneePersonnel = Pcad->getRows(personnel->SELECT(), dataTableName);
 
-	return Pdonnee;
+	return donneePersonnel;
 }
 
 int NS_Svc::CL_svc_gestionPersonnel::ajouter(int position, String^ dateEmbauche, Personnel^ Sup)

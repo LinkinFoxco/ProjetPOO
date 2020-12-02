@@ -9,9 +9,9 @@ System::String^ Facture::INSERT(){
 }
 
 System::String^ Facture::UPDATE(){
-    return "UPDATE Facture SET ID_Client = '" + this->obtenirClient() + "', ID_Societe = '" + this->obtenirSociete() + "' WHERE(ID = " + this->obtenirReference() + ");";
+    return "UPDATE Facture SET ID_Client = '" + this->obtenirClient() + "', ID_Societe = '" + this->obtenirSociete() + "' WHERE(ID = " + this->obtenirReferenceFacture() + ");";
 }
 
 System::String^ Facture::DELETE(){
-    return "DELETE FROM Facture WHERE(ID = '" + this->obtenirReference() + ");";
+    return "DELETE FROM Facture WHERE(ID = '" + this->obtenirReferenceFacture() + ");";
 }

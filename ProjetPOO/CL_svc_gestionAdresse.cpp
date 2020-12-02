@@ -32,7 +32,7 @@ void NS_Svc::CL_svc_gestionAdresse::modifier(int num, String^ ville, String^ cod
 
 void NS_Svc::CL_svc_gestionAdresse::supprimer(int reference)
 {
-	adresse->modifierRef(reference);
+	adresse->modifierReferenceAdresse(reference);
 
 	Adcad->actionRows(adresse->DELETE());
 }

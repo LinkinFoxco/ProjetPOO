@@ -5,7 +5,7 @@
 ref class Facture : public Commande
 {
 private:
-	int reference;
+	int referenceFacture;
 	Client^ m_client;
 	Societe^ m_societe;
 
@@ -14,7 +14,7 @@ public:
 		m_client = gcnew Client();
 		m_societe = gcnew Societe();
 	}
-	int obtenirReference() { return m_reference; }
+	int obtenirReferenceFacture() { return referenceFacture; }
 	Client^ obtenirClient() { return m_client; }
 	Societe^ obtenirSociete() { return m_societe; }
 

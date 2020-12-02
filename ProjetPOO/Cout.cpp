@@ -37,10 +37,10 @@ System::String^ Cout::INSERT(){
 }
 
 System::String^ Cout::UPDATE(){
-	return "UPDATE Cout SET Cout_HT = '" + this->obtenirCoutHT() + "', Cout_TVA = '" + this->obtenirCoutTVA() + "', Cout_TTC = '" + this->obtenirCoutTTC() + "', TVA = '" + this->obtenirTVA(2) + "', Marge = '" + this->obtenirMarge(0) + "', Remise = '" + this->obtenirRemise(0) + "', Demarque = '" + this->obtenirDemarque(0) + "' WHERE(ID = " + this->obtenirReference() + ");";
+	return "UPDATE Cout SET Cout_HT = '" + this->obtenirCoutHT() + "', Cout_TVA = '" + this->obtenirCoutTVA() + "', Cout_TTC = '" + this->obtenirCoutTTC() + "', TVA = '" + this->obtenirTVA(2) + "', Marge = '" + this->obtenirMarge(0) + "', Remise = '" + this->obtenirRemise(0) + "', Demarque = '" + this->obtenirDemarque(0) + "' WHERE(ID = " + this->obtenirReferenceCout() + ");";
 }
 
 System::String^ Cout::DELETE(){
-	return "DELETE FROM Cout WHERE(ID = " + this->obtenirReference() + ");";
+	return "DELETE FROM Cout WHERE(ID = " + this->obtenirReferenceCout() + ");";
 }
 

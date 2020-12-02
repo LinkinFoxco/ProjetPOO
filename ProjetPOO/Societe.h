@@ -15,7 +15,7 @@ public:
     System::String^ obtenirNumServiceClient() { return m_numServiceClient; }
     System::String^ obtenirLogo() { return m_logo; }
     Adresse^ obtenirAdresseSociete() { return m_adresseSociete; }
-    int obtenirReference() { return referenceSociete; }
+    int obtenirReferenceSociete() { return referenceSociete; }
 
     void modifierNomSociete(System::String^ Nnom) { m_nomSociete = Nnom; }
     void modifierNumServiceClient(System::String^ Nnum) { m_numServiceClient = Nnum; }
