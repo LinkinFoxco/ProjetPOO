@@ -7,7 +7,7 @@ System::String^ Article::SELECT(){
 
 System::String^ Article::INSERT(){
 	throw gcnew System::NotImplementedException();
-	return "INSERT INTO Article (Nom_Article, Quantite_Article_Stock, ID_Cout) VALUES ('" + this->obtenirNomArticle() + "', " + this->obtenirStock() + "', " + this->obtenirCoutArticle() + "');SELECT @@IDENTITY;";
+	return "INSERT INTO Article (Nom_Article, Quantite_Article_Stock, ID_Cout) VALUES ('" + this->obtenirNomArticle() + "', '" + this->obtenirStock() + "', '" + this->obtenirCoutArticle() + "');SELECT @@IDENTITY;";
 }
 
 System::String^ Article::UPDATE(){
