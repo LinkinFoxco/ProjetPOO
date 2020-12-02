@@ -21,6 +21,6 @@ public:
 	Adresse^ obtenirPAdresse(int position) { return m_adresse[position]; }
 	List<Adresse^>^ obtenirPAdresseTout() { return m_adresse; }
 
-	void modifierPNom(std::string Nnom) { m_nom = Nnom; }
-	void modifierPPrenom(std::string Nprenom) { m_prenom = Nprenom; }
+	void modifierPNom(System::String^ Nnom) { m_nom = Nnom; }
+	void modifierPPrenom(System::String^ Nprenom) { m_prenom = Nprenom; }
 };
