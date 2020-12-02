@@ -126,6 +126,9 @@
     <ClInclude Include="Commande.h" />
     <ClInclude Include="Cout.h" />
     <ClInclude Include="Facture.h" />
+    <ClInclude Include="FactureForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Personne.h" />
     <ClInclude Include="Personnel.h" />
     <ClInclude Include="Societe.h" />
@@ -142,6 +145,7 @@
     <ClCompile Include="Commande.cpp" />
     <ClCompile Include="Cout.cpp" />
     <ClCompile Include="Facture.cpp" />
+    <ClCompile Include="FactureForm.cpp" />
     <ClCompile Include="Personne.cpp" />
     <ClCompile Include="Personnel.cpp" />
     <ClCompile Include="Societe.cpp" />
@@ -156,6 +160,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FactureForm.resx">
+      <DependentUpon>FactureForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

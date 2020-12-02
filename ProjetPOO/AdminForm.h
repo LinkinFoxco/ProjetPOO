@@ -10,7 +10,7 @@ namespace ProjetPOO{
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Summary for MyForm
+	/// Summary for AdminForm
 	/// </summary>
 	public ref class AdminForm : public System::Windows::Forms::Form
 	{
@@ -48,9 +48,9 @@ namespace ProjetPOO{
 
 	private: System::Windows::Forms::Button^ LeftPlus;
 
-	private: System::Windows::Forms::Button^ Left;
+	private: System::Windows::Forms::Button^ LeftButton;
 
-	private: System::Windows::Forms::Button^ Right;
+	private: System::Windows::Forms::Button^ RightButton;
 	private: System::Windows::Forms::Button^ RightPlus;
 
 
@@ -66,6 +66,9 @@ namespace ProjetPOO{
 
 
 	private: System::Windows::Forms::Label^ MessageTxT;
+
+
+	private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 
 
 
@@ -98,8 +101,8 @@ namespace ProjetPOO{
 			this->PrenomTxT = (gcnew System::Windows::Forms::Label());
 			this->PernomPersonne = (gcnew System::Windows::Forms::TextBox());
 			this->LeftPlus = (gcnew System::Windows::Forms::Button());
-			this->Left = (gcnew System::Windows::Forms::Button());
-			this->Right = (gcnew System::Windows::Forms::Button());
+			this->LeftButton = (gcnew System::Windows::Forms::Button());
+			this->RightButton = (gcnew System::Windows::Forms::Button());
 			this->RightPlus = (gcnew System::Windows::Forms::Button());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->Nouveau = (gcnew System::Windows::Forms::Button());
@@ -108,6 +111,7 @@ namespace ProjetPOO{
 			this->Enregistrer = (gcnew System::Windows::Forms::Button());
 			this->MessageBox = (gcnew System::Windows::Forms::TextBox());
 			this->MessageTxT = (gcnew System::Windows::Forms::Label());
+			this->folderBrowserDialog1 = (gcnew System::Windows::Forms::FolderBrowserDialog());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -181,27 +185,27 @@ namespace ProjetPOO{
 			this->LeftPlus->Text = L"<<";
 			this->LeftPlus->UseVisualStyleBackColor = true;
 			// 
-			// Left
+			// LeftButton
 			// 
-			this->Left->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->LeftButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Left->Location = System::Drawing::Point(83, 173);
-			this->Left->Name = L"Left";
-			this->Left->Size = System::Drawing::Size(60, 23);
-			this->Left->TabIndex = 8;
-			this->Left->Text = L"<";
-			this->Left->UseVisualStyleBackColor = true;
+			this->LeftButton->Location = System::Drawing::Point(83, 173);
+			this->LeftButton->Name = L"LeftButton";
+			this->LeftButton->Size = System::Drawing::Size(60, 23);
+			this->LeftButton->TabIndex = 8;
+			this->LeftButton->Text = L"<";
+			this->LeftButton->UseVisualStyleBackColor = true;
 			// 
-			// Right
+			// RightButton
 			// 
-			this->Right->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->RightButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Right->Location = System::Drawing::Point(149, 173);
-			this->Right->Name = L"Right";
-			this->Right->Size = System::Drawing::Size(60, 23);
-			this->Right->TabIndex = 9;
-			this->Right->Text = L">";
-			this->Right->UseVisualStyleBackColor = true;
+			this->RightButton->Location = System::Drawing::Point(149, 173);
+			this->RightButton->Name = L"RightButton";
+			this->RightButton->Size = System::Drawing::Size(60, 23);
+			this->RightButton->TabIndex = 9;
+			this->RightButton->Text = L">";
+			this->RightButton->UseVisualStyleBackColor = true;
 			// 
 			// RightPlus
 			// 
@@ -286,7 +290,7 @@ namespace ProjetPOO{
 			this->MessageTxT->TabIndex = 17;
 			this->MessageTxT->Text = L"Message";
 			// 
-			// MyForm
+			// AdminForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
@@ -299,8 +303,8 @@ namespace ProjetPOO{
 			this->Controls->Add(this->Nouveau);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->RightPlus);
-			this->Controls->Add(this->Right);
-			this->Controls->Add(this->Left);
+			this->Controls->Add(this->RightButton);
+			this->Controls->Add(this->LeftButton);
 			this->Controls->Add(this->LeftPlus);
 			this->Controls->Add(this->PrenomTxT);
 			this->Controls->Add(this->PernomPersonne);
@@ -309,9 +313,9 @@ namespace ProjetPOO{
 			this->Controls->Add(this->IDPersonneTxT);
 			this->Controls->Add(this->IDPersonne);
 			this->Controls->Add(this->dataGridView1);
-			this->Name = L"MyForm";
+			this->Name = L"AdminForm";
 			this->Text = L"XxXSQL DOMINATORXxX";
-			this->Load += gcnew System::EventHandler(this, &AdminForm::MyForm_Load);
+			this->Load += gcnew System::EventHandler(this, &AdminForm::AdminForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -340,10 +344,11 @@ namespace ProjetPOO{
 	}
 	private: System::Void Modifier_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void AdminForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		iniDataSet("adresse");
 	}
 	private: System::Void Nouveau_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-	};
+
+};
 }

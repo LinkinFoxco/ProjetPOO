@@ -24,23 +24,23 @@ void Commande::retirerArticles(Article art)
 
 void Commande::modifier3LVille()
 {
-	if (m_client.obtenirAdresseLivraison().m_ville.length() - 1 >= 3)
-		m_3Lville = m_client.obtenirAdresseLivraison().m_ville[0] + m_client.obtenirAdresseLivraison().m_ville[1] + m_client.obtenirAdresseLivraison().m_ville[3];
+	if (m_client.obtenirAdresseLivraison().obtenirVille().length() - 1 >= 3)
+		m_3Lville = m_client.obtenirAdresseLivraison().obtenirVille()[0] + m_client.obtenirAdresseLivraison().obtenirVille()[1] + m_client.obtenirAdresseLivraison().obtenirVille()[2];
 	else
-		m_3Lville = m_client.obtenirAdresseLivraison().m_ville;
+		m_3Lville = m_client.obtenirAdresseLivraison().obtenirVille();
 }
 
 System::String^ Commande::SELECT()
 {
 	throw gcnew System::NotImplementedException();
-	return "SELECT ID, L2_Nom, L2_Prenom, L3_Ville, Annee_Commande, Date_Emission, Date_Livraison, Date_Paiement, Moyen_Paiement, Nb_Total_Article, Prix_Total_HT, Prix_Total_TVA, Prix_Total_TTC, Quantite_Article_Commande, ID_Client, ID_Facture FROM Commande";
+	return "SELECT ID, L2_Nom, L2_Prenom, L3_Ville, Annee_Commande, Date_Emission, Date_Livraison, Date_Paiement, Moyen_Paiement, Nb_Total_Article, Prix_Total_HT, Prix_Total_TVA, Prix_Total_TTC, Quantite_Article_Commande, ID_Client, ID_Facture FROM Commande;";
 }
 
 System::String^ Commande::INSERT()
 {
 	throw gcnew System::NotImplementedException();
 	return "INSERT INTO Commande (L2_Nom, L2_Prenom, L3_Ville, Annee_Commande, Date_Emission, Date_Livraison, Date_Paiement, Moyen_Paiement, Nb_Total_Article, Prix_Total_HT, Prix_Total_TVA, Prix_Total_TTC, Quantite_Article_Commande, ID_Client, ID_Facture) " +
-		"VALUES ('" + this->obtenir2LNom() + "', " + this->obtenir2LPrenom() + "', " + this->obtenir3LVille() + "', " + this->obtenirAnnee() + "', " + this->obtenirDateEmission() + "', " + this->obtenirDateLivraison() + "', " + this->obtenirDatePaiement() + "', " + this->obtenirMoyenDePaiement() + "', " + this->obtenirTotalArticle() + "', " + this->obtenirTotalPrixHT() + "', " + this->obtenirTotalPrixTVA() + "', " + this->obtenirTotalPrixTTC() + "', " + this->obtenirTotalArticle() + "', " + this->obtenirClient() + "', " + this->obtenirFacture() + "');SELECT @@IDENTITY;";
+		"VALUES ('" + this->obtenir2LNom() + "', '" + this->obtenir2LPrenom() + "', '" + this->obtenir3LVille() + "', '" + this->obtenirAnnee() + "', '" + this->obtenirDateEmission() + "', '" + this->obtenirDateLivraison() + "', '" + this->obtenirDatePaiement() + "', '" + this->obtenirMoyenDePaiement() + "', '" + this->obtenirTotalArticle() + "', '" + this->obtenirTotalPrixHT() + "', '" + this->obtenirTotalPrixTVA() + "', '" + this->obtenirTotalPrixTTC() + "', '" + this->obtenirTotalArticle() + "', '" + this->obtenirClient() + "', '" + this->obtenirFacture() + "');SELECT @@IDENTITY;";
 }
 
 System::String^ Commande::UPDATE()

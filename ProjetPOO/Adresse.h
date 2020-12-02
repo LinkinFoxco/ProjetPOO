@@ -18,6 +18,7 @@ public:
 	System::String^ INSERT();
 	System::String^ UPDATE();
 	System::String^ DELETE();
+
 	int obtenirNumAdresse() { return this->m_numAdresse; };
 	int obtenirReference() { return this->m_reference; };
 	System::String^ obtenirVille() { return this->m_ville; };
