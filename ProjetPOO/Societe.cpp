@@ -3,7 +3,7 @@
 System::String^ Societe::SELECT()
 {
 	throw gcnew System::NotImplementedException();
-	return "SELECT ID, Nom_Societe, Numero_Service_Client, Logo, Adresse_Societe, ID_Adresse FROM Societe";
+	return "SELECT ID, Nom_Societe, Numero_Service_Client, Logo, Adresse_Societe, ID_Adresse FROM Societe;";
 }
 
 System::String^ Societe::INSERT()

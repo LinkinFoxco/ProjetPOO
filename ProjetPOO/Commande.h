@@ -16,7 +16,7 @@ enum class moyenDePaiement {
 };
 
 ref struct qttArticle {
-	Article m_article;
+	Article^ m_article;
 	int quantite;
 };
 
@@ -24,10 +24,10 @@ ref class Commande
 {
 public:
 	void calculPanier(); //calcul totalArticle; totalPrixHT; totalPrixTVA; totalPrixTTC;
-	void ajouterArticles(qttArticle Nqttarticle) { m_articles.push_back(Nqttarticle); }
+	void ajouterArticles(qttArticle^ Nqttarticle) { m_articles.push_back(Nqttarticle); }
 	void retirerArticles(Article);
 	void modifierAnnee(int NAnnee) { m_annee = NAnnee; }
-	void modifier(qttArticle art) { m_articles.push_back(art); }
+	void modifier(qttArticle^ art) { m_articles.push_back(art); }
 	void modifierDateLivraison(System::String^ date) { m_dateLivraison = date; }
 	void modifierDateEmission(System::String^ date) { m_dateEmission = date; }
 	void modifierDatePaiement(System::String^ date) { m_datePaiement = date; }
@@ -49,8 +49,8 @@ public:
 	System::String^ obtenir2LPrenom() { return m_2Lprenom; }
 	System::String^ obtenir2LNom() { return m_2Lnom; }
 	System::String^ obtenir3LVille() { return m_3Lville; }
-	Client obtenirClient() { return m_client; }
-	Facture obtenirFacture() { return m_facture; }
+	Client^ obtenirClient() { return m_client; }
+	Facture^ obtenirFacture() { return m_facture; }
 
 	System::String^ SELECT();
 	System::String^ INSERT();
@@ -60,7 +60,7 @@ public:
 protected:
 	int m_reference;
 	int m_annee;
-	cliext::vector<qttArticle> m_articles;
+	cliext::vector<qttArticle^> m_articles;
 	System::String^ m_dateLivraison;
 	System::String^ m_dateEmission;
 	System::String^ m_datePaiement;
@@ -72,7 +72,7 @@ protected:
 	System::String^ m_2Lprenom;
 	System::String^ m_2Lnom;
 	System::String^ m_3Lville;
-	Client m_client;
-	Facture m_facture;
+	Client^ m_client;
+	Facture^ m_facture;
 };
 
