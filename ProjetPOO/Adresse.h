@@ -18,11 +18,11 @@ public:
 	System::String^ INSERT();
 	System::String^ UPDATE();
 	System::String^ DELETE();
-	int getNumAdresse() { return this->m_numAdresse; };
-	int getReference() { return this->m_reference; };
-	System::String^ getVille() { return this->m_ville; };
-	System::String^ getCodePostal() { return this->m_codePostal; };
-	System::String^ getRue() { return this->m_rue; };
+	int obtenirNumAdresse() { return this->m_numAdresse; };
+	int obtenirReference() { return this->m_reference; };
+	System::String^ obtenirVille() { return this->m_ville; };
+	System::String^ obtenirCodePostal() { return this->m_codePostal; };
+	System::String^ obtenirRue() { return this->m_rue; };
 
 	void modifierNumAdresse(int Nnum) { m_numAdresse = Nnum; }
 	void modifierVille(System::String^ Nville) { m_ville = Nville; }

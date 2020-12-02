@@ -10,3 +10,27 @@ void Cout::calculerCoutTTC(int margePosition, int remisePosition, int demarquePo
 	CoutTTC = CoutTVA + CoutTVA * Marge[margePosition]/100 + CoutTVA * Remise[remisePosition]/100 + CoutTVA * Demarque[demarquePosition]/100;
 }
 
+System::String^ Cout::SELECT()
+{
+	throw gcnew System::NotImplementedException();
+	// TODO: insert return statement here
+}
+
+System::String^ Cout::INSERT()
+{
+	throw gcnew System::NotImplementedException();
+	// TODO: insert return statement here
+}
+
+System::String^ Cout::UPDATE()
+{
+	throw gcnew System::NotImplementedException();
+	// TODO: insert return statement here
+}
+
+System::String^ Cout::DELETE()
+{
+	throw gcnew System::NotImplementedException();
+	// TODO: insert return statement here
+}
+

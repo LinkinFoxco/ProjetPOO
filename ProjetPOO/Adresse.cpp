@@ -23,15 +23,15 @@ System::String^ Adresse::SELECT(void){
 
 System::String^ Adresse::INSERT(void){
 	throw gcnew System::NotImplementedException();
-	return "INSERT INTO Adresse (Numero_De_Rue, Rue, Code_Postal, Ville) VALUES('" + this->getNumAdresse() + "', '" + this->getRue() + "', '" + this->getCodePostal() + "', '" + this->getVille() + "');SELECT @@IDENTITY;";
+	return "INSERT INTO Adresse (Numero_De_Rue, Rue, Code_Postal, Ville) VALUES('" + this->obtenirNumAdresse() + "', '" + this->obtenirRue() + "', '" + this->obtenirCodePostal() + "', '" + this->obtenirVille() + "');SELECT @@IDENTITY;";
 }
 
 System::String^ Adresse::UPDATE(void){
 	throw gcnew System::NotImplementedException();
-	return "UPDATE Adresse SET Numero_De_Rue = '" + this->getNumAdresse() + "', Rue = '" + this->getRue() + "', Code_Postal = '" + this->getCodePostal() + "', Ville = '" + this->getVille() + "' WHERE(ID = " + this->getReference() + ");";
+	return "UPDATE Adresse SET Numero_De_Rue = '" + this->obtenirNumAdresse() + "', Rue = '" + this->obtenirRue() + "', Code_Postal = '" + this->obtenirCodePostal() + "', Ville = '" + this->obtenirVille() + "' WHERE(ID = " + this->obtenirReference() + ");";
 }
 
 System::String^ Adresse::DELETE(void){
 	throw gcnew System::NotImplementedException();
-	return "DELETE FROM Adresse WHERE(ID = " + this->getReference() + ");";
+	return "DELETE FROM Adresse WHERE(ID = " + this->obtenirReference() + ");";
 }
