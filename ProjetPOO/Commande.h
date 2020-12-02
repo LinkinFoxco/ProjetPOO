@@ -25,7 +25,6 @@ ref class Commande
 public:
 	void calculPanier(); //calcul totalArticle; totalPrixHT; totalPrixTVA; totalPrixTTC;
 	void ajouterArticles(qttArticle^ Nqttarticle) { m_articles.Add(Nqttarticle); }
-	void modifierAnnee(int NAnnee) { m_annee = NAnnee; }
 	void modifierArticles(qttArticle^ art);
 	void modifierDateLivraison(System::String^ date) { m_dateLivraison = date; }
 	void modifierDateEmission(System::String^ date) { m_dateEmission = date; }
@@ -36,7 +35,6 @@ public:
 	void modifier3LVille();
 
 	int obtenirReference() { return m_reference; }
-	int obtenirAnnee() { return m_annee; }
 	System::String^ obtenirDateLivraison() { return m_dateLivraison; }
 	System::String^ obtenirDateEmission() { return m_dateEmission; }
 	System::String^ obtenirDatePaiement() { return m_datePaiement; }
@@ -58,7 +56,6 @@ public:
 
 protected:
 	int m_reference;
-	int m_annee;
 	List<qttArticle^> m_articles;
 	System::String^ m_dateLivraison;
 	System::String^ m_dateEmission;

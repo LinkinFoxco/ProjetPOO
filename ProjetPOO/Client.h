@@ -4,7 +4,7 @@
 ref class Client : public Personne
 {
 protected:
-	int numClient;
+	int reference;
 	System::String^ m_dateNaissance;
 	Adresse^ m_adresseLivraison;
 	Adresse^ m_adresseFacturation;
@@ -16,7 +16,7 @@ public:
 		m_adresseLivraison = NadresseLivraison;
 		m_adresseFacturation = NadresseFacturation;
 	}
-	int obtenirNumClient() { return numClient; }
+	int obtenirCReference() { return reference; }
 	System::String^ obtenirDateNaissance() { return m_dateNaissance; }
 	Adresse^ obtenirAdresseLivraison() { return m_adresseLivraison; }
 	Adresse^ obtenirAdresseFacturation() { return m_adresseFacturation; }

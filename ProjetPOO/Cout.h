@@ -3,6 +3,7 @@
 ref class Cout
 {
 public:
+	Cout();
 	void calculerCoutTVA(int position) { CoutTVA = TVA[position]/100 * CoutHT + CoutHT; }
 	void calculerCoutTVA() { CoutTVA =  CoutHT; }
 	void calculerCoutTTC(int margePosition, int remisePosition, int demarquePosition);
@@ -36,8 +37,8 @@ private:
 	int CoutHT = 0;
 	int CoutTVA = 0;
 	int CoutTTC = 0;
-	array<int>^ TVA = gcnew array<int>(4) { 0, 10, 15, 20 };
-	array<int>^ Marge = gcnew array<int>(4) { 0, 5, 10, 15 };
-	array<int>^ Remise = gcnew array<int>(3) { 0, 5, 6 };
-	array<int>^ Demarque = gcnew array<int>(4) { 0, 2, 3, 5 };
+	System::Collections::Generic::List<int>^ TVA; //(0, 10, 15, 20)
+	System::Collections::Generic::List<int>^ Marge; //{ 0, 5, 10, 15 };
+	System::Collections::Generic::List<int>^ Remise; //{ 0, 5, 6 };
+	System::Collections::Generic::List<int>^ Demarque; //{ 0, 2, 3, 5 };
 };
