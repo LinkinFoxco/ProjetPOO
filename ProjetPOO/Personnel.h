@@ -13,6 +13,7 @@ public:
 	void modifierDateEmbauche(System::String^ dateEnbauche) { m_dateEmbauche = dateEnbauche; }
 	void modifierSuperieur(Personnel^ superieurHierarchique) { superieur = superieurHierarchique; }
 	int obtenirReference() { return reference; }
+	int modifierReference(int nReference) { reference = nReference; }
 
 	void modifierAdresseDomicile(int position) { m_adresseDomicile = obtenirPAdresse(position); }
 
@@ -27,7 +28,6 @@ private :
 	Adresse^ m_adresseDomicile;
 	System::String^ m_dateEmbauche;
 	Personnel^ superieur;
-	int reference;
 
 };
 
