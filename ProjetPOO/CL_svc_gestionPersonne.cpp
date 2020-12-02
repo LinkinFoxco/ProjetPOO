@@ -15,13 +15,12 @@ DataSet^ NS_Svc::CL_svc_gestionPersonne::listePersonne(String^ dataTableName)
 	return donnee;
 }
 
-int NS_Svc::CL_svc_gestionPersonne::ajouter(String^, String^)
+int NS_Svc::CL_svc_gestionPersonne::ajouter(String^ name, String^firstname)
 {
 	int id_personne;
 
-	personne->modifierPNom(m_nom);
-	personne->modifierPPrenom(m_prenom);
-	personne->
+	personne->modifierPNom(name);
+	personne->modifierPPrenom(firstname);
 	id_personne = cad->actionRowsID(personne->INSERT());
 	return id_personne;
 }

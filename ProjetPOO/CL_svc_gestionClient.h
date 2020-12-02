@@ -16,8 +16,14 @@ namespace NS_Svc
 	public:
 		CL_svc_gestionClient();
 		DataSet^ listeClient(String^);
-		int ajouter(String^, String^);
-		void modifier(int, String^, String^);
+		int ajouter(String^, Adresse^, Adresse^, Personne^);
+		void modifier(int, String^, Adresse^, Adresse^, Personne^);
 		void supprimer(int);
 	};
 }
+/*const int numClient;
+	System::String^ dateNaissance;
+	Adresse m_adresseLivraison;
+	Adresse m_adresseFacturation;
+	Personne m_client;
+*/

@@ -6,9 +6,9 @@ ref class Client : public Personne
 protected:
 	const int numClient;
 	System::String^ dateNaissance;
-	Adresse m_adresseLivraison;
-	Adresse m_adresseFacturation;
-	Personne m_client;
+	Adresse^ m_adresseLivraison;
+	Adresse^ m_adresseFacturation;
+	Personne^ m_client;
 
 public:
 	int obtenirNumClient() { return numClient; }
@@ -21,8 +21,8 @@ public:
 
 private:
 	const int numClient;
-	std::string dateNaissance;
-	Adresse m_adresseLivraison;
-	Adresse m_adresseFacturation;
+	String^ dateNaissance;
+	Adresse^ m_adresseLivraison;
+	Adresse^ m_adresseFacturation;
 };
 
