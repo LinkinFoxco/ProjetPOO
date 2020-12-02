@@ -8,7 +8,7 @@ protected:
 	System::String^ dateNaissance;
 	Adresse^ m_adresseLivraison;
 	Adresse^ m_adresseFacturation;
-	Personne m_client;
+	Personne^ m_client;
 
 public:
 	int obtenirNumClient() { return numClient; }
