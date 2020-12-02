@@ -1,4 +1,3 @@
-#include "CL_svc_gestionPersonne.h"
 #include "CL_CAD.h"
 #include "Client.h"
 #pragma once
@@ -12,12 +11,12 @@ namespace NS_Svc
 	private:
 		CL_CAD^ Ccad;
 		Client^ client;
-		DataSet^ donnee;
+		DataSet^ Cdonnee;
 	public:
 		CL_svc_gestionClient();
 		DataSet^ listeClient(String^);
-		int ajouter(String^, Adresse^, Adresse^, Personne^);
-		void modifier(int, String^, Adresse^, Adresse^, Personne^);
+		int ajouter(int, String^);
+		void modifier(int, int, String^);
 		void supprimer(int);
 	};
 }

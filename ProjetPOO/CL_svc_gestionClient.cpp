@@ -2,28 +2,39 @@
 
 DataSet^ NS_Svc::CL_svc_gestionClient::listeClient(String^ dataTableName)
 {
-	donnee->Clear();
-	donnee = Ccad->getRows(client->SELECT(), dataTableName);
+	Cdonnee->Clear();
+	Cdonnee = Ccad->getRows(client->SELECTClient(), dataTableName);
 
-	return donnee;
+	return Cdonnee;
 }
 
-int NS_Svc::CL_svc_gestionClient::ajouter(String^ naissanceDate, Adresse^ adresseLivraison, Adresse^ adresseFacturation, client^ Pclient)
+int NS_Svc::CL_svc_gestionClient::ajouter(int position, String^ naissanceDate)
 {
-	client->
-	client->modifierAdresseLivraison(m_adresseLivraison);
-	client->modifierAdresseFacturation(m_adresseFacturation);
-	numClient = Ccad->actionRowsID(client->INSERT());
+	int numClient;
+	client->modifierdateNaissance(naissanceDate);
+	client->modifierAdresseLivraison(position);
+	client->modifierAdresseFacturation(position);
+	numClient = Ccad->actionRowsID(client->INSERTClient());
 	return numClient;
 }
 
-void NS_Svc::CL_svc_gestionClient::modifier(int n_client, String^ Dnaissance, Adresse^ , Adresse^, client^)
+void NS_Svc::CL_svc_gestionClient::modifier(int position, int n_client, String^ Dnaissance)
 {
-	client->modifierAdresseLivraison();
-	client->modifierPPrenom(m_prenom);
+	client->modifierAdresseLivraison(position);
+	client->modifierAdresseFacturation(position);
+	client->modifierdateNaissance(Dnaissance);
+	client->modifierIDclient(n_client);
 
-	cad->actionRows(client->UPDATE());
+	Ccad->actionRows(client->UPDATEClient());
 }
+
+void NS_Svc::CL_svc_gestionClient::supprimer(int IDc)
+{
+	client->modifierIDclient(IDc);
+
+	Ccad->actionRows(client->DELETEClient());
+}
+
 
 
 /*const int numClient;
