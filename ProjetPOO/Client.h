@@ -8,7 +8,6 @@ protected:
 	System::String^ dateNaissance;
 	Adresse^ m_adresseLivraison;
 	Adresse^ m_adresseFacturation;
-	Personne^ m_client;
 
 public:
 
@@ -16,7 +15,6 @@ public:
 		dateNaissance = NdateNaissance;
 		m_adresseLivraison = NadresseLivraison;
 		m_adresseFacturation = NadresseFacturation;
-		m_client = NClient;
 	}
 	int obtenirNumClient() { return numClient; }
 	System::String^ obtenirDateNaissance() { return dateNaissance; }
