@@ -5,21 +5,21 @@
 	using namespace System;
 namespace NS_Composants
 {
-		ref class CL_CAD
-		{
-		private:
-			String^ connexionString;
-			String^ requete;
-			SqlConnection^ Connexion;
-			SqlCommand^ Commande;
-			SqlDataAdapter^ dataAdapter;
-			DataSet^ data;
-			void setSQL(String^);
+	ref class CL_CAD
+	{
+	private:
+		String^ connexionString;
+		String^ requete;
+		SqlConnection^ Connexion;
+		SqlCommand^ Commande;
+		SqlDataAdapter^ dataAdapter;
+		DataSet^ data;
+		void setSQL(String^);
 
-		public:
-			CL_CAD();
-			int actionRowsID(String^);
-			void actionRows(String^);
-			DataSet^ getRows(String^, String^);
-		};
-	}
+	public:
+		CL_CAD();
+		int actionRowsID(String^);
+		void actionRows(String^);
+		DataSet^ getRows(String^, String^);
+	};
+}

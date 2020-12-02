@@ -40,13 +40,13 @@ System::String^ Commande::SELECT()
 
 System::String^ Commande::INSERT()
 {
-	return "INSERT INTO Commande (L2_Nom, L2_Prenom, L3_Ville, Annee_Commande, Date_Emission, Date_Livraison, Date_Paiement, Moyen_Paiement, Nb_Total_Article, Prix_Total_HT, Prix_Total_TVA, Prix_Total_TTC, Quantite_Article_Commande, ID_Client, ID_Facture) " +
-		"VALUES ('" + this->obtenir2LNom() + "', '" + this->obtenir2LPrenom() + "', '" + this->obtenir3LVille() + "', '" + this->obtenirAnnee() + "', '" + this->obtenirDateEmission() + "', '" + this->obtenirDateLivraison() + "', '" + this->obtenirDatePaiement() + "', '" + this->obtenirMoyenDePaiement() + "', '" + this->obtenirTotalArticle() + "', '" + this->obtenirTotalPrixHT() + "', '" + this->obtenirTotalPrixTVA() + "', '" + this->obtenirTotalPrixTTC() + "', '" + this->obtenirTotalArticle() + "', '" + this->obtenirClient() + "', '" + this->obtenirFacture() + "');SELECT @@IDENTITY;";
+	return "INSERT INTO Commande (L2_Nom, L2_Prenom, L3_Ville, Date_Emission, Date_Livraison, Date_Paiement, Moyen_Paiement, Nb_Total_Article, Prix_Total_HT, Prix_Total_TVA, Prix_Total_TTC, Quantite_Article_Commande, ID_Client, ID_Facture) " +
+		"VALUES ('" + this->obtenir2LNom() + "', '" + this->obtenir2LPrenom() + "', '" + this->obtenir3LVille() + "', '" + this->obtenirDateEmission() + "', '" + this->obtenirDateLivraison() + "', '" + this->obtenirDatePaiement() + "', '" + this->obtenirMoyenDePaiement() + "', '" + this->obtenirTotalArticle() + "', '" + this->obtenirTotalPrixHT() + "', '" + this->obtenirTotalPrixTVA() + "', '" + this->obtenirTotalPrixTTC() + "', '" + this->obtenirTotalArticle() + "', '" + this->obtenirClient() + "', '" + this->obtenirFacture() + "');SELECT @@IDENTITY;";
 }
 
 System::String^ Commande::UPDATE()
 {
-	return "UPDATE Commande SET L2_Nom = '" + this->obtenir2LNom() + "', L2_Prenom = '" + this->obtenir2LPrenom() + "', L3_Ville = '" + this->obtenir3LVille() + "', Annee_Commande = '" + this->obtenirAnnee() + "', Date_Emission = '" + this->obtenirDateEmission() + "', Date_Livraison = '" + this->obtenirDateLivraison() + "', Date_Paiement = '" + this->obtenirDatePaiement() + "', Moyen_Paiement = '" + this->obtenirMoyenDePaiement() + "', Nb_Total_Article = '" + this->obtenirTotalArticle() + "', Prix_Total_HT = '" + this->obtenirTotalPrixHT() +
+	return "UPDATE Commande SET L2_Nom = '" + this->obtenir2LNom() + "', L2_Prenom = '" + this->obtenir2LPrenom() + "', L3_Ville = '" + this->obtenir3LVille() + "', Date_Emission = '" + this->obtenirDateEmission() + "', Date_Livraison = '" + this->obtenirDateLivraison() + "', Date_Paiement = '" + this->obtenirDatePaiement() + "', Moyen_Paiement = '" + this->obtenirMoyenDePaiement() + "', Nb_Total_Article = '" + this->obtenirTotalArticle() + "', Prix_Total_HT = '" + this->obtenirTotalPrixHT() +
 		"', Prix_Total_TVA = '" + this->obtenirTotalPrixTVA() + "', Prix_Total_TTC = '" + this->obtenirTotalPrixTTC() + "', Quantite_Article_Commande = '" + this->obtenirTotalArticle() + "', ID_Client = '" + this->obtenirClient() + "', ID_Facture= '" + this->obtenirFacture() + "' WHERE(ID = " + this->obtenirReference() + ");";
 }
 
