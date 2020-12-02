@@ -4,13 +4,13 @@
 ref class Adresse
 {
 private:
-	int m_reference;
 	int m_numAdresse;
 	System::String^ m_ville;
 	System::String^ m_codePostal;
 	System::String^ m_rue;
 
 public:
+	int m_reference;
 	Adresse();
 	Adresse(int, int, System::String^, System::String^, System::String^);
 
