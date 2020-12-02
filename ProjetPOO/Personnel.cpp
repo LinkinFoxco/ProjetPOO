@@ -3,7 +3,7 @@
 System::String^ Personnel::SELECT()
 {
     throw gcnew System::NotImplementedException();
-    return "SELECT ID, Date_Embauche, ID_Personne, ID_Societe, ID_Personnel, ID_Adresse FROM Personnel;"
+    return "SELECT ID, Date_Embauche, ID_Personne, ID_Societe, ID_Personnel, ID_Adresse FROM Personnel;";
 }
 
 System::String^ Personnel::INSERT()
@@ -21,5 +21,5 @@ System::String^ Personnel::UPDATE()
 System::String^ Personnel::DELETE()
 {
     throw gcnew System::NotImplementedException();
-    return "DELETE FROM Personel WHERE(ID = " + this->obtenirReference() + ");";
+    return "DELETE FROM Personnel WHERE(ID = " + this->obtenirReference() + ");";
 }
