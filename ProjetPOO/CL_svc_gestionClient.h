@@ -20,8 +20,3 @@ namespace NS_Svc
 		void supprimer(int);
 	};
 }
-/*const int numClient;
-	System::String^ dateNaissance;
-	Adresse m_adresseLivraison;
-	Adresse m_adresseFacturation;
-*/

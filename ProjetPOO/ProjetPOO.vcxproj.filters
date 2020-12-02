@@ -63,6 +63,9 @@
     <ClInclude Include="PossedeClientAdresses.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CL_svc_gestionAdresse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdminForm.cpp">
@@ -111,6 +114,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PossedeClientAdresses.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CL_svc_gestionAdresse.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

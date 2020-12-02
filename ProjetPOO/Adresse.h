@@ -30,4 +30,5 @@ public:
 	void modifierVille(System::String^ Nville) { m_ville = Nville; }
 	void modifierCodePostal(System::String^ NcodePostal) { m_codePostal = NcodePostal; }
 	void modifierRue(System::String^ Nrue) { m_rue = Nrue; }
+	void modifierRef(int reference) { reference = m_reference; }
 };
