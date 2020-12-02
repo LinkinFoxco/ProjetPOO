@@ -8,7 +8,7 @@ DataSet^ NS_Svc::CL_svc_gestionArticle::listeArticle(String^ dataTableName)
 
 	return donneeArticle;
 }
-int NS_Svc::CL_svc_gestionArticle::ajouter(int reference, int stock, String^ nomArticle, Cout^ coutArticle)
+int NS_Svc::CL_svc_gestionArticle::ajouter(int stock, String^ nomArticle, Cout^ coutArticle)
 {
 	int reference;
 	article->modifierStocke(stock);

@@ -19,7 +19,7 @@ namespace NS_Svc
 			donneeArticle = gcnew DataSet();
 		};
 		DataSet^ listeArticle(String^);
-		int ajouter(int, int, String^, Cout^);
+		int ajouter(int, String^, Cout^);
 		void modifier(int, String^, Cout^);
 		void supprimer(int);
 	};

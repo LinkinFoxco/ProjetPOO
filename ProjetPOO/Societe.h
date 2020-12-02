@@ -21,6 +21,7 @@ public:
     void modifierNumServiceClient(System::String^ Nnum) { m_numServiceClient = Nnum; }
     void modifierLogo(System::String^ Nlogo) { m_logo = Nlogo; }
     void modifierAdresseSociete(Adresse^ Nadresse) { m_adresseSociete = Nadresse; }
+    void modifierRefSociete(int reference) { referenceSociete = reference; }
 
     System::String^ SELECT();
     System::String^ INSERT();
