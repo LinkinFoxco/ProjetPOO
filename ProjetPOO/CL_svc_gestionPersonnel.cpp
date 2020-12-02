@@ -1,10 +1,13 @@
 #include "CL_svc_gestionClient.h"
 #include "CL_svc_gestionPersonnel.h"
+#include "Personne.h"
 
-DataSet^ NS_Svc::CL_svc_gestionClient::listeClient(String^ dataTableName)
+
+
+DataSet^ NS_Svc::CL_svc_gestionPersonnel::listePersonnel(String^ dataTableName)
 {
 	Pdonnee->Clear();
-	Pdonnee = Ccad->getRows(client->SELECTPersonnel(), dataTableName);
+	Pdonnee = Pcad->getRows(personnel->SELECT(), dataTableName);
 
 	return Pdonnee;
 }
@@ -16,35 +19,23 @@ int NS_Svc::CL_svc_gestionPersonnel::ajouter(int position, String^ dateEmbauche,
 	personnel->modifierAdresseDomicile(position);
 	personnel->modifierDateEmbauche(dateEmbauche);
 	personnel->modifierSuperieur(Sup);
-	reference = Pcad->actionRowsID(personnel->INSERTPersonnel());
+	reference = Pcad->actionRowsID(personnel->INSERT());
 	return reference, id_personne;
 }
 
-void NS_Svc::CL_svc_gestionClient::modifier(int position, int n_client, String^ Dnaissance, Adresse^, Adresse^)
+void NS_Svc::CL_svc_gestionPersonnel::modifier(int position, String^ dateEmbauche, Personnel^ Super)
 {
-	client->modifierAdresseLivraison(position);
-	client->modifierAdresseFacturation(position);
-	client->modifierdateNaissance(Dnaissance);
-	client->modifierReferenceClient(n_client);
+	personnel->modifierAdresseDomicile(position);
+	personnel->modifierDateEmbauche(dateEmbauche);
+	personnel->modifierSuperieur(Super);
 
-	Ccad->actionRows(client->UPDATEClient());
+	Pcad->actionRows(personnel->UPDATE());
 }
 
-void NS_Svc::CL_svc_gestionClient::supprimer(int IDc)
+void NS_Svc::CL_svc_gestionPersonnel::supprimer(int P_reference)
 {
-	client->modifierReferenceClient(IDc);
+	personnel->modifierReferencePersonnel(P_reference);
 
-	Ccad->actionRows(client->DELETEClient());
+	Pcad->actionRows(personnel->DELETE());
 }
 
-
-
-/*const int numClient;
-	System::String^ dateNaissance;
-	Adresse m_adresseLivraison;
-	Adresse m_adresseFacturation;
-	client m_client;
-	modifierAdresseLivraison
-	void modifierAdresseFacturation(int position) { m_adresseFacturation = m_adresse[position]; }
-
-*/

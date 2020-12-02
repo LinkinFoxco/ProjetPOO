@@ -15,14 +15,10 @@ public:
 	Adresse();
 	Adresse(int, int, System::String^, System::String^, System::String^);
 
-	System::String^ SELECTAdresse();
-	System::String^ INSERTAdresse();
-	System::String^ UPDATEAdresse();
-	System::String^ DELETEAdresse();
-	System::String^ SELECTPossede();
-	System::String^ INSERTPossede();
-	System::String^ UPDATEPossede();
-	System::String^ DELETEPossede();
+	System::String^ SELECT();
+	System::String^ INSERT();
+	System::String^ UPDATE();
+	System::String^ DELETE();
 
 	int obtenirNumAdresse() { return this->m_numAdresse; };
 	int obtenirReference() { return this->m_reference; };

@@ -131,6 +131,7 @@
     </ClInclude>
     <ClInclude Include="Personne.h" />
     <ClInclude Include="Personnel.h" />
+    <ClInclude Include="PossedeClientAdresses.h" />
     <ClInclude Include="Societe.h" />
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +149,7 @@
     <ClCompile Include="FactureForm.cpp" />
     <ClCompile Include="Personne.cpp" />
     <ClCompile Include="Personnel.cpp" />
+    <ClCompile Include="PossedeClientAdresses.cpp" />
     <ClCompile Include="Societe.cpp" />
   </ItemGroup>
   <ItemGroup>
