@@ -9,7 +9,7 @@ public:
 	System::String^ obtenirDateEmbauche() { return m_dateEmbauche; }
 	Personnel^ obtenirSuperieur() { return superieur; }
 	void modifierAdresseDomicile(int position) { m_adresseDomicile = m_adresse[position]; }
-	void modifierDateEmbauche(String^ dateEnbauche) { m_dateEmbauche = dateEnbauche; }
+	void modifierDateEmbauche(System::String^ dateEnbauche) { m_dateEmbauche = dateEnbauche; }
 	void modifierSuperieur(Personnel^ superieurHierarchique) { superieur = superieurHierarchique; }
 
 	System::String^ SELECT();
