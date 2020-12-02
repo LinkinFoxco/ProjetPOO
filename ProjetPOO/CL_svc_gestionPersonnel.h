@@ -30,7 +30,7 @@ namespace NS_Svc
 }
 /*	Adresse^ m_adresseDomicile;
 	System::String^ m_dateEmbauche;
-	Personnel^ superieur;
+	Personnel^ m_superieur;
 */
 
 
