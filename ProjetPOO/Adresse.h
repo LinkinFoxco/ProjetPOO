@@ -21,7 +21,7 @@ public:
 	System::String^ DELETE();
 
 	int obtenirNumAdresse() { return this->m_numAdresse; };
-	int obtenirReference() { return this->referenceAdresse; };
+	int obtenirReferenceAdresse() { return this->referenceAdresse; };
 	System::String^ obtenirVille() { return this->m_ville; };
 	System::String^ obtenirCodePostal() { return this->m_codePostal; };
 	System::String^ obtenirRue() { return this->m_rue; };
@@ -30,4 +30,5 @@ public:
 	void modifierVille(System::String^ Nville) { m_ville = Nville; }
 	void modifierCodePostal(System::String^ NcodePostal) { m_codePostal = NcodePostal; }
 	void modifierRue(System::String^ Nrue) { m_rue = Nrue; }
+	void modifierReferenceAdresse(int Nref) { referenceAdresse = Nref; }
 };

@@ -4,7 +4,9 @@ ref class Cout
 {
 public:
 	Cout();
-	void calculerCoutTVA(int position) { CoutTVA = TVA[position]/100 * CoutHT + CoutHT; }
+	void calculerCoutTVA(int position) { 
+		CoutTVA = TVA[position]/100 * CoutHT + CoutHT;
+	}
 	void calculerCoutTVA() { CoutTVA =  CoutHT; }
 	void calculerCoutTTC(int margePosition, int remisePosition, int demarquePosition);
 	void calculerCoutTTC() { CoutTTC = CoutTVA; }
@@ -14,7 +16,7 @@ public:
 	int obtenirCoutDifferenceTVA() { return CoutTVA-CoutHT; }
 	int obtenirCoutTTC() { return CoutTTC; }
 	int obtenirCoutDifferenceTTC() { return CoutTTC-CoutTVA; }
-	int obtenirReference() { return m_reference; }
+	int obtenirReferenceCout() { return referenceCout; }
 	int obtenirTVA(int position) { return TVA[position]; }
 	int obtenirMarge(int position) { return Marge[position]; }
 	int obtenirRemise(int position) { return Remise[position]; }
@@ -25,7 +27,7 @@ public:
 	void modifierMarge(int valeur, int position) { Marge[position] = valeur; }
 	void modifierRemise(int valeur, int position) { Remise[position] = valeur; }
 	void modifierDemarque(int valeur, int position) { Demarque[position] = valeur; }
-	void modifierReference(int reference) { m_reference = reference; }
+	void obtenirReferenceCout(int reference) { referenceCout = reference; }
 
 	System::String^ SELECT();
 	System::String^ INSERT();
@@ -33,7 +35,7 @@ public:
 	System::String^ DELETE();
 
 private:
-	int m_reference;
+	int referenceCout;
 	int CoutHT = 0;
 	int CoutTVA = 0;
 	int CoutTTC = 0;

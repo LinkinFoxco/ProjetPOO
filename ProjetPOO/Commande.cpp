@@ -47,10 +47,10 @@ System::String^ Commande::INSERT()
 System::String^ Commande::UPDATE()
 {
 	return "UPDATE Commande SET L2_Nom = '" + this->obtenir2LNom() + "', L2_Prenom = '" + this->obtenir2LPrenom() + "', L3_Ville = '" + this->obtenir3LVille() + "', Date_Emission = '" + this->obtenirDateEmission() + "', Date_Livraison = '" + this->obtenirDateLivraison() + "', Date_Paiement = '" + this->obtenirDatePaiement() + "', Moyen_Paiement = '" + this->obtenirMoyenDePaiement() + "', Nb_Total_Article = '" + this->obtenirTotalArticle() + "', Prix_Total_HT = '" + this->obtenirTotalPrixHT() +
-		"', Prix_Total_TVA = '" + this->obtenirTotalPrixTVA() + "', Prix_Total_TTC = '" + this->obtenirTotalPrixTTC() + "', Quantite_Article_Commande = '" + this->obtenirTotalArticle() + "', ID_Client = '" + this->obtenirClient() + "', ID_Facture= '" + this->obtenirFacture() + "' WHERE(ID = " + this->obtenirReference() + ");";
+		"', Prix_Total_TVA = '" + this->obtenirTotalPrixTVA() + "', Prix_Total_TTC = '" + this->obtenirTotalPrixTTC() + "', Quantite_Article_Commande = '" + this->obtenirTotalArticle() + "', ID_Client = '" + this->obtenirClient() + "', ID_Facture= '" + this->obtenirFacture() + "' WHERE(ID = " + this->obtenirReferenceCommande() + ");";
 }
 
 System::String^ Commande::DELETE()
 {
-	return "DELETE FROM Commande WHERE(ID = " + this->obtenirReference() + ");";
+	return "DELETE FROM Commande WHERE(ID = " + this->obtenirReferenceCommande() + ");";
 }

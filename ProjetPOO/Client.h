@@ -19,7 +19,7 @@ public:
 	Client(System::String^ NdateNaissance) {
 		m_dateNaissance = NdateNaissance;
 	}
-	int obtenirCReference() { return referenceClient; }
+	int obtenirReferenceClient() { return referenceClient; }
 	System::String^ obtenirDateNaissance() { return m_dateNaissance; }
 	Adresse^ obtenirAdresseLivraison() { return m_adresseLivraison; }
 	Adresse^ obtenirAdresseFacturation() { return m_adresseFacturation; }
