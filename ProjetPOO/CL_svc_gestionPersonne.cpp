@@ -21,6 +21,7 @@ int NS_Svc::CL_svc_gestionPersonne::ajouter(String^, String^)
 
 	personne->modifierPNom(m_nom);
 	personne->modifierPPrenom(m_prenom);
+	personne->
 	id_personne = cad->actionRowsID(personne->INSERT());
 	return id_personne;
 }
