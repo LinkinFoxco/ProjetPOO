@@ -10,7 +10,12 @@ protected:
 	Adresse^ m_adresseFacturation;
 
 public:
-
+	Client() {
+		referenceClient = -1;
+		m_dateNaissance = "00/00/00";
+		m_adresseLivraison = gcnew Adresse();
+		m_adresseFacturation = gcnew Adresse();
+	}
 	Client(System::String^ NdateNaissance) {
 		m_dateNaissance = NdateNaissance;
 	}
