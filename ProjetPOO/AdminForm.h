@@ -10,7 +10,7 @@ namespace ProjetPOO{
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Summary for MyForm
+	/// Summary for AdminForm
 	/// </summary>
 	public ref class AdminForm : public System::Windows::Forms::Form
 	{
@@ -311,7 +311,7 @@ namespace ProjetPOO{
 			this->Controls->Add(this->dataGridView1);
 			this->Name = L"AdminForm";
 			this->Text = L"XxXSQL DOMINATORXxX";
-			this->Load += gcnew System::EventHandler(this, &AdminForm::MyForm_Load);
+			this->Load += gcnew System::EventHandler(this, &AdminForm::AdminForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -340,7 +340,7 @@ namespace ProjetPOO{
 	}
 	private: System::Void Modifier_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void AdminForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		iniDataSet("adresse");
 	}
 	private: System::Void Nouveau_Click(System::Object^ sender, System::EventArgs^ e) {
