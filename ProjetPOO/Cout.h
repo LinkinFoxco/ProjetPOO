@@ -22,8 +22,9 @@ public:
 	void modifierCoutHT(int NCoutHT) { CoutHT = NCoutHT; }
 	void modifierTVA(int valeur, int position) { TVA[position] = valeur; }
 	void modifierMarge(int valeur, int position) { Marge[position] = valeur; }
-	void modifierRemise(int valeur, int position) { Marge[position] = valeur; }
-	void modifierDemarque(int valeur, int position) { Marge[position] = valeur; }
+	void modifierRemise(int valeur, int position) { Remise[position] = valeur; }
+	void modifierDemarque(int valeur, int position) { Demarque[position] = valeur; }
+	void modifierReference(int reference) { m_reference = reference; }
 
 	System::String^ SELECT();
 	System::String^ INSERT();

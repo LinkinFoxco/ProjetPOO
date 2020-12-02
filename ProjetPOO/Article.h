@@ -19,9 +19,13 @@ public:
 	void modifierStocke(int nombre) { m_stock += nombre; }
 	void modifierNomArticle(System::String^ NNom) { m_nomArticle = NNom; }
 
-	System::String^ SELECT();
-	System::String^ INSERT();
-	System::String^ UPDATE();
-	System::String^ DELETE();
+	System::String^ SELECTArticle();
+	System::String^ INSERTArticle();
+	System::String^ UPDATEArticle();
+	System::String^ DELETEArticle();
+	System::String^ SELECTContient();
+	System::String^ INSERTContient();
+	System::String^ UPDATEContient();
+	System::String^ DELETEContient();
 };
 
