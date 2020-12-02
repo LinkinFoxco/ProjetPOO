@@ -23,4 +23,9 @@ public:
 
 	void modifierPNom(System::String^ Nnom) { m_nom = Nnom; }
 	void modifierPPrenom(System::String^ Nprenom) { m_prenom = Nprenom; }
+
+	System::String^ SELECT();
+	System::String^ INSERT();
+	System::String^ UPDATE();
+	System::String^ DELETE();
 };
