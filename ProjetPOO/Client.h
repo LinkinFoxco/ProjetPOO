@@ -13,7 +13,7 @@ public:
 	void modifierAdresseFacturation(int position) { m_adresseFacturation = m_adresse[position]; }
 
 private:
-	const int numClient;
+	int numClient;
 	std::string dateNaissance;
 	Adresse m_adresseLivraison;
 	Adresse m_adresseFacturation;

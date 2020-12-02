@@ -77,6 +77,10 @@ namespace ProjetPOO{
 		/// Required designer variable.
 		/// </summary>
 		System::ComponentModel::Container^ components;
+		int index;
+		DataSet^ ds;
+		String^ mode;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>

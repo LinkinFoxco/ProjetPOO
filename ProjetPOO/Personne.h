@@ -2,9 +2,9 @@
 #include "Adresse.h"
 #include <vector>
 
-class Personne
+ref class Personne
 {
-public:
+/*public:
 	std::string m_nom;
 	std::string m_prenom;
 	std::vector<Adresse> m_adresse;
@@ -19,4 +19,4 @@ public:
 
 	void modifierPNom(std::string Nnom) { m_nom = Nnom; }
 	void modifierPPrenom(std::string Nprenom) { m_prenom = Nprenom; }
-};
+*/};

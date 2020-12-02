@@ -48,6 +48,9 @@
     <ClInclude Include="CL_CAD.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CL_svc_gestionPersonne.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdminForm.cpp">
@@ -81,6 +84,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CL_CAD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CL_svc_gestionPersonne.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CL_map_TBPERSONNE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
