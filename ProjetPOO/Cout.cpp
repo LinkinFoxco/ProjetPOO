@@ -1,12 +1,31 @@
 #include "Cout.h"
 
-int Cout::TVA[]{ 0, 10, 15, 20 };
-int Cout::Marge[]{ 0, 5, 10, 15 };
-int Cout::Remise[]{ 0, 5, 6 };
-int Cout::Demarque[]{ 0, 2, 3, 5 };
-
 void Cout::calculerCoutTTC(int margePosition, int remisePosition, int demarquePosition)
 {
 	CoutTTC = CoutTVA + CoutTVA * Marge[margePosition]/100 + CoutTVA * Remise[remisePosition]/100 + CoutTVA * Demarque[demarquePosition]/100;
+}
+
+System::String^ Cout::SELECT()
+{
+	throw gcnew System::NotImplementedException();
+	return "SELECT ID, Cout_HT, Cout_TVA, Cout_TTC, TVA, Remise, Marge, Demarque FROM Cout";
+}
+
+System::String^ Cout::INSERT()
+{
+	throw gcnew System::NotImplementedException();
+	return "INSERT INTO Cout (Cout_HT, Cout_TVA, Cout_TTC, TVA, Remise, Marge, Demarque) VALUES ('" + this->obtenirCoutHT() + "', " + this->obtenirCoutTVA() + "', " + this->obtenirCoutTTC() + "', " + this->obtenirTVA(2) + "', " + this->obtenirRemise(0) + "', " + this->obtenirMarge(0) + "', " + this->obtenirDemarque(0) + "');SELECT @@IDENTITY;";
+}
+
+System::String^ Cout::UPDATE()
+{
+	throw gcnew System::NotImplementedException();
+	return "UPDATE Cout SET Cout_HT = '" + this->obtenirCoutHT() + "' Cout_TVA = '" + this->obtenirCoutTVA() + "' Cout_TTC = '" + this->obtenirCoutTTC() + "' TVA = '" + this->obtenirTVA(2) + "' Remise = '" + this->obtenirRemise(0) + "' Marge = '" + this->obtenirMarge(0) + "' Demarque = '" + this->obtenirDemarque(0) + "' WHERE(ID = " + this->obtenirReference() + ");";
+}
+
+System::String^ Cout::DELETE()
+{
+	throw gcnew System::NotImplementedException();
+	return "DELETE FROM Cout WHERE(ID = " + this->obtenirReference() + ");";
 }
 
