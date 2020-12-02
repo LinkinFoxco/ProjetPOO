@@ -121,6 +121,7 @@
     <ClInclude Include="Client.h" />
     <ClInclude Include="CL_CAD.h" />
     <ClInclude Include="CL_svc_gestionAdresse.h" />
+    <ClInclude Include="CL_svc_gestionArticle.h" />
     <ClInclude Include="CL_svc_gestionClient.h" />
     <ClInclude Include="CL_svc_gestionPersonnel.h" />
     <ClInclude Include="Commande.h" />
@@ -141,6 +142,7 @@
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="CL_CAD.cpp" />
     <ClCompile Include="CL_svc_gestionAdresse.cpp" />
+    <ClCompile Include="CL_svc_gestionArticle.cpp" />
     <ClCompile Include="CL_svc_gestionClient.cpp" />
     <ClCompile Include="CL_svc_gestionPersonnel.cpp" />
     <ClCompile Include="Commande.cpp" />

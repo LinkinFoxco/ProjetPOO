@@ -18,6 +18,8 @@ public:
 
 	void modifierStocke(int nombre) { m_stock += nombre; }
 	void modifierNomArticle(System::String^ NNom) { m_nomArticle = NNom; }
+	void modifierCoutArticle(Cout^ coutArticle) { m_coutArticle = coutArticle; }
+	void modifierRefArticle(int reference) { m_reference = reference; }
 
 	System::String^ SELECTArticle();
 	System::String^ INSERTArticle();
