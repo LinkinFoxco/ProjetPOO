@@ -25,9 +25,8 @@ ref class Commande
 public:
 	void calculPanier(); //calcul totalArticle; totalPrixHT; totalPrixTVA; totalPrixTTC;
 	void ajouterArticles(qttArticle^ Nqttarticle) { m_articles.Add(Nqttarticle); }
-	void retirerArticles(Article);
 	void modifierAnnee(int NAnnee) { m_annee = NAnnee; }
-	void modifier(qttArticle^ art) { m_articles.Add(art); }
+	void modifierArticles(qttArticle^ art);
 	void modifierDateLivraison(System::String^ date) { m_dateLivraison = date; }
 	void modifierDateEmission(System::String^ date) { m_dateEmission = date; }
 	void modifierDatePaiement(System::String^ date) { m_datePaiement = date; }

@@ -5,26 +5,25 @@ ref class Client : public Personne
 {
 protected:
 	int numClient;
-	System::String^ dateNaissance;
+	System::String^ m_dateNaissance;
 	Adresse^ m_adresseLivraison;
 	Adresse^ m_adresseFacturation;
-	Personne^ m_client;
 
 public:
 
-	Client(System::String^ NdateNaissance, Adresse^ NadresseLivraison, Adresse^ NadresseFacturation, Personne^ NClient) {
-		dateNaissance = NdateNaissance;
+	Client(System::String^ NdateNaissance, Adresse^ NadresseLivraison, Adresse^ NadresseFacturation) {
+		m_dateNaissance = NdateNaissance;
 		m_adresseLivraison = NadresseLivraison;
 		m_adresseFacturation = NadresseFacturation;
-		m_client = NClient;
 	}
 	int obtenirNumClient() { return numClient; }
-	System::String^ obtenirDateNaissance() { return dateNaissance; }
+	System::String^ obtenirDateNaissance() { return m_dateNaissance; }
 	Adresse^ obtenirAdresseLivraison() { return m_adresseLivraison; }
 	Adresse^ obtenirAdresseFacturation() { return m_adresseFacturation; }
 
 	void modifierAdresseLivraison(int position) { m_adresseLivraison = obtenirPAdresse(position); }
 	void modifierAdresseFacturation(int position) { m_adresseFacturation = obtenirPAdresse(position); }
+	void modifierDateNaissance(System::String^ NDateNaissance) { m_dateNaissance = NDateNaissance; }
 
 	System::String^ SELECTClient();
 	System::String^ SELECTPossede();
