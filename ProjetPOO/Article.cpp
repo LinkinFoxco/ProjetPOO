@@ -2,7 +2,7 @@
 
 System::String^ Article::SELECT(){
 	throw gcnew System::NotImplementedException();
-	return "SELECT ID, Nom_Article, Quantite_Article_Stock, ID_Cout FROM Article";
+	return "SELECT ID, Nom_Article, Quantite_Article_Stock, ID_Cout FROM Article;";
 }
 
 System::String^ Article::INSERT(){
