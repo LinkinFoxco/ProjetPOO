@@ -12,6 +12,10 @@ public:
 	int obtenirAdresseFacturation() { return m_referenceFacturation; }
 	int obtenirClient() { return m_referenceClient; }
 
+	int modifierAdresseLivraison(int adr) { m_referenceLivraison = adr; }
+	int modifierAdresseFacturation(int adr) { m_referenceFacturation = adr; }
+	int modifierClient(int client) { m_referenceClient = client; }
+
 	System::String^ SELECT();
 	System::String^ INSERT();
 	System::String^ UPDATE();
