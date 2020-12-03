@@ -11,8 +11,14 @@ DataSet^ NS_Svc::CL_svc_gestionCommande::listeCommande(String^ dataTableName)
 int NS_Svc::CL_svc_gestionCommande::ajouter(Article^ article, int qtt, Client^ client, moyenDePaiement^ moyPaiement, String^ dateLivraison, String^ dateEmission, String^ datePaiement)
 {
 	int reference;
-	commande->ajouterArticles(qtt);
+	commande->ajouterArticles(article, qtt);
 	commande->calculPanier();
+	commande->modifierMoyenDePaiement(moyPaiement);
+	commande->modifier2LNom();
+	commande->modifier2LPrenom();
+	commande->modifier3LVille();
+	commande->modifierDateEmission(dateEmission);
+	commande->
 	
 	reference = cadCommande->actionRowsID(commande->INSERT());
 	return reference;

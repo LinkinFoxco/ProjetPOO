@@ -29,9 +29,10 @@ public:
 	void modifierDateLivraison(System::String^ date) { m_dateLivraison = date; }
 	void modifierDateEmission(System::String^ date) { m_dateEmission = date; }
 	void modifierDatePaiement(System::String^ date) { m_datePaiement = date; }
-	void modifierMoyenDePaiement(moyenDePaiement mdpaiment) { m_moyenPaiement = mdpaiment; }
+	void modifierMoyenDePaiement(moyenDePaiement^ mdpaiment) { m_moyenPaiement = mdpaiment; }
 	void modifier3LVille();
 	void modifierReferenceCommande(int Nref) { referenceCommande = Nref; }
+	void modifierClient(Client^ nClient) { m_client = nClient; }
 
 
 	void modifier2LPrenom() { m_2Lprenom = System::Convert::ToString(m_client->obtenirPPrenom()[0]) 
@@ -73,7 +74,7 @@ protected:
 	System::String^ m_dateLivraison;
 	System::String^ m_dateEmission;
 	System::String^ m_datePaiement;
-	moyenDePaiement m_moyenPaiement;
+	moyenDePaiement^ m_moyenPaiement;
 	Client^ m_client;
 };
 
