@@ -1,5 +1,5 @@
 #pragma once
-#include "CL_svc_gestionPersonnel.h"
+#include "CL_svc_gestionArticle.h"
 #include "CL_CAD.h"
 
 namespace ProjetPOO {
@@ -81,7 +81,7 @@ namespace ProjetPOO {
 		String^ mode;
 	private: System::Windows::Forms::TextBox^ QuantiteArticle;
 	private: System::Windows::Forms::Label^ QuantiteArticleLBL;
-		   NS_Svc::CL_svc_gestionPersonnel^ processusPersonnel;
+		   NS_Svc::CL_svc_gestionArticle^ processusArticle;
 
 
 #pragma region Windows Form Designer generated code
@@ -354,7 +354,7 @@ namespace ProjetPOO {
 		index = 0;
 		mode = "RIEN";
 		ds = gcnew Data::DataSet();
-		processusPersonnel = gcnew NS_Svc::CL_svc_gestionPersonnel();
+		processusArticle = gcnew NS_Svc::CL_svc_gestionArticle();
 		loadData(index);
 		DescriptionArticleBox->Text = "Data chargees";
 
@@ -362,7 +362,7 @@ namespace ProjetPOO {
 	private:void loadData(int index)
 	{
 		this->ds->Clear();
-		this->ds = processusPersonnel->listePersonnel("liste");
+		this->ds = processusArticle->listeArticle("liste");
 		this->IDArticle->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[0]);
 		this->NomArticle->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[1]);
 		this->QuantiteArticle->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[2]);
