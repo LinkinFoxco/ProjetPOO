@@ -1,4 +1,4 @@
-#include "CL_svc_gestionClient.h"
+ï»¿#include "CL_svc_gestionClient.h"
 #include "CL_CAD.h"
 #pragma once
 
@@ -378,7 +378,7 @@ namespace ProjetPOO {
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(114, 20);
 			this->label3->TabIndex = 22;
-			this->label3->Text = L"Numéro de rue";
+			this->label3->Text = L"Numï¿½ro de rue";
 			// 
 			// textBox3
 			// 
@@ -442,7 +442,7 @@ namespace ProjetPOO {
 			this->checkBox1->Name = L"checkBox1";
 			this->checkBox1->Size = System::Drawing::Size(343, 24);
 			this->checkBox1->TabIndex = 29;
-			this->checkBox1->Text = L"Cochez si l\'adresse de livraison est la même";
+			this->checkBox1->Text = L"Cochez si l\'adresse de livraison est la mï¿½me";
 			this->checkBox1->UseVisualStyleBackColor = true;
 			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &ClientForm::checkBox1_CheckedChanged);
 			// 
@@ -519,7 +519,7 @@ namespace ProjetPOO {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(114, 20);
 			this->label1->TabIndex = 23;
-			this->label1->Text = L"Numéro de rue";
+			this->label1->Text = L"Numero de rue";
 			// 
 			// textBox8
 			// 
@@ -645,7 +645,7 @@ namespace ProjetPOO {
 	private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) // Adresse facturation
 	{
 	}
-	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) // Numéro rue 1
+	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) // Numï¿½ro rue 1
 	{
 	}
 	private: System::Void textBox3_TextChanged(System::Object^ sender, System::EventArgs^ e) // Nom rue 1
@@ -674,7 +674,7 @@ namespace ProjetPOO {
 		PrenomClient->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[2]);
 
 	}
-	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) // Numéro rue2
+	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) // Numï¿½ro rue2
 	{
 	}
 	private: System::Void textBox6_TextChanged(System::Object^ sender, System::EventArgs^ e) // Nom rue 2

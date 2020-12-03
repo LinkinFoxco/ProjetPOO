@@ -87,6 +87,9 @@
     <ClInclude Include="PersonnelForm.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="CommandeForm.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdminForm.cpp">
@@ -122,9 +125,6 @@
     <ClCompile Include="CL_CAD.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CL_svc_gestionPersonne.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CL_svc_gestionClient.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -156,6 +156,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PersonnelForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CL_svc_gestionPossedeClientAdresse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ContientArticleCommande.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandeForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
