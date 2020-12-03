@@ -18,7 +18,8 @@ int NS_Svc::CL_svc_gestionCommande::ajouter(Article^ article, int qtt, Client^ c
 	commande->modifier2LPrenom();
 	commande->modifier3LVille();
 	commande->modifierDateEmission(dateEmission);
-	commande->
+	commande->modifierDateLivraison(dateLivraison);
+	commande->modifierDatePaiement(datePaiement);
 	
 	reference = cadCommande->actionRowsID(commande->INSERT());
 	return reference;
