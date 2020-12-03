@@ -378,7 +378,7 @@ namespace ProjetPOO {
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(114, 20);
 			this->label3->TabIndex = 22;
-			this->label3->Text = L"Num�ro de rue";
+			this->label3->Text = L"Numero de rue";
 			// 
 			// textBox3
 			// 
@@ -442,7 +442,7 @@ namespace ProjetPOO {
 			this->checkBox1->Name = L"checkBox1";
 			this->checkBox1->Size = System::Drawing::Size(343, 24);
 			this->checkBox1->TabIndex = 29;
-			this->checkBox1->Text = L"Cochez si l\'adresse de livraison est la m�me";
+			this->checkBox1->Text = L"Cochez si adresse de livraison est la meme";
 			this->checkBox1->UseVisualStyleBackColor = true;
 			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &ClientForm::checkBox1_CheckedChanged);
 			// 
