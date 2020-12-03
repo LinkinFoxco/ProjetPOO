@@ -8,6 +8,15 @@ Adresse::Adresse(int ref, int num, System::String^ ville, System::String^ codePo
 	this->m_rue = rue;
 }
 
+Adresse::Adresse(Adresse^ Nadresse)
+{
+	this->referenceAdresse = Nadresse->referenceAdresse;
+	this->m_numAdresse = Nadresse->m_numAdresse;
+	this->m_ville = Nadresse->m_ville;
+	this->m_codePostal = Nadresse->m_codePostal;
+	this->m_rue = Nadresse->m_rue;
+}
+
 System::String^ Adresse::SELECT(void){
 	return "SELECT ID, Numero_De_Rue, Rue, Code_Postal, Ville, ID_Personne FROM Adresse;";
 }

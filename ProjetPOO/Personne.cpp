@@ -11,6 +11,17 @@ void Personne::retirerAdresse(Adresse^ Oadrs)
 	m_adresse->Remove(m_adresse[position]);
 }
 
+int Personne::obtenirPositionAdresse(Adresse^ Wadrs)
+{
+	int position(0);
+	for (int i = 0; i < m_adresse->Count; i++)
+	{
+		if (m_adresse[i]->obtenirReferenceAdresse() != Wadrs->obtenirReferenceAdresse())
+			position++;
+	}
+	return position;
+}
+
 System::String^ Personne::SELECT()
 {
 	return "SELECT ID, Nom_Personne, Prenom_Personne FROM Personne;";

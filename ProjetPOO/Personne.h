@@ -5,7 +5,7 @@ using namespace System::Collections::Generic;
 
 ref class Personne
 {
-private:
+protected:
 	System::String^ m_nom;
 	System::String^ m_prenom;
 	List<Adresse^>^ m_adresse;
@@ -25,6 +25,7 @@ public:
 	System::String^ obtenirPNom() { return m_nom; }
 	System::String^ obtenirPPrenom() { return m_prenom; }
 	Adresse^ obtenirPAdresse(int position) { return m_adresse[position]; }
+	int obtenirPositionAdresse(Adresse^);
 	List<Adresse^>^ obtenirPAdresseTout() { return m_adresse; }
 
 	void modifierPNom(System::String^ Nnom) { m_nom = Nnom; }

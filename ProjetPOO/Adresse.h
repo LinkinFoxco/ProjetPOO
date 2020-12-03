@@ -20,6 +20,7 @@ public:
 		m_rue = "RIEN";
 	}
 	Adresse(int, int, System::String^, System::String^, System::String^);
+	Adresse(Adresse^ Nadresse);
 
 	System::String^ SELECT();
 	System::String^ INSERT();
