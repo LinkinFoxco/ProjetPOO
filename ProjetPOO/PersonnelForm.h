@@ -504,7 +504,7 @@ namespace ProjetPOO {
 			   this->Controls->Add(this->dataGridView1);
 			   this->Margin = System::Windows::Forms::Padding(4);
 			   this->Name = L"PersonnelForm";
-			   this->Text = L"XxXSQL DOMINATORXxX";
+			   this->Text = L"Application POO";
 			   this->Load += gcnew System::EventHandler(this, &PersonnelForm::PersonnelForm_Load);
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			   this->groupBox1->ResumeLayout(false);

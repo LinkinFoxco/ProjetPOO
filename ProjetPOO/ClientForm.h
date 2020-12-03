@@ -611,7 +611,7 @@ private: System::Windows::Forms::TextBox^ textBox6;
 			this->Controls->Add(this->IDClient);
 			this->Controls->Add(this->dataGridView1);
 			this->Name = L"ClientForm";
-			this->Text = L"XxXSQL DOMINATORXxX";
+			this->Text = L"Application POO";
 			this->Load += gcnew System::EventHandler(this, &ClientForm::ClientForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->groupBox1->ResumeLayout(false);

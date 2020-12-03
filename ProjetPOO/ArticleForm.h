@@ -319,7 +319,7 @@ namespace ProjetPOO {
 			   this->Controls->Add(this->dataGridView1);
 			   this->Margin = System::Windows::Forms::Padding(4);
 			   this->Name = L"ArticleForm";
-			   this->Text = L"XxXSQL DOMINATORXxX";
+			   this->Text = L"Application POO";
 			   this->Load += gcnew System::EventHandler(this, &ArticleForm::ArticleForm_Load);
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			   this->ResumeLayout(false);

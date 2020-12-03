@@ -407,6 +407,7 @@ private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArg
 	this->MoyenPaiement->Items->Add(moyenDePaiement::Crypto);
 	this->MoyenPaiement->Items->Add(moyenDePaiement::Fiduciaire);
 	this->MoyenPaiement->Items->Add(moyenDePaiement::Paypal);
+
 	System::String^ connectionStringArticle = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
 	System::String^ sqlArticle = "SELECT Nom_Article FROM Article;";
 	System::Data::SqlClient::SqlConnection^ connectionArticle = gcnew System::Data::SqlClient::SqlConnection(connectionStringArticle);
@@ -419,6 +420,7 @@ private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArg
 	{
 		this->ArticleCBox->Items->Add(Convert::ToString(dsArticle->Tables["Article_table"]->Rows[this->index]->ItemArray[i]));
 	}
+
 	System::String^ connectionStringClient = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
 	System::String^ sqlClient = "SELECT Personne.Nom_Personne, Personne.Prenom_Personne FROM Client LEFT JOIN Personne ON Client.ID_Personne = Personne.ID;";
 	System::Data::SqlClient::SqlConnection^ connectionClient = gcnew System::Data::SqlClient::SqlConnection(connectionStringClient);
@@ -426,9 +428,11 @@ private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArg
 	connectionClient->Open();
 	dataadapterClient->Fill(dsClient, "Client_table");
 	connectionClient->Close();
+	this->ClientCBox->CreateObjRef(Client())
 	for (int i = 0; i < (dsClient->Tables->Count - 1); i++)
 	{
-		this->ClientCBox->Items->Add(Convert::ToString(dsClient->Tables["Client_table"]->Rows[this->index]->ItemArray[i]));
+		Client coucouc;
+		this->ClientCBox->Items->Add(coucouc);
 	}
 }
 private: System::Void Ajouter_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -447,7 +451,7 @@ private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArg
 	if (this->mode = "ajout")
 	{
 		int id;
-		id = this->processusCommande->ajouter(???, Convert::ToInt32(this->Quantite->Text), ???, ???, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
+		id = this->processusCommande->ajouter(ArticleCBox->SelectedItem, Convert::ToInt32(this->Quantite->Text), ClientCBox->SelectedItem, MoyenPaiement->SelectedItem, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
 		this->MessageTxT->Text = "L'ID généré est le : " + id + ".";
 	}
 	else if (this->mode = "maj")
