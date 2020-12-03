@@ -23,7 +23,7 @@ void Commande::modifierArticles(qttArticle^ art)
 	m_articles[position]->quantite = 1;
 }
 
-void Commande::modifierArticles(Article^ art, int qtt)
+void Commande::ajouterArticles(Article^ art, int qtt)
 {
 	qttArticle^ buff = gcnew qttArticle();
 	buff->m_article = art;
