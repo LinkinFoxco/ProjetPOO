@@ -52,7 +52,7 @@ System::String^ Commande::SELECT()
 
 System::String^ Commande::INSERT()
 {
-	System::String^ buff = obtenirMoyenDePaiement().ToString();
+	System::String^ buff = obtenirMoyenDePaiement()->ToString();
 	return "INSERT INTO Commande (L2_Nom, L2_Prenom, L3_Ville, Date_Emission, Date_Livraison, Date_Paiement, Moyen_Paiement, Nb_Total_Article, Prix_Total_HT, Prix_Total_TVA, Prix_Total_TTC, Quantite_Article_Commande, ID_Client) " +
 		"VALUES ('" + this->obtenir2LNom() + "', '" + this->obtenir2LPrenom() + "', '" + this->obtenir3LVille() + "', '" + this->obtenirDateEmission() + "', '" + this->obtenirDateLivraison() + "', '" + this->obtenirDatePaiement() + "', '" + buff + "', '" + this->obtenirTotalArticle() + "', '" + this->obtenirTotalPrixHT() + "', '" + this->obtenirTotalPrixTVA() + "', '" + this->obtenirTotalPrixTTC() + "', '" + this->obtenirTotalArticle() + "', '" + this->obtenirClient() 
 		+ "');SELECT @@IDENTITY;";
@@ -60,13 +60,14 @@ System::String^ Commande::INSERT()
 
 System::String^ Commande::UPDATE()
 {
+	System::String^ buff = obtenirMoyenDePaiement()->ToString();
 	return "UPDATE Commande SET L2_Nom = '" + this->obtenir2LNom() 
 		+ "', L2_Prenom = '" + this->obtenir2LPrenom() 
 		+ "', L3_Ville = '" + this->obtenir3LVille() 
 		+ "', Date_Emission = '" + this->obtenirDateEmission() 
 		+ "', Date_Livraison = '" + this->obtenirDateLivraison() 
 		+ "', Date_Paiement = '" + this->obtenirDatePaiement() 
-		+ "', Moyen_Paiement = '" + this->obtenirMoyenDePaiement().ToString() 
+		+ "', Moyen_Paiement = '" + buff 
 		+ "', Nb_Total_Article = '" + this->obtenirTotalArticle() 
 		+ "', Prix_Total_HT = '" + this->obtenirTotalPrixHT() 
 		+ "', Prix_Total_TVA = '" + this->obtenirTotalPrixTVA() 
