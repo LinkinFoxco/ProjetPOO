@@ -12,12 +12,15 @@ protected:
 public:
 	Client() {
 		referenceClient = -1;
-		m_dateNaissance = "00/00/00";
+		m_dateNaissance = gcnew String("00/00/00");
 		m_adresseLivraison = gcnew Adresse();
 		m_adresseFacturation = gcnew Adresse();
 	}
 	Client(System::String^ NdateNaissance) {
-		m_dateNaissance = NdateNaissance;
+		referenceClient = -1;
+		m_dateNaissance = gcnew String(NdateNaissance);
+		m_adresseLivraison = gcnew Adresse();
+		m_adresseFacturation = gcnew Adresse();
 	}
 	int obtenirReferenceClient() { return referenceClient; }
 	System::String^ obtenirDateNaissance() { return m_dateNaissance; }

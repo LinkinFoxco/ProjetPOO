@@ -17,7 +17,9 @@ namespace NS_Composants
 		void setSQL(String^);
 
 	public:
-		CL_CAD();
+		CL_CAD() {
+
+		}
 		int actionRowsID(String^);
 		void actionRows(String^);
 		DataSet^ getRows(String^, String^);

@@ -11,7 +11,14 @@ private:
 	System::String^ m_rue;
 
 public:
-	Adresse();
+	Adresse() {
+		referencePersonne = -1;
+		referenceAdresse = -1;
+		m_numAdresse = -1;
+		m_ville = gcnew System::String("RIEN");
+		m_codePostal = gcnew System::String("RIEN");
+		m_rue = gcnew System::String("RIEN");
+	}
 	Adresse(int, int, System::String^, System::String^, System::String^);
 
 	System::String^ SELECT();

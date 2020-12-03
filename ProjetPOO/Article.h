@@ -14,7 +14,7 @@ public:
 	Article() {
 		m_reference = -1;
 		m_stock = -1;
-		m_nomArticle = "";
+		m_nomArticle = gcnew System::String("RIEN");
 		m_coutArticle = gcnew Cout;
 	}
 	int obtenirReference() { return m_reference; }
