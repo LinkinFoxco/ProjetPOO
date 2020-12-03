@@ -327,10 +327,10 @@ namespace ProjetPOO {
 
 		   }
 #pragma endregion
-	private: void iniDataSet(System::String^ table)
+	private: void iniDataSet(System::String^ table, System::String^ Query)
 	{
 		System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
-		System::String^ sql = "SELECT * FROM " + table;
+		System::String^ sql = Query;
 		System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
 		System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
 		DataSet^ ds = gcnew DataSet();
@@ -350,7 +350,7 @@ namespace ProjetPOO {
 	private: System::Void Modifier_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void ArticleForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		iniDataSet("adresse");
+		iniDataSet("Article", "SELECT Cout.Cout_HT, Cout.Cout_TVA, Cout.Cout_TTC FROM Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID");
 		index = 0;
 		mode = "RIEN";
 		ds = gcnew Data::DataSet();
