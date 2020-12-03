@@ -627,7 +627,7 @@ namespace ProjetPOO {
 			this->textBox7->Text = (this->textBox4->Text);
 			this->textBox8->Text = (this->textBox5->Text);
 		}
-	}
+	} 
 	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) // Numéro rue2
 	{
 	}
