@@ -2,7 +2,6 @@
 #include <cliext/vector>
 #include "Article.h"
 #include "Client.h"
-//#include "Facture.h"
 
 public enum class moyenDePaiement {
 	CB,
@@ -54,7 +53,6 @@ public:
 	System::String^ obtenirDatePaiement() { return m_datePaiement; }
 	moyenDePaiement obtenirMoyenDePaiement() { return m_moyenPaiement; }
 	Client^ obtenirClient() { return m_client; }
-	//Facture^ obtenirFacture() { return m_facture; }
 
 	System::String^ SELECT();
 	System::String^ INSERT();
@@ -76,6 +74,5 @@ protected:
 	System::String^ m_datePaiement;
 	moyenDePaiement m_moyenPaiement;
 	Client^ m_client;
-	//Facture^ m_facture;
 };
 
