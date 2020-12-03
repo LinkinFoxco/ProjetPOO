@@ -15,7 +15,7 @@ public enum class moyenDePaiement {
 	//Obelos_d_or,
 };
 
-public ref struct qttArticle {
+ref struct qttArticle {
 	Article^ m_article;
 	int quantite;
 };
