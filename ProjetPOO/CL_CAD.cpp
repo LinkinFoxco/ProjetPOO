@@ -8,7 +8,6 @@ using namespace System;
 
 void NS_Composants::CL_CAD::setSQL(String^ Nrequete)
 {
-	throw gcnew System::NotImplementedException();
 	if (Nrequete != "" || Nrequete != "RIEN")
 	{
 		requete = Nrequete;
@@ -21,7 +20,6 @@ void NS_Composants::CL_CAD::setSQL(String^ Nrequete)
 
 NS_Composants::CL_CAD::CL_CAD()
 {
-	throw gcnew System::NotImplementedException();
 	requete = "RIEN";
 	connexionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
 	Connexion = gcnew SqlConnection(connexionString);
@@ -42,7 +40,6 @@ int NS_Composants::CL_CAD::actionRowsID(String^ rqSql)
 
 void NS_Composants::CL_CAD::actionRows(String^ rqSql)
 {
-	throw gcnew System::NotImplementedException();
 	setSQL(rqSql);
 	Commande->CommandText = requete;
 	Connexion->Open();
@@ -52,7 +49,6 @@ void NS_Composants::CL_CAD::actionRows(String^ rqSql)
 
 DataSet^ NS_Composants::CL_CAD::getRows(String^ rq_sql, String^ dataTableName)
 {
-	throw gcnew System::NotImplementedException();
 	setSQL(rq_sql);
 	dataAdapter = gcnew SqlDataAdapter(Commande);
 	Commande->CommandText = requete;

@@ -8,8 +8,7 @@ public:
 	Personnel() {
 		referencePersonnel = -1;
 		m_adresseDomicile = gcnew Adresse();
-		m_dateEmbauche = gcnew String("RIEN");
-		m_superieur = gcnew Personnel();
+		m_dateEmbauche = "RIEN";
 	}
 	Adresse^ obtenirAdresseDomicile() { return m_adresseDomicile; }
 	System::String^ obtenirDateEmbauche() { return m_dateEmbauche; }

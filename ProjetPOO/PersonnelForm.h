@@ -109,8 +109,6 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Label^ label6;
 
-		   String^ mode;
-
 
 #pragma region Windows Form Designer generated code
 		   /// <summary>
