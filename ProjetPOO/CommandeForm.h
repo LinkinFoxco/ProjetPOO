@@ -1,5 +1,6 @@
 #pragma once
 #include "CL_svc_gestionCommande.h"
+#include "Commande.h"
 
 namespace ProjetPOO {
 
@@ -402,6 +403,37 @@ private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArg
 	loadData(index);
 	MessageTxT->Text = "Data chargées";
 	this->DateEmission->Text = DateTime::Now.ToString();
+	this->MoyenPaiement->Items->Add(moyenDePaiement::Avoir);
+	this->MoyenPaiement->Items->Add(moyenDePaiement::CB);
+	this->MoyenPaiement->Items->Add(moyenDePaiement::Cheque);
+	this->MoyenPaiement->Items->Add(moyenDePaiement::Coupon);
+	this->MoyenPaiement->Items->Add(moyenDePaiement::Crypto);
+	this->MoyenPaiement->Items->Add(moyenDePaiement::Fiduciaire);
+	this->MoyenPaiement->Items->Add(moyenDePaiement::Paypal);
+	System::String^ connectionStringArticle = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
+	System::String^ sqlArticle = "SELECT Nom_Article FROM Article;";
+	System::Data::SqlClient::SqlConnection^ connectionArticle = gcnew System::Data::SqlClient::SqlConnection(connectionStringArticle);
+	System::Data::SqlClient::SqlDataAdapter^ dataadapterArticle = gcnew System::Data::SqlClient::SqlDataAdapter(sqlArticle, connectionArticle);
+	DataSet^ dsArticle = gcnew DataSet();
+	connectionArticle->Open();
+	dataadapterArticle->Fill(dsArticle, Article + "_table");
+	connectionArticle->Close();
+	for (int i = 0; i < (dsArticle->Tables->Count - 1) ; i++)
+	{
+		this->Article->Items->Add(Convert::ToString(dsArticle->Tables["Article_table"]->Rows[this->index]->ItemArray[i]));
+	}
+	System::String^ connectionStringClient = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
+	System::String^ sqlClient = "SELECT Personne.Nom_Personne, Personne.Prenom_Personne FROM Client LEFT JOIN Personne ON Client.ID_Personne = Personne.ID;";
+	System::Data::SqlClient::SqlConnection^ connectionClient = gcnew System::Data::SqlClient::SqlConnection(connectionStringClient);
+	System::Data::SqlClient::SqlDataAdapter^ dataadapterClient = gcnew System::Data::SqlClient::SqlDataAdapter(sqlClient, connectionClient);
+	DataSet^ dsClient = gcnew DataSet();
+	connectionClient->Open();
+	dataadapterClient->Fill(dsClient, Client + "_table");
+	connectionClient->Close();
+	for (int i = 0; i < (dsClient->Tables->Count - 1); i++)
+	{
+		this->Article->Items->Add(Convert::ToString(dsClient->Tables["Client_table"]->Rows[this->index]->ItemArray[i]));
+	}
 }
 private:void loadData(int index){
 	ds->Clear();
