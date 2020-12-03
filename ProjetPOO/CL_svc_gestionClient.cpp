@@ -18,10 +18,10 @@ int NS_Svc::CL_svc_gestionClient::ajouter(int positionL, int positionF, String^ 
 	return numClient;
 }
 
-void NS_Svc::CL_svc_gestionClient::modifier(int position, int n_client, String^ Dnaissance)
+void NS_Svc::CL_svc_gestionClient::modifier(int positionL, int positionF, int n_client, String^ Dnaissance)
 {
-	client->modifierAdresseLivraison(position);
-	client->modifierAdresseFacturation(position);
+	client->modifierAdresseLivraison(positionL);
+	client->modifierAdresseFacturation(positionF);
 	client->modifierdateNaissance(Dnaissance);
 	client->modifierReferenceClient(n_client);
 

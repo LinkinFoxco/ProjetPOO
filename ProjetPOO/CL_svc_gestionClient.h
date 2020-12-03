@@ -20,7 +20,7 @@ namespace NS_Svc
 		};
 		DataSet^ listeClient(String^);
 		int ajouter(int, int, String^);
-		void modifier(int, int, String^);
+		void modifier(int, int, int, String^);
 		void supprimer(int);
 	};
 }

@@ -731,12 +731,12 @@ private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArg
 	if (mode == "nouveau")
 	{
 		int Id;
-		Id = processusClient->ajouter(NomClient->Text, PrenomClient->Text);
+		Id = processusClient->ajouter(0, 0, DateNaissance->Text);
 		MessageBox->Text = "L'ID généré est le : " + Id + ". ";
 	}
 	else if (mode == "maj")
 	{
-		processusClient->modifier(Convert::ToInt32(IDClient->Text), NomClient > Text, PrenomClient->Text);
+		processusClient->modifier(0, 0, 0, );
 	}
 	else if (mode == "supprimer")
 	{
