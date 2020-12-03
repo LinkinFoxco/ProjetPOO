@@ -27,7 +27,7 @@ public:
 	void modifierMarge(int valeur, int position) { Marge[position] = valeur; }
 	void modifierRemise(int valeur, int position) { Remise[position] = valeur; }
 	void modifierDemarque(int valeur, int position) { Demarque[position] = valeur; }
-	void obtenirReferenceCout(int reference) { referenceCout = reference; }
+	void modifierReferenceCout(int reference) { referenceCout = reference; }
 
 	System::String^ SELECT();
 	System::String^ INSERT();

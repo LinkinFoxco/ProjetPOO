@@ -2,9 +2,9 @@
 #include <cliext/vector>
 #include "Article.h"
 #include "Client.h"
-#include "Facture.h"
+//#include "Facture.h"
 
-enum class moyenDePaiement {
+public enum class moyenDePaiement {
 	CB,
 	Cheque,
 	Fiduciaire,
@@ -15,7 +15,7 @@ enum class moyenDePaiement {
 	//Obelos_d_or,
 };
 
-ref struct qttArticle {
+public ref struct qttArticle {
 	Article^ m_article;
 	int quantite;
 };
@@ -54,7 +54,7 @@ public:
 	System::String^ obtenirDatePaiement() { return m_datePaiement; }
 	moyenDePaiement obtenirMoyenDePaiement() { return m_moyenPaiement; }
 	Client^ obtenirClient() { return m_client; }
-	Facture^ obtenirFacture() { return m_facture; }
+	//Facture^ obtenirFacture() { return m_facture; }
 
 	System::String^ SELECT();
 	System::String^ INSERT();
@@ -76,6 +76,6 @@ protected:
 	System::String^ m_datePaiement;
 	moyenDePaiement m_moyenPaiement;
 	Client^ m_client;
-	Facture^ m_facture;
+	//Facture^ m_facture;
 };
 

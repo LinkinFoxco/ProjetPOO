@@ -1,6 +1,4 @@
 #pragma once
-#include <iostream>
-#include "Client.h"
 
 ref class Adresse
 {

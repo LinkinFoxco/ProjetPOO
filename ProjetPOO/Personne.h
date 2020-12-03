@@ -8,10 +8,17 @@ ref class Personne
 private:
 	System::String^ m_nom;
 	System::String^ m_prenom;
-	List<Adresse^>^ m_adresse = gcnew List<Adresse^>();
+	List<Adresse^>^ m_adresse;
 	int referencePersonne;
 
 public:
+	Personne() {
+		m_nom = "RIEN";
+		m_prenom = "RIEN";
+		m_adresse = gcnew List<Adresse^>();
+		referencePersonne = -1;
+	};
+
 	void ajouterAdresse(Adresse^ NAdresse) { m_adresse->Add(NAdresse); }
 	void retirerAdresse(Adresse^);
 
