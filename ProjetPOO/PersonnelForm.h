@@ -406,7 +406,7 @@ namespace ProjetPOO {
 			   this->label1->Name = L"label1";
 			   this->label1->Size = System::Drawing::Size(103, 17);
 			   this->label1->TabIndex = 0;
-			   this->label1->Text = L"Numéro de rue";
+			   this->label1->Text = L"Numero de rue";
 			   // 
 			   // comboBox1
 			   // 
@@ -424,7 +424,7 @@ namespace ProjetPOO {
 			   this->label5->Name = L"label5";
 			   this->label5->Size = System::Drawing::Size(153, 17);
 			   this->label5->TabIndex = 22;
-			   this->label5->Text = L"Supérieur hiérarchique";
+			   this->label5->Text = L"Superieur hierarchique";
 			   // 
 			   // textBox5
 			   // 
@@ -461,7 +461,7 @@ namespace ProjetPOO {
 			   this->label6->Name = L"label6";
 			   this->label6->Size = System::Drawing::Size(224, 17);
 			   this->label6->TabIndex = 26;
-			   this->label6->Text = L"Ajouter ou supprimer un supérieur";
+			   this->label6->Text = L"Ajouter ou supprimer un superieur";
 			   // 
 			   // PersonnelForm
 			   // 
