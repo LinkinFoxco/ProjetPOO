@@ -32,7 +32,12 @@ public:
 	void modifierMoyenDePaiement(moyenDePaiement^ mdpaiment) { m_moyenPaiement = mdpaiment; }
 	void modifier3LVille();
 	void modifierReferenceCommande(int Nref) { referenceCommande = Nref; }
-	void modifierClient(Client^ nClient) { m_client = nClient; }
+	void modifierClient(Client^ nClient) { 
+		m_client = nClient;
+		modifier2LNom();
+		modifier2LPrenom();
+		modifier3LVille();
+	}
 
 
 	void modifier2LPrenom() { m_2Lprenom = System::Convert::ToString(m_client->obtenirPPrenom()[0]) 
