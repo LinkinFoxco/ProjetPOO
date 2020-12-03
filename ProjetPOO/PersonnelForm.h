@@ -558,7 +558,36 @@ namespace ProjetPOO {
 
 		   }
 	private: System::Void Nouveau_Click(System::Object^ sender, System::EventArgs^ e) {
+		IDPersonnel->Clear();
+		NomPersonnel->Clear();
+		PrenomPersonnel->Clear();
+		mode = "nouveau";
+		MessageBox->Text = "Veuillez saisir les informations du personnel et enregistrer.";
 	}
+	private: System::Void LeftPlus_Click(System::Object^ sender, System::EventArgs^ e) {
+			   index = 0;
+			   loadData(index);
+			   MessageBox->Text = "Enregistrement n :" + (index + 1);
+	}
+	private: System::Void LeftButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (index > 0)
+	{
+		index--;
+		loadData(index);
+		MessageBox->Text = "Enregistrement n :" + (index + 1);
+	}
+	}
+	private: System::Void RightButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	index++;
+	loadData(index);
+	MessageBox->Text = "Enregistrement n :" + (index + 1);
+	}
+	private: System::Void RightPlus_Click(System::Object^ sender, System::EventArgs^ e) {
+	index = ds->Tables["liste"]->Rows->Count - 1;
+	loadData(index);
+	MessageBox->Text = "Enregistrement n : " + (index + 1);
+	}
+
 
 	private: System::Void IDPersonne_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
