@@ -119,6 +119,9 @@
     <ClInclude Include="Adresse.h" />
     <ClInclude Include="Article.h" />
     <ClInclude Include="Client.h" />
+    <ClInclude Include="ClientForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="CL_CAD.h" />
     <ClInclude Include="CL_svc_gestionClient.h" />
     <ClInclude Include="CL_svc_gestionPersonne.h" />
@@ -138,6 +141,7 @@
     <ClCompile Include="Adresse.cpp" />
     <ClCompile Include="Article.cpp" />
     <ClCompile Include="Client.cpp" />
+    <ClCompile Include="ClientForm.cpp" />
     <ClCompile Include="CL_CAD.cpp" />
     <ClCompile Include="CL_svc_gestionClient.cpp" />
     <ClCompile Include="CL_svc_gestionPersonne.cpp" />
@@ -160,6 +164,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientForm.resx">
+      <DependentUpon>ClientForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FactureForm.resx">
       <DependentUpon>FactureForm.h</DependentUpon>
