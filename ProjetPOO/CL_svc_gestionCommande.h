@@ -20,14 +20,13 @@ namespace NS_Svc
 			donneeCommande = gcnew DataSet();
 		};
 		DataSet^ listeCommande(String^);
-		int ajouter(int, int , int , int, String^, String^, String^, String^, String^, moyenDePaiement^, Client^);
-		void modifier(int, int, int, int, int, String^, String^, String^, String^, String^, moyenDePaiement^, Client^);
+		int ajouter(Article^ article, int qtt, Client^ client, moyenDePaiement^ moyPaiement, String^ dateLivraison, String^ dateEmission, String^ datePaiement);
+		void modifier();
 		void supprimer(int);
 	};
 }
 /*
-protected:
-	int referenceCommande;
+int referenceCommande;
 	int m_totalArticle;
 	int m_totalPrixHT;
 	int m_totalPrixTVA;
@@ -41,5 +40,4 @@ protected:
 	System::String^ m_datePaiement;
 	moyenDePaiement m_moyenPaiement;
 	Client^ m_client;
-	Facture^ m_facture;
 */
