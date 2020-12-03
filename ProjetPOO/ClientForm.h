@@ -635,7 +635,7 @@ namespace ProjetPOO {
 		ds = gcnew Data::DataSet();
 		processusClient = gcnew NS_Svc::CL_svc_gestionClient();
 		loadData(index);
-		MessageBox->Text = "Data chargées";
+		MessageBox->Text = "Data chargees";
 	}
 	private: System::Void Nouveau_Click(System::Object^ sender, System::EventArgs^ e) {
 		IDClient->Clear();
