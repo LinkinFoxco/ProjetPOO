@@ -13,5 +13,5 @@ System::String^ ContientArticleCommande::UPDATE() {
 }
 
 System::String^ ContientArticleCommande::DELETE() {
-	return "DELETE FROM contient WHERE(ID = '" + this->obtenirArticle() + "' AND ID_Comande = '" + this->obtenirCommande() + "');";
+	return "DELETE FROM contient WHERE(ID = " + this->obtenirArticle() + " AND ID_Comande = " + this->obtenirCommande() + ");";
 }

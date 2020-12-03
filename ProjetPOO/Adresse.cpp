@@ -17,17 +17,17 @@ Adresse::Adresse(int ref, int num, System::String^ ville, System::String^ codePo
 }
 
 System::String^ Adresse::SELECT(void){
-	return "SELECT ID, Numero_De_Rue, Rue, Code_Postal, Ville FROM Adresse;";
+	return "SELECT ID, Numero_De_Rue, Rue, Code_Postal, Ville, ID_Personne FROM Adresse;";
 }
 
 System::String^ Adresse::INSERT(void){
-	return "INSERT INTO Adresse (Numero_De_Rue, Rue, Code_Postal, Ville) VALUES('" + this->obtenirNumAdresse() + "', '" + this->obtenirRue() + "', '" + this->obtenirCodePostal() + "', '" + this->obtenirVille() + "');SELECT @@IDENTITY;";
+	return "INSERT INTO Adresse (Numero_De_Rue, Rue, Code_Postal, Ville, ID_Personne) VALUES('" + this->obtenirNumAdresse() + "', '" + this->obtenirRue() + "', '" + this->obtenirCodePostal() + "', '" + this->obtenirVille() + "', '" + this->obtenirPersonne() + "');SELECT @@IDENTITY;";
 }
 
 System::String^ Adresse::UPDATE(void){
-	return "UPDATE Adresse SET Numero_De_Rue = '" + this->obtenirNumAdresse() + "', Rue = '" + this->obtenirRue() + "', Code_Postal = '" + this->obtenirCodePostal() + "', Ville = '" + this->obtenirVille() + "' WHERE(ID = " + this->obtenirReferenceAdresse() + ");";
+	return "UPDATE Adresse SET Numero_De_Rue = '" + this->obtenirNumAdresse() + "', Rue = '" + this->obtenirRue() + "', Code_Postal = '" + this->obtenirCodePostal() + "', Ville = '" + this->obtenirVille() + "' WHERE(ID = " + this->obtenirReferenceAdresse() + " AND ID_Personne = " + this->obtenirPersonne() + ");";
 }
 
 System::String^ Adresse::DELETE(void){
-	return "DELETE FROM Adresse WHERE(ID = " + this->obtenirReferenceAdresse() + ");";
+	return "DELETE FROM Adresse WHERE(ID = " + this->obtenirReferenceAdresse() + " AND ID_Personne = " + this->obtenirPersonne() + ");";
 }

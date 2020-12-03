@@ -5,11 +5,16 @@ System::String^ Article::SELECT(){
 }
 
 System::String^ Article::INSERT(){
-	return "INSERT INTO Article (Nom_Article, Quantite_Article_Stock, ID_Cout) VALUES ('" + this->obtenirNomArticle() + "', '" + this->obtenirStock() + "', '" + this->obtenirCoutArticle() + "');SELECT @@IDENTITY;";
+	return "INSERT INTO Article (Nom_Article, Quantite_Article_Stock, ID_Cout)"
+		+" VALUES ('" + this->obtenirNomArticle() + "', '" + this->obtenirStock() + "', '" + this->obtenirCoutArticle() 
+		+ "');SELECT @@IDENTITY;";
 }
 
 System::String^ Article::UPDATE(){
-	return "UPDATE Article SET Nom_Article = '" + this->obtenirNomArticle() + "', Quantite_Article_Stock = '" + this->obtenirStock() + "', ID_Cout = '" + this->obtenirCoutArticle() + "' WHERE(ID = " + this->obtenirReference() + ");";
+	return "UPDATE Article SET Nom_Article = '" + this->obtenirNomArticle() 
+		+ "', Quantite_Article_Stock = '" + this->obtenirStock() 
+		+ "', ID_Cout = '" + this->obtenirCoutArticle() 
+		+ "' WHERE(ID = " + this->obtenirReference() + ");";
 }
 
 System::String^ Article::DELETE(){
