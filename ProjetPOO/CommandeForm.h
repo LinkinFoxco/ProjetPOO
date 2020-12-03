@@ -63,7 +63,6 @@ namespace ProjetPOO {
 		int index;
 		DataSet^ ds;
 		String^ mode;
-		String^ date = gcnew DateTime();
 	private: System::Windows::Forms::Label^ DateLivraisonTxT;
 	private: System::Windows::Forms::TextBox^ DateLivraison;
 	private: System::Windows::Forms::Label^ DateEmissionTxT;
@@ -285,7 +284,7 @@ namespace ProjetPOO {
 			this->DateEmission->ReadOnly = true;
 			this->DateEmission->Size = System::Drawing::Size(380, 20);
 			this->DateEmission->TabIndex = 20;
-			this->DateEmission->Text = this->date.Now.ToString();
+			this->DateEmission->Text = "";
 			// 
 			// Client
 			// 
@@ -402,6 +401,7 @@ private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArg
 	processusCommande = gcnew NS_Svc::CL_svc_gestionCommande();
 	loadData(index);
 	MessageTxT->Text = "Data chargées";
+	this->DateEmission->Text = DateTime::Now.ToString();
 }
 private:void loadData(int index){
 	ds->Clear();

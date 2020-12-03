@@ -736,7 +736,7 @@ private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArg
 	}
 	else if (mode == "maj")
 	{
-		processusClient->modifier(0, 0, 0, );
+		processusClient->modifier(0, 0, 0, "");
 	}
 	else if (mode == "supprimer")
 	{
