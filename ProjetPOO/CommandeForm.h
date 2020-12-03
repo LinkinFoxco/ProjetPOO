@@ -287,35 +287,32 @@ private:void loadData(int index){
 	QuantiteTxT->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[2]);
 }
 private: System::Void Ajouter_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->mode = "ajout";
+	this->MessageTxT->Text = "Pour confirmer l'ajout de cet article, appuyez sur le bouton Enregistrer";
 }
 private: System::Void Modifier_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->mode = "maj";
+	this->MessageTxT->Text = "Pour confirmer la modification de la quantité de cet article, appuyez sur le bouton enregister";
 }
 private: System::Void Supprimer_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->mode = "suppr";
+	this->MessageBox->Text = "Pour confirmer la suppression de cet Article dans la commande, appuyez sur le bouton Enregistrer";
 }
 private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void LeftPlus_Click(System::Object^ sender, System::EventArgs^ e) {
-	index = 0;
-	loadData(index);
-	MessageTxT->Text = "Enregistrement n°:" + (index + 1);
-}
-private: System::Void LeftButton_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (index > 0)
+	if (this->mode = "ajout")
 	{
-		index--;
-		loadData(index);
-		MessageTxT->Text = "Enregistrement n°:" + (index + 1);
+		int id;
+		id = this->processusCommande->ajouter();
+		this->MessageTxT->Text = "L'ID généré est le : " + id + ".";
 	}
-}
-private: System::Void RightButton_Click(System::Object^ sender, System::EventArgs^ e) {
-	index++;
-	loadData(index);
-	MessageTxT->Text = "Enregistrement n°:" + (index + 1);
-}
-private: System::Void RightPlus_Click(System::Object^ sender, System::EventArgs^ e) {
-	index = ds->Tables["liste"]->Rows->Count - 1;
-	loadData(index);
-	MessageTxT->Text = "Enregistrement n° : " + (index + 1);
+	else if (this->mode = "maj")
+	{
+		this->processusCommande->modifier();
+	}
+	else if (this->mode = "suppr")
+	{
+		this->processusCommande->supprimer(Convert::ToInt32(this->IDArticle->Text));
+	}
 }
 private: System::Void QuantiteCase_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
