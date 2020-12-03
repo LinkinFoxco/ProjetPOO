@@ -640,6 +640,9 @@ namespace ProjetPOO {
 	private: System::Void Nouveau_Click(System::Object^ sender, System::EventArgs^ e) {
 		IDClient->Clear();
 		NomClient->Clear();
+		PrenomClient->Clear();
+		mode = "nouveau";
+		MessageBox->Text = "Veuillez saisir les informations du client et enregistrer.";
 	}
 
 	private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) // Adresse facturation
