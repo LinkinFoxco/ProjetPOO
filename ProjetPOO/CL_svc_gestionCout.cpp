@@ -3,7 +3,7 @@
 DataSet^ NS_Svc::CL_svc_gestionCout::listeCout(String^ dataTableName)
 {
 	donneeCout->Clear();
-	donneeCout = cadCout->getRows(donneeCout->SELECT(), dataTableName);
+	donneeCout = cadCout->getRows(cout->SELECT(), dataTableName);
 
 	return donneeCout;
 }
