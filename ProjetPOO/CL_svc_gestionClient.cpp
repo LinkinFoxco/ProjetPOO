@@ -8,20 +8,20 @@ DataSet^ NS_Svc::CL_svc_gestionClient::listeClient(String^ dataTableName)
 	return Cdonnee;
 }
 
-int NS_Svc::CL_svc_gestionClient::ajouter(int position, String^ naissanceDate)
+int NS_Svc::CL_svc_gestionClient::ajouter(int positionL, int positionF, String^ naissanceDate)
 {
 	int numClient;
 	client->modifierdateNaissance(naissanceDate);
-	client->modifierAdresseLivraison(position);
-	client->modifierAdresseFacturation(position);
+	client->modifierAdresseLivraison(positionL);
+	client->modifierAdresseFacturation(positionF);
 	numClient = Ccad->actionRowsID(client->INSERT());
 	return numClient;
 }
 
-void NS_Svc::CL_svc_gestionClient::modifier(int position, int n_client, String^ Dnaissance)
+void NS_Svc::CL_svc_gestionClient::modifier(int positionL, int positionF, int n_client, String^ Dnaissance)
 {
-	client->modifierAdresseLivraison(position);
-	client->modifierAdresseFacturation(position);
+	client->modifierAdresseLivraison(positionL);
+	client->modifierAdresseFacturation(positionF);
 	client->modifierdateNaissance(Dnaissance);
 	client->modifierReferenceClient(n_client);
 
