@@ -677,10 +677,9 @@ namespace ProjetPOO {
 	private:void loadData(int index)
 	{
 		ds->Clear();
-		ds = processusClient->listeClient("liste");
-		IDClient->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[0]);
-		NomClient->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[1]);
-		PrenomClient->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[2]);
+		ds = processusClient->listeClient("client");
+		IDClient->Text = Convert::ToString(ds->Tables["client"]->Rows[index]->ItemArray[0]);
+		DateNaissance->Text = Convert::ToString(ds->Tables["client"]->Rows[index]->ItemArray[1]);
 
 	}
 	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) // Num�ro rue2
@@ -736,7 +735,7 @@ private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArg
 	}
 	else if (mode == "maj")
 	{
-		processusClient->modifier(0, 0, 0, "");
+		processusClient->modifier(0, 0, Convert::ToInt32(IDClient->Text), DateNaissance->Text);
 	}
 	else if (mode == "supprimer")
 	{
@@ -745,7 +744,7 @@ private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArg
 
 	index = 0;
 	loadData(index);
-	MessageBox->Text += "Traitement terminé.";
+	MessageBox->Text += "Fin de traitement.";
 }
 private: System::Void MessageBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
