@@ -5,7 +5,7 @@ System::String^ PossedeClientAdresses::SELECT() {
 }
 
 System::String^ PossedeClientAdresses::INSERT() {
-	return "INSERT INTO possede_ (ID_Client, Adresse_Facturation, Adresse_Livraison) VALUES ('" + this->obtenirClient() + "', '" + this->obtenirAdresseFacturation() + "', '" + this->obtenirAdresseLivraison() + "');SELECT @@IDENTITY;";
+	return "INSERT INTO possede_ (ID_Client, Adresse_Facturation, Adresse_Livraison) VALUES ('" + this->obtenirClient() + "', '" + this->obtenirAdresseFacturation() + "', '" + this->obtenirAdresseLivraison() + "');";
 }
 
 System::String^ PossedeClientAdresses::UPDATE() {
