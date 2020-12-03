@@ -247,7 +247,6 @@ namespace ProjetPOO {
 			this->Article->Name = L"Article";
 			this->Article->Size = System::Drawing::Size(379, 21);
 			this->Article->TabIndex = 6;
-			this->Article->SelectedIndexChanged += gcnew System::EventHandler(this, &CommandeForm::Article_SelectedIndexChanged);
 			// 
 			// DateLivraisonTxT
 			// 
@@ -257,7 +256,7 @@ namespace ProjetPOO {
 			this->DateLivraisonTxT->Name = L"DateLivraisonTxT";
 			this->DateLivraisonTxT->Size = System::Drawing::Size(90, 13);
 			this->DateLivraisonTxT->TabIndex = 19;
-			this->DateLivraisonTxT->Text = L"Date de Livraison";
+			this->DateLivraisonTxT->Text = L"Date de Livraison souhaite :";
 			// 
 			// DateLivraison
 			// 
@@ -285,7 +284,6 @@ namespace ProjetPOO {
 			this->DateEmission->ReadOnly = true;
 			this->DateEmission->Size = System::Drawing::Size(380, 20);
 			this->DateEmission->TabIndex = 20;
-			this->DateEmission->Text = "";
 			// 
 			// Client
 			// 
@@ -294,7 +292,6 @@ namespace ProjetPOO {
 			this->Client->Name = L"Client";
 			this->Client->Size = System::Drawing::Size(380, 21);
 			this->Client->TabIndex = 23;
-			this->Client->SelectedIndexChanged += gcnew System::EventHandler(this, &CommandeForm::Client_SelectedIndexChanged);
 			// 
 			// ClientTxT
 			// 
@@ -330,7 +327,7 @@ namespace ProjetPOO {
 			this->DatePaiementTxT->Location = System::Drawing::Point(26, 378);
 			this->DatePaiementTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->DatePaiementTxT->Name = L"DatePaiementTxT";
-			this->DatePaiementTxT->Size = System::Drawing::Size(90, 13);
+			this->DatePaiementTxT->Size = System::Drawing::Size(79, 13);
 			this->DatePaiementTxT->TabIndex = 27;
 			this->DatePaiementTxT->Text = L"Vous payez le :";
 			// 
@@ -382,9 +379,9 @@ namespace ProjetPOO {
 
 		}
 #pragma endregion
-private: void iniDataSet(System::String^ table){
+private: void iniDataSet(System::String^ table, System::String^ Query){
 	System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
-	System::String^ sql = "SELECT Article, Quantite_Article_Commande FROM " + table;
+	System::String^ sql = Query;
 	System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
 	System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
 	DataSet^ ds = gcnew DataSet();
@@ -395,12 +392,11 @@ private: void iniDataSet(System::String^ table){
 	dataGridView1->DataMember = table + "_table";
 }
 private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	iniDataSet("Commande");
+	iniDataSet("Commande", "SELECT Article.Nom_Article AS Article, Quantite_Article_Commande AS Quantite FROM Commande LEFT JOIN (Contient INNER JOIN Article ON Contient.ID = Article.ID) ON Contient.ID_Commande = Commande.ID");
 	index = 0;
 	mode = "RIEN";
 	ds = gcnew Data::DataSet();
 	processusCommande = gcnew NS_Svc::CL_svc_gestionCommande();
-	loadData(index);
 	MessageTxT->Text = "Data chargées";
 	this->DateEmission->Text = DateTime::Now.ToString();
 	this->MoyenPaiement->Items->Add(moyenDePaiement::Avoir);
@@ -432,7 +428,7 @@ private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArg
 	connectionClient->Close();
 	for (int i = 0; i < (dsClient->Tables->Count - 1); i++)
 	{
-		this->Article->Items->Add(Convert::ToString(dsClient->Tables["Client_table"]->Rows[this->index]->ItemArray[i]));
+		this->Client->Items->Add(Convert::ToString(dsClient->Tables["Client_table"]->Rows[this->index]->ItemArray[i]));
 	}
 }
 private:void loadData(int index){
@@ -458,12 +454,12 @@ private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArg
 	if (this->mode = "ajout")
 	{
 		int id;
-		id = this->processusCommande->ajouter();
+		//id = this->processusCommande->ajouter();
 		this->MessageTxT->Text = "L'ID généré est le : " + id + ".";
 	}
 	else if (this->mode = "maj")
 	{
-		this->processusCommande->modifier();
+		//this->processusCommande->modifier();
 	}
 	else if (this->mode = "suppr")
 	{
@@ -471,10 +467,6 @@ private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArg
 	}
 }
 private: System::Void Quantite_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void Article_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void Client_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
