@@ -42,10 +42,10 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::Button^ Supprimer;
 	private: System::Windows::Forms::Button^ Modifier;
 	private: System::Windows::Forms::Button^ Ajouter;
-	private: System::Windows::Forms::Button^ RightPlus;
-	private: System::Windows::Forms::Button^ RightButton;
-	private: System::Windows::Forms::Button^ LeftButton;
-	private: System::Windows::Forms::Button^ LeftPlus;
+
+
+
+
 	private: System::Windows::Forms::Label^ IDArticleTxT;
 	private: System::Windows::Forms::TextBox^ IDArticle;
 	private: System::Windows::Forms::Label^ ArticleTxT;
@@ -84,10 +84,6 @@ namespace ProjetPOO {
 			this->Supprimer = (gcnew System::Windows::Forms::Button());
 			this->Modifier = (gcnew System::Windows::Forms::Button());
 			this->Ajouter = (gcnew System::Windows::Forms::Button());
-			this->RightPlus = (gcnew System::Windows::Forms::Button());
-			this->RightButton = (gcnew System::Windows::Forms::Button());
-			this->LeftButton = (gcnew System::Windows::Forms::Button());
-			this->LeftPlus = (gcnew System::Windows::Forms::Button());
 			this->IDArticleTxT = (gcnew System::Windows::Forms::Label());
 			this->IDArticle = (gcnew System::Windows::Forms::TextBox());
 			this->ArticleTxT = (gcnew System::Windows::Forms::Label());
@@ -100,17 +96,17 @@ namespace ProjetPOO {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(750, 15);
+			this->dataGridView1->Location = System::Drawing::Point(435, 15);
 			this->dataGridView1->Margin = System::Windows::Forms::Padding(4);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
-			this->dataGridView1->Size = System::Drawing::Size(352, 255);
+			this->dataGridView1->Size = System::Drawing::Size(667, 390);
 			this->dataGridView1->TabIndex = 0;
 			// 
 			// MessageTxT
 			// 
 			this->MessageTxT->AutoSize = true;
-			this->MessageTxT->Location = System::Drawing::Point(23, 577);
+			this->MessageTxT->Location = System::Drawing::Point(23, 521);
 			this->MessageTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->MessageTxT->Name = L"MessageTxT";
 			this->MessageTxT->Size = System::Drawing::Size(50, 13);
@@ -119,12 +115,12 @@ namespace ProjetPOO {
 			// 
 			// MessageBox
 			// 
-			this->MessageBox->Location = System::Drawing::Point(15, 565);
+			this->MessageBox->Location = System::Drawing::Point(15, 509);
 			this->MessageBox->Margin = System::Windows::Forms::Padding(4);
 			this->MessageBox->Multiline = true;
 			this->MessageBox->Name = L"MessageBox";
 			this->MessageBox->ReadOnly = true;
-			this->MessageBox->Size = System::Drawing::Size(1047, 133);
+			this->MessageBox->Size = System::Drawing::Size(1047, 189);
 			this->MessageBox->TabIndex = 16;
 			// 
 			// Enregistrer
@@ -175,58 +171,6 @@ namespace ProjetPOO {
 			this->Ajouter->UseVisualStyleBackColor = true;
 			this->Ajouter->Click += gcnew System::EventHandler(this, &CommandeForm::Ajouter_Click);
 			// 
-			// RightPlus
-			// 
-			this->RightPlus->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->RightPlus->Location = System::Drawing::Point(1022, 300);
-			this->RightPlus->Margin = System::Windows::Forms::Padding(4);
-			this->RightPlus->Name = L"RightPlus";
-			this->RightPlus->Size = System::Drawing::Size(80, 28);
-			this->RightPlus->TabIndex = 10;
-			this->RightPlus->Text = L">>";
-			this->RightPlus->UseVisualStyleBackColor = true;
-			this->RightPlus->Click += gcnew System::EventHandler(this, &CommandeForm::RightPlus_Click);
-			// 
-			// RightButton
-			// 
-			this->RightButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->RightButton->Location = System::Drawing::Point(929, 300);
-			this->RightButton->Margin = System::Windows::Forms::Padding(4);
-			this->RightButton->Name = L"RightButton";
-			this->RightButton->Size = System::Drawing::Size(80, 28);
-			this->RightButton->TabIndex = 9;
-			this->RightButton->Text = L">";
-			this->RightButton->UseVisualStyleBackColor = true;
-			this->RightButton->Click += gcnew System::EventHandler(this, &CommandeForm::RightButton_Click);
-			// 
-			// LeftButton
-			// 
-			this->LeftButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->LeftButton->Location = System::Drawing::Point(841, 300);
-			this->LeftButton->Margin = System::Windows::Forms::Padding(4);
-			this->LeftButton->Name = L"LeftButton";
-			this->LeftButton->Size = System::Drawing::Size(80, 28);
-			this->LeftButton->TabIndex = 8;
-			this->LeftButton->Text = L"<";
-			this->LeftButton->UseVisualStyleBackColor = true;
-			this->LeftButton->Click += gcnew System::EventHandler(this, &CommandeForm::LeftButton_Click);
-			// 
-			// LeftPlus
-			// 
-			this->LeftPlus->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->LeftPlus->Location = System::Drawing::Point(750, 300);
-			this->LeftPlus->Margin = System::Windows::Forms::Padding(4);
-			this->LeftPlus->Name = L"LeftPlus";
-			this->LeftPlus->Size = System::Drawing::Size(80, 28);
-			this->LeftPlus->TabIndex = 7;
-			this->LeftPlus->Text = L"<<";
-			this->LeftPlus->UseVisualStyleBackColor = true;
-			this->LeftPlus->Click += gcnew System::EventHandler(this, &CommandeForm::LeftPlus_Click);
-			// 
 			// IDArticleTxT
 			// 
 			this->IDArticleTxT->AutoSize = true;
@@ -243,7 +187,7 @@ namespace ProjetPOO {
 			this->IDArticle->Margin = System::Windows::Forms::Padding(4);
 			this->IDArticle->Name = L"IDArticle";
 			this->IDArticle->ReadOnly = true;
-			this->IDArticle->Size = System::Drawing::Size(235, 20);
+			this->IDArticle->Size = System::Drawing::Size(380, 20);
 			this->IDArticle->TabIndex = 1;
 			// 
 			// ArticleTxT
@@ -264,14 +208,14 @@ namespace ProjetPOO {
 			this->QuantiteTxT->Name = L"QuantiteTxT";
 			this->QuantiteTxT->Size = System::Drawing::Size(47, 13);
 			this->QuantiteTxT->TabIndex = 6;
-			this->QuantiteTxT->Text = L"Quantité";
+			this->QuantiteTxT->Text = L"Quantite";
 			// 
 			// QuantiteCase
 			// 
 			this->QuantiteCase->Location = System::Drawing::Point(26, 139);
 			this->QuantiteCase->Margin = System::Windows::Forms::Padding(4);
 			this->QuantiteCase->Name = L"QuantiteCase";
-			this->QuantiteCase->Size = System::Drawing::Size(235, 20);
+			this->QuantiteCase->Size = System::Drawing::Size(380, 20);
 			this->QuantiteCase->TabIndex = 5;
 			this->QuantiteCase->TextChanged += gcnew System::EventHandler(this, &CommandeForm::QuantiteCase_TextChanged);
 			// 
@@ -280,7 +224,7 @@ namespace ProjetPOO {
 			this->ComboBoxArticle->FormattingEnabled = true;
 			this->ComboBoxArticle->Location = System::Drawing::Point(27, 91);
 			this->ComboBoxArticle->Name = L"ComboBoxArticle";
-			this->ComboBoxArticle->Size = System::Drawing::Size(235, 21);
+			this->ComboBoxArticle->Size = System::Drawing::Size(379, 21);
 			this->ComboBoxArticle->TabIndex = 6;
 			this->ComboBoxArticle->SelectedIndexChanged += gcnew System::EventHandler(this, &CommandeForm::ComboBoxArticle_SelectedIndexChanged);
 			// 
@@ -296,10 +240,6 @@ namespace ProjetPOO {
 			this->Controls->Add(this->ArticleTxT);
 			this->Controls->Add(this->IDArticleTxT);
 			this->Controls->Add(this->IDArticle);
-			this->Controls->Add(this->RightPlus);
-			this->Controls->Add(this->RightButton);
-			this->Controls->Add(this->LeftButton);
-			this->Controls->Add(this->LeftPlus);
 			this->Controls->Add(this->Enregistrer);
 			this->Controls->Add(this->Supprimer);
 			this->Controls->Add(this->Modifier);
