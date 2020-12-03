@@ -1,4 +1,4 @@
-#include "CL_svc_gestionClient.h"
+ï»¿#include "CL_svc_gestionClient.h"
 #include "CL_CAD.h"
 #pragma once
 
@@ -37,15 +37,21 @@ namespace ProjetPOO {
 			}
 		}
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
-	private: System::Windows::Forms::TextBox^ IDPersonne;
-	private: System::Windows::Forms::Label^ IDPersonneTxT;
+	private: System::Windows::Forms::TextBox^ IDClient;
 
-	private: System::Windows::Forms::Label^ NomTxT;
-	private: System::Windows::Forms::TextBox^ NomPersonne;
+	private: System::Windows::Forms::Label^ IDClientlbl;
+
+	private: System::Windows::Forms::Label^ Nomlbl;
 
 
-	private: System::Windows::Forms::Label^ PrenomTxT;
-	private: System::Windows::Forms::TextBox^ PernomPersonne;
+	private: System::Windows::Forms::TextBox^ NomClient;
+	private: System::Windows::Forms::Label^ Prenomlbl;
+
+
+
+
+	private: System::Windows::Forms::TextBox^ PrenomClient;
+
 
 
 	private: System::Windows::Forms::Button^ LeftPlus;
@@ -105,9 +111,9 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::TextBox^ textBox8;
 	private: System::Windows::Forms::TextBox^ textBox7;
 	private: System::Windows::Forms::TextBox^ textBox6;
-	private: System::Windows::Forms::Label^ label9;
-	private: System::Windows::Forms::TextBox^ textBox9;
+	private: System::Windows::Forms::Label^ DateNaissancelbl;
 
+	private: System::Windows::Forms::TextBox^ DateNaissance;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -117,12 +123,12 @@ namespace ProjetPOO {
 		void InitializeComponent(void)
 		{
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->IDPersonne = (gcnew System::Windows::Forms::TextBox());
-			this->IDPersonneTxT = (gcnew System::Windows::Forms::Label());
-			this->NomTxT = (gcnew System::Windows::Forms::Label());
-			this->NomPersonne = (gcnew System::Windows::Forms::TextBox());
-			this->PrenomTxT = (gcnew System::Windows::Forms::Label());
-			this->PernomPersonne = (gcnew System::Windows::Forms::TextBox());
+			this->IDClient = (gcnew System::Windows::Forms::TextBox());
+			this->IDClientlbl = (gcnew System::Windows::Forms::Label());
+			this->Nomlbl = (gcnew System::Windows::Forms::Label());
+			this->NomClient = (gcnew System::Windows::Forms::TextBox());
+			this->Prenomlbl = (gcnew System::Windows::Forms::Label());
+			this->PrenomClient = (gcnew System::Windows::Forms::TextBox());
 			this->LeftPlus = (gcnew System::Windows::Forms::Button());
 			this->LeftButton = (gcnew System::Windows::Forms::Button());
 			this->RightButton = (gcnew System::Windows::Forms::Button());
@@ -153,8 +159,8 @@ namespace ProjetPOO {
 			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
-			this->label9 = (gcnew System::Windows::Forms::Label());
-			this->textBox9 = (gcnew System::Windows::Forms::TextBox());
+			this->DateNaissancelbl = (gcnew System::Windows::Forms::Label());
+			this->DateNaissance = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
@@ -171,62 +177,63 @@ namespace ProjetPOO {
 			this->dataGridView1->TabIndex = 0;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ClientForm::dataGridView1_CellContentClick);
 			// 
-			// IDPersonne
+			// IDClient
 			// 
-			this->IDPersonne->Location = System::Drawing::Point(30, 61);
-			this->IDPersonne->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->IDPersonne->Name = L"IDPersonne";
-			this->IDPersonne->ReadOnly = true;
-			this->IDPersonne->Size = System::Drawing::Size(264, 26);
-			this->IDPersonne->TabIndex = 1;
-			this->IDPersonne->TextChanged += gcnew System::EventHandler(this, &ClientForm::IDPersonne_TextChanged);
+			this->IDClient->Location = System::Drawing::Point(30, 61);
+			this->IDClient->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->IDClient->Name = L"IDClient";
+			this->IDClient->ReadOnly = true;
+			this->IDClient->Size = System::Drawing::Size(264, 26);
+			this->IDClient->TabIndex = 1;
+			this->IDClient->TextChanged += gcnew System::EventHandler(this, &ClientForm::IDPersonne_TextChanged);
 			// 
-			// IDPersonneTxT
+			// IDClientlbl
 			// 
-			this->IDPersonneTxT->AutoSize = true;
-			this->IDPersonneTxT->Location = System::Drawing::Point(26, 39);
-			this->IDPersonneTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->IDPersonneTxT->Name = L"IDPersonneTxT";
-			this->IDPersonneTxT->Size = System::Drawing::Size(98, 20);
-			this->IDPersonneTxT->TabIndex = 2;
-			this->IDPersonneTxT->Text = L"ID Personne";
-			this->IDPersonneTxT->Click += gcnew System::EventHandler(this, &ClientForm::IDPersonneTxT_Click);
+			this->IDClientlbl->AutoSize = true;
+			this->IDClientlbl->Location = System::Drawing::Point(26, 39);
+			this->IDClientlbl->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->IDClientlbl->Name = L"IDClientlbl";
+			this->IDClientlbl->Size = System::Drawing::Size(70, 20);
+			this->IDClientlbl->TabIndex = 2;
+			this->IDClientlbl->Text = L"ID Client";
+			this->IDClientlbl->Click += gcnew System::EventHandler(this, &ClientForm::IDPersonneTxT_Click);
 			// 
-			// NomTxT
+			// Nomlbl
 			// 
-			this->NomTxT->AutoSize = true;
-			this->NomTxT->Location = System::Drawing::Point(26, 94);
-			this->NomTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->NomTxT->Name = L"NomTxT";
-			this->NomTxT->Size = System::Drawing::Size(42, 20);
-			this->NomTxT->TabIndex = 4;
-			this->NomTxT->Text = L"Nom";
+			this->Nomlbl->AutoSize = true;
+			this->Nomlbl->Location = System::Drawing::Point(26, 94);
+			this->Nomlbl->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->Nomlbl->Name = L"Nomlbl";
+			this->Nomlbl->Size = System::Drawing::Size(42, 20);
+			this->Nomlbl->TabIndex = 4;
+			this->Nomlbl->Text = L"Nom";
 			// 
-			// NomPersonne
+			// NomClient
 			// 
-			this->NomPersonne->Location = System::Drawing::Point(29, 120);
-			this->NomPersonne->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->NomPersonne->Name = L"NomPersonne";
-			this->NomPersonne->Size = System::Drawing::Size(264, 26);
-			this->NomPersonne->TabIndex = 3;
+			this->NomClient->Location = System::Drawing::Point(29, 120);
+			this->NomClient->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->NomClient->Name = L"NomClient";
+			this->NomClient->Size = System::Drawing::Size(264, 26);
+			this->NomClient->TabIndex = 3;
+			this->NomClient->TextChanged += gcnew System::EventHandler(this, &ClientForm::NomPersonne_TextChanged);
 			// 
-			// PrenomTxT
+			// Prenomlbl
 			// 
-			this->PrenomTxT->AutoSize = true;
-			this->PrenomTxT->Location = System::Drawing::Point(29, 152);
-			this->PrenomTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->PrenomTxT->Name = L"PrenomTxT";
-			this->PrenomTxT->Size = System::Drawing::Size(64, 20);
-			this->PrenomTxT->TabIndex = 6;
-			this->PrenomTxT->Text = L"Prenom";
+			this->Prenomlbl->AutoSize = true;
+			this->Prenomlbl->Location = System::Drawing::Point(29, 152);
+			this->Prenomlbl->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->Prenomlbl->Name = L"Prenomlbl";
+			this->Prenomlbl->Size = System::Drawing::Size(64, 20);
+			this->Prenomlbl->TabIndex = 6;
+			this->Prenomlbl->Text = L"Prenom";
 			// 
-			// PernomPersonne
+			// PrenomClient
 			// 
-			this->PernomPersonne->Location = System::Drawing::Point(30, 179);
-			this->PernomPersonne->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->PernomPersonne->Name = L"PernomPersonne";
-			this->PernomPersonne->Size = System::Drawing::Size(264, 26);
-			this->PernomPersonne->TabIndex = 5;
+			this->PrenomClient->Location = System::Drawing::Point(30, 179);
+			this->PrenomClient->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->PrenomClient->Name = L"PrenomClient";
+			this->PrenomClient->Size = System::Drawing::Size(264, 26);
+			this->PrenomClient->TabIndex = 5;
 			// 
 			// LeftPlus
 			// 
@@ -371,7 +378,7 @@ namespace ProjetPOO {
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(114, 20);
 			this->label3->TabIndex = 22;
-			this->label3->Text = L"Numéro de rue";
+			this->label3->Text = L"Numï¿½ro de rue";
 			// 
 			// textBox3
 			// 
@@ -435,7 +442,7 @@ namespace ProjetPOO {
 			this->checkBox1->Name = L"checkBox1";
 			this->checkBox1->Size = System::Drawing::Size(343, 24);
 			this->checkBox1->TabIndex = 29;
-			this->checkBox1->Text = L"Cochez si l\'adresse de livraison est la même";
+			this->checkBox1->Text = L"Cochez si l\'adresse de livraison est la mï¿½me";
 			this->checkBox1->UseVisualStyleBackColor = true;
 			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &ClientForm::checkBox1_CheckedChanged);
 			// 
@@ -512,7 +519,7 @@ namespace ProjetPOO {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(114, 20);
 			this->label1->TabIndex = 23;
-			this->label1->Text = L"Numéro de rue";
+			this->label1->Text = L"Numero de rue";
 			// 
 			// textBox8
 			// 
@@ -541,30 +548,30 @@ namespace ProjetPOO {
 			this->textBox6->TabIndex = 20;
 			this->textBox6->TextChanged += gcnew System::EventHandler(this, &ClientForm::textBox6_TextChanged);
 			// 
-			// label9
+			// DateNaissancelbl
 			// 
-			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(322, 152);
-			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(142, 20);
-			this->label9->TabIndex = 32;
-			this->label9->Text = L"Date de naissance";
+			this->DateNaissancelbl->AutoSize = true;
+			this->DateNaissancelbl->Location = System::Drawing::Point(322, 152);
+			this->DateNaissancelbl->Name = L"DateNaissancelbl";
+			this->DateNaissancelbl->Size = System::Drawing::Size(142, 20);
+			this->DateNaissancelbl->TabIndex = 32;
+			this->DateNaissancelbl->Text = L"Date de naissance";
 			// 
-			// textBox9
+			// DateNaissance
 			// 
-			this->textBox9->Location = System::Drawing::Point(325, 178);
-			this->textBox9->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
-			this->textBox9->Name = L"textBox9";
-			this->textBox9->Size = System::Drawing::Size(221, 26);
-			this->textBox9->TabIndex = 33;
+			this->DateNaissance->Location = System::Drawing::Point(325, 178);
+			this->DateNaissance->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
+			this->DateNaissance->Name = L"DateNaissance";
+			this->DateNaissance->Size = System::Drawing::Size(221, 26);
+			this->DateNaissance->TabIndex = 33;
 			// 
 			// ClientForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1251, 889);
-			this->Controls->Add(this->textBox9);
-			this->Controls->Add(this->label9);
+			this->Controls->Add(this->DateNaissance);
+			this->Controls->Add(this->DateNaissancelbl);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->checkBox1);
@@ -578,12 +585,12 @@ namespace ProjetPOO {
 			this->Controls->Add(this->RightButton);
 			this->Controls->Add(this->LeftButton);
 			this->Controls->Add(this->LeftPlus);
-			this->Controls->Add(this->PrenomTxT);
-			this->Controls->Add(this->PernomPersonne);
-			this->Controls->Add(this->NomTxT);
-			this->Controls->Add(this->NomPersonne);
-			this->Controls->Add(this->IDPersonneTxT);
-			this->Controls->Add(this->IDPersonne);
+			this->Controls->Add(this->Prenomlbl);
+			this->Controls->Add(this->PrenomClient);
+			this->Controls->Add(this->Nomlbl);
+			this->Controls->Add(this->NomClient);
+			this->Controls->Add(this->IDClientlbl);
+			this->Controls->Add(this->IDClient);
 			this->Controls->Add(this->dataGridView1);
 			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"ClientForm";
@@ -628,15 +635,20 @@ namespace ProjetPOO {
 		ds = gcnew Data::DataSet();
 		processusClient = gcnew NS_Svc::CL_svc_gestionClient();
 		loadData(index);
-		MessageTxT->Text = "Data chargées";
+		MessageBox->Text = "Data chargees";
 	}
 	private: System::Void Nouveau_Click(System::Object^ sender, System::EventArgs^ e) {
+		IDClient->Clear();
+		NomClient->Clear();
+		PrenomClient->Clear();
+		mode = "nouveau";
+		MessageBox->Text = "Veuillez saisir les informations du client et enregistrer.";
 	}
 
 	private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) // Adresse facturation
 	{
 	}
-	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) // Numéro rue 1
+	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) // Numï¿½ro rue 1
 	{
 	}
 	private: System::Void textBox3_TextChanged(System::Object^ sender, System::EventArgs^ e) // Nom rue 1
@@ -660,12 +672,12 @@ namespace ProjetPOO {
 	{
 		ds->Clear();
 		ds = processusClient->listeClient("liste");
-		IDPersonne->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[0]);
-		NomTxT->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[1]);
-		PrenomTxT->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[2]);
+		IDClient->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[0]);
+		NomClient->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[1]);
+		PrenomClient->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[2]);
 
 	}
-	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) // Numéro rue2
+	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) // Numï¿½ro rue2
 	{
 	}
 	private: System::Void textBox6_TextChanged(System::Object^ sender, System::EventArgs^ e) // Nom rue 2
@@ -683,25 +695,27 @@ private: System::Void IDPersonne_TextChanged(System::Object^ sender, System::Eve
 private: System::Void LeftPlus_Click(System::Object^ sender, System::EventArgs^ e) {
 	index = 0;
 	loadData(index);
-	MessageTxT->Text = "Enregistrement n°:" + (index + 1);
+	MessageBox->Text = "Enregistrement n :" + (index + 1);
 }
 private: System::Void LeftButton_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (index > 0)
 	{
 		index--;
 		loadData(index);
-		MessageTxT->Text = "Enregistrement n°:" + (index + 1);
+		MessageBox->Text = "Enregistrement n :" + (index + 1);
 	}
 }
 private: System::Void RightButton_Click(System::Object^ sender, System::EventArgs^ e) {
 	index++;
 	loadData(index);
-	MessageTxT->Text = "Enregistrement n°:" + (index + 1);
+	MessageBox->Text = "Enregistrement n :" + (index + 1);
 }
 private: System::Void RightPlus_Click(System::Object^ sender, System::EventArgs^ e) {
 	index = ds->Tables["liste"]->Rows->Count - 1;
 	loadData(index);
-	MessageTxT->Text = "Enregistrement n° : " + (index + 1);
+	MessageBox->Text = "Enregistrement n : " + (index + 1);
+}
+private: System::Void NomPersonne_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
