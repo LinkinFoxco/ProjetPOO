@@ -132,6 +132,9 @@
     <ClInclude Include="CL_svc_gestionPossedeClientAdresse.h" />
     <ClInclude Include="CL_svc_gestionSociete.h" />
     <ClInclude Include="Commande.h" />
+    <ClInclude Include="CommandeForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ContientArticleCommande.h" />
     <ClInclude Include="Cout.h" />
     <ClInclude Include="Facture.h" />
@@ -162,6 +165,7 @@
     <ClCompile Include="CL_svc_gestionPossedeClientAdresse.cpp" />
     <ClCompile Include="CL_svc_gestionSociete.cpp" />
     <ClCompile Include="Commande.cpp" />
+    <ClCompile Include="CommandeForm.cpp" />
     <ClCompile Include="ContientArticleCommande.cpp" />
     <ClCompile Include="Cout.cpp" />
     <ClCompile Include="Facture.cpp" />
@@ -186,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ClientForm.resx">
       <DependentUpon>ClientForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommandeForm.resx">
+      <DependentUpon>CommandeForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FactureForm.resx">
       <DependentUpon>FactureForm.h</DependentUpon>

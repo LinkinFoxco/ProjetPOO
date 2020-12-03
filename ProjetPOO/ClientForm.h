@@ -107,7 +107,6 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::TextBox^ textBox6;
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::TextBox^ textBox9;
-		   String^ mode;
 
 
 #pragma region Windows Form Designer generated code
