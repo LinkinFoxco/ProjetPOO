@@ -1,18 +1,16 @@
 #pragma once
-#include "Adresse.h"
-#include "Client.h"
 
 ref class PossedeClientAdresses
 {
 private:
-	Adresse^ m_AdresseLivraison;
-	Adresse^ m_AdresseFacturation;
-	Client^ m_Client;
+	int m_referenceLivraison;
+	int m_referenceFacturation;
+	int m_referenceClient;
 
 public:
-	Adresse^ obtenirAdresseLivraison() { return m_AdresseLivraison; }
-	Adresse^ obtenirAdresseFacturation() { return m_AdresseFacturation; }
-	Client^ obtenirClient() { return m_Client; }
+	int obtenirAdresseLivraison() { return m_referenceLivraison; }
+	int obtenirAdresseFacturation() { return m_referenceFacturation; }
+	int obtenirClient() { return m_referenceClient; }
 
 	System::String^ SELECT();
 	System::String^ INSERT();
