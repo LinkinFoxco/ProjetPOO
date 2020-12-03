@@ -63,6 +63,7 @@ namespace ProjetPOO {
 		int index;
 		DataSet^ ds;
 		String^ mode;
+		String^ date = gcnew DateTime();
 	private: System::Windows::Forms::Label^ DateLivraisonTxT;
 	private: System::Windows::Forms::TextBox^ DateLivraison;
 	private: System::Windows::Forms::Label^ DateEmissionTxT;
@@ -284,6 +285,7 @@ namespace ProjetPOO {
 			this->DateEmission->ReadOnly = true;
 			this->DateEmission->Size = System::Drawing::Size(380, 20);
 			this->DateEmission->TabIndex = 20;
+			this->DateEmission->Text = this->date.Now.ToString();
 			// 
 			// Client
 			// 
@@ -382,7 +384,7 @@ namespace ProjetPOO {
 #pragma endregion
 private: void iniDataSet(System::String^ table){
 	System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
-	System::String^ sql = "SELECT * FROM " + table;
+	System::String^ sql = "SELECT Article, Quantite_Article_Commande FROM " + table;
 	System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
 	System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
 	DataSet^ ds = gcnew DataSet();
