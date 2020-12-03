@@ -1,4 +1,6 @@
 #pragma once
+#include "CL_svc_gestionPersonnel.h"
+#include "CL_CAD.h"
 
 namespace ProjetPOO {
 
@@ -81,6 +83,8 @@ namespace ProjetPOO {
 		System::ComponentModel::Container^ components;
 		int index;
 		DataSet^ ds;
+		String^ mode;
+		NS_Svc::CL_svc_gestionPersonnel^ processusPersonnel;
 	private: System::Windows::Forms::GroupBox^ groupBox1;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label3;
