@@ -51,8 +51,8 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::Label^ ArticleTxT;
 
 	private: System::Windows::Forms::Label^ QuantiteTxT;
-	private: System::Windows::Forms::TextBox^ QuantiteCase;
-	private: System::Windows::Forms::ComboBox^ ComboBoxArticle;
+	private: System::Windows::Forms::TextBox^ Quantite;
+	private: System::Windows::Forms::ComboBox^ Article;
 
 
 
@@ -63,6 +63,16 @@ namespace ProjetPOO {
 		int index;
 		DataSet^ ds;
 		String^ mode;
+	private: System::Windows::Forms::Label^ DateLivraisonTxT;
+	private: System::Windows::Forms::TextBox^ DateLivraison;
+	private: System::Windows::Forms::Label^ DateEmissionTxT;
+	private: System::Windows::Forms::TextBox^ DateEmission;
+	private: System::Windows::Forms::ComboBox^ Client;
+	private: System::Windows::Forms::Label^ ClientTxT;
+	private: System::Windows::Forms::ComboBox^ MoyenPaiement;
+	private: System::Windows::Forms::Label^ MoyenPaiementTxT;
+	private: System::Windows::Forms::Label^ DatePaiementTxT;
+	private: System::Windows::Forms::TextBox^ DatePaiement;
 
 	private:
 		/// <summary>
@@ -88,8 +98,18 @@ namespace ProjetPOO {
 			this->IDArticle = (gcnew System::Windows::Forms::TextBox());
 			this->ArticleTxT = (gcnew System::Windows::Forms::Label());
 			this->QuantiteTxT = (gcnew System::Windows::Forms::Label());
-			this->QuantiteCase = (gcnew System::Windows::Forms::TextBox());
-			this->ComboBoxArticle = (gcnew System::Windows::Forms::ComboBox());
+			this->Quantite = (gcnew System::Windows::Forms::TextBox());
+			this->Article = (gcnew System::Windows::Forms::ComboBox());
+			this->DateLivraisonTxT = (gcnew System::Windows::Forms::Label());
+			this->DateLivraison = (gcnew System::Windows::Forms::TextBox());
+			this->DateEmissionTxT = (gcnew System::Windows::Forms::Label());
+			this->DateEmission = (gcnew System::Windows::Forms::TextBox());
+			this->Client = (gcnew System::Windows::Forms::ComboBox());
+			this->ClientTxT = (gcnew System::Windows::Forms::Label());
+			this->MoyenPaiement = (gcnew System::Windows::Forms::ComboBox());
+			this->MoyenPaiementTxT = (gcnew System::Windows::Forms::Label());
+			this->DatePaiementTxT = (gcnew System::Windows::Forms::Label());
+			this->DatePaiement = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -174,7 +194,7 @@ namespace ProjetPOO {
 			// IDArticleTxT
 			// 
 			this->IDArticleTxT->AutoSize = true;
-			this->IDArticleTxT->Location = System::Drawing::Point(23, 31);
+			this->IDArticleTxT->Location = System::Drawing::Point(26, 31);
 			this->IDArticleTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->IDArticleTxT->Name = L"IDArticleTxT";
 			this->IDArticleTxT->Size = System::Drawing::Size(50, 13);
@@ -193,7 +213,7 @@ namespace ProjetPOO {
 			// ArticleTxT
 			// 
 			this->ArticleTxT->AutoSize = true;
-			this->ArticleTxT->Location = System::Drawing::Point(23, 75);
+			this->ArticleTxT->Location = System::Drawing::Point(26, 75);
 			this->ArticleTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->ArticleTxT->Name = L"ArticleTxT";
 			this->ArticleTxT->Size = System::Drawing::Size(36, 13);
@@ -210,23 +230,115 @@ namespace ProjetPOO {
 			this->QuantiteTxT->TabIndex = 6;
 			this->QuantiteTxT->Text = L"Quantite";
 			// 
-			// QuantiteCase
+			// Quantite
 			// 
-			this->QuantiteCase->Location = System::Drawing::Point(26, 139);
-			this->QuantiteCase->Margin = System::Windows::Forms::Padding(4);
-			this->QuantiteCase->Name = L"QuantiteCase";
-			this->QuantiteCase->Size = System::Drawing::Size(380, 20);
-			this->QuantiteCase->TabIndex = 5;
-			this->QuantiteCase->TextChanged += gcnew System::EventHandler(this, &CommandeForm::QuantiteCase_TextChanged);
+			this->Quantite->Location = System::Drawing::Point(26, 139);
+			this->Quantite->Margin = System::Windows::Forms::Padding(4);
+			this->Quantite->Name = L"Quantite";
+			this->Quantite->Size = System::Drawing::Size(380, 20);
+			this->Quantite->TabIndex = 5;
+			this->Quantite->TextChanged += gcnew System::EventHandler(this, &CommandeForm::Quantite_TextChanged);
 			// 
-			// ComboBoxArticle
+			// Article
 			// 
-			this->ComboBoxArticle->FormattingEnabled = true;
-			this->ComboBoxArticle->Location = System::Drawing::Point(27, 91);
-			this->ComboBoxArticle->Name = L"ComboBoxArticle";
-			this->ComboBoxArticle->Size = System::Drawing::Size(379, 21);
-			this->ComboBoxArticle->TabIndex = 6;
-			this->ComboBoxArticle->SelectedIndexChanged += gcnew System::EventHandler(this, &CommandeForm::ComboBoxArticle_SelectedIndexChanged);
+			this->Article->FormattingEnabled = true;
+			this->Article->Location = System::Drawing::Point(27, 91);
+			this->Article->Name = L"Article";
+			this->Article->Size = System::Drawing::Size(379, 21);
+			this->Article->TabIndex = 6;
+			this->Article->SelectedIndexChanged += gcnew System::EventHandler(this, &CommandeForm::Article_SelectedIndexChanged);
+			// 
+			// DateLivraisonTxT
+			// 
+			this->DateLivraisonTxT->AutoSize = true;
+			this->DateLivraisonTxT->Location = System::Drawing::Point(26, 172);
+			this->DateLivraisonTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->DateLivraisonTxT->Name = L"DateLivraisonTxT";
+			this->DateLivraisonTxT->Size = System::Drawing::Size(90, 13);
+			this->DateLivraisonTxT->TabIndex = 19;
+			this->DateLivraisonTxT->Text = L"Date de Livraison";
+			// 
+			// DateLivraison
+			// 
+			this->DateLivraison->Location = System::Drawing::Point(26, 189);
+			this->DateLivraison->Margin = System::Windows::Forms::Padding(4);
+			this->DateLivraison->Name = L"DateLivraison";
+			this->DateLivraison->Size = System::Drawing::Size(380, 20);
+			this->DateLivraison->TabIndex = 18;
+			// 
+			// DateEmissionTxT
+			// 
+			this->DateEmissionTxT->AutoSize = true;
+			this->DateEmissionTxT->Location = System::Drawing::Point(26, 227);
+			this->DateEmissionTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->DateEmissionTxT->Name = L"DateEmissionTxT";
+			this->DateEmissionTxT->Size = System::Drawing::Size(120, 13);
+			this->DateEmissionTxT->TabIndex = 21;
+			this->DateEmissionTxT->Text = L"Date d\'emission estime :";
+			// 
+			// DateEmission
+			// 
+			this->DateEmission->Location = System::Drawing::Point(26, 244);
+			this->DateEmission->Margin = System::Windows::Forms::Padding(4);
+			this->DateEmission->Name = L"DateEmission";
+			this->DateEmission->ReadOnly = true;
+			this->DateEmission->Size = System::Drawing::Size(380, 20);
+			this->DateEmission->TabIndex = 20;
+			// 
+			// Client
+			// 
+			this->Client->FormattingEnabled = true;
+			this->Client->Location = System::Drawing::Point(26, 296);
+			this->Client->Name = L"Client";
+			this->Client->Size = System::Drawing::Size(380, 21);
+			this->Client->TabIndex = 23;
+			this->Client->SelectedIndexChanged += gcnew System::EventHandler(this, &CommandeForm::Client_SelectedIndexChanged);
+			// 
+			// ClientTxT
+			// 
+			this->ClientTxT->AutoSize = true;
+			this->ClientTxT->Location = System::Drawing::Point(25, 280);
+			this->ClientTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->ClientTxT->Name = L"ClientTxT";
+			this->ClientTxT->Size = System::Drawing::Size(60, 13);
+			this->ClientTxT->TabIndex = 22;
+			this->ClientTxT->Text = L"Vous etes :";
+			// 
+			// MoyenPaiement
+			// 
+			this->MoyenPaiement->FormattingEnabled = true;
+			this->MoyenPaiement->Location = System::Drawing::Point(26, 346);
+			this->MoyenPaiement->Name = L"MoyenPaiement";
+			this->MoyenPaiement->Size = System::Drawing::Size(380, 21);
+			this->MoyenPaiement->TabIndex = 25;
+			// 
+			// MoyenPaiementTxT
+			// 
+			this->MoyenPaiementTxT->AutoSize = true;
+			this->MoyenPaiementTxT->Location = System::Drawing::Point(25, 330);
+			this->MoyenPaiementTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->MoyenPaiementTxT->Name = L"MoyenPaiementTxT";
+			this->MoyenPaiementTxT->Size = System::Drawing::Size(95, 13);
+			this->MoyenPaiementTxT->TabIndex = 24;
+			this->MoyenPaiementTxT->Text = L"Vous payez avec :";
+			// 
+			// DatePaiementTxT
+			// 
+			this->DatePaiementTxT->AutoSize = true;
+			this->DatePaiementTxT->Location = System::Drawing::Point(26, 378);
+			this->DatePaiementTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->DatePaiementTxT->Name = L"DatePaiementTxT";
+			this->DatePaiementTxT->Size = System::Drawing::Size(90, 13);
+			this->DatePaiementTxT->TabIndex = 27;
+			this->DatePaiementTxT->Text = L"Vous payez le :";
+			// 
+			// DatePaiement
+			// 
+			this->DatePaiement->Location = System::Drawing::Point(26, 395);
+			this->DatePaiement->Margin = System::Windows::Forms::Padding(4);
+			this->DatePaiement->Name = L"DatePaiement";
+			this->DatePaiement->Size = System::Drawing::Size(380, 20);
+			this->DatePaiement->TabIndex = 26;
 			// 
 			// CommandeForm
 			// 
@@ -234,9 +346,19 @@ namespace ProjetPOO {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoSize = true;
 			this->ClientSize = System::Drawing::Size(1112, 711);
-			this->Controls->Add(this->ComboBoxArticle);
+			this->Controls->Add(this->DatePaiementTxT);
+			this->Controls->Add(this->DatePaiement);
+			this->Controls->Add(this->MoyenPaiement);
+			this->Controls->Add(this->MoyenPaiementTxT);
+			this->Controls->Add(this->Client);
+			this->Controls->Add(this->ClientTxT);
+			this->Controls->Add(this->DateEmissionTxT);
+			this->Controls->Add(this->DateEmission);
+			this->Controls->Add(this->DateLivraisonTxT);
+			this->Controls->Add(this->DateLivraison);
+			this->Controls->Add(this->Article);
 			this->Controls->Add(this->QuantiteTxT);
-			this->Controls->Add(this->QuantiteCase);
+			this->Controls->Add(this->Quantite);
 			this->Controls->Add(this->ArticleTxT);
 			this->Controls->Add(this->IDArticleTxT);
 			this->Controls->Add(this->IDArticle);
@@ -314,9 +436,11 @@ private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArg
 		this->processusCommande->supprimer(Convert::ToInt32(this->IDArticle->Text));
 	}
 }
-private: System::Void QuantiteCase_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void Quantite_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
-private: System::Void ComboBoxArticle_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void Article_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void Client_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
