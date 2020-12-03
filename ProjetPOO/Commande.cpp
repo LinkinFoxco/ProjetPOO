@@ -1,5 +1,21 @@
 #include "Commande.h"
 
+Commande::Commande()
+{
+	referenceCommande = -1;
+	m_totalArticle = -1;
+	m_totalPrixHT = -1;
+	m_totalPrixTVA = -1;
+	m_totalPrixTTC = -1;
+	m_2Lprenom = "RIEN";
+	m_2Lnom = "RIEN";
+	m_3Lville = "RIEN";
+	m_dateLivraison = "RIEN";
+	m_dateEmission = "RIEN";
+	m_datePaiement = "RIEN";
+	m_moyenPaiement = moyenDePaiement::Obelos_d_or;
+}
+
 void Commande::calculPanier()
 {
 	for (int i = 0; i < m_articles.Count; i++)

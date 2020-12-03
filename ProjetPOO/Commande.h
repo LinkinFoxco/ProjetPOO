@@ -11,7 +11,7 @@ public enum class moyenDePaiement {
 	Crypto,
 	Coupon,
 	Avoir,
-	//Obelos_d_or,
+	Obelos_d_or
 };
 
 ref struct qttArticle {
@@ -22,6 +22,7 @@ ref struct qttArticle {
 ref class Commande
 {
 public:
+	Commande();
 	void calculPanier(); //calcul totalArticle; totalPrixHT; totalPrixTVA; totalPrixTTC;
 	void ajouterArticles(qttArticle^ Nqttarticle) { m_articles.Add(Nqttarticle); }
 	void ajouterArticles(Article^ art, int qtt);

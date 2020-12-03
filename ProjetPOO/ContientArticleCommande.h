@@ -6,6 +6,10 @@ private:
 	int m_referenceCommande;
 
 public:
+	ContientArticleCommande() {
+		m_referenceArticle = -1;
+		m_referenceCommande = -1;
+	}
 	int obtenirArticle() { return m_referenceArticle; }
 	int obtenirCommande() { return m_referenceCommande; }
 

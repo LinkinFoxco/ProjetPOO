@@ -15,7 +15,7 @@ public:
 		m_reference = -1;
 		m_stock = -1;
 		m_nomArticle = "RIEN";
-		m_coutArticle = gcnew Cout;
+		m_coutArticle = gcnew Cout();
 	}
 	int obtenirReference() { return m_reference; }
 	int obtenirStock() { return m_stock; }

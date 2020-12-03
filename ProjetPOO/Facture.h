@@ -11,6 +11,7 @@ private:
 
 public:
 	Facture() {
+		referenceFacture = -1;
 		m_client = gcnew Client();
 		m_societe = gcnew Societe();
 	}

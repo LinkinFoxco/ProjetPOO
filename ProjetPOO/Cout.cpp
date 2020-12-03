@@ -2,6 +2,10 @@
 
 Cout::Cout()
 {
+	referenceCout = -1;
+	CoutHT = -1;
+	CoutTVA = -1;
+	CoutTTC = -1;
 	TVA = gcnew System::Collections::Generic::List<int>();
 	TVA->Add(0);
 	TVA->Add(10);

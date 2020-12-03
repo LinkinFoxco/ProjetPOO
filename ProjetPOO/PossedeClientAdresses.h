@@ -8,6 +8,11 @@ private:
 	int m_referenceClient;
 
 public:
+	PossedeClientAdresses() {
+		m_referenceLivraison = -1;
+		m_referenceFacturation = -1;
+		m_referenceClient = -1;
+	}
 	int obtenirAdresseLivraison() { return m_referenceLivraison; }
 	int obtenirAdresseFacturation() { return m_referenceFacturation; }
 	int obtenirClient() { return m_referenceClient; }

@@ -11,6 +11,13 @@ private:
     int referenceSociete;
 
 public:
+    Societe() {
+        m_nomSociete = "RIEN";
+        m_numServiceClient = "RIEN";
+        m_logo = "RIEN";
+        m_adresseSociete = gcnew Adresse();
+        referenceSociete = -1;
+    }
     System::String^ obtenirNomSociete() { return m_nomSociete; }
     System::String^ obtenirNumServiceClient() { return m_numServiceClient; }
     System::String^ obtenirLogo() { return m_logo; }
