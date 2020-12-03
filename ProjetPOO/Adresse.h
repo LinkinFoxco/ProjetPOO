@@ -15,9 +15,9 @@ public:
 		referencePersonne = -1;
 		referenceAdresse = -1;
 		m_numAdresse = -1;
-		m_ville = gcnew System::String("RIEN");
-		m_codePostal = gcnew System::String("RIEN");
-		m_rue = gcnew System::String("RIEN");
+		m_ville = "RIEN";
+		m_codePostal = "RIEN";
+		m_rue = "RIEN";
 	}
 	Adresse(int, int, System::String^, System::String^, System::String^);
 
