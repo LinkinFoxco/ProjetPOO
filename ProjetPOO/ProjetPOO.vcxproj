@@ -118,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="Adresse.h" />
     <ClInclude Include="Article.h" />
+    <ClInclude Include="ArticleForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Client.h" />
     <ClInclude Include="ClientForm.h">
       <FileType>CppForm</FileType>
@@ -153,6 +156,7 @@
     <ClCompile Include="AdminForm.cpp" />
     <ClCompile Include="Adresse.cpp" />
     <ClCompile Include="Article.cpp" />
+    <ClCompile Include="ArticleForm.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="ClientForm.cpp" />
     <ClCompile Include="CL_CAD.cpp" />
@@ -187,6 +191,9 @@
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.h</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ArticleForm.resx">
+      <DependentUpon>ArticleForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientForm.resx">
       <DependentUpon>ClientForm.h</DependentUpon>
