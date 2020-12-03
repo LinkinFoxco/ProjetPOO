@@ -54,7 +54,19 @@ System::String^ Commande::INSERT()
 {
 	System::String^ buff = obtenirMoyenDePaiement()->ToString();
 	return "INSERT INTO Commande (L2_Nom, L2_Prenom, L3_Ville, Date_Emission, Date_Livraison, Date_Paiement, Moyen_Paiement, Nb_Total_Article, Prix_Total_HT, Prix_Total_TVA, Prix_Total_TTC, Quantite_Article_Commande, ID_Client) " +
-		"VALUES ('" + this->obtenir2LNom() + "', '" + this->obtenir2LPrenom() + "', '" + this->obtenir3LVille() + "', '" + this->obtenirDateEmission() + "', '" + this->obtenirDateLivraison() + "', '" + this->obtenirDatePaiement() + "', '" + buff + "', '" + this->obtenirTotalArticle() + "', '" + this->obtenirTotalPrixHT() + "', '" + this->obtenirTotalPrixTVA() + "', '" + this->obtenirTotalPrixTTC() + "', '" + this->obtenirTotalArticle() + "', '" + this->obtenirClient() 
+		"VALUES ('" + this->obtenir2LNom() + "', '" 
+		+ this->obtenir2LPrenom() + "', '" 
+		+ this->obtenir3LVille() + "', '" 
+		+ this->obtenirDateEmission() + "', '" 
+		+ this->obtenirDateLivraison() + "', '" 
+		+ this->obtenirDatePaiement() + "', '" 
+		+ buff + "', '" 
+		+ this->obtenirTotalArticle() + "', '" 
+		+ this->obtenirTotalPrixHT() + "', '" 
+		+ this->obtenirTotalPrixTVA() + "', '" 
+		+ this->obtenirTotalPrixTTC() + "', '" 
+		+ this->obtenirTotalArticle() + "', '" 
+		+ this->obtenirClient() 
 		+ "');SELECT @@IDENTITY;";
 }
 
