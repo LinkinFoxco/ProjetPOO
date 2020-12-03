@@ -5,7 +5,11 @@
 ref class Personnel : public Personne
 {
 public:
-	Personnel(){}
+	Personnel() {
+		referencePersonnel = -1;
+		m_adresseDomicile = gcnew Adresse();
+		m_dateEmbauche = "RIEN";
+	}
 	Adresse^ obtenirAdresseDomicile() { return m_adresseDomicile; }
 	System::String^ obtenirDateEmbauche() { return m_dateEmbauche; }
 	Personnel^ obtenirSuperieur() { return m_superieur; }

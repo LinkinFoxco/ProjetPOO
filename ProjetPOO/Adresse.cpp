@@ -1,13 +1,5 @@
 #include "Adresse.h"
 
-Adresse::Adresse(){
-	referenceAdresse = -1;
-	m_numAdresse = 0;
-	m_ville = "";
-	m_codePostal = "";
-	m_rue = "";
-}
-
 Adresse::Adresse(int ref, int num, System::String^ ville, System::String^ codePostal, System::String^ rue){
 	this->referenceAdresse = ref;
 	this->m_numAdresse = num;

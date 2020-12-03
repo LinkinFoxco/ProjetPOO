@@ -17,7 +17,10 @@ public:
 		m_adresseFacturation = gcnew Adresse();
 	}
 	Client(System::String^ NdateNaissance) {
+		referenceClient = -1;
 		m_dateNaissance = NdateNaissance;
+		m_adresseLivraison = gcnew Adresse();
+		m_adresseFacturation = gcnew Adresse();
 	}
 	int obtenirReferenceClient() { return referenceClient; }
 	System::String^ obtenirDateNaissance() { return m_dateNaissance; }
