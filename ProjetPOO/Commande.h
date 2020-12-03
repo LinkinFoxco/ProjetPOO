@@ -58,7 +58,7 @@ public:
 	System::String^ obtenirDateLivraison() { return m_dateLivraison; }
 	System::String^ obtenirDateEmission() { return m_dateEmission; }
 	System::String^ obtenirDatePaiement() { return m_datePaiement; }
-	moyenDePaiement obtenirMoyenDePaiement() { return m_moyenPaiement; }
+	moyenDePaiement^ obtenirMoyenDePaiement() { return m_moyenPaiement; }
 	Client^ obtenirClient() { return m_client; }
 
 	System::String^ SELECT();
