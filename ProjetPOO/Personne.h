@@ -15,7 +15,6 @@ public:
 	Personne() {
 		m_nom = "RIEN";
 		m_prenom = "RIEN";
-		m_adresse = gcnew List<Adresse^>();
 		referencePersonne = -1;
 	};
 
