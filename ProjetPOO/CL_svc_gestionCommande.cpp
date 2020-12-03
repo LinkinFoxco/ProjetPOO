@@ -14,9 +14,7 @@ int NS_Svc::CL_svc_gestionCommande::ajouter(Article^ article, int qtt, Client^ c
 	commande->ajouterArticles(article, qtt);
 	commande->calculPanier();
 	commande->modifierMoyenDePaiement(moyPaiement);
-	commande->modifier2LNom();
-	commande->modifier2LPrenom();
-	commande->modifier3LVille();
+	commande->modifierClient(client);
 	commande->modifierDateEmission(dateEmission);
 	commande->modifierDateLivraison(dateLivraison);
 	commande->modifierDatePaiement(datePaiement);
