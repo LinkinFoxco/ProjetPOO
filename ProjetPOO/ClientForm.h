@@ -623,10 +623,10 @@ private: System::Windows::Forms::TextBox^ textBox6;
 
 		}
 #pragma endregion
-	private: void iniDataSet(System::String^ table)
+	private: void iniDataSet(System::String^ table, System::String^ Query)
 	{
 		System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
-		System::String^ sql = "SELECT * FROM " + table;
+		System::String^ sql = Query ;
 		System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
 		System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
 		DataSet^ ds = gcnew DataSet();
@@ -649,7 +649,7 @@ private: System::Windows::Forms::TextBox^ textBox6;
 
 	}
 	private: System::Void ClientForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		iniDataSet("client");
+		iniDataSet("client", "SELECT Personne.Nom_Personne, Personne.Prenom_Personne FROM Client LEFT JOIN Personne ON Client.ID_Personne = Personne.ID; SELECT Adresse.Ville FROM Client LEFT JOIN(possede_ INNER JOIN Adresse ON possede_.ID = Adresse.ID) ON possede_.ID_Client = Client.ID");
 		index = 0;
 		mode = "RIEN";
 		ds = gcnew Data::DataSet();
