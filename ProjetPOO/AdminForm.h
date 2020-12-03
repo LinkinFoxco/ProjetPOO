@@ -43,8 +43,7 @@ namespace ProjetPOO{
 
 
 	private: System::Windows::Forms::Label^ PrenomTxT;
-	private: System::Windows::Forms::TextBox^ PrenomPersonne;
-
+	private: System::Windows::Forms::TextBox^ PernomPersonne;
 
 
 	private: System::Windows::Forms::Button^ LeftPlus;
@@ -100,7 +99,7 @@ namespace ProjetPOO{
 			this->NomTxT = (gcnew System::Windows::Forms::Label());
 			this->NomPersonne = (gcnew System::Windows::Forms::TextBox());
 			this->PrenomTxT = (gcnew System::Windows::Forms::Label());
-			this->PrenomPersonne = (gcnew System::Windows::Forms::TextBox());
+			this->PernomPersonne = (gcnew System::Windows::Forms::TextBox());
 			this->LeftPlus = (gcnew System::Windows::Forms::Button());
 			this->LeftButton = (gcnew System::Windows::Forms::Button());
 			this->RightButton = (gcnew System::Windows::Forms::Button());
@@ -119,11 +118,9 @@ namespace ProjetPOO{
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(375, 15);
-			this->dataGridView1->Margin = System::Windows::Forms::Padding(4);
+			this->dataGridView1->Location = System::Drawing::Point(281, 12);
 			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->RowHeadersWidth = 51;
-			this->dataGridView1->Size = System::Drawing::Size(727, 394);
+			this->dataGridView1->Size = System::Drawing::Size(545, 320);
 			this->dataGridView1->TabIndex = 0;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &AdminForm::dataGridView1_CellContentClick);
 			// 
@@ -170,7 +167,7 @@ namespace ProjetPOO{
 			this->PrenomTxT->TabIndex = 6;
 			this->PrenomTxT->Text = L"Prenom";
 			// 
-			// PrenomPersonne
+			// PernomPersonne
 			// 
 			this->PrenomPersonne->Location = System::Drawing::Point(20, 135);
 			this->PrenomPersonne->Name = L"PrenomPersonne";
@@ -310,7 +307,7 @@ namespace ProjetPOO{
 			this->Controls->Add(this->LeftButton);
 			this->Controls->Add(this->LeftPlus);
 			this->Controls->Add(this->PrenomTxT);
-			this->Controls->Add(this->PrenomPersonne);
+			this->Controls->Add(this->PernomPersonne);
 			this->Controls->Add(this->NomTxT);
 			this->Controls->Add(this->NomPersonne);
 			this->Controls->Add(this->IDPersonneTxT);
