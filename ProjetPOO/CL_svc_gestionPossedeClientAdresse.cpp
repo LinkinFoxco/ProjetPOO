@@ -8,16 +8,12 @@ DataSet^ NS_Svc::CL_svc_gestionPossedeClientAdresse::listePCA(String^ dataTableN
 	return donneePCA;
 }
 
-int NS_Svc::CL_svc_gestionPossedeClientAdresse::ajouter(int refLivraison, int refFacture, int refCLient)
+void NS_Svc::CL_svc_gestionPossedeClientAdresse::ajouter(int refLivraison, int refFacture, int refCLient)
 {
-	int referenceL, referenceF, referenceC;
 	pca->modifierReferenceAdresseLivraison(refLivraison);
 	pca->modifierReferenceAdresseFacturation(refFacture);
 	pca->modifierReferenceClient(refCLient);
-	referenceL = cadPCA->actionRowsID(pca->INSERT());
-	referenceF = cadPCA->actionRowsID(pca->INSERT());
-	referenceC = cadPCA->actionRowsID(pca->INSERT());
-	return referenceL, referenceF, referenceC;
+	cadPCA->actionRowsID(pca->INSERT());
 }
 
 void NS_Svc::CL_svc_gestionPossedeClientAdresse::modifier(int refLivraison, int refFacture, int refCLient)
