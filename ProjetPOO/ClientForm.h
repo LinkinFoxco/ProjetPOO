@@ -321,6 +321,7 @@ namespace ProjetPOO {
 			this->Supprimer->TabIndex = 14;
 			this->Supprimer->Text = L"Supprimer";
 			this->Supprimer->UseVisualStyleBackColor = true;
+			this->Supprimer->Click += gcnew System::EventHandler(this, &ClientForm::Supprimer_Click);
 			// 
 			// Enregistrer
 			// 
@@ -332,6 +333,7 @@ namespace ProjetPOO {
 			this->Enregistrer->TabIndex = 15;
 			this->Enregistrer->Text = L"Enregistrer";
 			this->Enregistrer->UseVisualStyleBackColor = true;
+			this->Enregistrer->Click += gcnew System::EventHandler(this, &ClientForm::Enregistrer_Click);
 			// 
 			// MessageBox
 			// 
@@ -342,6 +344,7 @@ namespace ProjetPOO {
 			this->MessageBox->ReadOnly = true;
 			this->MessageBox->Size = System::Drawing::Size(1177, 165);
 			this->MessageBox->TabIndex = 16;
+			this->MessageBox->TextChanged += gcnew System::EventHandler(this, &ClientForm::MessageBox_TextChanged);
 			// 
 			// MessageTxT
 			// 
@@ -378,7 +381,7 @@ namespace ProjetPOO {
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(114, 20);
 			this->label3->TabIndex = 22;
-			this->label3->Text = L"Num�ro de rue";
+			this->label3->Text = L"Numero de rue\r\n";
 			// 
 			// textBox3
 			// 
@@ -442,7 +445,7 @@ namespace ProjetPOO {
 			this->checkBox1->Name = L"checkBox1";
 			this->checkBox1->Size = System::Drawing::Size(343, 24);
 			this->checkBox1->TabIndex = 29;
-			this->checkBox1->Text = L"Cochez si l\'adresse de livraison est la m�me";
+			this->checkBox1->Text = L"Cochez si l\'adresse de livraison est la meme";
 			this->checkBox1->UseVisualStyleBackColor = true;
 			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &ClientForm::checkBox1_CheckedChanged);
 			// 
@@ -627,6 +630,9 @@ namespace ProjetPOO {
 	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void Modifier_Click(System::Object^ sender, System::EventArgs^ e) {
+		mode = "maj";
+		MessageBox->Text = "Veuillez modifier les informations du client et enregistrer.";
+
 	}
 	private: System::Void ClientForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		iniDataSet("client");
@@ -716,6 +722,32 @@ private: System::Void RightPlus_Click(System::Object^ sender, System::EventArgs^
 	MessageBox->Text = "Enregistrement n : " + (index + 1);
 }
 private: System::Void NomPersonne_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void Supprimer_Click(System::Object^ sender, System::EventArgs^ e) {
+	mode = "supprimer";
+	MessageBox->Text = "Veuillez confirmer la suppression du client en enregistrant.";
+}
+private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (mode == "nouveau")
+	{
+		int Id;
+		Id = processusClient->ajouter(NomClient->Text, PrenomClient->Text);
+		MessageBox->Text = "L'ID généré est le : " + Id + ". ";
+	}
+	else if (mode == "maj")
+	{
+		processusClient->modifier(Convert::ToInt32(IDClient->Text), NomClient > Text, PrenomClient->Text);
+	}
+	else if (mode == "supprimer")
+	{
+		processusClient->supprimer(Convert::ToInt32(IDClient->Text));
+	}
+
+	index = 0;
+	loadData(index);
+	MessageBox->Text += "Traitement terminé.";
+}
+private: System::Void MessageBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
