@@ -21,13 +21,9 @@ public:
 	void modifierCoutArticle(Cout^ coutArticle) { m_coutArticle = coutArticle; }
 	void modifierRefArticle(int reference) { m_reference = reference; }
 
-	System::String^ SELECTArticle();
-	System::String^ INSERTArticle();
-	System::String^ UPDATEArticle();
-	System::String^ DELETEArticle();
-	System::String^ SELECTContient();
-	System::String^ INSERTContient();
-	System::String^ UPDATEContient();
-	System::String^ DELETEContient();
+	System::String^ SELECT();
+	System::String^ INSERT();
+	System::String^ UPDATE();
+	System::String^ DELETE();
 };
 
