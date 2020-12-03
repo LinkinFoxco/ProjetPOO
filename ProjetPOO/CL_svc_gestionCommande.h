@@ -20,8 +20,8 @@ namespace NS_Svc
 			donneeCommande = gcnew DataSet();
 		};
 		DataSet^ listeCommande(String^);
-		int ajouter(int, int , int , int, String^, String^, String^, String^, String^, moyenDePaiement^, Client^, Facture^);
-		void modifier(int, int, int, int, int, String^, String^, String^, String^, String^, moyenDePaiement^, Client^, Facture^);
+		int ajouter(int, int , int , int, String^, String^, String^, String^, String^, moyenDePaiement^, Client^);
+		void modifier(int, int, int, int, int, String^, String^, String^, String^, String^, moyenDePaiement^, Client^);
 		void supprimer(int);
 	};
 }
