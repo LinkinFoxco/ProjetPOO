@@ -53,7 +53,7 @@ namespace ProjetPOO {
 
 	private: System::Windows::Forms::Label^ QuantiteTxT;
 	private: System::Windows::Forms::TextBox^ Quantite;
-	private: System::Windows::Forms::ComboBox^ Article;
+	private: System::Windows::Forms::ComboBox^ ArticleCBox;
 
 
 
@@ -64,11 +64,12 @@ namespace ProjetPOO {
 		int index;
 		DataSet^ ds;
 		String^ mode;
+		DataSet^ dsClient = gcnew DataSet();
 	private: System::Windows::Forms::Label^ DateLivraisonTxT;
 	private: System::Windows::Forms::TextBox^ DateLivraison;
 	private: System::Windows::Forms::Label^ DateEmissionTxT;
 	private: System::Windows::Forms::TextBox^ DateEmission;
-	private: System::Windows::Forms::ComboBox^ Client;
+	private: System::Windows::Forms::ComboBox^ ClientCBox;
 	private: System::Windows::Forms::Label^ ClientTxT;
 	private: System::Windows::Forms::ComboBox^ MoyenPaiement;
 	private: System::Windows::Forms::Label^ MoyenPaiementTxT;
@@ -100,12 +101,12 @@ namespace ProjetPOO {
 			this->ArticleTxT = (gcnew System::Windows::Forms::Label());
 			this->QuantiteTxT = (gcnew System::Windows::Forms::Label());
 			this->Quantite = (gcnew System::Windows::Forms::TextBox());
-			this->Article = (gcnew System::Windows::Forms::ComboBox());
+			this->ArticleCBox = (gcnew System::Windows::Forms::ComboBox());
 			this->DateLivraisonTxT = (gcnew System::Windows::Forms::Label());
 			this->DateLivraison = (gcnew System::Windows::Forms::TextBox());
 			this->DateEmissionTxT = (gcnew System::Windows::Forms::Label());
 			this->DateEmission = (gcnew System::Windows::Forms::TextBox());
-			this->Client = (gcnew System::Windows::Forms::ComboBox());
+			this->ClientCBox = (gcnew System::Windows::Forms::ComboBox());
 			this->ClientTxT = (gcnew System::Windows::Forms::Label());
 			this->MoyenPaiement = (gcnew System::Windows::Forms::ComboBox());
 			this->MoyenPaiementTxT = (gcnew System::Windows::Forms::Label());
@@ -200,7 +201,7 @@ namespace ProjetPOO {
 			this->IDArticleTxT->Name = L"IDArticleTxT";
 			this->IDArticleTxT->Size = System::Drawing::Size(50, 13);
 			this->IDArticleTxT->TabIndex = 2;
-			this->IDArticleTxT->Text = L"ID Article";
+			this->IDArticleTxT->Text = L"ID Commande";
 			// 
 			// IDArticle
 			// 
@@ -240,13 +241,13 @@ namespace ProjetPOO {
 			this->Quantite->TabIndex = 5;
 			this->Quantite->TextChanged += gcnew System::EventHandler(this, &CommandeForm::Quantite_TextChanged);
 			// 
-			// Article
+			// ArticleCBox
 			// 
-			this->Article->FormattingEnabled = true;
-			this->Article->Location = System::Drawing::Point(27, 91);
-			this->Article->Name = L"Article";
-			this->Article->Size = System::Drawing::Size(379, 21);
-			this->Article->TabIndex = 6;
+			this->ArticleCBox->FormattingEnabled = true;
+			this->ArticleCBox->Location = System::Drawing::Point(27, 91);
+			this->ArticleCBox->Name = L"ArticleCBox";
+			this->ArticleCBox->Size = System::Drawing::Size(379, 21);
+			this->ArticleCBox->TabIndex = 6;
 			// 
 			// DateLivraisonTxT
 			// 
@@ -285,13 +286,13 @@ namespace ProjetPOO {
 			this->DateEmission->Size = System::Drawing::Size(380, 20);
 			this->DateEmission->TabIndex = 20;
 			// 
-			// Client
+			// ClientCBox
 			// 
-			this->Client->FormattingEnabled = true;
-			this->Client->Location = System::Drawing::Point(26, 296);
-			this->Client->Name = L"Client";
-			this->Client->Size = System::Drawing::Size(380, 21);
-			this->Client->TabIndex = 23;
+			this->ClientCBox->FormattingEnabled = true;
+			this->ClientCBox->Location = System::Drawing::Point(26, 296);
+			this->ClientCBox->Name = L"ClientCBox";
+			this->ClientCBox->Size = System::Drawing::Size(380, 21);
+			this->ClientCBox->TabIndex = 23;
 			// 
 			// ClientTxT
 			// 
@@ -349,13 +350,13 @@ namespace ProjetPOO {
 			this->Controls->Add(this->DatePaiement);
 			this->Controls->Add(this->MoyenPaiement);
 			this->Controls->Add(this->MoyenPaiementTxT);
-			this->Controls->Add(this->Client);
+			this->Controls->Add(this->ClientCBox);
 			this->Controls->Add(this->ClientTxT);
 			this->Controls->Add(this->DateEmissionTxT);
 			this->Controls->Add(this->DateEmission);
 			this->Controls->Add(this->DateLivraisonTxT);
 			this->Controls->Add(this->DateLivraison);
-			this->Controls->Add(this->Article);
+			this->Controls->Add(this->ArticleCBox);
 			this->Controls->Add(this->QuantiteTxT);
 			this->Controls->Add(this->Quantite);
 			this->Controls->Add(this->ArticleTxT);
@@ -412,31 +413,23 @@ private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArg
 	System::Data::SqlClient::SqlDataAdapter^ dataadapterArticle = gcnew System::Data::SqlClient::SqlDataAdapter(sqlArticle, connectionArticle);
 	DataSet^ dsArticle = gcnew DataSet();
 	connectionArticle->Open();
-	dataadapterArticle->Fill(dsArticle, Article + "_table");
+	dataadapterArticle->Fill(dsArticle, "Article_table");
 	connectionArticle->Close();
 	for (int i = 0; i < (dsArticle->Tables->Count - 1) ; i++)
 	{
-		this->Article->Items->Add(Convert::ToString(dsArticle->Tables["Article_table"]->Rows[this->index]->ItemArray[i]));
+		this->ArticleCBox->Items->Add(Convert::ToString(dsArticle->Tables["Article_table"]->Rows[this->index]->ItemArray[i]));
 	}
 	System::String^ connectionStringClient = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
 	System::String^ sqlClient = "SELECT Personne.Nom_Personne, Personne.Prenom_Personne FROM Client LEFT JOIN Personne ON Client.ID_Personne = Personne.ID;";
 	System::Data::SqlClient::SqlConnection^ connectionClient = gcnew System::Data::SqlClient::SqlConnection(connectionStringClient);
 	System::Data::SqlClient::SqlDataAdapter^ dataadapterClient = gcnew System::Data::SqlClient::SqlDataAdapter(sqlClient, connectionClient);
-	DataSet^ dsClient = gcnew DataSet();
 	connectionClient->Open();
-	dataadapterClient->Fill(dsClient, Client + "_table");
+	dataadapterClient->Fill(dsClient, "Client_table");
 	connectionClient->Close();
 	for (int i = 0; i < (dsClient->Tables->Count - 1); i++)
 	{
-		this->Client->Items->Add(Convert::ToString(dsClient->Tables["Client_table"]->Rows[this->index]->ItemArray[i]));
+		this->ClientCBox->Items->Add(Convert::ToString(dsClient->Tables["Client_table"]->Rows[this->index]->ItemArray[i]));
 	}
-}
-private:void loadData(int index){
-	ds->Clear();
-	ds = processusCommande->listeCommande("liste");
-	IDArticle->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[0]);
-	ArticleTxT->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[1]);
-	QuantiteTxT->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[2]);
 }
 private: System::Void Ajouter_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->mode = "ajout";
@@ -448,18 +441,18 @@ private: System::Void Modifier_Click(System::Object^ sender, System::EventArgs^ 
 }
 private: System::Void Supprimer_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->mode = "suppr";
-	this->MessageBox->Text = "Pour confirmer la suppression de cet Article dans la commande, appuyez sur le bouton Enregistrer";
+	this->MessageTxT->Text = "Pour confirmer la suppression de cet article dans la commande, appuyez sur le bouton Enregistrer";
 }
 private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (this->mode = "ajout")
 	{
 		int id;
-		//id = this->processusCommande->ajouter();
+		id = this->processusCommande->ajouter(???, Convert::ToInt32(this->Quantite->Text), ???, ???, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
 		this->MessageTxT->Text = "L'ID généré est le : " + id + ".";
 	}
 	else if (this->mode = "maj")
 	{
-		//this->processusCommande->modifier();
+		this->processusCommande->modifier(Convert::ToInt32(this->IDArticle->Text), ???, Convert::ToInt32(this->Quantite->Text), ???, ???, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
 	}
 	else if (this->mode = "suppr")
 	{
