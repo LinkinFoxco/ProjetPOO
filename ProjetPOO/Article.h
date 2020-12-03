@@ -11,6 +11,12 @@ protected:
 	Cout^ m_coutArticle;
 
 public:
+	Article() {
+		m_reference = -1;
+		m_stock = -1;
+		m_nomArticle = "";
+		m_coutArticle = gcnew Cout;
+	}
 	int obtenirReference() { return m_reference; }
 	int obtenirStock() { return m_stock; }
 	System::String^ obtenirNomArticle() { return m_nomArticle; }
