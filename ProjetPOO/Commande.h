@@ -25,6 +25,7 @@ public:
 	void calculPanier(); //calcul totalArticle; totalPrixHT; totalPrixTVA; totalPrixTTC;
 	void ajouterArticles(qttArticle^ Nqttarticle) { m_articles.Add(Nqttarticle); }
 	void modifierArticles(qttArticle^ art);
+	void modifierArticles(Article^ art, int qtt);
 	void modifierDateLivraison(System::String^ date) { m_dateLivraison = date; }
 	void modifierDateEmission(System::String^ date) { m_dateEmission = date; }
 	void modifierDatePaiement(System::String^ date) { m_datePaiement = date; }

@@ -23,6 +23,14 @@ void Commande::modifierArticles(qttArticle^ art)
 	m_articles[position]->quantite = 1;
 }
 
+void Commande::modifierArticles(Article^ art, int qtt)
+{
+	qttArticle^ buff = gcnew qttArticle();
+	buff->m_article = art;
+	buff->quantite = qtt;
+	m_articles.Add(buff);
+};
+
 void Commande::modifier3LVille()
 {
 	if (m_client->obtenirAdresseLivraison()->obtenirVille()->Length - 1 >= 3)
