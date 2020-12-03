@@ -1,5 +1,5 @@
 #pragma once
-#include "CL_svc_gestionPersonnel.h"
+#include "CL_svc_gestionArticle.h"
 #include "CL_CAD.h"
 
 namespace ProjetPOO {
@@ -81,7 +81,7 @@ namespace ProjetPOO {
 		String^ mode;
 	private: System::Windows::Forms::TextBox^ QuantiteArticle;
 	private: System::Windows::Forms::Label^ QuantiteArticleLBL;
-		   NS_Svc::CL_svc_gestionPersonnel^ processusPersonnel;
+		   NS_Svc::CL_svc_gestionArticle^ processusArticle;
 
 
 #pragma region Windows Form Designer generated code
@@ -327,10 +327,10 @@ namespace ProjetPOO {
 
 		   }
 #pragma endregion
-	private: void iniDataSet(System::String^ table)
+	private: void iniDataSet(System::String^ table, System::String^ Query)
 	{
 		System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
-		System::String^ sql = "SELECT * FROM " + table;
+		System::String^ sql = Query;
 		System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
 		System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
 		DataSet^ ds = gcnew DataSet();
@@ -350,11 +350,11 @@ namespace ProjetPOO {
 	private: System::Void Modifier_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void ArticleForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		iniDataSet("adresse");
+		iniDataSet("Article", "SELECT Cout.Cout_HT, Cout.Cout_TVA, Cout.Cout_TTC FROM Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID");
 		index = 0;
 		mode = "RIEN";
 		ds = gcnew Data::DataSet();
-		processusPersonnel = gcnew NS_Svc::CL_svc_gestionPersonnel();
+		processusArticle = gcnew NS_Svc::CL_svc_gestionArticle();
 		loadData(index);
 		DescriptionArticleBox->Text = "Data chargees";
 
@@ -362,7 +362,7 @@ namespace ProjetPOO {
 	private:void loadData(int index)
 	{
 		this->ds->Clear();
-		this->ds = processusPersonnel->listePersonnel("liste");
+		this->ds = processusArticle->listeArticle("liste");
 		this->IDArticle->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[0]);
 		this->NomArticle->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[1]);
 		this->QuantiteArticle->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[2]);
