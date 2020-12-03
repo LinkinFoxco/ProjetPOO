@@ -4,7 +4,7 @@
 DataSet^ NS_Svc::CL_svc_gestionArticle::listeArticle(String^ dataTableName)
 {
 	donneeArticle->Clear();
-	donneeArticle = cadArticle->getRows(article->SELECTArticle(), dataTableName);
+	donneeArticle = cadArticle->getRows(article->SELECT(), dataTableName);
 
 	return donneeArticle;
 }
@@ -14,7 +14,7 @@ int NS_Svc::CL_svc_gestionArticle::ajouter(int stock, String^ nomArticle, Cout^ 
 	article->modifierStocke(stock);
 	article->modifierNomArticle(nomArticle);
 	article->modifierCoutArticle(coutArticle);
-	reference = cadArticle->actionRowsID (article->INSERTArticle());
+	reference = cadArticle->actionRowsID (article->INSERT());
 	return reference;
 }
 
@@ -24,12 +24,12 @@ void NS_Svc::CL_svc_gestionArticle::modifier(int stock, String^ nomArticle, Cout
 	article->modifierNomArticle(nomArticle);
 	article->modifierCoutArticle(coutArticle);
 
-	cadArticle->actionRows(article->UPDATEArticle());
+	cadArticle->actionRows(article->UPDATE());
 }
 
 void NS_Svc::CL_svc_gestionArticle::supprimer(int reference)
 {
 	article->modifierRefArticle(reference);
 
-	cadArticle->actionRows(article->DELETEArticle());
+	cadArticle->actionRows(article->DELETE());
 }
