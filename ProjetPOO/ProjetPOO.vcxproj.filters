@@ -72,6 +72,9 @@
     <ClInclude Include="CL_svc_gestionSociete.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CL_svc_gestionCout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdminForm.cpp">
@@ -129,6 +132,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CL_svc_gestionSociete.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CL_svc_gestionCout.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

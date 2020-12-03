@@ -124,6 +124,7 @@
     <ClInclude Include="CL_svc_gestionArticle.h" />
     <ClInclude Include="CL_svc_gestionClient.h" />
     <ClInclude Include="CL_svc_gestionCommande.h" />
+    <ClInclude Include="CL_svc_gestionCout.h" />
     <ClInclude Include="CL_svc_gestionPersonnel.h" />
     <ClInclude Include="CL_svc_gestionSociete.h" />
     <ClInclude Include="Commande.h" />
@@ -147,6 +148,7 @@
     <ClCompile Include="CL_svc_gestionArticle.cpp" />
     <ClCompile Include="CL_svc_gestionClient.cpp" />
     <ClCompile Include="CL_svc_gestionCommande.cpp" />
+    <ClCompile Include="CL_svc_gestionCout.cpp" />
     <ClCompile Include="CL_svc_gestionPersonnel.cpp" />
     <ClCompile Include="CL_svc_gestionSociete.cpp" />
     <ClCompile Include="Commande.cpp" />
@@ -168,6 +170,7 @@
   <ItemGroup>
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.h</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FactureForm.resx">
       <DependentUpon>FactureForm.h</DependentUpon>
