@@ -23,6 +23,8 @@ public:
 	int obtenirDemarque(int position) { return Demarque[position]; }
 
 	void modifierCoutHT(int NCoutHT) { CoutHT = NCoutHT; }
+	void modifierCoutTVA(int NCoutTVA) { CoutTVA = NCoutTVA; }
+	void modifierCoutTTC(int NCoutTTC) { CoutTTC = NCoutTTC; }
 	void modifierTVA(int valeur, int position) { TVA[position] = valeur; }
 	void modifierMarge(int valeur, int position) { Marge[position] = valeur; }
 	void modifierRemise(int valeur, int position) { Remise[position] = valeur; }
