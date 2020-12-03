@@ -1,4 +1,5 @@
 #pragma once
+#include "CL_svc_gestionCommande.h"
 
 namespace ProjetPOO {
 
@@ -48,7 +49,7 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::Label^ IDArticleTxT;
 	private: System::Windows::Forms::TextBox^ IDArticle;
 	private: System::Windows::Forms::Label^ ArticleTxT;
-	private: System::Windows::Forms::TextBox^ ArticleCase;
+
 	private: System::Windows::Forms::Label^ QuantiteTxT;
 	private: System::Windows::Forms::TextBox^ QuantiteCase;
 	private: System::Windows::Forms::ComboBox^ ComboBoxArticle;
@@ -56,6 +57,12 @@ namespace ProjetPOO {
 
 
 	protected:
+
+	private: 
+		NS_Svc::CL_svc_gestionCommande^ processusCommande;
+		int index;
+		DataSet^ ds;
+		String^ mode;
 
 	private:
 		/// <summary>
@@ -84,7 +91,6 @@ namespace ProjetPOO {
 			this->IDArticleTxT = (gcnew System::Windows::Forms::Label());
 			this->IDArticle = (gcnew System::Windows::Forms::TextBox());
 			this->ArticleTxT = (gcnew System::Windows::Forms::Label());
-			this->ArticleCase = (gcnew System::Windows::Forms::TextBox());
 			this->QuantiteTxT = (gcnew System::Windows::Forms::Label());
 			this->QuantiteCase = (gcnew System::Windows::Forms::TextBox());
 			this->ComboBoxArticle = (gcnew System::Windows::Forms::ComboBox());
@@ -233,7 +239,7 @@ namespace ProjetPOO {
 			// 
 			// IDArticle
 			// 
-			this->IDArticle->Location = System::Drawing::Point(27, 49);
+			this->IDArticle->Location = System::Drawing::Point(26, 48);
 			this->IDArticle->Margin = System::Windows::Forms::Padding(4);
 			this->IDArticle->Name = L"IDArticle";
 			this->IDArticle->ReadOnly = true;
@@ -250,14 +256,6 @@ namespace ProjetPOO {
 			this->ArticleTxT->TabIndex = 4;
 			this->ArticleTxT->Text = L"Article";
 			// 
-			// ArticleCase
-			// 
-			this->ArticleCase->Location = System::Drawing::Point(26, 96);
-			this->ArticleCase->Margin = System::Windows::Forms::Padding(4);
-			this->ArticleCase->Name = L"ArticleCase";
-			this->ArticleCase->Size = System::Drawing::Size(235, 20);
-			this->ArticleCase->TabIndex = 18;
-			// 
 			// QuantiteTxT
 			// 
 			this->QuantiteTxT->AutoSize = true;
@@ -270,7 +268,7 @@ namespace ProjetPOO {
 			// 
 			// QuantiteCase
 			// 
-			this->QuantiteCase->Location = System::Drawing::Point(27, 143);
+			this->QuantiteCase->Location = System::Drawing::Point(26, 139);
 			this->QuantiteCase->Margin = System::Windows::Forms::Padding(4);
 			this->QuantiteCase->Name = L"QuantiteCase";
 			this->QuantiteCase->Size = System::Drawing::Size(235, 20);
@@ -280,10 +278,11 @@ namespace ProjetPOO {
 			// ComboBoxArticle
 			// 
 			this->ComboBoxArticle->FormattingEnabled = true;
-			this->ComboBoxArticle->Location = System::Drawing::Point(290, 94);
+			this->ComboBoxArticle->Location = System::Drawing::Point(27, 91);
 			this->ComboBoxArticle->Name = L"ComboBoxArticle";
-			this->ComboBoxArticle->Size = System::Drawing::Size(121, 21);
-			this->ComboBoxArticle->TabIndex = 19;
+			this->ComboBoxArticle->Size = System::Drawing::Size(235, 21);
+			this->ComboBoxArticle->TabIndex = 6;
+			this->ComboBoxArticle->SelectedIndexChanged += gcnew System::EventHandler(this, &CommandeForm::ComboBoxArticle_SelectedIndexChanged);
 			// 
 			// CommandeForm
 			// 
@@ -295,7 +294,6 @@ namespace ProjetPOO {
 			this->Controls->Add(this->QuantiteTxT);
 			this->Controls->Add(this->QuantiteCase);
 			this->Controls->Add(this->ArticleTxT);
-			this->Controls->Add(this->ArticleCase);
 			this->Controls->Add(this->IDArticleTxT);
 			this->Controls->Add(this->IDArticle);
 			this->Controls->Add(this->RightPlus);
@@ -313,14 +311,43 @@ namespace ProjetPOO {
 			this->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->Name = L"CommandeForm";
 			this->Text = L"CommandeForm";
+			this->Load += gcnew System::EventHandler(this, &CommandeForm::CommandeForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void Ajouter_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
+private: void iniDataSet(System::String^ table){
+	System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
+	System::String^ sql = "SELECT * FROM " + table;
+	System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
+	System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
+	DataSet^ ds = gcnew DataSet();
+	connection->Open();
+	dataadapter->Fill(ds, table + "_table");
+	connection->Close();
+	dataGridView1->DataSource = ds;
+	dataGridView1->DataMember = table + "_table";
+}
+private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	iniDataSet("Commande");
+	index = 0;
+	mode = "RIEN";
+	ds = gcnew Data::DataSet();
+	processusCommande = gcnew NS_Svc::CL_svc_gestionCommande();
+	loadData(index);
+	MessageTxT->Text = "Data chargées";
+}
+private:void loadData(int index){
+	ds->Clear();
+	ds = processusCommande->listeCommande("liste");
+	IDArticle->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[0]);
+	ArticleTxT->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[1]);
+	QuantiteTxT->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[2]);
+}
+private: System::Void Ajouter_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 private: System::Void Modifier_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void Supprimer_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -328,14 +355,31 @@ private: System::Void Supprimer_Click(System::Object^ sender, System::EventArgs^
 private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void LeftPlus_Click(System::Object^ sender, System::EventArgs^ e) {
+	index = 0;
+	loadData(index);
+	MessageTxT->Text = "Enregistrement n°:" + (index + 1);
 }
 private: System::Void LeftButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (index > 0)
+	{
+		index--;
+		loadData(index);
+		MessageTxT->Text = "Enregistrement n°:" + (index + 1);
+	}
 }
 private: System::Void RightButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	index++;
+	loadData(index);
+	MessageTxT->Text = "Enregistrement n°:" + (index + 1);
 }
 private: System::Void RightPlus_Click(System::Object^ sender, System::EventArgs^ e) {
+	index = ds->Tables["liste"]->Rows->Count - 1;
+	loadData(index);
+	MessageTxT->Text = "Enregistrement n° : " + (index + 1);
 }
 private: System::Void QuantiteCase_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void ComboBoxArticle_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
