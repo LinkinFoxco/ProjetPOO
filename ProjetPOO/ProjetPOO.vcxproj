@@ -126,6 +126,7 @@
     <ClInclude Include="CL_svc_gestionCommande.h" />
     <ClInclude Include="CL_svc_gestionCout.h" />
     <ClInclude Include="CL_svc_gestionPersonnel.h" />
+    <ClInclude Include="CL_svc_gestionPossedeClientAdresse.h" />
     <ClInclude Include="CL_svc_gestionSociete.h" />
     <ClInclude Include="Commande.h" />
     <ClInclude Include="ContientArticleCommande.h" />
@@ -151,6 +152,7 @@
     <ClCompile Include="CL_svc_gestionCommande.cpp" />
     <ClCompile Include="CL_svc_gestionCout.cpp" />
     <ClCompile Include="CL_svc_gestionPersonnel.cpp" />
+    <ClCompile Include="CL_svc_gestionPossedeClientAdresse.cpp" />
     <ClCompile Include="CL_svc_gestionSociete.cpp" />
     <ClCompile Include="Commande.cpp" />
     <ClCompile Include="ContientArticleCommande.cpp" />
