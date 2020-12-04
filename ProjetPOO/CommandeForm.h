@@ -1,6 +1,7 @@
 #pragma once
 #include "CL_svc_gestionCommande.h"
 #include "Commande.h"
+#include "FactureForm.h"
 
 namespace ProjetPOO {
 
@@ -76,6 +77,9 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::Label^ DatePaiementTxT;
 	private: System::Windows::Forms::TextBox^ DatePaiement;
 
+	private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
+	private: System::Windows::Forms::Button^ Facture;
+
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -112,6 +116,8 @@ namespace ProjetPOO {
 			this->MoyenPaiementTxT = (gcnew System::Windows::Forms::Label());
 			this->DatePaiementTxT = (gcnew System::Windows::Forms::Label());
 			this->DatePaiement = (gcnew System::Windows::Forms::TextBox());
+			this->folderBrowserDialog1 = (gcnew System::Windows::Forms::FolderBrowserDialog());
+			this->Facture = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -142,7 +148,7 @@ namespace ProjetPOO {
 			this->MessageBox->Multiline = true;
 			this->MessageBox->Name = L"MessageBox";
 			this->MessageBox->ReadOnly = true;
-			this->MessageBox->Size = System::Drawing::Size(1047, 189);
+			this->MessageBox->Size = System::Drawing::Size(1047, 111);
 			this->MessageBox->TabIndex = 16;
 			// 
 			// Enregistrer
@@ -199,7 +205,7 @@ namespace ProjetPOO {
 			this->IDArticleTxT->Location = System::Drawing::Point(26, 31);
 			this->IDArticleTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->IDArticleTxT->Name = L"IDArticleTxT";
-			this->IDArticleTxT->Size = System::Drawing::Size(50, 13);
+			this->IDArticleTxT->Size = System::Drawing::Size(74, 13);
 			this->IDArticleTxT->TabIndex = 2;
 			this->IDArticleTxT->Text = L"ID Commande";
 			// 
@@ -255,7 +261,7 @@ namespace ProjetPOO {
 			this->DateLivraisonTxT->Location = System::Drawing::Point(26, 172);
 			this->DateLivraisonTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->DateLivraisonTxT->Name = L"DateLivraisonTxT";
-			this->DateLivraisonTxT->Size = System::Drawing::Size(90, 13);
+			this->DateLivraisonTxT->Size = System::Drawing::Size(139, 13);
 			this->DateLivraisonTxT->TabIndex = 19;
 			this->DateLivraisonTxT->Text = L"Date de Livraison souhaite :";
 			// 
@@ -340,12 +346,29 @@ namespace ProjetPOO {
 			this->DatePaiement->Size = System::Drawing::Size(380, 20);
 			this->DatePaiement->TabIndex = 26;
 			// 
+			// folderBrowserDialog1
+			// 
+			this->folderBrowserDialog1->HelpRequest += gcnew System::EventHandler(this, &CommandeForm::folderBrowserDialog1_HelpRequest);
+			// 
+			// Facture
+			// 
+			this->Facture->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
+			this->Facture->Location = System::Drawing::Point(267, 426);
+			this->Facture->Margin = System::Windows::Forms::Padding(4);
+			this->Facture->Name = L"Facture";
+			this->Facture->Size = System::Drawing::Size(160, 55);
+			this->Facture->TabIndex = 28;
+			this->Facture->Text = L"Facture";
+			this->Facture->UseVisualStyleBackColor = true;
+			this->Facture->Click += gcnew System::EventHandler(this, &CommandeForm::Facture_Click);
+			// 
 			// CommandeForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoSize = true;
-			this->ClientSize = System::Drawing::Size(1112, 711);
+			this->ClientSize = System::Drawing::Size(1112, 630);
+			this->Controls->Add(this->Facture);
 			this->Controls->Add(this->DatePaiementTxT);
 			this->Controls->Add(this->DatePaiement);
 			this->Controls->Add(this->MoyenPaiement);
@@ -393,7 +416,7 @@ private: void iniDataSet(System::String^ table, System::String^ Query){
 	dataGridView1->DataMember = table + "_table";
 }
 private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	iniDataSet("Commande", "SELECT Article.Nom_Article AS Article, Quantite_Article_Commande AS Quantite FROM Commande LEFT JOIN (Contient INNER JOIN Article ON Contient.ID = Article.ID) ON Contient.ID_Commande = Commande.ID");
+	iniDataSet("Commande", "SELECT Article.Nom_Article AS Article, contient.Quantite, Cout.Cout_HT AS Cout_HT_Par_Article FROM Commande LEFT JOIN (Contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON Contient.ID = Article.ID) ON Contient.ID_Commande = Commande.ID");
 	index = 0;
 	mode = "RIEN";
 	ds = gcnew Data::DataSet();
@@ -447,12 +470,12 @@ private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArg
 	if (this->mode = "ajout")
 	{
 		int id;
-		id = this->processusCommande->ajouter(???, Convert::ToInt32(this->Quantite->Text), ???, ???, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
+		//id = this->processusCommande->ajouter(???, Convert::ToInt32(this->Quantite->Text), ???, ???, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
 		this->MessageTxT->Text = "L'ID généré est le : " + id + ".";
 	}
 	else if (this->mode = "maj")
 	{
-		this->processusCommande->modifier(Convert::ToInt32(this->IDArticle->Text), ???, Convert::ToInt32(this->Quantite->Text), ???, ???, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
+		//this->processusCommande->modifier(Convert::ToInt32(this->IDArticle->Text), ???, Convert::ToInt32(this->Quantite->Text), ???, ???, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
 	}
 	else if (this->mode = "suppr")
 	{
@@ -460,6 +483,12 @@ private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArg
 	}
 }
 private: System::Void Quantite_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void Facture_Click(System::Object^ sender, System::EventArgs^ e) {
+	FactureForm^ newform = gcnew FactureForm;
+	newform->Show();
+}
+private: System::Void folderBrowserDialog1_HelpRequest(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
