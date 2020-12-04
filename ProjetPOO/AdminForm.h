@@ -115,7 +115,7 @@ namespace ProjetPOO{
 			this->Controls->Add(this->GestionsPersonnels);
 			this->Controls->Add(this->GestionClients);
 			this->Name = L"AdminForm";
-			this->Text = L"XxXSQL DOMINATORXxX";
+			this->Text = L"Application POO";
 			this->Load += gcnew System::EventHandler(this, &AdminForm::AdminForm_Load);
 			this->ResumeLayout(false);
 

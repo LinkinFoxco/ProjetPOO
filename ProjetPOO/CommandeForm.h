@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "CL_svc_gestionCommande.h"
 #include "Commande.h"
 #include "FactureForm.h"
@@ -416,12 +416,12 @@ private: void iniDataSet(System::String^ table, System::String^ Query){
 	dataGridView1->DataMember = table + "_table";
 }
 private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	iniDataSet("Commande", "SELECT Article.Nom_Article AS Article, contient.Quantite, Cout.Cout_HT AS Cout_HT_Par_Article FROM Commande LEFT JOIN (Contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON Contient.ID = Article.ID) ON Contient.ID_Commande = Commande.ID");
+	/*iniDataSet("Commande", "SELECT Article.Nom_Article AS Article, contient.Quantite, Cout.Cout_HT AS Cout_HT_Par_Article FROM Commande LEFT JOIN (Contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON Contient.ID = Article.ID) ON Contient.ID_Commande = Commande.ID");
 	index = 0;
 	mode = "RIEN";
 	ds = gcnew Data::DataSet();
 	processusCommande = gcnew NS_Svc::CL_svc_gestionCommande();
-	MessageTxT->Text = "Data chargées";
+	MessageTxT->Text = "Data chargï¿½es";
 	this->DateEmission->Text = DateTime::Now.ToString();
 	this->MoyenPaiement->Items->Add(moyenDePaiement::Avoir);
 	this->MoyenPaiement->Items->Add(moyenDePaiement::CB);
@@ -430,6 +430,7 @@ private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArg
 	this->MoyenPaiement->Items->Add(moyenDePaiement::Crypto);
 	this->MoyenPaiement->Items->Add(moyenDePaiement::Fiduciaire);
 	this->MoyenPaiement->Items->Add(moyenDePaiement::Paypal);
+
 	System::String^ connectionStringArticle = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
 	System::String^ sqlArticle = "SELECT Nom_Article FROM Article;";
 	System::Data::SqlClient::SqlConnection^ connectionArticle = gcnew System::Data::SqlClient::SqlConnection(connectionStringArticle);
@@ -442,6 +443,7 @@ private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArg
 	{
 		this->ArticleCBox->Items->Add(Convert::ToString(dsArticle->Tables["Article_table"]->Rows[this->index]->ItemArray[i]));
 	}
+
 	System::String^ connectionStringClient = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
 	System::String^ sqlClient = "SELECT Personne.Nom_Personne, Personne.Prenom_Personne FROM Client LEFT JOIN Personne ON Client.ID_Personne = Personne.ID;";
 	System::Data::SqlClient::SqlConnection^ connectionClient = gcnew System::Data::SqlClient::SqlConnection(connectionStringClient);
@@ -449,10 +451,12 @@ private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArg
 	connectionClient->Open();
 	dataadapterClient->Fill(dsClient, "Client_table");
 	connectionClient->Close();
+	this->ClientCBox->CreateObjRef(Client())
 	for (int i = 0; i < (dsClient->Tables->Count - 1); i++)
 	{
-		this->ClientCBox->Items->Add(Convert::ToString(dsClient->Tables["Client_table"]->Rows[this->index]->ItemArray[i]));
-	}
+		Client coucouc;
+		this->ClientCBox->Items->Add(coucouc);
+	}*/
 }
 private: System::Void Ajouter_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->mode = "ajout";
@@ -460,7 +464,7 @@ private: System::Void Ajouter_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void Modifier_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->mode = "maj";
-	this->MessageTxT->Text = "Pour confirmer la modification de la quantité de cet article, appuyez sur le bouton enregister";
+	this->MessageTxT->Text = "Pour confirmer la modification de la quantitï¿½ de cet article, appuyez sur le bouton enregister";
 }
 private: System::Void Supprimer_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->mode = "suppr";
@@ -471,7 +475,7 @@ private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArg
 	{
 		int id;
 		//id = this->processusCommande->ajouter(???, Convert::ToInt32(this->Quantite->Text), ???, ???, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
-		this->MessageTxT->Text = "L'ID généré est le : " + id + ".";
+		this->MessageTxT->Text = "L'ID gï¿½nï¿½rï¿½ est le : " + id + ".";
 	}
 	else if (this->mode = "maj")
 	{

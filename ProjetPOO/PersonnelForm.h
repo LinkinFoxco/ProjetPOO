@@ -107,6 +107,7 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::TextBox^ textBox5;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog2;
 	private: System::Windows::Forms::Label^ label6;
 
 
@@ -150,6 +151,7 @@ namespace ProjetPOO {
 			   this->button1 = (gcnew System::Windows::Forms::Button());
 			   this->button2 = (gcnew System::Windows::Forms::Button());
 			   this->label6 = (gcnew System::Windows::Forms::Label());
+			   this->folderBrowserDialog2 = (gcnew System::Windows::Forms::FolderBrowserDialog());
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			   this->groupBox1->SuspendLayout();
 			   this->SuspendLayout();
@@ -157,31 +159,28 @@ namespace ProjetPOO {
 			   // dataGridView1
 			   // 
 			   this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			   this->dataGridView1->Location = System::Drawing::Point(703, 13);
-			   this->dataGridView1->Margin = System::Windows::Forms::Padding(4);
+			   this->dataGridView1->Location = System::Drawing::Point(275, 11);
 			   this->dataGridView1->Name = L"dataGridView1";
 			   this->dataGridView1->RowHeadersWidth = 51;
-			   this->dataGridView1->Size = System::Drawing::Size(337, 160);
+			   this->dataGridView1->Size = System::Drawing::Size(505, 130);
 			   this->dataGridView1->TabIndex = 0;
 			   this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PersonnelForm::dataGridView1_CellContentClick);
 			   // 
 			   // IDPersonnel
 			   // 
-			   this->IDPersonnel->Location = System::Drawing::Point(27, 49);
-			   this->IDPersonnel->Margin = System::Windows::Forms::Padding(4);
+			   this->IDPersonnel->Location = System::Drawing::Point(20, 40);
 			   this->IDPersonnel->Name = L"IDPersonnel";
 			   this->IDPersonnel->ReadOnly = true;
-			   this->IDPersonnel->Size = System::Drawing::Size(235, 22);
+			   this->IDPersonnel->Size = System::Drawing::Size(177, 20);
 			   this->IDPersonnel->TabIndex = 1;
 			   this->IDPersonnel->TextChanged += gcnew System::EventHandler(this, &PersonnelForm::IDPersonne_TextChanged);
 			   // 
 			   // IDPersonnelLBL
 			   // 
 			   this->IDPersonnelLBL->AutoSize = true;
-			   this->IDPersonnelLBL->Location = System::Drawing::Point(23, 31);
-			   this->IDPersonnelLBL->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			   this->IDPersonnelLBL->Location = System::Drawing::Point(17, 25);
 			   this->IDPersonnelLBL->Name = L"IDPersonnelLBL";
-			   this->IDPersonnelLBL->Size = System::Drawing::Size(89, 17);
+			   this->IDPersonnelLBL->Size = System::Drawing::Size(68, 13);
 			   this->IDPersonnelLBL->TabIndex = 2;
 			   this->IDPersonnelLBL->Text = L"ID Personnel";
 			   this->IDPersonnelLBL->Click += gcnew System::EventHandler(this, &PersonnelForm::IDPersonneTxT_Click);
@@ -189,37 +188,33 @@ namespace ProjetPOO {
 			   // NomPersonnelLBL
 			   // 
 			   this->NomPersonnelLBL->AutoSize = true;
-			   this->NomPersonnelLBL->Location = System::Drawing::Point(23, 86);
-			   this->NomPersonnelLBL->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			   this->NomPersonnelLBL->Location = System::Drawing::Point(17, 70);
 			   this->NomPersonnelLBL->Name = L"NomPersonnelLBL";
-			   this->NomPersonnelLBL->Size = System::Drawing::Size(105, 17);
+			   this->NomPersonnelLBL->Size = System::Drawing::Size(79, 13);
 			   this->NomPersonnelLBL->TabIndex = 4;
 			   this->NomPersonnelLBL->Text = L"Nom Personnel";
 			   // 
 			   // NomPersonnel
 			   // 
-			   this->NomPersonnel->Location = System::Drawing::Point(27, 105);
-			   this->NomPersonnel->Margin = System::Windows::Forms::Padding(4);
+			   this->NomPersonnel->Location = System::Drawing::Point(20, 85);
 			   this->NomPersonnel->Name = L"NomPersonnel";
-			   this->NomPersonnel->Size = System::Drawing::Size(235, 22);
+			   this->NomPersonnel->Size = System::Drawing::Size(177, 20);
 			   this->NomPersonnel->TabIndex = 3;
 			   // 
 			   // PrenomPersonnelLBL
 			   // 
 			   this->PrenomPersonnelLBL->AutoSize = true;
-			   this->PrenomPersonnelLBL->Location = System::Drawing::Point(23, 148);
-			   this->PrenomPersonnelLBL->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			   this->PrenomPersonnelLBL->Location = System::Drawing::Point(17, 120);
 			   this->PrenomPersonnelLBL->Name = L"PrenomPersonnelLBL";
-			   this->PrenomPersonnelLBL->Size = System::Drawing::Size(125, 17);
+			   this->PrenomPersonnelLBL->Size = System::Drawing::Size(93, 13);
 			   this->PrenomPersonnelLBL->TabIndex = 6;
 			   this->PrenomPersonnelLBL->Text = L"Prenom Personnel";
 			   // 
 			   // PrenomPersonnel
 			   // 
-			   this->PrenomPersonnel->Location = System::Drawing::Point(27, 166);
-			   this->PrenomPersonnel->Margin = System::Windows::Forms::Padding(4);
+			   this->PrenomPersonnel->Location = System::Drawing::Point(20, 135);
 			   this->PrenomPersonnel->Name = L"PrenomPersonnel";
-			   this->PrenomPersonnel->Size = System::Drawing::Size(235, 22);
+			   this->PrenomPersonnel->Size = System::Drawing::Size(177, 20);
 			   this->PrenomPersonnel->TabIndex = 5;
 			   this->PrenomPersonnel->TextChanged += gcnew System::EventHandler(this, &PersonnelForm::PrenomPersonne_TextChanged);
 			   // 
@@ -227,10 +222,9 @@ namespace ProjetPOO {
 			   // 
 			   this->LeftPlus->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->LeftPlus->Location = System::Drawing::Point(682, 194);
-			   this->LeftPlus->Margin = System::Windows::Forms::Padding(4);
+			   this->LeftPlus->Location = System::Drawing::Point(512, 158);
 			   this->LeftPlus->Name = L"LeftPlus";
-			   this->LeftPlus->Size = System::Drawing::Size(80, 28);
+			   this->LeftPlus->Size = System::Drawing::Size(60, 23);
 			   this->LeftPlus->TabIndex = 7;
 			   this->LeftPlus->Text = L"<<";
 			   this->LeftPlus->UseVisualStyleBackColor = true;
@@ -239,10 +233,9 @@ namespace ProjetPOO {
 			   // 
 			   this->LeftButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->LeftButton->Location = System::Drawing::Point(770, 194);
-			   this->LeftButton->Margin = System::Windows::Forms::Padding(4);
+			   this->LeftButton->Location = System::Drawing::Point(578, 158);
 			   this->LeftButton->Name = L"LeftButton";
-			   this->LeftButton->Size = System::Drawing::Size(80, 28);
+			   this->LeftButton->Size = System::Drawing::Size(60, 23);
 			   this->LeftButton->TabIndex = 8;
 			   this->LeftButton->Text = L"<";
 			   this->LeftButton->UseVisualStyleBackColor = true;
@@ -251,10 +244,9 @@ namespace ProjetPOO {
 			   // 
 			   this->RightButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->RightButton->Location = System::Drawing::Point(868, 194);
-			   this->RightButton->Margin = System::Windows::Forms::Padding(4);
+			   this->RightButton->Location = System::Drawing::Point(651, 158);
 			   this->RightButton->Name = L"RightButton";
-			   this->RightButton->Size = System::Drawing::Size(80, 28);
+			   this->RightButton->Size = System::Drawing::Size(60, 23);
 			   this->RightButton->TabIndex = 9;
 			   this->RightButton->Text = L">";
 			   this->RightButton->UseVisualStyleBackColor = true;
@@ -263,10 +255,9 @@ namespace ProjetPOO {
 			   // 
 			   this->RightPlus->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
-			   this->RightPlus->Location = System::Drawing::Point(956, 194);
-			   this->RightPlus->Margin = System::Windows::Forms::Padding(4);
+			   this->RightPlus->Location = System::Drawing::Point(717, 158);
 			   this->RightPlus->Name = L"RightPlus";
-			   this->RightPlus->Size = System::Drawing::Size(80, 28);
+			   this->RightPlus->Size = System::Drawing::Size(60, 23);
 			   this->RightPlus->TabIndex = 10;
 			   this->RightPlus->Text = L">>";
 			   this->RightPlus->UseVisualStyleBackColor = true;
@@ -274,10 +265,9 @@ namespace ProjetPOO {
 			   // Nouveau
 			   // 
 			   this->Nouveau->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
-			   this->Nouveau->Location = System::Drawing::Point(740, 295);
-			   this->Nouveau->Margin = System::Windows::Forms::Padding(4);
+			   this->Nouveau->Location = System::Drawing::Point(555, 240);
 			   this->Nouveau->Name = L"Nouveau";
-			   this->Nouveau->Size = System::Drawing::Size(160, 55);
+			   this->Nouveau->Size = System::Drawing::Size(120, 45);
 			   this->Nouveau->TabIndex = 12;
 			   this->Nouveau->Text = L"Nouveau";
 			   this->Nouveau->UseVisualStyleBackColor = true;
@@ -286,10 +276,9 @@ namespace ProjetPOO {
 			   // Modifier
 			   // 
 			   this->Modifier->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
-			   this->Modifier->Location = System::Drawing::Point(740, 369);
-			   this->Modifier->Margin = System::Windows::Forms::Padding(4);
+			   this->Modifier->Location = System::Drawing::Point(555, 300);
 			   this->Modifier->Name = L"Modifier";
-			   this->Modifier->Size = System::Drawing::Size(160, 55);
+			   this->Modifier->Size = System::Drawing::Size(120, 45);
 			   this->Modifier->TabIndex = 13;
 			   this->Modifier->Text = L"Modifier";
 			   this->Modifier->UseVisualStyleBackColor = true;
@@ -298,10 +287,9 @@ namespace ProjetPOO {
 			   // Supprimer
 			   // 
 			   this->Supprimer->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
-			   this->Supprimer->Location = System::Drawing::Point(939, 295);
-			   this->Supprimer->Margin = System::Windows::Forms::Padding(4);
+			   this->Supprimer->Location = System::Drawing::Point(704, 240);
 			   this->Supprimer->Name = L"Supprimer";
-			   this->Supprimer->Size = System::Drawing::Size(160, 55);
+			   this->Supprimer->Size = System::Drawing::Size(120, 45);
 			   this->Supprimer->TabIndex = 14;
 			   this->Supprimer->Text = L"Supprimer";
 			   this->Supprimer->UseVisualStyleBackColor = true;
@@ -309,31 +297,28 @@ namespace ProjetPOO {
 			   // Enregistrer
 			   // 
 			   this->Enregistrer->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
-			   this->Enregistrer->Location = System::Drawing::Point(939, 369);
-			   this->Enregistrer->Margin = System::Windows::Forms::Padding(4);
+			   this->Enregistrer->Location = System::Drawing::Point(704, 300);
 			   this->Enregistrer->Name = L"Enregistrer";
-			   this->Enregistrer->Size = System::Drawing::Size(160, 55);
+			   this->Enregistrer->Size = System::Drawing::Size(120, 45);
 			   this->Enregistrer->TabIndex = 15;
 			   this->Enregistrer->Text = L"Enregistrer";
 			   this->Enregistrer->UseVisualStyleBackColor = true;
 			   // 
 			   // MessageBox
 			   // 
-			   this->MessageBox->Location = System::Drawing::Point(23, 529);
-			   this->MessageBox->Margin = System::Windows::Forms::Padding(4);
+			   this->MessageBox->Location = System::Drawing::Point(17, 430);
 			   this->MessageBox->Multiline = true;
 			   this->MessageBox->Name = L"MessageBox";
 			   this->MessageBox->ReadOnly = true;
-			   this->MessageBox->Size = System::Drawing::Size(1076, 170);
+			   this->MessageBox->Size = System::Drawing::Size(808, 139);
 			   this->MessageBox->TabIndex = 16;
 			   // 
 			   // MessageTxT
 			   // 
 			   this->MessageTxT->AutoSize = true;
-			   this->MessageTxT->Location = System::Drawing::Point(19, 511);
-			   this->MessageTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			   this->MessageTxT->Location = System::Drawing::Point(14, 415);
 			   this->MessageTxT->Name = L"MessageTxT";
-			   this->MessageTxT->Size = System::Drawing::Size(65, 17);
+			   this->MessageTxT->Size = System::Drawing::Size(50, 13);
 			   this->MessageTxT->TabIndex = 17;
 			   this->MessageTxT->Text = L"Message";
 			   // 
@@ -347,108 +332,122 @@ namespace ProjetPOO {
 			   this->groupBox1->Controls->Add(this->label3);
 			   this->groupBox1->Controls->Add(this->label2);
 			   this->groupBox1->Controls->Add(this->label1);
-			   this->groupBox1->Location = System::Drawing::Point(26, 218);
+			   this->groupBox1->Location = System::Drawing::Point(20, 177);
+			   this->groupBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			   this->groupBox1->Name = L"groupBox1";
-			   this->groupBox1->Size = System::Drawing::Size(334, 132);
+			   this->groupBox1->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->groupBox1->Size = System::Drawing::Size(250, 107);
 			   this->groupBox1->TabIndex = 18;
 			   this->groupBox1->TabStop = false;
 			   this->groupBox1->Text = L"Adresse";
 			   // 
 			   // textBox4
 			   // 
-			   this->textBox4->Location = System::Drawing::Point(116, 102);
+			   this->textBox4->Location = System::Drawing::Point(87, 83);
+			   this->textBox4->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			   this->textBox4->Name = L"textBox4";
-			   this->textBox4->Size = System::Drawing::Size(171, 22);
+			   this->textBox4->Size = System::Drawing::Size(129, 20);
 			   this->textBox4->TabIndex = 7;
 			   // 
 			   // textBox3
 			   // 
-			   this->textBox3->Location = System::Drawing::Point(116, 74);
+			   this->textBox3->Location = System::Drawing::Point(87, 60);
+			   this->textBox3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			   this->textBox3->Name = L"textBox3";
-			   this->textBox3->Size = System::Drawing::Size(171, 22);
+			   this->textBox3->Size = System::Drawing::Size(129, 20);
 			   this->textBox3->TabIndex = 6;
 			   // 
 			   // textBox2
 			   // 
-			   this->textBox2->Location = System::Drawing::Point(116, 46);
+			   this->textBox2->Location = System::Drawing::Point(87, 37);
+			   this->textBox2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			   this->textBox2->Name = L"textBox2";
-			   this->textBox2->Size = System::Drawing::Size(171, 22);
+			   this->textBox2->Size = System::Drawing::Size(129, 20);
 			   this->textBox2->TabIndex = 5;
 			   // 
 			   // textBox1
 			   // 
-			   this->textBox1->Location = System::Drawing::Point(116, 19);
+			   this->textBox1->Location = System::Drawing::Point(87, 15);
+			   this->textBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			   this->textBox1->Name = L"textBox1";
-			   this->textBox1->Size = System::Drawing::Size(100, 22);
+			   this->textBox1->Size = System::Drawing::Size(76, 20);
 			   this->textBox1->TabIndex = 4;
 			   // 
 			   // label4
 			   // 
 			   this->label4->AutoSize = true;
-			   this->label4->Location = System::Drawing::Point(7, 101);
+			   this->label4->Location = System::Drawing::Point(5, 82);
+			   this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			   this->label4->Name = L"label4";
-			   this->label4->Size = System::Drawing::Size(34, 17);
+			   this->label4->Size = System::Drawing::Size(26, 13);
 			   this->label4->TabIndex = 3;
 			   this->label4->Text = L"Ville";
 			   // 
 			   // label3
 			   // 
 			   this->label3->AutoSize = true;
-			   this->label3->Location = System::Drawing::Point(7, 77);
+			   this->label3->Location = System::Drawing::Point(5, 63);
+			   this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			   this->label3->Name = L"label3";
-			   this->label3->Size = System::Drawing::Size(83, 17);
+			   this->label3->Size = System::Drawing::Size(63, 13);
 			   this->label3->TabIndex = 2;
 			   this->label3->Text = L"Code postal";
 			   // 
 			   // label2
 			   // 
 			   this->label2->AutoSize = true;
-			   this->label2->Location = System::Drawing::Point(7, 49);
+			   this->label2->Location = System::Drawing::Point(5, 40);
+			   this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			   this->label2->Name = L"label2";
-			   this->label2->Size = System::Drawing::Size(82, 17);
+			   this->label2->Size = System::Drawing::Size(62, 13);
 			   this->label2->TabIndex = 1;
 			   this->label2->Text = L"Nom de rue";
 			   // 
 			   // label1
 			   // 
 			   this->label1->AutoSize = true;
-			   this->label1->Location = System::Drawing::Point(7, 22);
+			   this->label1->Location = System::Drawing::Point(5, 18);
+			   this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			   this->label1->Name = L"label1";
-			   this->label1->Size = System::Drawing::Size(103, 17);
+			   this->label1->Size = System::Drawing::Size(77, 13);
 			   this->label1->TabIndex = 0;
 			   this->label1->Text = L"Numero de rue";
 			   // 
 			   // comboBox1
 			   // 
 			   this->comboBox1->FormattingEnabled = true;
-			   this->comboBox1->Location = System::Drawing::Point(27, 378);
+			   this->comboBox1->Location = System::Drawing::Point(20, 307);
+			   this->comboBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			   this->comboBox1->Name = L"comboBox1";
-			   this->comboBox1->Size = System::Drawing::Size(190, 24);
+			   this->comboBox1->Size = System::Drawing::Size(144, 21);
 			   this->comboBox1->TabIndex = 21;
 			   this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &PersonnelForm::comboBox1_SelectedIndexChanged);
 			   // 
 			   // label5
 			   // 
 			   this->label5->AutoSize = true;
-			   this->label5->Location = System::Drawing::Point(24, 358);
+			   this->label5->Location = System::Drawing::Point(18, 291);
+			   this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			   this->label5->Name = L"label5";
-			   this->label5->Size = System::Drawing::Size(153, 17);
+			   this->label5->Size = System::Drawing::Size(113, 13);
 			   this->label5->TabIndex = 22;
 			   this->label5->Text = L"Superieur hierarchique";
 			   // 
 			   // textBox5
 			   // 
-			   this->textBox5->Location = System::Drawing::Point(273, 380);
+			   this->textBox5->Location = System::Drawing::Point(205, 309);
+			   this->textBox5->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			   this->textBox5->Name = L"textBox5";
-			   this->textBox5->Size = System::Drawing::Size(125, 22);
+			   this->textBox5->Size = System::Drawing::Size(95, 20);
 			   this->textBox5->TabIndex = 23;
 			   this->textBox5->TextChanged += gcnew System::EventHandler(this, &PersonnelForm::textBox5_TextChanged);
 			   // 
 			   // button1
 			   // 
-			   this->button1->Location = System::Drawing::Point(404, 379);
+			   this->button1->Location = System::Drawing::Point(303, 308);
+			   this->button1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			   this->button1->Name = L"button1";
-			   this->button1->Size = System::Drawing::Size(85, 23);
+			   this->button1->Size = System::Drawing::Size(64, 19);
 			   this->button1->TabIndex = 24;
 			   this->button1->Text = L"Ajouter";
 			   this->button1->UseVisualStyleBackColor = true;
@@ -456,9 +455,10 @@ namespace ProjetPOO {
 			   // 
 			   // button2
 			   // 
-			   this->button2->Location = System::Drawing::Point(495, 378);
+			   this->button2->Location = System::Drawing::Point(371, 307);
+			   this->button2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			   this->button2->Name = L"button2";
-			   this->button2->Size = System::Drawing::Size(86, 23);
+			   this->button2->Size = System::Drawing::Size(64, 19);
 			   this->button2->TabIndex = 25;
 			   this->button2->Text = L"Supprimer";
 			   this->button2->UseVisualStyleBackColor = true;
@@ -467,17 +467,18 @@ namespace ProjetPOO {
 			   // label6
 			   // 
 			   this->label6->AutoSize = true;
-			   this->label6->Location = System::Drawing::Point(270, 353);
+			   this->label6->Location = System::Drawing::Point(202, 287);
+			   this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			   this->label6->Name = L"label6";
-			   this->label6->Size = System::Drawing::Size(224, 17);
+			   this->label6->Size = System::Drawing::Size(164, 13);
 			   this->label6->TabIndex = 26;
 			   this->label6->Text = L"Ajouter ou supprimer un superieur";
 			   // 
 			   // PersonnelForm
 			   // 
-			   this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			   this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			   this->ClientSize = System::Drawing::Size(1112, 711);
+			   this->ClientSize = System::Drawing::Size(834, 578);
 			   this->Controls->Add(this->label6);
 			   this->Controls->Add(this->button2);
 			   this->Controls->Add(this->button1);
@@ -502,9 +503,8 @@ namespace ProjetPOO {
 			   this->Controls->Add(this->IDPersonnelLBL);
 			   this->Controls->Add(this->IDPersonnel);
 			   this->Controls->Add(this->dataGridView1);
-			   this->Margin = System::Windows::Forms::Padding(4);
 			   this->Name = L"PersonnelForm";
-			   this->Text = L"XxXSQL DOMINATORXxX";
+			   this->Text = L"Application POO";
 			   this->Load += gcnew System::EventHandler(this, &PersonnelForm::PersonnelForm_Load);
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			   this->groupBox1->ResumeLayout(false);
@@ -550,9 +550,6 @@ namespace ProjetPOO {
 		   {
 			   this->ds->Clear();
 			   this->ds = processusPersonnel->listePersonnel("liste");
-			   this->IDPersonnel->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[0]);
-			   this->NomPersonnel->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[1]);
-			   this->PrenomPersonnel->Text = Convert::ToString(this->ds->Tables["liste"]->Rows[this->index]->ItemArray[2]);
 
 		   }
 	private: System::Void Nouveau_Click(System::Object^ sender, System::EventArgs^ e) {
