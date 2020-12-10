@@ -11,7 +11,7 @@ DataSet^ NS_Svc::CL_svc_gestionPersonnel::listePersonnel(String^ dataTableName)
 	return donneePersonnel;
 }
 
-int NS_Svc::CL_svc_gestionPersonnel::ajouter(int position, String^ dateEmbauche, Personnel^ Sup)
+int NS_Svc::CL_svc_gestionPersonnel::ajouter(int position, String^ dateEmbauche, int Sup)
 {
 	int reference;
 	personnel->modifierAdresseDomicile(position);
@@ -21,7 +21,7 @@ int NS_Svc::CL_svc_gestionPersonnel::ajouter(int position, String^ dateEmbauche,
 	return reference;
 }
 
-void NS_Svc::CL_svc_gestionPersonnel::modifier(int position, String^ dateEmbauche, Personnel^ Super)
+void NS_Svc::CL_svc_gestionPersonnel::modifier(int position, String^ dateEmbauche, int Super)
 {
 	personnel->modifierAdresseDomicile(position);
 	personnel->modifierDateEmbauche(dateEmbauche);

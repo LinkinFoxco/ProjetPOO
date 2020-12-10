@@ -22,8 +22,8 @@ namespace NS_Svc
 			donneePersonnel = gcnew DataSet();
 		};
 		DataSet^ listePersonnel(String^);
-		int ajouter(int, String^, Personnel^);
-		void modifier(int, String^, Personnel^);
+		int ajouter(int, String^, int);
+		void modifier(int, String^, int);
 		void supprimer(int);
 	};
 

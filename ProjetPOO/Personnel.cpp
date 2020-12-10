@@ -1,7 +1,7 @@
 #include "Personnel.h"
 
 System::String^ Personnel::SELECT(){
-    return "SELECT ID, Date_Embauche, ID_Personne, ID_Societe, ID_Personnel, ID_Adresse FROM Personnel;";
+    return "SELECT ID, Date_Embauche, ID_Personne, ID_Societe, ID_Personnel FROM Personnel;";
 }
 
 System::String^ Personnel::INSERT(){
