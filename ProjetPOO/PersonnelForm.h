@@ -293,6 +293,7 @@ namespace ProjetPOO {
 			   this->Supprimer->TabIndex = 14;
 			   this->Supprimer->Text = L"Supprimer";
 			   this->Supprimer->UseVisualStyleBackColor = true;
+			   this->Supprimer->Click += gcnew System::EventHandler(this, &PersonnelForm::Supprimer_Click);
 			   // 
 			   // Enregistrer
 			   // 
@@ -303,6 +304,7 @@ namespace ProjetPOO {
 			   this->Enregistrer->TabIndex = 15;
 			   this->Enregistrer->Text = L"Enregistrer";
 			   this->Enregistrer->UseVisualStyleBackColor = true;
+			   this->Enregistrer->Click += gcnew System::EventHandler(this, &PersonnelForm::Enregistrer_Click);
 			   // 
 			   // MessageBox
 			   // 
@@ -333,9 +335,9 @@ namespace ProjetPOO {
 			   this->groupBox1->Controls->Add(this->label2);
 			   this->groupBox1->Controls->Add(this->label1);
 			   this->groupBox1->Location = System::Drawing::Point(20, 177);
-			   this->groupBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->groupBox1->Margin = System::Windows::Forms::Padding(2);
 			   this->groupBox1->Name = L"groupBox1";
-			   this->groupBox1->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->groupBox1->Padding = System::Windows::Forms::Padding(2);
 			   this->groupBox1->Size = System::Drawing::Size(250, 107);
 			   this->groupBox1->TabIndex = 18;
 			   this->groupBox1->TabStop = false;
@@ -344,7 +346,7 @@ namespace ProjetPOO {
 			   // textBox4
 			   // 
 			   this->textBox4->Location = System::Drawing::Point(87, 83);
-			   this->textBox4->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->textBox4->Margin = System::Windows::Forms::Padding(2);
 			   this->textBox4->Name = L"textBox4";
 			   this->textBox4->Size = System::Drawing::Size(129, 20);
 			   this->textBox4->TabIndex = 7;
@@ -352,7 +354,7 @@ namespace ProjetPOO {
 			   // textBox3
 			   // 
 			   this->textBox3->Location = System::Drawing::Point(87, 60);
-			   this->textBox3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->textBox3->Margin = System::Windows::Forms::Padding(2);
 			   this->textBox3->Name = L"textBox3";
 			   this->textBox3->Size = System::Drawing::Size(129, 20);
 			   this->textBox3->TabIndex = 6;
@@ -360,7 +362,7 @@ namespace ProjetPOO {
 			   // textBox2
 			   // 
 			   this->textBox2->Location = System::Drawing::Point(87, 37);
-			   this->textBox2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->textBox2->Margin = System::Windows::Forms::Padding(2);
 			   this->textBox2->Name = L"textBox2";
 			   this->textBox2->Size = System::Drawing::Size(129, 20);
 			   this->textBox2->TabIndex = 5;
@@ -368,7 +370,7 @@ namespace ProjetPOO {
 			   // textBox1
 			   // 
 			   this->textBox1->Location = System::Drawing::Point(87, 15);
-			   this->textBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->textBox1->Margin = System::Windows::Forms::Padding(2);
 			   this->textBox1->Name = L"textBox1";
 			   this->textBox1->Size = System::Drawing::Size(76, 20);
 			   this->textBox1->TabIndex = 4;
@@ -417,7 +419,7 @@ namespace ProjetPOO {
 			   // 
 			   this->comboBox1->FormattingEnabled = true;
 			   this->comboBox1->Location = System::Drawing::Point(20, 307);
-			   this->comboBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->comboBox1->Margin = System::Windows::Forms::Padding(2);
 			   this->comboBox1->Name = L"comboBox1";
 			   this->comboBox1->Size = System::Drawing::Size(144, 21);
 			   this->comboBox1->TabIndex = 21;
@@ -436,7 +438,7 @@ namespace ProjetPOO {
 			   // textBox5
 			   // 
 			   this->textBox5->Location = System::Drawing::Point(205, 309);
-			   this->textBox5->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->textBox5->Margin = System::Windows::Forms::Padding(2);
 			   this->textBox5->Name = L"textBox5";
 			   this->textBox5->Size = System::Drawing::Size(95, 20);
 			   this->textBox5->TabIndex = 23;
@@ -445,7 +447,7 @@ namespace ProjetPOO {
 			   // button1
 			   // 
 			   this->button1->Location = System::Drawing::Point(303, 308);
-			   this->button1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->button1->Margin = System::Windows::Forms::Padding(2);
 			   this->button1->Name = L"button1";
 			   this->button1->Size = System::Drawing::Size(64, 19);
 			   this->button1->TabIndex = 24;
@@ -456,7 +458,7 @@ namespace ProjetPOO {
 			   // button2
 			   // 
 			   this->button2->Location = System::Drawing::Point(371, 307);
-			   this->button2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			   this->button2->Margin = System::Windows::Forms::Padding(2);
 			   this->button2->Name = L"button2";
 			   this->button2->Size = System::Drawing::Size(64, 19);
 			   this->button2->TabIndex = 25;
@@ -534,8 +536,6 @@ namespace ProjetPOO {
 	}
 	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-	private: System::Void Modifier_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
 	private: System::Void PersonnelForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		iniDataSet("adresse");
 		index = 0;
@@ -558,6 +558,12 @@ namespace ProjetPOO {
 		PrenomPersonnel->Clear();
 		mode = "nouveau";
 		MessageBox->Text = "Veuillez saisir les informations du personnel et enregistrer.";
+	}
+	private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void Modifier_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void Supprimer_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void LeftPlus_Click(System::Object^ sender, System::EventArgs^ e) {
 			   index = 0;
@@ -601,5 +607,5 @@ namespace ProjetPOO {
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		comboBox1->Items->Remove(this->comboBox1->Text);
 	}
-	};
+};
 }
