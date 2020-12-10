@@ -81,6 +81,7 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::Button^ Facture;
 	private: System::Windows::Forms::DataGridView^ dataGridView2;
 
+
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -128,7 +129,7 @@ namespace ProjetPOO {
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Location = System::Drawing::Point(652, 23);
-			this->dataGridView1->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(6);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->Size = System::Drawing::Size(1000, 331);
@@ -147,7 +148,7 @@ namespace ProjetPOO {
 			// MessageBox
 			// 
 			this->MessageBox->Location = System::Drawing::Point(22, 783);
-			this->MessageBox->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
+			this->MessageBox->Margin = System::Windows::Forms::Padding(6);
 			this->MessageBox->Multiline = true;
 			this->MessageBox->Name = L"MessageBox";
 			this->MessageBox->ReadOnly = true;
@@ -158,7 +159,7 @@ namespace ProjetPOO {
 			// 
 			this->Enregistrer->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
 			this->Enregistrer->Location = System::Drawing::Point(1408, 655);
-			this->Enregistrer->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
+			this->Enregistrer->Margin = System::Windows::Forms::Padding(6);
 			this->Enregistrer->Name = L"Enregistrer";
 			this->Enregistrer->Size = System::Drawing::Size(240, 85);
 			this->Enregistrer->TabIndex = 15;
@@ -170,7 +171,7 @@ namespace ProjetPOO {
 			// 
 			this->Supprimer->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
 			this->Supprimer->Location = System::Drawing::Point(1156, 655);
-			this->Supprimer->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
+			this->Supprimer->Margin = System::Windows::Forms::Padding(6);
 			this->Supprimer->Name = L"Supprimer";
 			this->Supprimer->Size = System::Drawing::Size(240, 85);
 			this->Supprimer->TabIndex = 14;
@@ -182,7 +183,7 @@ namespace ProjetPOO {
 			// 
 			this->Modifier->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
 			this->Modifier->Location = System::Drawing::Point(904, 655);
-			this->Modifier->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
+			this->Modifier->Margin = System::Windows::Forms::Padding(6);
 			this->Modifier->Name = L"Modifier";
 			this->Modifier->Size = System::Drawing::Size(240, 85);
 			this->Modifier->TabIndex = 13;
@@ -194,7 +195,7 @@ namespace ProjetPOO {
 			// 
 			this->Ajouter->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
 			this->Ajouter->Location = System::Drawing::Point(652, 655);
-			this->Ajouter->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
+			this->Ajouter->Margin = System::Windows::Forms::Padding(6);
 			this->Ajouter->Name = L"Ajouter";
 			this->Ajouter->Size = System::Drawing::Size(240, 85);
 			this->Ajouter->TabIndex = 12;
@@ -215,7 +216,7 @@ namespace ProjetPOO {
 			// IDArticle
 			// 
 			this->IDArticle->Location = System::Drawing::Point(39, 74);
-			this->IDArticle->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
+			this->IDArticle->Margin = System::Windows::Forms::Padding(6);
 			this->IDArticle->Name = L"IDArticle";
 			this->IDArticle->ReadOnly = true;
 			this->IDArticle->Size = System::Drawing::Size(568, 26);
@@ -244,7 +245,7 @@ namespace ProjetPOO {
 			// Quantite
 			// 
 			this->Quantite->Location = System::Drawing::Point(39, 214);
-			this->Quantite->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
+			this->Quantite->Margin = System::Windows::Forms::Padding(6);
 			this->Quantite->Name = L"Quantite";
 			this->Quantite->Size = System::Drawing::Size(568, 26);
 			this->Quantite->TabIndex = 5;
@@ -272,7 +273,7 @@ namespace ProjetPOO {
 			// DateLivraison
 			// 
 			this->DateLivraison->Location = System::Drawing::Point(39, 291);
-			this->DateLivraison->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
+			this->DateLivraison->Margin = System::Windows::Forms::Padding(6);
 			this->DateLivraison->Name = L"DateLivraison";
 			this->DateLivraison->Size = System::Drawing::Size(568, 26);
 			this->DateLivraison->TabIndex = 18;
@@ -290,7 +291,7 @@ namespace ProjetPOO {
 			// DateEmission
 			// 
 			this->DateEmission->Location = System::Drawing::Point(39, 375);
-			this->DateEmission->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
+			this->DateEmission->Margin = System::Windows::Forms::Padding(6);
 			this->DateEmission->Name = L"DateEmission";
 			this->DateEmission->ReadOnly = true;
 			this->DateEmission->Size = System::Drawing::Size(568, 26);
@@ -347,7 +348,7 @@ namespace ProjetPOO {
 			// DatePaiement
 			// 
 			this->DatePaiement->Location = System::Drawing::Point(39, 608);
-			this->DatePaiement->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
+			this->DatePaiement->Margin = System::Windows::Forms::Padding(6);
 			this->DatePaiement->Name = L"DatePaiement";
 			this->DatePaiement->Size = System::Drawing::Size(568, 26);
 			this->DatePaiement->TabIndex = 26;
@@ -360,7 +361,7 @@ namespace ProjetPOO {
 			// 
 			this->Facture->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
 			this->Facture->Location = System::Drawing::Point(400, 655);
-			this->Facture->Margin = System::Windows::Forms::Padding(6, 6, 6, 6);
+			this->Facture->Margin = System::Windows::Forms::Padding(6);
 			this->Facture->Name = L"Facture";
 			this->Facture->Size = System::Drawing::Size(240, 85);
 			this->Facture->TabIndex = 28;
@@ -449,9 +450,9 @@ private: void iniDataSetPanier() {
 	dataGridView2->DataMember = "coutPanierMoy";
 }
 
-private: void iniDataSetChiffreDafaire() {
+private: void iniDataSetChiffreDaffaire() {
 	System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
-	System::String^ sql = "SELECT SUM(Prix_Total_TTC) FROM Commande";
+	System::String^ sql = "SELECT SUM(Prix_Total_TTC) FROM Commande WHERE MONTH = (SELECT LEFT(Date_Paiement, 5), RIGHT(Date_Paiement, 5)";
 	System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
 	System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
 	DataSet^ ds = gcnew DataSet();
@@ -545,6 +546,7 @@ private: System::Void dataGridView2_CellContentClick(System::Object^ sender, Sys
 }
 private: System::Void dataGridView2_CellMouseDoubleClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellMouseEventArgs^ e) {
 	iniDataSetPanier();
+	iniDataSetChiffreDaffaire();
 }
 };
 }
