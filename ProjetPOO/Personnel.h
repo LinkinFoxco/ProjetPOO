@@ -7,16 +7,16 @@ ref class Personnel : public Personne
 public:
 	Personnel() {
 		referencePersonnel = -1;
-		m_adresseDomicile = gcnew Adresse();
 		m_dateEmbauche = "RIEN";
+		m_idSuperieur = -1;
 	}
-	Adresse^ obtenirAdresseDomicile() { return m_adresseDomicile; }
+	int obtenirAdresseDomicile() { return m_idAdresseDomicile; }
 	System::String^ obtenirDateEmbauche() { return m_dateEmbauche; }
-	Personnel^ obtenirSuperieur() { return m_superieur; }
+	int obtenirSuperieur() { return m_idSuperieur; }
 	int obtenirReferencePersonnel() { return referencePersonnel; }
-	void modifierAdresseDomicile(int position) { m_adresseDomicile = obtenirPAdresse(position); }
+	void modifierAdresseDomicile(int newAdresse) { m_idAdresseDomicile = newAdresse; }
 	void modifierDateEmbauche(System::String^ dateEnbauche) { m_dateEmbauche = dateEnbauche; }
-	void modifierSuperieur(Personnel^ superieurHierarchique) { m_superieur = superieurHierarchique; }
+	void modifierSuperieur(int idSuperieurHierarchique) { m_idSuperieur = idSuperieurHierarchique; }
 	void modifierReferencePersonnel(int Nref) { referencePersonnel = Nref; }
 
 	System::String^ SELECT();
@@ -26,9 +26,9 @@ public:
 
 private :
 	int referencePersonnel;
-	Adresse^ m_adresseDomicile;
+	int m_idAdresseDomicile;
 	System::String^ m_dateEmbauche;
-	Personnel^ m_superieur;
+	int m_idSuperieur;
 
 };
 

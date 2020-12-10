@@ -463,7 +463,7 @@ private: void iniDataSetChiffreDafaire() {
 }
 
 private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	/*iniDataSet("Commande", "SELECT Article.Nom_Article AS Article, contient.Quantite, Cout.Cout_HT AS Cout_HT_Par_Article FROM Commande LEFT JOIN (Contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON Contient.ID = Article.ID) ON Contient.ID_Commande = Commande.ID");
+	iniDataSet("Commande", "SELECT Article.Nom_Article AS Article, contient.Quantite, Cout.Cout_HT AS Cout_HT_Par_Article FROM Commande LEFT JOIN (Contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON Contient.ID = Article.ID) ON Contient.ID_Commande = Commande.ID");
 	index = 0;
 	mode = "RIEN";
 	ds = gcnew Data::DataSet();
@@ -491,14 +491,14 @@ private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArg
 		this->ArticleCBox->Items->Add(Convert::ToString(dsArticle->Tables["Article_table"]->Rows[this->index]->ItemArray[i]));
 	}
 
-	System::String^ connectionStringClient = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
+	/*System::String^ connectionStringClient = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
 	System::String^ sqlClient = "SELECT Personne.Nom_Personne, Personne.Prenom_Personne FROM Client LEFT JOIN Personne ON Client.ID_Personne = Personne.ID;";
 	System::Data::SqlClient::SqlConnection^ connectionClient = gcnew System::Data::SqlClient::SqlConnection(connectionStringClient);
 	System::Data::SqlClient::SqlDataAdapter^ dataadapterClient = gcnew System::Data::SqlClient::SqlDataAdapter(sqlClient, connectionClient);
 	connectionClient->Open();
 	dataadapterClient->Fill(dsClient, "Client_table");
 	connectionClient->Close();
-	this->ClientCBox->CreateObjRef(Client())
+	this->ClientCBox->CreateObjRef(Client());
 	for (int i = 0; i < (dsClient->Tables->Count - 1); i++)
 	{
 		Client coucouc;
