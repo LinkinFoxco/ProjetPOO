@@ -11,19 +11,21 @@ DataSet^ NS_Svc::CL_svc_gestionPersonnel::listePersonnel(String^ dataTableName)
 	return donneePersonnel;
 }
 
-int NS_Svc::CL_svc_gestionPersonnel::ajouter(int position, String^ dateEmbauche, int Sup)
+int NS_Svc::CL_svc_gestionPersonnel::ajouter(String^ Nom, String^ Prenom, String^ dateEmbauche, String^ Sup)
 {
 	int reference;
-	personnel->modifierAdresseDomicile(position);
+	personnel->modifierPNom(Nom);
+	personnel->modifierPPrenom(Prenom);
 	personnel->modifierDateEmbauche(dateEmbauche);
 	personnel->modifierSuperieur(Sup);
 	reference = Pcad->actionRowsID(personnel->INSERT());
 	return reference;
 }
 
-void NS_Svc::CL_svc_gestionPersonnel::modifier(int position, String^ dateEmbauche, int Super)
+void NS_Svc::CL_svc_gestionPersonnel::modifier(String^ Pre, String^ Nom, String^ dateEmbauche, String^ Super)
 {
-	personnel->modifierAdresseDomicile(position);
+	personnel->modifierPPrenom(Pre);
+	personnel->modifierPNom(Nom);
 	personnel->modifierDateEmbauche(dateEmbauche);
 	personnel->modifierSuperieur(Super);
 

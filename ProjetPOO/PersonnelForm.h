@@ -108,6 +108,8 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog2;
+	private: System::Windows::Forms::Label^ DateEmbaucheLabel;
+	private: System::Windows::Forms::TextBox^ DateEmbauche;
 	private: System::Windows::Forms::Label^ label6;
 
 
@@ -152,6 +154,8 @@ namespace ProjetPOO {
 			   this->button2 = (gcnew System::Windows::Forms::Button());
 			   this->label6 = (gcnew System::Windows::Forms::Label());
 			   this->folderBrowserDialog2 = (gcnew System::Windows::Forms::FolderBrowserDialog());
+			   this->DateEmbaucheLabel = (gcnew System::Windows::Forms::Label());
+			   this->DateEmbauche = (gcnew System::Windows::Forms::TextBox());
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			   this->groupBox1->SuspendLayout();
 			   this->SuspendLayout();
@@ -334,7 +338,7 @@ namespace ProjetPOO {
 			   this->groupBox1->Controls->Add(this->label3);
 			   this->groupBox1->Controls->Add(this->label2);
 			   this->groupBox1->Controls->Add(this->label1);
-			   this->groupBox1->Location = System::Drawing::Point(20, 177);
+			   this->groupBox1->Location = System::Drawing::Point(20, 222);
 			   this->groupBox1->Margin = System::Windows::Forms::Padding(2);
 			   this->groupBox1->Name = L"groupBox1";
 			   this->groupBox1->Padding = System::Windows::Forms::Padding(2);
@@ -418,7 +422,7 @@ namespace ProjetPOO {
 			   // comboBox1
 			   // 
 			   this->comboBox1->FormattingEnabled = true;
-			   this->comboBox1->Location = System::Drawing::Point(20, 307);
+			   this->comboBox1->Location = System::Drawing::Point(20, 352);
 			   this->comboBox1->Margin = System::Windows::Forms::Padding(2);
 			   this->comboBox1->Name = L"comboBox1";
 			   this->comboBox1->Size = System::Drawing::Size(144, 21);
@@ -428,7 +432,7 @@ namespace ProjetPOO {
 			   // label5
 			   // 
 			   this->label5->AutoSize = true;
-			   this->label5->Location = System::Drawing::Point(18, 291);
+			   this->label5->Location = System::Drawing::Point(18, 336);
 			   this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			   this->label5->Name = L"label5";
 			   this->label5->Size = System::Drawing::Size(113, 13);
@@ -437,7 +441,7 @@ namespace ProjetPOO {
 			   // 
 			   // textBox5
 			   // 
-			   this->textBox5->Location = System::Drawing::Point(205, 309);
+			   this->textBox5->Location = System::Drawing::Point(205, 354);
 			   this->textBox5->Margin = System::Windows::Forms::Padding(2);
 			   this->textBox5->Name = L"textBox5";
 			   this->textBox5->Size = System::Drawing::Size(95, 20);
@@ -446,7 +450,7 @@ namespace ProjetPOO {
 			   // 
 			   // button1
 			   // 
-			   this->button1->Location = System::Drawing::Point(303, 308);
+			   this->button1->Location = System::Drawing::Point(303, 353);
 			   this->button1->Margin = System::Windows::Forms::Padding(2);
 			   this->button1->Name = L"button1";
 			   this->button1->Size = System::Drawing::Size(64, 19);
@@ -457,7 +461,7 @@ namespace ProjetPOO {
 			   // 
 			   // button2
 			   // 
-			   this->button2->Location = System::Drawing::Point(371, 307);
+			   this->button2->Location = System::Drawing::Point(371, 352);
 			   this->button2->Margin = System::Windows::Forms::Padding(2);
 			   this->button2->Name = L"button2";
 			   this->button2->Size = System::Drawing::Size(64, 19);
@@ -469,18 +473,36 @@ namespace ProjetPOO {
 			   // label6
 			   // 
 			   this->label6->AutoSize = true;
-			   this->label6->Location = System::Drawing::Point(202, 287);
+			   this->label6->Location = System::Drawing::Point(202, 332);
 			   this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			   this->label6->Name = L"label6";
 			   this->label6->Size = System::Drawing::Size(164, 13);
 			   this->label6->TabIndex = 26;
 			   this->label6->Text = L"Ajouter ou supprimer un superieur";
 			   // 
+			   // DateEmbaucheLabel
+			   // 
+			   this->DateEmbaucheLabel->AutoSize = true;
+			   this->DateEmbaucheLabel->Location = System::Drawing::Point(17, 165);
+			   this->DateEmbaucheLabel->Name = L"DateEmbaucheLabel";
+			   this->DateEmbaucheLabel->Size = System::Drawing::Size(93, 13);
+			   this->DateEmbaucheLabel->TabIndex = 28;
+			   this->DateEmbaucheLabel->Text = L"Date d'embauche (Format : 01/01/2000)";
+			   // 
+			   // DateEmbauche
+			   // 
+			   this->DateEmbauche->Location = System::Drawing::Point(20, 180);
+			   this->DateEmbauche->Name = L"DateEmbauche";
+			   this->DateEmbauche->Size = System::Drawing::Size(177, 20);
+			   this->DateEmbauche->TabIndex = 27;
+			   // 
 			   // PersonnelForm
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			   this->ClientSize = System::Drawing::Size(834, 578);
+			   this->Controls->Add(this->DateEmbaucheLabel);
+			   this->Controls->Add(this->DateEmbauche);
 			   this->Controls->Add(this->label6);
 			   this->Controls->Add(this->button2);
 			   this->Controls->Add(this->button1);
@@ -553,17 +575,31 @@ namespace ProjetPOO {
 
 		   }
 	private: System::Void Nouveau_Click(System::Object^ sender, System::EventArgs^ e) {
-		IDPersonnel->Clear();
-		NomPersonnel->Clear();
-		PrenomPersonnel->Clear();
-		mode = "nouveau";
-		MessageBox->Text = "Veuillez saisir les informations du personnel et enregistrer.";
-	}
-	private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArgs^ e) {
+		mode = "nouv";
+		MessageBox->Text = "Veuillez appuyez sur Enregistrer pour confirmer l'ajout d'un employé.";
 	}
 	private: System::Void Modifier_Click(System::Object^ sender, System::EventArgs^ e) {
+		mode = "modif";
+		MessageBox->Text = "Veuillez appuyez sur Enregistrer pour confirmer les modifications.";
 	}
 	private: System::Void Supprimer_Click(System::Object^ sender, System::EventArgs^ e) {
+		mode = "suppr";
+		MessageBox->Text = "Veuillez appuyez sur Enregistrer pour confirmer la suppression.";
+	}
+	private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (mode == "nouv") {
+			this->processusPersonnel->ajouter(this->NomPersonnel->Text, this->PrenomPersonnel->Text, this->DateEmbauche->Text, this->comboBox1->Text);
+			MessageBox->Text = "L'ajout à bien été effectuer !";
+		}
+		else if (mode == "modif") {
+			this->processusPersonnel->modifier(this->PrenomPersonnel->Text, this->NomPersonnel->Text, this->DateEmbauche->Text, this->comboBox1->Text);
+			MessageBox->Text = "La modification à bien été effectuer !";
+		}
+		else if (mode == "suppr") {
+			this->processusPersonnel->supprimer(Convert::ToInt32(this->IDPersonnel->Text));
+			MessageBox->Text = "La suppression à bien été effectuer !";
+		}
+		iniDataSet("adresse");
 	}
 	private: System::Void LeftPlus_Click(System::Object^ sender, System::EventArgs^ e) {
 			   index = 0;

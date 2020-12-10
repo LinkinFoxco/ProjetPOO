@@ -14,9 +14,12 @@ System::String^ Personnel::INSERT(){
 }
 
 System::String^ Personnel::UPDATE(){
-    return "UPDATE Personnel SET Date_Embauche = '" + this->obtenirDateEmbauche()
-        + "', ID_Personnel = '" + System::Convert::ToString(this->obtenirSuperieur())
-        + "' WHERE(ID = " + this->obtenirReferencePersonnel() + ");";
+    return "UPDATE Personne SET Nom_Personne = '" + this->obtenirPNom()
+        + "', Prenom_Personne = '" + this->obtenirPPrenom()
+        + "' WHERE(Personne.ID = '" + this->obtenirReferencePersonne()
+        + "'); UPDATE Personnel SET Date_Embauche = '" + this->obtenirDateEmbauche()
+        + "', ID_Personnel = '" + this->obtenirSuperieur()
+        + "' WHERE(ID = '" + this->obtenirReferencePersonnel() + "');";
 }
 
 System::String^ Personnel::DELETE(){
