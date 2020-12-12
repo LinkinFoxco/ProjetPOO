@@ -41,11 +41,17 @@ public:
 	}
 
 
-	void modifier2LPrenom() { m_2Lprenom = System::Convert::ToString(m_client->obtenirPPrenom()[0]) 
-		+ System::Convert::ToString(m_client->obtenirPPrenom()[1]); }
+	void modifier2LPrenom() 
+	{ 
+		m_2Lprenom = System::Convert::ToString(m_client->obtenirPPrenom()[0]) 
+			+ System::Convert::ToString(m_client->obtenirPPrenom()[1]); 
+	}
 
-	void modifier2LNom() { m_2Lprenom = System::Convert::ToString(m_client->obtenirPNom()[0]) 
-		+ System::Convert::ToString(m_client->obtenirPNom()[1]); }
+	void modifier2LNom() 
+	{ 
+		m_2Lprenom = System::Convert::ToString(m_client->obtenirPNom()[0]) 
+			+ System::Convert::ToString(m_client->obtenirPNom()[1]); 
+	}
 
 
 	int obtenirReferenceCommande() { return referenceCommande; }
