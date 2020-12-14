@@ -23,6 +23,7 @@ ref class Commande
 {
 public:
 	Commande();
+	void calculArticles(int, int, int, int);
 	void calculPanier(); //calcul totalArticle; totalPrixHT; totalPrixTVA; totalPrixTTC;
 	void ajouterArticles(qttArticle^ Nqttarticle) { m_articles.Add(Nqttarticle); }
 	void ajouterArticles(Article^ art, int qtt);

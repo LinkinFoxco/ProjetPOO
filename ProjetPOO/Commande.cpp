@@ -27,6 +27,16 @@ void Commande::calculPanier()
 	}
 }
 
+void Commande::calculArticles(int TVA, int Marge, int Remise, int Demarque)
+{
+	for (int i = 0; i < m_articles.Count; i++)
+	{
+		m_articles[i]->m_article->obtenirCoutArticle()->calculerCoutTVA(TVA);
+		m_articles[i]->m_article->obtenirCoutArticle()->calculerCoutTTC(Marge, Remise, Demarque);
+	}
+}
+
+
 void Commande::modifierArticles(qttArticle^ art)
 {
 	int position(0);

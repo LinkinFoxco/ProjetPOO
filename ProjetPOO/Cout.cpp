@@ -27,9 +27,9 @@ Cout::Cout()
 	Demarque->Add(5);
 }
 
-void Cout::calculerCoutTTC(int margePosition, int remisePosition, int demarquePosition)
+void Cout::calculerCoutTTC(int margeValeur, int remiseValeur, int demarqueValeur)
 {
-	CoutTTC = CoutTVA + CoutTVA * Marge[margePosition]/100 + CoutTVA * Remise[remisePosition]/100 + CoutTVA * Demarque[demarquePosition]/100;
+	CoutTTC = CoutTVA + CoutTVA * margeValeur /100 + CoutTVA * remiseValeur /100 + CoutTVA * demarqueValeur /100;
 }
 
 System::String^ Cout::SELECT(){
