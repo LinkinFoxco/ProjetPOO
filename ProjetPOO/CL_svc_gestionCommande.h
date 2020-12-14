@@ -11,7 +11,6 @@ namespace NS_Svc
 	{
 	private:
 		CL_CAD^ cadCommande;
-		Commande^ commande;
 		DataSet^ donneeCommande;
 	public:
 		CL_svc_gestionCommande() {
@@ -19,6 +18,7 @@ namespace NS_Svc
 			commande = gcnew Commande();
 			donneeCommande = gcnew DataSet();
 		};
+		Commande^ commande;
 		DataSet^ listeCommande(String^);
 		int ajouter(Article^ article, int qtt, Client^ client, moyenDePaiement^ moyPaiement, String^ dateLivraison, String^ dateEmission, String^ datePaiement);
 		void modifier(int referenceCommande, Article^ article, int qtt, Client^ client, moyenDePaiement^ moyPaiement, String^ dateLivraison, String^ dateEmission, String^ datePaiement);

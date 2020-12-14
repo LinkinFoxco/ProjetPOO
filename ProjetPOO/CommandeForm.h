@@ -80,6 +80,13 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 	private: System::Windows::Forms::Button^ Facture;
 	private: System::Windows::Forms::DataGridView^ dataGridView2;
+	private: System::Windows::Forms::ComboBox^ comboBox1;
+	private: System::Windows::Forms::ComboBox^ comboBox2;
+	private: System::Windows::Forms::ComboBox^ comboBox3;
+	private: System::Windows::Forms::ComboBox^ comboBox4;
+
+
+
 
 
 	private:
@@ -121,6 +128,10 @@ namespace ProjetPOO {
 			this->folderBrowserDialog1 = (gcnew System::Windows::Forms::FolderBrowserDialog());
 			this->Facture = (gcnew System::Windows::Forms::Button());
 			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox3 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox4 = (gcnew System::Windows::Forms::ComboBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
 			this->SuspendLayout();
@@ -259,6 +270,7 @@ namespace ProjetPOO {
 			this->ArticleCBox->Name = L"ArticleCBox";
 			this->ArticleCBox->Size = System::Drawing::Size(566, 28);
 			this->ArticleCBox->TabIndex = 6;
+			this->ArticleCBox->SelectedIndexChanged += gcnew System::EventHandler(this, &CommandeForm::ArticleCBox_SelectedIndexChanged);
 			// 
 			// DateLivraisonTxT
 			// 
@@ -381,12 +393,49 @@ namespace ProjetPOO {
 			this->dataGridView2->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CommandeForm::dataGridView2_CellContentClick);
 			this->dataGridView2->CellMouseDoubleClick += gcnew System::Windows::Forms::DataGridViewCellMouseEventHandler(this, &CommandeForm::dataGridView2_CellMouseDoubleClick);
 			// 
+			// comboBox1
+			// 
+			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Location = System::Drawing::Point(56, 664);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->Size = System::Drawing::Size(121, 28);
+			this->comboBox1->TabIndex = 30;
+			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &CommandeForm::comboBox1_SelectedIndexChanged);
+			// 
+			// comboBox2
+			// 
+			this->comboBox2->FormattingEnabled = true;
+			this->comboBox2->Location = System::Drawing::Point(56, 698);
+			this->comboBox2->Name = L"comboBox2";
+			this->comboBox2->Size = System::Drawing::Size(121, 28);
+			this->comboBox2->TabIndex = 31;
+			// 
+			// comboBox3
+			// 
+			this->comboBox3->FormattingEnabled = true;
+			this->comboBox3->Location = System::Drawing::Point(183, 664);
+			this->comboBox3->Name = L"comboBox3";
+			this->comboBox3->Size = System::Drawing::Size(121, 28);
+			this->comboBox3->TabIndex = 32;
+			// 
+			// comboBox4
+			// 
+			this->comboBox4->FormattingEnabled = true;
+			this->comboBox4->Location = System::Drawing::Point(183, 698);
+			this->comboBox4->Name = L"comboBox4";
+			this->comboBox4->Size = System::Drawing::Size(121, 28);
+			this->comboBox4->TabIndex = 33;
+			// 
 			// CommandeForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoSize = true;
 			this->ClientSize = System::Drawing::Size(1668, 969);
+			this->Controls->Add(this->comboBox4);
+			this->Controls->Add(this->comboBox3);
+			this->Controls->Add(this->comboBox2);
+			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->dataGridView2);
 			this->Controls->Add(this->Facture);
 			this->Controls->Add(this->DatePaiementTxT);
@@ -431,10 +480,10 @@ private: void iniDataSet(System::String^ table, System::String^ Query){
 	System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
 	DataSet^ ds = gcnew DataSet();
 	connection->Open();
-	dataadapter->Fill(ds, table + "_table");
+	//dataadapter->Fill(ds, table + "_table");
 	connection->Close();
-	dataGridView1->DataSource = ds;
-	dataGridView1->DataMember = table + "_table";
+	//dataGridView1->DataSource = ds;
+	//dataGridView1->DataMember = table + "_table";
 }
 
 private: void iniDataSetPanier() {
@@ -463,13 +512,27 @@ private: void iniDataSetChiffreDaffaire() {
 	dataGridView1->DataMember = "chiffreDaffaire";
 }
 
+private: void iniDataSetArticles() {
+	System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
+	System::String^ sql = "SELECT Nom_Article FROM Article";
+	System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
+	System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
+	DataSet^ ds = gcnew DataSet();
+	connection->Open();
+	dataadapter->Fill(ds);
+	connection->Close();
+	ArticleCBox->DataSource = ds->Tables[0];
+	ArticleCBox->DisplayMember = "Nom_Article";
+	ArticleCBox->ValueMember = "Nom_Article";
+}
+
 private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	iniDataSet("Commande", "SELECT Article.Nom_Article AS Article, contient.Quantite, Cout.Cout_HT AS Cout_HT_Par_Article FROM Commande LEFT JOIN (Contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON Contient.ID = Article.ID) ON Contient.ID_Commande = Commande.ID");
 	index = 0;
 	mode = "RIEN";
 	ds = gcnew Data::DataSet();
 	processusCommande = gcnew NS_Svc::CL_svc_gestionCommande();
-	MessageTxT->Text = "Data charg�es";
+	MessageTxT->Text = "Data chargees";
 	this->DateEmission->Text = DateTime::Now.ToString();
 	this->MoyenPaiement->Items->Add(moyenDePaiement::Avoir);
 	this->MoyenPaiement->Items->Add(moyenDePaiement::CB);
@@ -478,6 +541,21 @@ private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArg
 	this->MoyenPaiement->Items->Add(moyenDePaiement::Crypto);
 	this->MoyenPaiement->Items->Add(moyenDePaiement::Fiduciaire);
 	this->MoyenPaiement->Items->Add(moyenDePaiement::Paypal);
+
+	iniDataSetArticles();
+
+	Cout^ buff = gcnew Cout();
+	for (int i = 0; i <= 3; i++)
+	{
+		comboBox1->Items->Add(buff->obtenirTVA(i));
+		comboBox2->Items->Add(buff->obtenirMarge(i));
+		comboBox4->Items->Add(buff->obtenirDemarque(i));
+		
+		if (i < 3)
+		{
+			comboBox3->Items->Add(buff->obtenirRemise(i));
+		}
+	}
 
 	System::String^ connectionStringArticle = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
 	System::String^ sqlArticle = "SELECT Nom_Article FROM Article;";
@@ -547,6 +625,14 @@ private: System::Void dataGridView2_CellContentClick(System::Object^ sender, Sys
 private: System::Void dataGridView2_CellMouseDoubleClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellMouseEventArgs^ e) {
 	iniDataSetPanier();
 	iniDataSetChiffreDaffaire();
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+}
+private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	processusCommande->commande->calculArticles(Convert::ToInt32(comboBox1->SelectedItem), Convert::ToInt32(comboBox2->SelectedItem), Convert::ToInt32(comboBox3->SelectedItem), Convert::ToInt32(comboBox4->SelectedItem));
+}
+private: System::Void ArticleCBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
