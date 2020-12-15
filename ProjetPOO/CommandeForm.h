@@ -473,166 +473,181 @@ namespace ProjetPOO {
 
 		}
 #pragma endregion
-private: void iniDataSet(System::String^ table, System::String^ Query){
-	System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
-	System::String^ sql = Query;
-	System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
-	System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
-	DataSet^ ds = gcnew DataSet();
-	connection->Open();
-	//dataadapter->Fill(ds, table + "_table");
-	connection->Close();
-	//dataGridView1->DataSource = ds;
-	//dataGridView1->DataMember = table + "_table";
-}
+	private: void iniDataSet(System::String^ table, System::String^ Query){
+		System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
+		System::String^ sql = Query;
+		System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
+		System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
+		DataSet^ ds = gcnew DataSet();
+		connection->Open();
+		dataadapter->Fill(ds, table + "_table");
+		connection->Close();
+		dataGridView1->DataSource = ds;
+		dataGridView1->DataMember = table + "_table";
+	}
 
-private: void iniDataSetPanier() {
-	System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
-	System::String^ sql = "SELECT AVG(Prix_Total_TTC) FROM Commande";
-	System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
-	System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
-	DataSet^ ds = gcnew DataSet();
-	connection->Open();
-	dataadapter->Fill(ds, "coutPanierMoy");
-	connection->Close();
-	dataGridView2->DataSource = ds;
-	dataGridView2->DataMember = "coutPanierMoy";
-}
+	private: void iniDataSetPanier() {
+		System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
+		System::String^ sql = "SELECT AVG(Prix_Total_TTC) FROM Commande";
+		System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
+		System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
+		DataSet^ ds = gcnew DataSet();
+		connection->Open();
+		dataadapter->Fill(ds, "coutPanierMoy");
+		connection->Close();
+		dataGridView2->DataSource = ds;
+		dataGridView2->DataMember = "coutPanierMoy";
+	}
 
-private: void iniDataSetChiffreDaffaire() {
-	System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
-	System::String^ sql = "SELECT SUM(Prix_Total_TTC) FROM Commande WHERE MONTH = (SELECT LEFT(Date_Paiement, 5), RIGHT(Date_Paiement, 5)";
-	System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
-	System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
-	DataSet^ ds = gcnew DataSet();
-	connection->Open();
-	dataadapter->Fill(ds, "chiffreDaffaire");
-	connection->Close();
-	dataGridView1->DataSource = ds;
-	dataGridView1->DataMember = "chiffreDaffaire";
-}
+	private: void iniDataSetChiffreDaffaire() {
+		System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
+		System::String^ sql = "SELECT SUM(Prix_Total_TTC) FROM Commande WHERE MONTH = (SELECT LEFT(Date_Paiement, 5), RIGHT(Date_Paiement, 5)";
+		System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
+		System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
+		DataSet^ ds = gcnew DataSet();
+		connection->Open();
+		dataadapter->Fill(ds, "chiffreDaffaire");
+		connection->Close();
+		dataGridView1->DataSource = ds;
+		dataGridView1->DataMember = "chiffreDaffaire";
+	}
 
-private: void iniDataSetArticles() {
-	System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
-	System::String^ sql = "SELECT Nom_Article FROM Article";
-	System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
-	System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
-	DataSet^ ds = gcnew DataSet();
-	connection->Open();
-	dataadapter->Fill(ds);
-	connection->Close();
-	ArticleCBox->DataSource = ds->Tables[0];
-	ArticleCBox->DisplayMember = "Nom_Article";
-	ArticleCBox->ValueMember = "Nom_Article";
-}
+	private: void iniDataSetArticles() {
+		System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
+		System::String^ sql = "SELECT Nom_Article FROM Article";
+		System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
+		System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
+		DataSet^ ds = gcnew DataSet();
+		connection->Open();
+		dataadapter->Fill(ds);
+		connection->Close();
+		ArticleCBox->DataSource = ds->Tables[0];
+		ArticleCBox->DisplayMember = "Nom_Article";
+		ArticleCBox->ValueMember = "Nom_Article";
+	}
 
-private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	iniDataSet("Commande", "SELECT Article.Nom_Article AS Article, contient.Quantite, Cout.Cout_HT AS Cout_HT_Par_Article FROM Commande LEFT JOIN (Contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON Contient.ID = Article.ID) ON Contient.ID_Commande = Commande.ID");
-	index = 0;
-	mode = "RIEN";
-	ds = gcnew Data::DataSet();
-	processusCommande = gcnew NS_Svc::CL_svc_gestionCommande();
-	MessageTxT->Text = "Data chargees";
-	this->DateEmission->Text = DateTime::Now.ToString();
-	this->MoyenPaiement->Items->Add(moyenDePaiement::Avoir);
-	this->MoyenPaiement->Items->Add(moyenDePaiement::CB);
-	this->MoyenPaiement->Items->Add(moyenDePaiement::Cheque);
-	this->MoyenPaiement->Items->Add(moyenDePaiement::Coupon);
-	this->MoyenPaiement->Items->Add(moyenDePaiement::Crypto);
-	this->MoyenPaiement->Items->Add(moyenDePaiement::Fiduciaire);
-	this->MoyenPaiement->Items->Add(moyenDePaiement::Paypal);
+	private: void iniDataSetClient() {
+		System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
+		System::String^ sql = "SELECT Nom_Personne FROM Client LEFT JOIN Personne ON Client.ID_Personne = Personne_ID";
+		System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
+		System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
+		DataSet^ ds = gcnew DataSet();
+		connection->Open();
+		dataadapter->Fill(ds);
+		connection->Close();
+		ClientCBox->DataSource = ds->Tables[0];
+		ClientCBox->DisplayMember = "Nom_Personne";
+		ClientCBox->ValueMember = "Nom_Personne";
+	}
 
-	iniDataSetArticles();
+	private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		iniDataSet("Commande", "SELECT Article.Nom_Article AS Article, contient.quantite, Cout.Cout_HT AS Cout_HT_Par_Article FROM Commande LEFT JOIN (contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON contient.ID_Commande = Commande.ID");
+		index = 0;
+		mode = "RIEN";
+		ds = gcnew Data::DataSet();
+		processusCommande = gcnew NS_Svc::CL_svc_gestionCommande();
+		MessageTxT->Text = "Data chargees";
+		this->DateEmission->Text = DateTime::Now.ToString();
+		this->MoyenPaiement->Items->Add(moyenDePaiement::Avoir);
+		this->MoyenPaiement->Items->Add(moyenDePaiement::CB);
+		this->MoyenPaiement->Items->Add(moyenDePaiement::Cheque);
+		this->MoyenPaiement->Items->Add(moyenDePaiement::Coupon);
+		this->MoyenPaiement->Items->Add(moyenDePaiement::Crypto);
+		this->MoyenPaiement->Items->Add(moyenDePaiement::Fiduciaire);
+		this->MoyenPaiement->Items->Add(moyenDePaiement::Paypal);
 
-	Cout^ buff = gcnew Cout();
-	for (int i = 0; i <= 3; i++)
-	{
-		comboBox1->Items->Add(buff->obtenirTVA(i));
-		comboBox2->Items->Add(buff->obtenirMarge(i));
-		comboBox4->Items->Add(buff->obtenirDemarque(i));
-		
-		if (i < 3)
+		iniDataSetArticles();
+		iniDataSetClient();
+
+		Cout^ buff = gcnew Cout();
+		for (int i = 0; i <= 3; i++)
 		{
-			comboBox3->Items->Add(buff->obtenirRemise(i));
+			comboBox1->Items->Add(buff->obtenirTVA(i));
+			comboBox2->Items->Add(buff->obtenirMarge(i));
+			comboBox4->Items->Add(buff->obtenirDemarque(i));
+		
+			if (i < 3)
+			{
+				comboBox3->Items->Add(buff->obtenirRemise(i));
+			}
+		}
+
+		System::String^ connectionStringArticle = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
+		System::String^ sqlArticle = "SELECT Nom_Article FROM Article;";
+		System::Data::SqlClient::SqlConnection^ connectionArticle = gcnew System::Data::SqlClient::SqlConnection(connectionStringArticle);
+		System::Data::SqlClient::SqlDataAdapter^ dataadapterArticle = gcnew System::Data::SqlClient::SqlDataAdapter(sqlArticle, connectionArticle);
+		DataSet^ dsArticle = gcnew DataSet();
+		connectionArticle->Open();
+		dataadapterArticle->Fill(dsArticle, "Article_table");
+		connectionArticle->Close();
+		for (int i = 0; i < (dsArticle->Tables->Count - 1) ; i++)
+		{
+			this->ArticleCBox->Items->Add(Convert::ToString(dsArticle->Tables["Article_table"]->Rows[this->index]->ItemArray[i]));
+		}
+
+		/*System::String^ connectionStringClient = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
+		System::String^ sqlClient = "SELECT Personne.Nom_Personne, Personne.Prenom_Personne FROM Client LEFT JOIN Personne ON Client.ID_Personne = Personne.ID;";
+		System::Data::SqlClient::SqlConnection^ connectionClient = gcnew System::Data::SqlClient::SqlConnection(connectionStringClient);
+		System::Data::SqlClient::SqlDataAdapter^ dataadapterClient = gcnew System::Data::SqlClient::SqlDataAdapter(sqlClient, connectionClient);
+		connectionClient->Open();
+		dataadapterClient->Fill(dsClient, "Client_table");
+		connectionClient->Close();
+		this->ClientCBox->CreateObjRef(Client());
+		for (int i = 0; i < (dsClient->Tables->Count - 1); i++)
+		{
+			Client coucouc;
+			this->ClientCBox->Items->Add(coucouc);
+		}*/
+	}
+	private: System::Void Ajouter_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->mode = "ajout";
+		this->MessageTxT->Text = "Pour confirmer l'ajout de cet article, appuyez sur le bouton Enregistrer";
+	}
+	private: System::Void Modifier_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->mode = "maj";
+		this->MessageTxT->Text = "Pour confirmer la modification de la quantite de cet article, appuyez sur le bouton enregister";
+	}
+	private: System::Void Supprimer_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->mode = "suppr";
+		this->MessageTxT->Text = "Pour confirmer la suppression de cet article dans la commande, appuyez sur le bouton Enregistrer";
+	}
+	private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (this->mode = "ajout")
+		{
+			int id;
+			//id = this->processusCommande->ajouter(???, Convert::ToInt32(this->Quantite->Text), ???, ???, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
+			this->MessageTxT->Text = "L'ID genere est le : " + id + ".";
+		}
+		else if (this->mode = "maj")
+		{
+			//this->processusCommande->modifier(Convert::ToInt32(this->IDArticle->Text), ???, Convert::ToInt32(this->Quantite->Text), ???, ???, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
+		}
+		else if (this->mode = "suppr")
+		{
+			this->processusCommande->supprimer(Convert::ToInt32(this->IDArticle->Text));
 		}
 	}
-
-	System::String^ connectionStringArticle = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
-	System::String^ sqlArticle = "SELECT Nom_Article FROM Article;";
-	System::Data::SqlClient::SqlConnection^ connectionArticle = gcnew System::Data::SqlClient::SqlConnection(connectionStringArticle);
-	System::Data::SqlClient::SqlDataAdapter^ dataadapterArticle = gcnew System::Data::SqlClient::SqlDataAdapter(sqlArticle, connectionArticle);
-	DataSet^ dsArticle = gcnew DataSet();
-	connectionArticle->Open();
-	dataadapterArticle->Fill(dsArticle, "Article_table");
-	connectionArticle->Close();
-	for (int i = 0; i < (dsArticle->Tables->Count - 1) ; i++)
-	{
-		this->ArticleCBox->Items->Add(Convert::ToString(dsArticle->Tables["Article_table"]->Rows[this->index]->ItemArray[i]));
+	private: System::Void Quantite_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
-
-	/*System::String^ connectionStringClient = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
-	System::String^ sqlClient = "SELECT Personne.Nom_Personne, Personne.Prenom_Personne FROM Client LEFT JOIN Personne ON Client.ID_Personne = Personne.ID;";
-	System::Data::SqlClient::SqlConnection^ connectionClient = gcnew System::Data::SqlClient::SqlConnection(connectionStringClient);
-	System::Data::SqlClient::SqlDataAdapter^ dataadapterClient = gcnew System::Data::SqlClient::SqlDataAdapter(sqlClient, connectionClient);
-	connectionClient->Open();
-	dataadapterClient->Fill(dsClient, "Client_table");
-	connectionClient->Close();
-	this->ClientCBox->CreateObjRef(Client());
-	for (int i = 0; i < (dsClient->Tables->Count - 1); i++)
-	{
-		Client coucouc;
-		this->ClientCBox->Items->Add(coucouc);
-	}*/
-}
-private: System::Void Ajouter_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->mode = "ajout";
-	this->MessageTxT->Text = "Pour confirmer l'ajout de cet article, appuyez sur le bouton Enregistrer";
-}
-private: System::Void Modifier_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->mode = "maj";
-	this->MessageTxT->Text = "Pour confirmer la modification de la quantite de cet article, appuyez sur le bouton enregister";
-}
-private: System::Void Supprimer_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->mode = "suppr";
-	this->MessageTxT->Text = "Pour confirmer la suppression de cet article dans la commande, appuyez sur le bouton Enregistrer";
-}
-private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (this->mode = "ajout")
-	{
-		int id;
-		//id = this->processusCommande->ajouter(???, Convert::ToInt32(this->Quantite->Text), ???, ???, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
-		this->MessageTxT->Text = "L'ID genere est le : " + id + ".";
+	private: System::Void Facture_Click(System::Object^ sender, System::EventArgs^ e) {
+		FactureForm^ newform = gcnew FactureForm;
+		newform->Show();
 	}
-	else if (this->mode = "maj")
-	{
-		//this->processusCommande->modifier(Convert::ToInt32(this->IDArticle->Text), ???, Convert::ToInt32(this->Quantite->Text), ???, ???, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
+	private: System::Void folderBrowserDialog1_HelpRequest(System::Object^ sender, System::EventArgs^ e) {
 	}
-	else if (this->mode = "suppr")
-	{
-		this->processusCommande->supprimer(Convert::ToInt32(this->IDArticle->Text));
+	private: System::Void dataGridView2_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	}
-}
-private: System::Void Quantite_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void Facture_Click(System::Object^ sender, System::EventArgs^ e) {
-	FactureForm^ newform = gcnew FactureForm;
-	newform->Show();
-}
-private: System::Void folderBrowserDialog1_HelpRequest(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void dataGridView2_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-}
-private: System::Void dataGridView2_CellMouseDoubleClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellMouseEventArgs^ e) {
-	iniDataSetPanier();
-	iniDataSetChiffreDaffaire();
-}
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void dataGridView2_CellMouseDoubleClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellMouseEventArgs^ e) {
+		iniDataSetPanier();
+		iniDataSetChiffreDaffaire();
+	}
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	
-}
-private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	processusCommande->commande->calculArticles(Convert::ToInt32(comboBox1->SelectedItem), Convert::ToInt32(comboBox2->SelectedItem), Convert::ToInt32(comboBox3->SelectedItem), Convert::ToInt32(comboBox4->SelectedItem));
-}
-private: System::Void ArticleCBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-}
+	}
+	private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+		processusCommande->commande->calculArticles(Convert::ToInt32(comboBox1->SelectedItem), Convert::ToInt32(comboBox2->SelectedItem), Convert::ToInt32(comboBox3->SelectedItem), Convert::ToInt32(comboBox4->SelectedItem));
+	}
+	private: System::Void ArticleCBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
 };
 }
