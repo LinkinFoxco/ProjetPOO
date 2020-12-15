@@ -567,6 +567,7 @@ namespace ProjetPOO {
 		mode = "RIEN";
 		ds = gcnew Data::DataSet();
 		processusPersonnel = gcnew NS_Svc::CL_svc_gestionPersonnel();
+		processusAdresse = gcnew NS_Svc::CL_svc_gestionAdresse();
 		loadData(index);
 		MessageBox->Text = "Data chargees";
 

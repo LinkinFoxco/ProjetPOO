@@ -528,7 +528,7 @@ namespace ProjetPOO {
 
 	private: void iniDataSetClient() {
 		System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
-		System::String^ sql = "SELECT Nom_Personne FROM Client LEFT JOIN Personne ON Client.ID_Personne = Personne_ID";
+		System::String^ sql = "SELECT Nom_Personne FROM Client LEFT JOIN Personne ON Client.ID_Personne = Personne.ID";
 		System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
 		System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
 		DataSet^ ds = gcnew DataSet();

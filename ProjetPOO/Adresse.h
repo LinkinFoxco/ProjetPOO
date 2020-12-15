@@ -19,6 +19,9 @@ public:
 		referencePersonne = -1;
 		referenceAdresse = -1;
 		m_numAdresse = -1;
+		m_adresseFacturation = -1;
+		m_adresseLivraison = -1;
+		m_adresseSociete = -1;
 		m_ville = "RIEN";
 		m_codePostal = "RIEN";
 		m_rue = "RIEN";
