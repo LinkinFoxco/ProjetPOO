@@ -559,7 +559,7 @@ namespace ProjetPOO {
 	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void PersonnelForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		iniDataSet("adresse");
+		iniDataSet("Personnel");
 		index = 0;
 		mode = "RIEN";
 		ds = gcnew Data::DataSet();
@@ -599,7 +599,7 @@ namespace ProjetPOO {
 			this->processusPersonnel->supprimer(Convert::ToInt32(this->IDPersonnel->Text));
 			MessageBox->Text = "La suppression à bien été effectuer !";
 		}
-		iniDataSet("adresse");
+		iniDataSet("Personnel");
 	}
 	private: System::Void LeftPlus_Click(System::Object^ sender, System::EventArgs^ e) {
 			   index = 0;

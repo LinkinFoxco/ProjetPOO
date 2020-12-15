@@ -9,8 +9,9 @@ System::String^ Personnel::INSERT(){
         +" VALUES ('" + this->obtenirPNom() + "', '" + this->obtenirPPrenom()
         + "'); SELECT @@IDENTITY;"
         +" INSERT INTO Personnel (Date_Embauche, ID_Societe, ID_Personne, ID_Personnel)" 
-        +" VALUES ('" + this->obtenirDateEmbauche() + "', (SELECT TOP 1 Societe.ID FROM Societe WHERE Societe.Nom_Societe = 'Plancton Mania'), (SELECT TOP 1 Personne.ID FROM Personne WHERE Personne.Nom_Personne = '" + this->obtenirPNom() + "'), '" + System::Convert::ToString(this->obtenirSuperieur())
-        + "'); SELECT @@IDENTITY;";
+        +" SELECT '"+ this->obtenirDateEmbauche() +"', '2', Personne.ID, '"+ System::Convert::ToString(this->obtenirSuperieur()) 
+        +"' FROM Personne WHERE Prenom_Personne = '"+ this->obtenirPPrenom() +"' AND Nom_Personne = '"+ this->obtenirPNom() +"';"
+        + " SELECT @@IDENTITY;";
 }
 
 System::String^ Personnel::UPDATE(){
