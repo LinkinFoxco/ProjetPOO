@@ -538,18 +538,18 @@ namespace ProjetPOO {
 
 		   }
 #pragma endregion
-	private: void iniDataSet(System::String^ table)
+	private: void iniDataSet()
 	{
 		System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
-		System::String^ sql = "SELECT * FROM " + table;
+		System::String^ sql = "SELECT Personnel.ID, Personne.Nom_Personne, Personne.Prenom_Personne, Personnel.Date_Embauche, Societe.Nom_Societe, Personnel.ID_Personnel AS ID_Superieur FROM Personne RIGHT JOIN (Personnel LEFT JOIN Societe ON Personnel.ID_Societe = Societe.ID) ON Personne.ID = Personnel.ID_Personne";
 		System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
 		System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
 		DataSet^ ds = gcnew DataSet();
 		connection->Open();
-		dataadapter->Fill(ds, table + "_table");
+		dataadapter->Fill(ds, "Personnel_table");
 		connection->Close();
 		dataGridView1->DataSource = ds;
-		dataGridView1->DataMember = table + "_table";
+		dataGridView1->DataMember = "Personnel_table";
 	}
 
 	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
@@ -559,7 +559,7 @@ namespace ProjetPOO {
 	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void PersonnelForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		iniDataSet("Personnel");
+		iniDataSet();
 		index = 0;
 		mode = "RIEN";
 		ds = gcnew Data::DataSet();
@@ -599,7 +599,7 @@ namespace ProjetPOO {
 			this->processusPersonnel->supprimer(Convert::ToInt32(this->IDPersonnel->Text));
 			MessageBox->Text = "La suppression à bien été effectuer !";
 		}
-		iniDataSet("Personnel");
+		iniDataSet();
 	}
 	private: System::Void LeftPlus_Click(System::Object^ sender, System::EventArgs^ e) {
 			   index = 0;
