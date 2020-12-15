@@ -592,18 +592,19 @@ namespace ProjetPOO {
 	}
 	private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (mode == "nouv") {
-			this->processusAdresse->ajouter(8, 4, 2, 2, System::Convert::ToInt32(this->textBox1->Text), this->textBox4->Text ,this->textBox3->Text, this->textBox2->Text);
-			this->processusPersonnel->ajouter(this->NomPersonnel->Text, this->PrenomPersonnel->Text, this->DateEmbauche->Text, this->comboBox1->Text);
+			int id;
+			id = this->processusPersonnel->ajouter(this->NomPersonnel->Text, this->PrenomPersonnel->Text, this->DateEmbauche->Text, this->comboBox1->Text);
+			this->processusAdresse->ajouter(id, 8, 4, 2, 2, System::Convert::ToInt32(this->textBox1->Text), this->textBox4->Text, this->textBox3->Text, this->textBox2->Text);
 			MessageBox->Text = "L'ajout à bien été effectuer !";
 		}
 		else if (mode == "modif") {
-			this->processusAdresse->modifier(System::Convert::ToInt32(this->textBox1->Text), this->textBox4->Text, this->textBox3->Text, this->textBox2->Text);
 			this->processusPersonnel->modifier(this->PrenomPersonnel->Text, this->NomPersonnel->Text, this->DateEmbauche->Text, this->comboBox1->Text);
+			this->processusAdresse->modifier(System::Convert::ToInt32(this->textBox1->Text), this->textBox4->Text, this->textBox3->Text, this->textBox2->Text);
 			MessageBox->Text = "La modification à bien été effectuer !";
 		}
 		else if (mode == "suppr") {
-			this->processusAdresse->supprimer(Convert::ToInt32(this->IDPersonnel->Text));
 			this->processusPersonnel->supprimer(Convert::ToInt32(this->IDPersonnel->Text));
+			this->processusAdresse->supprimer(Convert::ToInt32(this->IDPersonnel->Text));
 			MessageBox->Text = "La suppression à bien été effectuer !";
 		}
 		iniDataSet();

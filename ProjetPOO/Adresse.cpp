@@ -22,10 +22,10 @@ System::String^ Adresse::SELECT(void){
 }
 
 System::String^ Adresse::INSERT(void){
-	return "INSERT INTO Adresse (Numero_De_Rue, Rue, Code_Postal, Ville, ID_Personne, Adresse_facturation, Adresse_Livraison, Adresse_Societe, ID_Client)"
+	return "INSERT INTO Adresse (Numero_De_Rue, Rue, Code_Postal, Ville, ID_Personne, Adresse_facturation, Adresse_Livraison, Adresse_Societe, ID_Client) "
 		+ "VALUES('" + this->obtenirNumAdresse() + "', '" + this->obtenirRue() + "', '" + this->obtenirCodePostal() + "', '" + this->obtenirVille()
 		+ "', '" + this->obtenirPersonne() + "', '" + this->obtenirAdresseFacturation() + "', '" + this->obtenirAdresseLivraison()
-		+ "', '" + this->obtenirAdresseSociete() + "', '" + this->obtenirReferenceClient() + "');SELECT @@IDENTITY;";
+		+ "', '" + this->obtenirAdresseSociete() + "', '" + this->obtenirReferenceClient() + "'); SELECT @@IDENTITY;";
 }
 
 System::String^ Adresse::UPDATE(void){

@@ -742,7 +742,7 @@ private: System::Void Supprimer_Click(System::Object^ sender, System::EventArgs^
 	MessageBox->Text = "Veuillez confirmer la suppression du client en enregistrant.";
 }
 private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (mode == "nouveau")
+	/*if (mode == "nouveau")
 	{
 		int Id;
 		Adresse^ F = gcnew Adresse(processusAdresse->ajouter(8, 4, 2, 2, Convert::ToInt32(textBox1->Text), textBox3->Text, textBox4->Text, textBox5->Text), Convert::ToInt32(textBox1->Text), textBox3->Text, textBox4->Text, textBox5->Text);
@@ -762,7 +762,7 @@ private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArg
 
 	index = 0;
 	loadData(index);
-	MessageBox->Text += "Fin de traitement.";
+	MessageBox->Text += "Fin de traitement.";*/
 }
 private: System::Void MessageBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }

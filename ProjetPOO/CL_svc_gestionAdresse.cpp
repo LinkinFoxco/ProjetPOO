@@ -9,7 +9,7 @@ DataSet^ NS_Svc::CL_svc_gestionAdresse::listeAdresse(String^ dataTableName)
 	return Adrdonnee;
 }
 
-int NS_Svc::CL_svc_gestionAdresse::ajouter(int adrfact, int adrlivr, int adrsoc, int refclient, int num, String^ ville, String^ codePostal, String^ rue)
+int NS_Svc::CL_svc_gestionAdresse::ajouter(int refpers, int adrfact, int adrlivr, int adrsoc, int refclient, int num, String^ ville, String^ codePostal, String^ rue)
 {
 	int reference;
 	adresse->modifierNumAdresse(num);
@@ -20,6 +20,7 @@ int NS_Svc::CL_svc_gestionAdresse::ajouter(int adrfact, int adrlivr, int adrsoc,
 	adresse->modifierAdresseLivraison(adrlivr);
 	adresse->modifierAdresseSociete(adrsoc);
 	adresse->modifierReferenceClient(refclient);
+	adresse->modifierPersonne(refpers);
 	reference = Adcad->actionRowsID(adresse->INSERT());
 	return reference;
 }

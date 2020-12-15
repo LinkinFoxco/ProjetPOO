@@ -6,12 +6,11 @@ System::String^ Personnel::SELECT(){
 
 System::String^ Personnel::INSERT(){
     return "INSERT INTO Personne (Nom_Personne, Prenom_Personne)"
-        +" VALUES ('" + this->obtenirPNom() + "', '" + this->obtenirPPrenom()
+        + " VALUES ('" + this->obtenirPNom() + "', '" + this->obtenirPPrenom()
         + "'); SELECT @@IDENTITY;"
-        +" INSERT INTO Personnel (Date_Embauche, ID_Societe, ID_Personne, ID_Personnel)" 
-        +" SELECT '"+ this->obtenirDateEmbauche() +"', '2', Personne.ID, '"+ System::Convert::ToString(this->obtenirSuperieur()) 
-        +"' FROM Personne WHERE Prenom_Personne = '"+ this->obtenirPPrenom() +"' AND Nom_Personne = '"+ this->obtenirPNom() +"';"
-        + " SELECT @@IDENTITY;";
+        + " INSERT INTO Personnel (Date_Embauche, ID_Societe, ID_Personne, ID_Personnel)"
+        + " SELECT '" + this->obtenirDateEmbauche() + "', '2', Personne.ID, '" + System::Convert::ToString(this->obtenirSuperieur())
+        + "' FROM Personne WHERE Prenom_Personne = '" + this->obtenirPPrenom() + "' AND Nom_Personne = '" + this->obtenirPNom() + "';";
 }
 
 System::String^ Personnel::UPDATE(){
