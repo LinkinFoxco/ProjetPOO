@@ -18,7 +18,7 @@ namespace NS_Svc
 			Adrdonnee = gcnew DataSet();
 		};
 		DataSet^ listeAdresse(String^);
-		int ajouter(int, String^, String^, String^);
+		int ajouter(int, int, int, int, int, String^, String^, String^);
 		void modifier(int, String^, String^, String^);
 		void supprimer(int);
 };

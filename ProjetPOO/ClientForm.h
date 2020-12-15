@@ -745,8 +745,8 @@ private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArg
 	if (mode == "nouveau")
 	{
 		int Id;
-		Adresse^ F = gcnew Adresse(processusAdresse->ajouter(Convert::ToInt32(textBox1->Text), textBox3->Text, textBox4->Text, textBox5->Text), Convert::ToInt32(textBox1->Text), textBox3->Text, textBox4->Text, textBox5->Text);
-		Adresse^ L = gcnew Adresse(processusAdresse->ajouter(Convert::ToInt32(textBox2->Text), textBox6->Text, textBox7->Text, textBox8->Text), Convert::ToInt32(textBox2->Text), textBox6->Text, textBox7->Text, textBox8->Text);
+		Adresse^ F = gcnew Adresse(processusAdresse->ajouter(8, 4, 2, 2, Convert::ToInt32(textBox1->Text), textBox3->Text, textBox4->Text, textBox5->Text), Convert::ToInt32(textBox1->Text), textBox3->Text, textBox4->Text, textBox5->Text);
+		Adresse^ L = gcnew Adresse(processusAdresse->ajouter(8, 4, 2, 2, Convert::ToInt32(textBox2->Text), textBox6->Text, textBox7->Text, textBox8->Text), Convert::ToInt32(textBox2->Text), textBox6->Text, textBox7->Text, textBox8->Text);
 		Client^ temp = gcnew Client(DateNaissance->Text, L, F);
 		Id = processusClient->ajouter(temp->obtenirPositionAdresse(L), temp->obtenirPositionAdresse(F), DateNaissance->Text);
 		MessageBox->Text = "L'ID généré est le : " + Id + ". ";
