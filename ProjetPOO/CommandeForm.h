@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "CL_svc_gestionCommande.h"
+#include "CL_svc_gestionContient.h"
 #include "Commande.h"
 #include "FactureForm.h"
 
@@ -48,8 +49,9 @@ namespace ProjetPOO {
 
 
 
-	private: System::Windows::Forms::Label^ IDArticleTxT;
-	private: System::Windows::Forms::TextBox^ IDArticle;
+	private: System::Windows::Forms::Label^ IDCommandeTxT;
+	private: System::Windows::Forms::TextBox^ IDCommande;
+
 	private: System::Windows::Forms::Label^ ArticleTxT;
 
 	private: System::Windows::Forms::Label^ QuantiteTxT;
@@ -62,6 +64,7 @@ namespace ProjetPOO {
 
 	private: 
 		NS_Svc::CL_svc_gestionCommande^ processusCommande;
+		NS_Svc::CL_svc_gestionContient^ processusContient;
 		int index;
 		DataSet^ ds;
 		String^ mode;
@@ -109,8 +112,8 @@ namespace ProjetPOO {
 			this->Supprimer = (gcnew System::Windows::Forms::Button());
 			this->Modifier = (gcnew System::Windows::Forms::Button());
 			this->Ajouter = (gcnew System::Windows::Forms::Button());
-			this->IDArticleTxT = (gcnew System::Windows::Forms::Label());
-			this->IDArticle = (gcnew System::Windows::Forms::TextBox());
+			this->IDCommandeTxT = (gcnew System::Windows::Forms::Label());
+			this->IDCommande = (gcnew System::Windows::Forms::TextBox());
 			this->ArticleTxT = (gcnew System::Windows::Forms::Label());
 			this->QuantiteTxT = (gcnew System::Windows::Forms::Label());
 			this->Quantite = (gcnew System::Windows::Forms::TextBox());
@@ -139,40 +142,40 @@ namespace ProjetPOO {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(652, 23);
-			this->dataGridView1->Margin = System::Windows::Forms::Padding(6);
+			this->dataGridView1->Location = System::Drawing::Point(435, 15);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
-			this->dataGridView1->Size = System::Drawing::Size(1000, 331);
+			this->dataGridView1->Size = System::Drawing::Size(667, 215);
 			this->dataGridView1->TabIndex = 0;
 			// 
 			// MessageTxT
 			// 
 			this->MessageTxT->AutoSize = true;
-			this->MessageTxT->Location = System::Drawing::Point(34, 802);
-			this->MessageTxT->Margin = System::Windows::Forms::Padding(6, 0, 6, 0);
+			this->MessageTxT->Location = System::Drawing::Point(23, 521);
+			this->MessageTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->MessageTxT->Name = L"MessageTxT";
-			this->MessageTxT->Size = System::Drawing::Size(74, 20);
+			this->MessageTxT->Size = System::Drawing::Size(50, 13);
 			this->MessageTxT->TabIndex = 17;
 			this->MessageTxT->Text = L"Message";
 			// 
 			// MessageBox
 			// 
-			this->MessageBox->Location = System::Drawing::Point(22, 783);
-			this->MessageBox->Margin = System::Windows::Forms::Padding(6);
+			this->MessageBox->Location = System::Drawing::Point(15, 509);
+			this->MessageBox->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->MessageBox->Multiline = true;
 			this->MessageBox->Name = L"MessageBox";
 			this->MessageBox->ReadOnly = true;
-			this->MessageBox->Size = System::Drawing::Size(1568, 169);
+			this->MessageBox->Size = System::Drawing::Size(1047, 111);
 			this->MessageBox->TabIndex = 16;
 			// 
 			// Enregistrer
 			// 
 			this->Enregistrer->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
-			this->Enregistrer->Location = System::Drawing::Point(1408, 655);
-			this->Enregistrer->Margin = System::Windows::Forms::Padding(6);
+			this->Enregistrer->Location = System::Drawing::Point(939, 426);
+			this->Enregistrer->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Enregistrer->Name = L"Enregistrer";
-			this->Enregistrer->Size = System::Drawing::Size(240, 85);
+			this->Enregistrer->Size = System::Drawing::Size(160, 55);
 			this->Enregistrer->TabIndex = 15;
 			this->Enregistrer->Text = L"Enregistrer";
 			this->Enregistrer->UseVisualStyleBackColor = true;
@@ -181,10 +184,10 @@ namespace ProjetPOO {
 			// Supprimer
 			// 
 			this->Supprimer->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
-			this->Supprimer->Location = System::Drawing::Point(1156, 655);
-			this->Supprimer->Margin = System::Windows::Forms::Padding(6);
+			this->Supprimer->Location = System::Drawing::Point(771, 426);
+			this->Supprimer->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Supprimer->Name = L"Supprimer";
-			this->Supprimer->Size = System::Drawing::Size(240, 85);
+			this->Supprimer->Size = System::Drawing::Size(160, 55);
 			this->Supprimer->TabIndex = 14;
 			this->Supprimer->Text = L"Supprimer";
 			this->Supprimer->UseVisualStyleBackColor = true;
@@ -193,10 +196,10 @@ namespace ProjetPOO {
 			// Modifier
 			// 
 			this->Modifier->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
-			this->Modifier->Location = System::Drawing::Point(904, 655);
-			this->Modifier->Margin = System::Windows::Forms::Padding(6);
+			this->Modifier->Location = System::Drawing::Point(603, 426);
+			this->Modifier->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Modifier->Name = L"Modifier";
-			this->Modifier->Size = System::Drawing::Size(240, 85);
+			this->Modifier->Size = System::Drawing::Size(160, 55);
 			this->Modifier->TabIndex = 13;
 			this->Modifier->Text = L"Modifier";
 			this->Modifier->UseVisualStyleBackColor = true;
@@ -205,164 +208,161 @@ namespace ProjetPOO {
 			// Ajouter
 			// 
 			this->Ajouter->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
-			this->Ajouter->Location = System::Drawing::Point(652, 655);
-			this->Ajouter->Margin = System::Windows::Forms::Padding(6);
+			this->Ajouter->Location = System::Drawing::Point(435, 426);
+			this->Ajouter->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Ajouter->Name = L"Ajouter";
-			this->Ajouter->Size = System::Drawing::Size(240, 85);
+			this->Ajouter->Size = System::Drawing::Size(160, 55);
 			this->Ajouter->TabIndex = 12;
 			this->Ajouter->Text = L"Ajouter";
 			this->Ajouter->UseVisualStyleBackColor = true;
 			this->Ajouter->Click += gcnew System::EventHandler(this, &CommandeForm::Ajouter_Click);
 			// 
-			// IDArticleTxT
+			// IDCommandeTxT
 			// 
-			this->IDArticleTxT->AutoSize = true;
-			this->IDArticleTxT->Location = System::Drawing::Point(39, 48);
-			this->IDArticleTxT->Margin = System::Windows::Forms::Padding(6, 0, 6, 0);
-			this->IDArticleTxT->Name = L"IDArticleTxT";
-			this->IDArticleTxT->Size = System::Drawing::Size(112, 20);
-			this->IDArticleTxT->TabIndex = 2;
-			this->IDArticleTxT->Text = L"ID Commande";
+			this->IDCommandeTxT->AutoSize = true;
+			this->IDCommandeTxT->Location = System::Drawing::Point(26, 31);
+			this->IDCommandeTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->IDCommandeTxT->Name = L"IDCommandeTxT";
+			this->IDCommandeTxT->Size = System::Drawing::Size(74, 13);
+			this->IDCommandeTxT->TabIndex = 2;
+			this->IDCommandeTxT->Text = L"ID Commande";
 			// 
-			// IDArticle
+			// IDCommande
 			// 
-			this->IDArticle->Location = System::Drawing::Point(39, 74);
-			this->IDArticle->Margin = System::Windows::Forms::Padding(6);
-			this->IDArticle->Name = L"IDArticle";
-			this->IDArticle->ReadOnly = true;
-			this->IDArticle->Size = System::Drawing::Size(568, 26);
-			this->IDArticle->TabIndex = 1;
+			this->IDCommande->Location = System::Drawing::Point(26, 48);
+			this->IDCommande->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->IDCommande->Name = L"IDCommande";
+			this->IDCommande->ReadOnly = true;
+			this->IDCommande->Size = System::Drawing::Size(380, 20);
+			this->IDCommande->TabIndex = 1;
 			// 
 			// ArticleTxT
 			// 
 			this->ArticleTxT->AutoSize = true;
-			this->ArticleTxT->Location = System::Drawing::Point(39, 115);
-			this->ArticleTxT->Margin = System::Windows::Forms::Padding(6, 0, 6, 0);
+			this->ArticleTxT->Location = System::Drawing::Point(26, 75);
+			this->ArticleTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->ArticleTxT->Name = L"ArticleTxT";
-			this->ArticleTxT->Size = System::Drawing::Size(53, 20);
+			this->ArticleTxT->Size = System::Drawing::Size(36, 13);
 			this->ArticleTxT->TabIndex = 4;
 			this->ArticleTxT->Text = L"Article";
 			// 
 			// QuantiteTxT
 			// 
 			this->QuantiteTxT->AutoSize = true;
-			this->QuantiteTxT->Location = System::Drawing::Point(39, 188);
-			this->QuantiteTxT->Margin = System::Windows::Forms::Padding(6, 0, 6, 0);
+			this->QuantiteTxT->Location = System::Drawing::Point(26, 122);
+			this->QuantiteTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->QuantiteTxT->Name = L"QuantiteTxT";
-			this->QuantiteTxT->Size = System::Drawing::Size(70, 20);
+			this->QuantiteTxT->Size = System::Drawing::Size(47, 13);
 			this->QuantiteTxT->TabIndex = 6;
 			this->QuantiteTxT->Text = L"Quantite";
 			// 
 			// Quantite
 			// 
-			this->Quantite->Location = System::Drawing::Point(39, 214);
-			this->Quantite->Margin = System::Windows::Forms::Padding(6);
+			this->Quantite->Location = System::Drawing::Point(26, 139);
+			this->Quantite->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Quantite->Name = L"Quantite";
-			this->Quantite->Size = System::Drawing::Size(568, 26);
+			this->Quantite->Size = System::Drawing::Size(380, 20);
 			this->Quantite->TabIndex = 5;
 			this->Quantite->TextChanged += gcnew System::EventHandler(this, &CommandeForm::Quantite_TextChanged);
 			// 
 			// ArticleCBox
 			// 
 			this->ArticleCBox->FormattingEnabled = true;
-			this->ArticleCBox->Location = System::Drawing::Point(40, 140);
-			this->ArticleCBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->ArticleCBox->Location = System::Drawing::Point(27, 91);
 			this->ArticleCBox->Name = L"ArticleCBox";
-			this->ArticleCBox->Size = System::Drawing::Size(566, 28);
+			this->ArticleCBox->Size = System::Drawing::Size(379, 21);
 			this->ArticleCBox->TabIndex = 6;
 			this->ArticleCBox->SelectedIndexChanged += gcnew System::EventHandler(this, &CommandeForm::ArticleCBox_SelectedIndexChanged);
 			// 
 			// DateLivraisonTxT
 			// 
 			this->DateLivraisonTxT->AutoSize = true;
-			this->DateLivraisonTxT->Location = System::Drawing::Point(39, 265);
-			this->DateLivraisonTxT->Margin = System::Windows::Forms::Padding(6, 0, 6, 0);
+			this->DateLivraisonTxT->Location = System::Drawing::Point(26, 172);
+			this->DateLivraisonTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->DateLivraisonTxT->Name = L"DateLivraisonTxT";
-			this->DateLivraisonTxT->Size = System::Drawing::Size(205, 20);
+			this->DateLivraisonTxT->Size = System::Drawing::Size(139, 13);
 			this->DateLivraisonTxT->TabIndex = 19;
 			this->DateLivraisonTxT->Text = L"Date de Livraison souhaite :";
 			// 
 			// DateLivraison
 			// 
-			this->DateLivraison->Location = System::Drawing::Point(39, 291);
-			this->DateLivraison->Margin = System::Windows::Forms::Padding(6);
+			this->DateLivraison->Location = System::Drawing::Point(26, 189);
+			this->DateLivraison->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->DateLivraison->Name = L"DateLivraison";
-			this->DateLivraison->Size = System::Drawing::Size(568, 26);
+			this->DateLivraison->Size = System::Drawing::Size(380, 20);
 			this->DateLivraison->TabIndex = 18;
 			// 
 			// DateEmissionTxT
 			// 
 			this->DateEmissionTxT->AutoSize = true;
-			this->DateEmissionTxT->Location = System::Drawing::Point(39, 349);
-			this->DateEmissionTxT->Margin = System::Windows::Forms::Padding(6, 0, 6, 0);
+			this->DateEmissionTxT->Location = System::Drawing::Point(26, 227);
+			this->DateEmissionTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->DateEmissionTxT->Name = L"DateEmissionTxT";
-			this->DateEmissionTxT->Size = System::Drawing::Size(181, 20);
+			this->DateEmissionTxT->Size = System::Drawing::Size(120, 13);
 			this->DateEmissionTxT->TabIndex = 21;
 			this->DateEmissionTxT->Text = L"Date d\'emission estime :";
 			// 
 			// DateEmission
 			// 
-			this->DateEmission->Location = System::Drawing::Point(39, 375);
-			this->DateEmission->Margin = System::Windows::Forms::Padding(6);
+			this->DateEmission->Location = System::Drawing::Point(26, 244);
+			this->DateEmission->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->DateEmission->Name = L"DateEmission";
 			this->DateEmission->ReadOnly = true;
-			this->DateEmission->Size = System::Drawing::Size(568, 26);
+			this->DateEmission->Size = System::Drawing::Size(380, 20);
 			this->DateEmission->TabIndex = 20;
 			// 
 			// ClientCBox
 			// 
 			this->ClientCBox->FormattingEnabled = true;
-			this->ClientCBox->Location = System::Drawing::Point(39, 455);
-			this->ClientCBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->ClientCBox->Location = System::Drawing::Point(26, 296);
 			this->ClientCBox->Name = L"ClientCBox";
-			this->ClientCBox->Size = System::Drawing::Size(568, 28);
+			this->ClientCBox->Size = System::Drawing::Size(380, 21);
 			this->ClientCBox->TabIndex = 23;
 			// 
 			// ClientTxT
 			// 
 			this->ClientTxT->AutoSize = true;
-			this->ClientTxT->Location = System::Drawing::Point(38, 431);
-			this->ClientTxT->Margin = System::Windows::Forms::Padding(6, 0, 6, 0);
+			this->ClientTxT->Location = System::Drawing::Point(25, 280);
+			this->ClientTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->ClientTxT->Name = L"ClientTxT";
-			this->ClientTxT->Size = System::Drawing::Size(89, 20);
+			this->ClientTxT->Size = System::Drawing::Size(60, 13);
 			this->ClientTxT->TabIndex = 22;
 			this->ClientTxT->Text = L"Vous etes :";
 			// 
 			// MoyenPaiement
 			// 
 			this->MoyenPaiement->FormattingEnabled = true;
-			this->MoyenPaiement->Location = System::Drawing::Point(39, 532);
-			this->MoyenPaiement->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->MoyenPaiement->Location = System::Drawing::Point(26, 346);
 			this->MoyenPaiement->Name = L"MoyenPaiement";
-			this->MoyenPaiement->Size = System::Drawing::Size(568, 28);
+			this->MoyenPaiement->Size = System::Drawing::Size(380, 21);
 			this->MoyenPaiement->TabIndex = 25;
 			// 
 			// MoyenPaiementTxT
 			// 
 			this->MoyenPaiementTxT->AutoSize = true;
-			this->MoyenPaiementTxT->Location = System::Drawing::Point(38, 508);
-			this->MoyenPaiementTxT->Margin = System::Windows::Forms::Padding(6, 0, 6, 0);
+			this->MoyenPaiementTxT->Location = System::Drawing::Point(25, 330);
+			this->MoyenPaiementTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->MoyenPaiementTxT->Name = L"MoyenPaiementTxT";
-			this->MoyenPaiementTxT->Size = System::Drawing::Size(137, 20);
+			this->MoyenPaiementTxT->Size = System::Drawing::Size(95, 13);
 			this->MoyenPaiementTxT->TabIndex = 24;
 			this->MoyenPaiementTxT->Text = L"Vous payez avec :";
 			// 
 			// DatePaiementTxT
 			// 
 			this->DatePaiementTxT->AutoSize = true;
-			this->DatePaiementTxT->Location = System::Drawing::Point(39, 582);
-			this->DatePaiementTxT->Margin = System::Windows::Forms::Padding(6, 0, 6, 0);
+			this->DatePaiementTxT->Location = System::Drawing::Point(26, 378);
+			this->DatePaiementTxT->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->DatePaiementTxT->Name = L"DatePaiementTxT";
-			this->DatePaiementTxT->Size = System::Drawing::Size(116, 20);
+			this->DatePaiementTxT->Size = System::Drawing::Size(79, 13);
 			this->DatePaiementTxT->TabIndex = 27;
 			this->DatePaiementTxT->Text = L"Vous payez le :";
 			// 
 			// DatePaiement
 			// 
-			this->DatePaiement->Location = System::Drawing::Point(39, 608);
-			this->DatePaiement->Margin = System::Windows::Forms::Padding(6);
+			this->DatePaiement->Location = System::Drawing::Point(26, 395);
+			this->DatePaiement->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->DatePaiement->Name = L"DatePaiement";
-			this->DatePaiement->Size = System::Drawing::Size(568, 26);
+			this->DatePaiement->Size = System::Drawing::Size(380, 20);
 			this->DatePaiement->TabIndex = 26;
 			// 
 			// folderBrowserDialog1
@@ -372,10 +372,10 @@ namespace ProjetPOO {
 			// Facture
 			// 
 			this->Facture->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
-			this->Facture->Location = System::Drawing::Point(400, 655);
-			this->Facture->Margin = System::Windows::Forms::Padding(6);
+			this->Facture->Location = System::Drawing::Point(267, 426);
+			this->Facture->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Facture->Name = L"Facture";
-			this->Facture->Size = System::Drawing::Size(240, 85);
+			this->Facture->Size = System::Drawing::Size(160, 55);
 			this->Facture->TabIndex = 28;
 			this->Facture->Text = L"Facture";
 			this->Facture->UseVisualStyleBackColor = true;
@@ -384,11 +384,11 @@ namespace ProjetPOO {
 			// dataGridView2
 			// 
 			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView2->Location = System::Drawing::Point(653, 366);
-			this->dataGridView2->Margin = System::Windows::Forms::Padding(6);
+			this->dataGridView2->Location = System::Drawing::Point(435, 238);
+			this->dataGridView2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->dataGridView2->Name = L"dataGridView2";
 			this->dataGridView2->RowHeadersWidth = 51;
-			this->dataGridView2->Size = System::Drawing::Size(1000, 268);
+			this->dataGridView2->Size = System::Drawing::Size(667, 174);
 			this->dataGridView2->TabIndex = 29;
 			this->dataGridView2->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CommandeForm::dataGridView2_CellContentClick);
 			this->dataGridView2->CellMouseDoubleClick += gcnew System::Windows::Forms::DataGridViewCellMouseEventHandler(this, &CommandeForm::dataGridView2_CellMouseDoubleClick);
@@ -396,42 +396,46 @@ namespace ProjetPOO {
 			// comboBox1
 			// 
 			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(56, 664);
+			this->comboBox1->Location = System::Drawing::Point(37, 432);
+			this->comboBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(121, 28);
+			this->comboBox1->Size = System::Drawing::Size(82, 21);
 			this->comboBox1->TabIndex = 30;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &CommandeForm::comboBox1_SelectedIndexChanged);
 			// 
 			// comboBox2
 			// 
 			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Location = System::Drawing::Point(56, 698);
+			this->comboBox2->Location = System::Drawing::Point(37, 454);
+			this->comboBox2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size(121, 28);
+			this->comboBox2->Size = System::Drawing::Size(82, 21);
 			this->comboBox2->TabIndex = 31;
 			// 
 			// comboBox3
 			// 
 			this->comboBox3->FormattingEnabled = true;
-			this->comboBox3->Location = System::Drawing::Point(183, 664);
+			this->comboBox3->Location = System::Drawing::Point(122, 432);
+			this->comboBox3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->comboBox3->Name = L"comboBox3";
-			this->comboBox3->Size = System::Drawing::Size(121, 28);
+			this->comboBox3->Size = System::Drawing::Size(82, 21);
 			this->comboBox3->TabIndex = 32;
 			// 
 			// comboBox4
 			// 
 			this->comboBox4->FormattingEnabled = true;
-			this->comboBox4->Location = System::Drawing::Point(183, 698);
+			this->comboBox4->Location = System::Drawing::Point(122, 454);
+			this->comboBox4->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->comboBox4->Name = L"comboBox4";
-			this->comboBox4->Size = System::Drawing::Size(121, 28);
+			this->comboBox4->Size = System::Drawing::Size(82, 21);
 			this->comboBox4->TabIndex = 33;
 			// 
 			// CommandeForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoSize = true;
-			this->ClientSize = System::Drawing::Size(1668, 969);
+			this->ClientSize = System::Drawing::Size(1112, 630);
 			this->Controls->Add(this->comboBox4);
 			this->Controls->Add(this->comboBox3);
 			this->Controls->Add(this->comboBox2);
@@ -452,8 +456,8 @@ namespace ProjetPOO {
 			this->Controls->Add(this->QuantiteTxT);
 			this->Controls->Add(this->Quantite);
 			this->Controls->Add(this->ArticleTxT);
-			this->Controls->Add(this->IDArticleTxT);
-			this->Controls->Add(this->IDArticle);
+			this->Controls->Add(this->IDCommandeTxT);
+			this->Controls->Add(this->IDCommande);
 			this->Controls->Add(this->Enregistrer);
 			this->Controls->Add(this->Supprimer);
 			this->Controls->Add(this->Modifier);
@@ -462,7 +466,7 @@ namespace ProjetPOO {
 			this->Controls->Add(this->MessageBox);
 			this->Controls->Add(this->dataGridView1);
 			this->Location = System::Drawing::Point(23, 577);
-			this->Margin = System::Windows::Forms::Padding(6, 0, 6, 0);
+			this->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->Name = L"CommandeForm";
 			this->Text = L"CommandeForm";
 			this->Load += gcnew System::EventHandler(this, &CommandeForm::CommandeForm_Load);
@@ -546,6 +550,7 @@ namespace ProjetPOO {
 		mode = "RIEN";
 		ds = gcnew Data::DataSet();
 		processusCommande = gcnew NS_Svc::CL_svc_gestionCommande();
+		processusContient = gcnew NS_Svc::CL_svc_gestionContient();
 		MessageTxT->Text = "Data chargees";
 		this->DateEmission->Text = DateTime::Now.ToString();
 		this->MoyenPaiement->Items->Add(moyenDePaiement::Avoir);
@@ -615,15 +620,18 @@ namespace ProjetPOO {
 		if (this->mode = "ajout")
 		{
 			int id = this->processusCommande->ajouter(Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->Quantite->Text), Convert::ToInt32(ClientCBox->SelectedValue), (moyenDePaiement)this->MoyenPaiement->SelectedItem, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
+			this->processusContient->ajouter(Convert::ToInt32(ArticleCBox->SelectedValue), id, Convert::ToInt32(this->Quantite->Text));
 			this->MessageTxT->Text = "L'ID genere est le : " + id + ".";
 		}
 		else if (this->mode = "maj")
 		{
-			this->processusCommande->modifier(Convert::ToInt32(this->IDArticle->Text), Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->Quantite->Text), Convert::ToInt32(ClientCBox->SelectedValue), (moyenDePaiement)this->MoyenPaiement->SelectedItem, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
+			this->processusCommande->modifier(Convert::ToInt32(this->IDCommande->Text), Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->Quantite->Text), Convert::ToInt32(ClientCBox->SelectedValue), (moyenDePaiement)this->MoyenPaiement->SelectedItem, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
+			this->processusContient->modifier(Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->IDCommande->Text), Convert::ToInt32(this->Quantite->Text));
 		}
 		else if (this->mode = "suppr")
 		{
-			this->processusCommande->supprimer(Convert::ToInt32(this->IDArticle->Text));
+			this->processusCommande->supprimer(Convert::ToInt32(this->IDCommande->Text));
+			this->processusContient->supprimer(Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->IDCommande->Text));
 		}
 	}
 	private: System::Void Quantite_TextChanged(System::Object^ sender, System::EventArgs^ e) {
