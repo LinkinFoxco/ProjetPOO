@@ -1,15 +1,15 @@
 #include "ContientArticleCommande.h"
 
 System::String^ ContientArticleCommande::SELECT() {
-	return "SELECT ID, ID_Commande FROM contient;";
+	return "SELECT ID, ID_Commande, Quantite FROM contient;";
 }
 
 System::String^ ContientArticleCommande::INSERT() {
-	return "INSERT INTO contient (ID, ID_Commande) VALUES ('" + this->obtenirArticle() + "', '" + this->obtenirCommande() + "');";
+	return "INSERT INTO contient (ID, ID_Commande, Quantite) VALUES ('" + this->obtenirArticle() + "', '" + this->obtenirCommande() + "', '" + this->obtenirQuantite() + "');";
 }
 
 System::String^ ContientArticleCommande::UPDATE() {
-	return "UPDATE contient SET ID_Commande = '" + this->obtenirCommande() + "', ID = '" + this->obtenirArticle() + "');";
+	return "UPDATE contient SET ID = '" + this->obtenirArticle() + "', Quantite = '" + this->obtenirQuantite() + "');";
 }
 
 System::String^ ContientArticleCommande::DELETE() {

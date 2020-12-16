@@ -615,8 +615,8 @@ namespace ProjetPOO {
 		if (this->mode = "ajout")
 		{
 			int id;
-			//id = this->processusCommande->ajouter(???, Convert::ToInt32(this->Quantite->Text), ???, ???, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
-			this->MessageTxT->Text = "L'ID genere est le : " + ArticleCBox->SelectedItem + ".";
+			//id = this->processusCommande->ajouter(Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->Quantite->Text), ???, ???, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
+			this->MessageTxT->Text = "L'ID genere est le : " + System::Convert::ToString(ArticleCBox->SelectedValue) + ".";
 		}
 		else if (this->mode = "maj")
 		{
