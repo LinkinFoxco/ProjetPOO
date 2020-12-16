@@ -59,7 +59,7 @@ void Commande::ajouterArticles(Article^ art, int qtt)
 
 void Commande::modifier3LVille()
 {
-	if (m_client->obtenirAdresseLivraison()->obtenirVille()->Length - 1 >= 3)
+	/*if (m_client->obtenirAdresseLivraison()->obtenirVille()->Length - 1 >= 3)
 	{
 		m_3Lville = System::Convert::ToString(m_client->obtenirAdresseLivraison()->obtenirVille()[0])
 			+ System::Convert::ToString(m_client->obtenirAdresseLivraison()->obtenirVille()[1])
@@ -68,7 +68,7 @@ void Commande::modifier3LVille()
 	else
 	{
 		m_3Lville = m_client->obtenirAdresseLivraison()->obtenirVille();
-	}
+	}*/
 }
 
 System::String^ Commande::SELECT()

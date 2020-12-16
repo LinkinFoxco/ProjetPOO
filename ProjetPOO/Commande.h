@@ -34,7 +34,7 @@ public:
 	void modifierMoyenDePaiement(moyenDePaiement^ mdpaiment) { m_moyenPaiement = mdpaiment; }
 	void modifier3LVille();
 	void modifierReferenceCommande(int Nref) { referenceCommande = Nref; }
-	void modifierClient(Client^ nClient) { 
+	void modifierClient(int nClient) { 
 		m_client = nClient;
 		modifier2LNom();
 		modifier2LPrenom();
@@ -44,14 +44,14 @@ public:
 
 	void modifier2LPrenom() 
 	{ 
-		m_2Lprenom = System::Convert::ToString(m_client->obtenirPPrenom()[0]) 
-			+ System::Convert::ToString(m_client->obtenirPPrenom()[1]); 
+		//m_2Lprenom = System::Convert::ToString(m_client->obtenirPPrenom()[0]) 
+			//+ System::Convert::ToString(m_client->obtenirPPrenom()[1]); 
 	}
 
 	void modifier2LNom() 
 	{ 
-		m_2Lprenom = System::Convert::ToString(m_client->obtenirPNom()[0]) 
-			+ System::Convert::ToString(m_client->obtenirPNom()[1]); 
+		//m_2Lprenom = System::Convert::ToString(m_client->obtenirPNom()[0]) 
+			//+ System::Convert::ToString(m_client->obtenirPNom()[1]); 
 	}
 
 
@@ -67,7 +67,7 @@ public:
 	System::String^ obtenirDateEmission() { return m_dateEmission; }
 	System::String^ obtenirDatePaiement() { return m_datePaiement; }
 	moyenDePaiement^ obtenirMoyenDePaiement() { return m_moyenPaiement; }
-	Client^ obtenirClient() { return m_client; }
+	int obtenirClient() { return m_client; }
 
 	System::String^ SELECT();
 	System::String^ INSERT();
@@ -88,6 +88,6 @@ protected:
 	System::String^ m_dateEmission;
 	System::String^ m_datePaiement;
 	moyenDePaiement^ m_moyenPaiement;
-	Client^ m_client;
+	int m_client;
 };
 

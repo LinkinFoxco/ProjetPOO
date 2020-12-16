@@ -528,7 +528,7 @@ namespace ProjetPOO {
 
 	private: void iniDataSetClient() {
 		System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
-		System::String^ sql = "SELECT Nom_Personne FROM Client LEFT JOIN Personne ON Client.ID_Personne = Personne.ID";
+		System::String^ sql = "SELECT Nom_Personne, Client.ID FROM Client LEFT JOIN Personne ON Client.ID_Personne = Personne.ID";
 		System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
 		System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
 		DataSet^ ds = gcnew DataSet();
@@ -537,7 +537,7 @@ namespace ProjetPOO {
 		connection->Close();
 		ClientCBox->DataSource = ds->Tables[0];
 		ClientCBox->DisplayMember = "Nom_Personne";
-		ClientCBox->ValueMember = "Nom_Personne";
+		ClientCBox->ValueMember = "Client.ID";
 	}
 
 	private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArgs^ e) {
@@ -614,13 +614,12 @@ namespace ProjetPOO {
 	private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (this->mode = "ajout")
 		{
-			int id;
-			//id = this->processusCommande->ajouter(Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->Quantite->Text), ???, ???, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
-			this->MessageTxT->Text = "L'ID genere est le : " + System::Convert::ToString(ArticleCBox->SelectedValue) + ".";
+			int id = this->processusCommande->ajouter(Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->Quantite->Text), Convert::ToInt32(ClientCBox->SelectedValue), (moyenDePaiement)this->MoyenPaiement->SelectedItem, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
+			this->MessageTxT->Text = "L'ID genere est le : " + id + ".";
 		}
 		else if (this->mode = "maj")
 		{
-			//this->processusCommande->modifier(Convert::ToInt32(this->IDArticle->Text), ???, Convert::ToInt32(this->Quantite->Text), ???, ???, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
+			this->processusCommande->modifier(Convert::ToInt32(this->IDArticle->Text), Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->Quantite->Text), Convert::ToInt32(ClientCBox->SelectedValue), (moyenDePaiement)this->MoyenPaiement->SelectedItem, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
 		}
 		else if (this->mode = "suppr")
 		{

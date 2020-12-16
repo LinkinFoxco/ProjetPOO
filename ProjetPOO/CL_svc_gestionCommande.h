@@ -1,6 +1,5 @@
 #include "CL_CAD.h"
-#include"Commande.h"
-#include "ContientArticleCommande.h"
+#include "Commande.h"
 
 #pragma once
 
@@ -13,7 +12,6 @@ namespace NS_Svc
 	private:
 		CL_CAD^ cadCommande;
 		DataSet^ donneeCommande;
-		CL_CAD^ cadContient;
 	public:
 		CL_svc_gestionCommande() {
 			cadCommande = gcnew CL_CAD();
@@ -21,10 +19,9 @@ namespace NS_Svc
 			donneeCommande = gcnew DataSet();
 		};
 		Commande^ commande;
-		ContientArticleCommande^ Contient;
 		DataSet^ listeCommande(String^);
-		int ajouter(int article, int qtt, Client^ client, moyenDePaiement^ moyPaiement, String^ dateLivraison, String^ dateEmission, String^ datePaiement);
-		void modifier(int referenceCommande, int article, int qtt, Client^ client, moyenDePaiement^ moyPaiement, String^ dateLivraison, String^ dateEmission, String^ datePaiement);
+		int ajouter(int article, int qtt, int client, moyenDePaiement^ moyPaiement, String^ dateLivraison, String^ dateEmission, String^ datePaiement);
+		void modifier(int referenceCommande, int article, int qtt, int client, moyenDePaiement^ moyPaiement, String^ dateLivraison, String^ dateEmission, String^ datePaiement);
 		void supprimer(int);
 	};
 }
