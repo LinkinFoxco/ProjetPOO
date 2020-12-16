@@ -93,6 +93,9 @@
     <ClInclude Include="ArticleForm.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="CL_svc_gestionContient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdminForm.cpp">
@@ -171,6 +174,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ArticleForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CL_svc_gestionContient.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
