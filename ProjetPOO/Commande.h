@@ -68,11 +68,18 @@ public:
 	System::String^ obtenirDatePaiement() { return m_datePaiement; }
 	moyenDePaiement^ obtenirMoyenDePaiement() { return m_moyenPaiement; }
 	Client^ obtenirClient() { return m_client; }
+	System::String^ obtenirLastListArticle() { return m_articles[m_articles.Count - 1]->m_article->obtenirNomArticle(); }
+	int obtenirQuantiteArticle() { return m_articles[m_articles.Count - 1]->quantite; }
 
-	System::String^ SELECT();
-	System::String^ INSERT();
-	System::String^ UPDATE();
-	System::String^ DELETE();
+	System::String^ SELECTCom();
+	System::String^ INSERTCom();
+	System::String^ UPDATECom();
+	System::String^ DELETECom();
+
+	System::String^ SELECTCont();
+	System::String^ INSERTCont();
+	System::String^ UPDATECont();
+	System::String^ DELETECont();
 
 protected:
 	int referenceCommande;

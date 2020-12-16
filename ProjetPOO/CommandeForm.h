@@ -514,7 +514,7 @@ namespace ProjetPOO {
 
 	private: void iniDataSetArticles() {
 		System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
-		System::String^ sql = "SELECT Nom_Article FROM Article";
+		System::String^ sql = "SELECT Nom_Article, ID FROM Article";
 		System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
 		System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
 		DataSet^ ds = gcnew DataSet();
@@ -523,7 +523,7 @@ namespace ProjetPOO {
 		connection->Close();
 		ArticleCBox->DataSource = ds->Tables[0];
 		ArticleCBox->DisplayMember = "Nom_Article";
-		ArticleCBox->ValueMember = "Nom_Article";
+		ArticleCBox->ValueMember = "ID";
 	}
 
 	private: void iniDataSetClient() {
@@ -616,7 +616,7 @@ namespace ProjetPOO {
 		{
 			int id;
 			//id = this->processusCommande->ajouter(???, Convert::ToInt32(this->Quantite->Text), ???, ???, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
-			this->MessageTxT->Text = "L'ID genere est le : " + id + ".";
+			this->MessageTxT->Text = "L'ID genere est le : " + ArticleCBox->SelectedItem + ".";
 		}
 		else if (this->mode = "maj")
 		{

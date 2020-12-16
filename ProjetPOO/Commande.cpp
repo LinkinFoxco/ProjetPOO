@@ -71,12 +71,12 @@ void Commande::modifier3LVille()
 	}
 }
 
-System::String^ Commande::SELECT()
+System::String^ Commande::SELECTCom()
 {
 	return "SELECT ID, L2_Nom, L2_Prenom, L3_Ville, Annee_Commande, Date_Emission, Date_Livraison, Date_Paiement, Moyen_Paiement, Nb_Total_Article, Prix_Total_HT, Prix_Total_TVA, Prix_Total_TTC, Quantite_Article_Commande, ID_Client FROM Commande;";
 }
 
-System::String^ Commande::INSERT()
+System::String^ Commande::INSERTCom()
 {
 	System::String^ buff = obtenirMoyenDePaiement()->ToString();
 	return "INSERT INTO Commande (L2_Nom, L2_Prenom, L3_Ville, Date_Emission, Date_Livraison, Date_Paiement, Moyen_Paiement, Nb_Total_Article, Prix_Total_HT, Prix_Total_TVA, Prix_Total_TTC, Quantite_Article_Commande, ID_Client) " +
@@ -96,7 +96,7 @@ System::String^ Commande::INSERT()
 		+ "');SELECT @@IDENTITY;";
 }
 
-System::String^ Commande::UPDATE()
+System::String^ Commande::UPDATECom()
 {
 	System::String^ buff = obtenirMoyenDePaiement()->ToString();
 	return "UPDATE Commande SET L2_Nom = '" + this->obtenir2LNom() 
@@ -112,10 +112,33 @@ System::String^ Commande::UPDATE()
 		+ "', Prix_Total_TTC = '" + this->obtenirTotalPrixTTC() 
 		+ "', Quantite_Article_Commande = '" + this->obtenirTotalArticle() 
 		+ "', ID_Client = '" + this->obtenirClient() 
-		+ "' WHERE(ID = " + this->obtenirReferenceCommande() + ");";
+		+ "' WHERE(ID = '" + this->obtenirReferenceCommande() + "');";
 }
 
-System::String^ Commande::DELETE()
+System::String^ Commande::DELETECom()
 {
-	return "DELETE FROM Commande WHERE(ID = " + this->obtenirReferenceCommande() + ");";
+	return "DELETE FROM Commande WHERE(ID = '" + this->obtenirReferenceCommande() + "');";
+}
+
+System::String^ Commande::SELECTCont()
+{
+	return "SELECT ID AS ID_Article, ID_Commande, quantite FROM contient";
+}
+
+System::String^ Commande::INSERTCont()
+{
+	return "INSERT INTO contient (ID, ID_Commande, quantite) "
+		+ "VALUES ('" + this->obtenirLastListArticle() + "', '" + this->obtenirReferenceCommande() + "', '" + this->obtenirQuantiteArticle() + "')";
+}
+
+System::String^ Commande::UPDATECont()
+{
+	return "UPDATE content SET ID = '" + this->obtenirLastListArticle()
+		+ "', quantite = '" + this->obtenirQuantiteArticle()
+		+ "' WHERE (ID_Commande = '" + this->obtenirReferenceCommande() + "')";
+}
+
+System::String^ Commande::DELETECont()
+{
+	return "DELETE FROM contient WHERE(ID_Commande = '" + this->obtenirReferenceCommande() + "');";
 }
