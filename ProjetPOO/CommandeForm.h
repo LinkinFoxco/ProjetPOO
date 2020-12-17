@@ -83,10 +83,10 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 	private: System::Windows::Forms::Button^ Facture;
 	private: System::Windows::Forms::DataGridView^ dataGridView2;
-	private: System::Windows::Forms::ComboBox^ comboBox1;
-	private: System::Windows::Forms::ComboBox^ comboBox2;
-	private: System::Windows::Forms::ComboBox^ comboBox3;
-	private: System::Windows::Forms::ComboBox^ comboBox4;
+	private: System::Windows::Forms::ComboBox^ BoxTVA;
+	private: System::Windows::Forms::ComboBox^ BoxMarge;
+	private: System::Windows::Forms::ComboBox^ BoxRemise;
+	private: System::Windows::Forms::ComboBox^ BoxDemarque;
 	private: System::Windows::Forms::Button^ AjouteArticle;
 
 
@@ -132,10 +132,10 @@ namespace ProjetPOO {
 			this->folderBrowserDialog1 = (gcnew System::Windows::Forms::FolderBrowserDialog());
 			this->Facture = (gcnew System::Windows::Forms::Button());
 			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
-			this->comboBox3 = (gcnew System::Windows::Forms::ComboBox());
-			this->comboBox4 = (gcnew System::Windows::Forms::ComboBox());
+			this->BoxTVA = (gcnew System::Windows::Forms::ComboBox());
+			this->BoxMarge = (gcnew System::Windows::Forms::ComboBox());
+			this->BoxRemise = (gcnew System::Windows::Forms::ComboBox());
+			this->BoxDemarque = (gcnew System::Windows::Forms::ComboBox());
 			this->AjouteArticle = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
@@ -403,42 +403,49 @@ namespace ProjetPOO {
 			this->dataGridView2->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CommandeForm::dataGridView2_CellContentClick);
 			this->dataGridView2->CellMouseDoubleClick += gcnew System::Windows::Forms::DataGridViewCellMouseEventHandler(this, &CommandeForm::dataGridView2_CellMouseDoubleClick);
 			// 
-			// comboBox1
+			// BoxTVA
 			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(37, 432);
-			this->comboBox1->Margin = System::Windows::Forms::Padding(2);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(82, 21);
-			this->comboBox1->TabIndex = 30;
-			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &CommandeForm::comboBox1_SelectedIndexChanged);
+			this->BoxTVA->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->BoxTVA->FormattingEnabled = true;
+			this->BoxTVA->Location = System::Drawing::Point(37, 432);
+			this->BoxTVA->Margin = System::Windows::Forms::Padding(2);
+			this->BoxTVA->Name = L"BoxTVA";
+			this->BoxTVA->Size = System::Drawing::Size(82, 21);
+			this->BoxTVA->TabIndex = 30;
+			this->BoxTVA->SelectedIndexChanged += gcnew System::EventHandler(this, &CommandeForm::BoxTVA_SelectedIndexChanged);
 			// 
-			// comboBox2
+			// BoxMarge
 			// 
-			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Location = System::Drawing::Point(37, 454);
-			this->comboBox2->Margin = System::Windows::Forms::Padding(2);
-			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size(82, 21);
-			this->comboBox2->TabIndex = 31;
+			this->BoxMarge->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->BoxMarge->FormattingEnabled = true;
+			this->BoxMarge->Location = System::Drawing::Point(37, 454);
+			this->BoxMarge->Margin = System::Windows::Forms::Padding(2);
+			this->BoxMarge->Name = L"BoxMarge";
+			this->BoxMarge->Size = System::Drawing::Size(82, 21);
+			this->BoxMarge->TabIndex = 31;
+			this->BoxMarge->SelectedIndexChanged += gcnew System::EventHandler(this, &CommandeForm::BoxMarge_SelectedIndexChanged);
 			// 
-			// comboBox3
+			// BoxRemise
 			// 
-			this->comboBox3->FormattingEnabled = true;
-			this->comboBox3->Location = System::Drawing::Point(122, 432);
-			this->comboBox3->Margin = System::Windows::Forms::Padding(2);
-			this->comboBox3->Name = L"comboBox3";
-			this->comboBox3->Size = System::Drawing::Size(82, 21);
-			this->comboBox3->TabIndex = 32;
+			this->BoxRemise->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->BoxRemise->FormattingEnabled = true;
+			this->BoxRemise->Location = System::Drawing::Point(122, 432);
+			this->BoxRemise->Margin = System::Windows::Forms::Padding(2);
+			this->BoxRemise->Name = L"BoxRemise";
+			this->BoxRemise->Size = System::Drawing::Size(82, 21);
+			this->BoxRemise->TabIndex = 32;
+			this->BoxRemise->SelectedIndexChanged += gcnew System::EventHandler(this, &CommandeForm::BoxRemise_SelectedIndexChanged);
 			// 
-			// comboBox4
+			// BoxDemarque
 			// 
-			this->comboBox4->FormattingEnabled = true;
-			this->comboBox4->Location = System::Drawing::Point(122, 454);
-			this->comboBox4->Margin = System::Windows::Forms::Padding(2);
-			this->comboBox4->Name = L"comboBox4";
-			this->comboBox4->Size = System::Drawing::Size(82, 21);
-			this->comboBox4->TabIndex = 33;
+			this->BoxDemarque->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->BoxDemarque->FormattingEnabled = true;
+			this->BoxDemarque->Location = System::Drawing::Point(122, 454);
+			this->BoxDemarque->Margin = System::Windows::Forms::Padding(2);
+			this->BoxDemarque->Name = L"BoxDemarque";
+			this->BoxDemarque->Size = System::Drawing::Size(82, 21);
+			this->BoxDemarque->TabIndex = 33;
+			this->BoxDemarque->SelectedIndexChanged += gcnew System::EventHandler(this, &CommandeForm::BoxDemarque_SelectedIndexChanged);
 			// 
 			// AjouteArticle
 			// 
@@ -459,10 +466,10 @@ namespace ProjetPOO {
 			this->AutoSize = true;
 			this->ClientSize = System::Drawing::Size(1112, 630);
 			this->Controls->Add(this->AjouteArticle);
-			this->Controls->Add(this->comboBox4);
-			this->Controls->Add(this->comboBox3);
-			this->Controls->Add(this->comboBox2);
-			this->Controls->Add(this->comboBox1);
+			this->Controls->Add(this->BoxDemarque);
+			this->Controls->Add(this->BoxRemise);
+			this->Controls->Add(this->BoxMarge);
+			this->Controls->Add(this->BoxTVA);
 			this->Controls->Add(this->dataGridView2);
 			this->Controls->Add(this->Facture);
 			this->Controls->Add(this->DatePaiementTxT);
@@ -500,7 +507,10 @@ namespace ProjetPOO {
 
 		}
 #pragma endregion
-	private: void iniDataSet(System::String^ table, System::String^ Query){
+	private: void UpdatePrixMoy(int TVA, int Marge, int Remise, int Demarque) {
+		processusCommande->commande->calculArticles(TVA, Marge, Remise, Demarque);
+	}
+	private: void iniDataSet(System::String^ table, System::String^ Query) {
 		System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
 		System::String^ sql = Query;
 		System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
@@ -568,7 +578,7 @@ namespace ProjetPOO {
 	}
 
 	private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		iniDataSet("Commande", "SELECT Commande.ID, Article.Nom_Article AS Article, contient.quantite, Cout.Cout_HT AS Cout_HT_Par_Article FROM Commande RIGHT JOIN (contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON contient.ID_Commande = Commande.ID");
+		iniDataSet("Commande", "SELECT Commande.ID, Article.Nom_Article AS Article, contient.quantite, Cout.Cout_HT AS Cout_HT_Par_Article, Commande.Prix_Total_TTC FROM Commande RIGHT JOIN (contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON contient.ID_Commande = Commande.ID");
 		index = 0;
 		mode = "RIEN";
 		ds = gcnew Data::DataSet();
@@ -590,16 +600,16 @@ namespace ProjetPOO {
 		Cout^ buff = gcnew Cout();
 		for (int i = 0; i <= 3; i++)
 		{
-			comboBox1->Items->Add(buff->obtenirTVA(i));
-			comboBox2->Items->Add(buff->obtenirMarge(i));
-			comboBox4->Items->Add(buff->obtenirDemarque(i));
+			BoxTVA->Items->Add(buff->obtenirTVA(i));
+			BoxMarge->Items->Add(buff->obtenirMarge(i));
+			BoxDemarque->Items->Add(buff->obtenirDemarque(i));
 		
 			if (i < 3)
 			{
-				comboBox3->Items->Add(buff->obtenirRemise(i));
+				BoxRemise->Items->Add(buff->obtenirRemise(i));
 			}
 		}
-
+		/*
 		System::String^ connectionStringArticle = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
 		System::String^ sqlArticle = "SELECT Nom_Article FROM Article;";
 		System::Data::SqlClient::SqlConnection^ connectionArticle = gcnew System::Data::SqlClient::SqlConnection(connectionStringArticle);
@@ -612,6 +622,7 @@ namespace ProjetPOO {
 		{
 			this->ArticleCBox->Items->Add(Convert::ToString(dsArticle->Tables["Article_table"]->Rows[this->index]->ItemArray[i]));
 		}
+		*/
 
 		/*System::String^ connectionStringClient = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
 		System::String^ sqlClient = "SELECT Personne.Nom_Personne, Personne.Prenom_Personne FROM Client LEFT JOIN Personne ON Client.ID_Personne = Personne.ID;";
@@ -643,6 +654,19 @@ namespace ProjetPOO {
 		if (this->mode == "ajout")
 		{
 			int id = this->processusCommande->ajouter(Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->Quantite->Text), Convert::ToInt32(ClientCBox->SelectedValue), (moyenDePaiement)this->MoyenPaiement->SelectedItem, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
+			
+			Cout^ buffCout = gcnew Cout();
+			buffCout->modifierCoutHT(Convert::ToInt32(dataGridView1->SelectedRows[0]->Cells[3]->Value));
+			Article^ buffArticle = gcnew Article();
+			buffArticle->modifierCoutArticle(buffCout);
+			buffArticle->modifierNomArticle(ArticleCBox->SelectedText);
+			processusCommande->commande->ajouterArticles(buffArticle, Convert::ToInt32(this->Quantite->Text));
+			processusCommande->commande->calculArticles(Convert::ToInt32(BoxTVA->SelectedItem), Convert::ToInt32(BoxMarge->SelectedItem), Convert::ToInt32(BoxRemise->SelectedItem), Convert::ToInt32(BoxDemarque->SelectedItem));
+			processusCommande->commande->calculPanier();
+			System::String^ sql = "UPDATE Commande SET Commande.Prix_Total_TTC = '" + processusCommande->commande->obtenirTotalPrixTTC() + "' WHERE (Commande.ID = '" + id + "' )";
+			CL_CAD^ buffer = gcnew CL_CAD();
+			buffer->actionRows(sql);
+			
 			this->processusContient->ajouter(Convert::ToInt32(ArticleCBox->SelectedValue), id, Convert::ToInt32(this->Quantite->Text));
 			this->MessageTxT->Text = "L'ID genere est le : " + id + ".";
 		}
@@ -656,7 +680,7 @@ namespace ProjetPOO {
 			this->processusContient->supprimer(Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->IDCommande->Text));
 			this->processusCommande->supprimer(Convert::ToInt32(this->IDCommande->Text));
 		}
-		iniDataSet("Commande", "SELECT Commande.ID, Article.Nom_Article AS Article, contient.quantite, Cout.Cout_HT AS Cout_HT_Par_Article FROM Commande LEFT JOIN (contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON contient.ID_Commande = Commande.ID");
+		iniDataSet("Commande", "SELECT Commande.ID, Article.Nom_Article AS Article, contient.quantite, Cout.Cout_HT AS Cout_HT_Par_Article, Commande.Prix_Total_TTC FROM Commande RIGHT JOIN (contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON contient.ID_Commande = Commande.ID");
 	}
 	private: System::Void Quantite_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -675,8 +699,17 @@ namespace ProjetPOO {
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	
 	}
-	private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-		processusCommande->commande->calculArticles(Convert::ToInt32(comboBox1->SelectedItem), Convert::ToInt32(comboBox2->SelectedItem), Convert::ToInt32(comboBox3->SelectedItem), Convert::ToInt32(comboBox4->SelectedItem));
+	private: System::Void BoxTVA_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+		UpdatePrixMoy(Convert::ToInt32(BoxTVA->SelectedItem), Convert::ToInt32(BoxMarge->SelectedItem), Convert::ToInt32(BoxRemise->SelectedItem), Convert::ToInt32(BoxDemarque->SelectedItem));
+	}
+	private: System::Void BoxRemise_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+		UpdatePrixMoy(Convert::ToInt32(BoxTVA->SelectedItem), Convert::ToInt32(BoxMarge->SelectedItem), Convert::ToInt32(BoxRemise->SelectedItem), Convert::ToInt32(BoxDemarque->SelectedItem));
+	}
+	private: System::Void BoxMarge_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+		UpdatePrixMoy(Convert::ToInt32(BoxTVA->SelectedItem), Convert::ToInt32(BoxMarge->SelectedItem), Convert::ToInt32(BoxRemise->SelectedItem), Convert::ToInt32(BoxDemarque->SelectedItem));
+	}
+	private: System::Void BoxDemarque_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+		UpdatePrixMoy(Convert::ToInt32(BoxTVA->SelectedItem), Convert::ToInt32(BoxMarge->SelectedItem), Convert::ToInt32(BoxRemise->SelectedItem), Convert::ToInt32(BoxDemarque->SelectedItem));
 	}
 	private: System::Void ArticleCBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -700,6 +733,7 @@ namespace ProjetPOO {
 	}
 	private: System::Void AjouteArticle_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->processusContient->ajouter(Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->IDCommande->Text), Convert::ToInt32(this->Quantite->Text));
+		iniDataSet("Commande", "SELECT Commande.ID, Article.Nom_Article AS Article, contient.quantite, Cout.Cout_HT AS Cout_HT_Par_Article, Commande.Prix_Total_TTC FROM Commande RIGHT JOIN (contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON contient.ID_Commande = Commande.ID");
 	}
 };
 }
