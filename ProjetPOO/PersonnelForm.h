@@ -167,10 +167,14 @@ namespace ProjetPOO {
 			   // 
 			   this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			   this->dataGridView1->Location = System::Drawing::Point(275, 11);
+			   this->dataGridView1->MultiSelect = false;
 			   this->dataGridView1->Name = L"dataGridView1";
+			   this->dataGridView1->ReadOnly = true;
 			   this->dataGridView1->RowHeadersWidth = 51;
+			   this->dataGridView1->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
 			   this->dataGridView1->Size = System::Drawing::Size(505, 130);
 			   this->dataGridView1->TabIndex = 0;
+			   this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PersonnelForm::dataGridView1_CellClick);
 			   this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PersonnelForm::dataGridView1_CellContentClick);
 			   // 
 			   // IDPersonnel
@@ -488,9 +492,9 @@ namespace ProjetPOO {
 			   this->DateEmbaucheLabel->AutoSize = true;
 			   this->DateEmbaucheLabel->Location = System::Drawing::Point(17, 165);
 			   this->DateEmbaucheLabel->Name = L"DateEmbaucheLabel";
-			   this->DateEmbaucheLabel->Size = System::Drawing::Size(93, 13);
+			   this->DateEmbaucheLabel->Size = System::Drawing::Size(199, 13);
 			   this->DateEmbaucheLabel->TabIndex = 28;
-			   this->DateEmbaucheLabel->Text = L"Date d'embauche (Format : 01/01/2000)";
+			   this->DateEmbaucheLabel->Text = L"Date d\'embauche (Format : 01/01/2000)";
 			   // 
 			   // DateEmbauche
 			   // 
@@ -650,6 +654,12 @@ namespace ProjetPOO {
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		comboBox1->Items->Remove(this->comboBox1->Text);
+	}
+	private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		if (dataGridView1->SelectedRows[0]->Cells[0]->Selected == true)
+		{
+			IDPersonnel->Text = Convert::ToString(dataGridView1->SelectedRows[0]->Cells[0]->Value);
+		}
 	}
 };
 }
