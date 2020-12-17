@@ -508,20 +508,15 @@ namespace ProjetPOO {
 		}
 #pragma endregion
 	private: void UpdatePrixMoy() {
-		CL_CAD^ buff = gcnew CL_CAD();
-		buff->actionRows("UPDATE Commande SET Prix_Total_TVA = (((SELECT Cout.Cout_HT FROM Commande LEFT JOIN (contient LEFT JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE (commande.ID = '" + Convert::ToInt32(this->IDCommande->Text) + "'))\
-			+ (SELECT Cout.Cout_HT FROM Commande LEFT JOIN(contient LEFT JOIN(Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE(commande.ID = '" + Convert::ToInt32(this->IDCommande->Text) + "'))\
-			* '" + this->BoxTVA->SelectedItem + "' / 100)\
-			+ (((SELECT Cout.Cout_HT FROM Commande LEFT JOIN(contient LEFT JOIN(Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE(commande.ID = '" + Convert::ToInt32(this->IDCommande->Text) + "'))\
-				+ (SELECT Cout.Cout_HT FROM Commande LEFT JOIN(contient LEFT JOIN(Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE(commande.ID = '" + Convert::ToInt32(this->IDCommande->Text) + "'))\
-				* '" + this->BoxTVA->SelectedItem + "' / 100) * ('" + this->BoxMarge->SelectedItem + "' / 100))\
-			- (((SELECT Cout.Cout_HT FROM Commande LEFT JOIN(contient LEFT JOIN(Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE(commande.ID = '" + Convert::ToInt32(this->IDCommande->Text) + "'))\
-				+ (SELECT Cout.Cout_HT FROM Commande LEFT JOIN(contient LEFT JOIN(Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE(commande.ID = '" + Convert::ToInt32(this->IDCommande->Text) + "'))\
-				* '" + this->BoxTVA->SelectedItem + "' / 100) * ('" + this->BoxRemise->SelectedItem + "' / 100))\
-			- (((SELECT Cout.Cout_HT FROM Commande LEFT JOIN(contient LEFT JOIN(Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE(commande.ID = '" + Convert::ToInt32(this->IDCommande->Text) + "'))\
-				+ (SELECT Cout.Cout_HT FROM Commande LEFT JOIN(contient LEFT JOIN(Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE(commande.ID = '" + Convert::ToInt32(this->IDCommande->Text) + "'))\
-				* '" + this->BoxTVA->SelectedItem + "' / 100) * ('" + this->BoxDemarque->SelectedItem + "' / 100))\
-			* (SELECT Contient.quantite FROM Commande LEFT JOIN contient ON Commande.ID = contient.ID_Commande WHERE(commande.ID = '" + Convert::ToInt32(this->IDCommande->Text) + "')))");
+		if (dataGridView1->SelectedRows[0]->Cells[0]->Selected == true)
+		{
+			CL_CAD^ buff = gcnew CL_CAD();
+			buff->actionRows(
+				"UPDATE Commande SET Prix_Total_TVA = (SELECT SUM((Cout.Cout_HT * " + this->BoxTVA->SelectedItem + ") * contient.quantite) FROM Commande FULL JOIN (contient FULL JOIN (Article FULL JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE (Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ")) WHERE (Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ");\
+			UPDATE Commande SET Prix_Total_TTC = (SELECT Prix_Total_TVA + (Prix_Total_TVA * " + this->BoxMarge->SelectedItem + ") - (Prix_Total_TVA * " + this->BoxRemise->SelectedItem + ") - (Prix_Total_TVA * " + this->BoxDemarque->SelectedItem + ") FROM Commande WHERE(Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ")) WHERE(Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ")"
+			);
+			iniDataSetPanier();
+		}
 	}
 	private: void iniDataSet(System::String^ table, System::String^ Query) {
 		System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
@@ -641,19 +636,8 @@ namespace ProjetPOO {
 			int id = this->processusCommande->ajouter(Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->Quantite->Text), Convert::ToInt32(ClientCBox->SelectedValue), (moyenDePaiement)this->MoyenPaiement->SelectedItem, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
 			
 			CL_CAD^ buff = gcnew CL_CAD();
-			buff->actionRows("UPDATE Commande SET Prix_Total_TVA = (((SELECT Cout.Cout_HT FROM Commande LEFT JOIN (contient LEFT JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE (commande.ID = '" + id + "'))\
-			+ (SELECT Cout.Cout_HT FROM Commande LEFT JOIN(contient LEFT JOIN(Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE(commande.ID = '" + id + "'))\
-			* '" + this->BoxTVA->SelectedItem + "' / 100)\
-			+ (((SELECT Cout.Cout_HT FROM Commande LEFT JOIN(contient LEFT JOIN(Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE(commande.ID = '" + id + "'))\
-				+ (SELECT Cout.Cout_HT FROM Commande LEFT JOIN(contient LEFT JOIN(Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE(commande.ID = '" + id + "'))\
-				* '" + this->BoxTVA->SelectedItem + "' / 100) * ('" + this->BoxMarge->SelectedItem + "' / 100))\
-			- (((SELECT Cout.Cout_HT FROM Commande LEFT JOIN(contient LEFT JOIN(Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE(commande.ID = '" + id + "'))\
-				+ (SELECT Cout.Cout_HT FROM Commande LEFT JOIN(contient LEFT JOIN(Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE(commande.ID = '" + id + "'))\
-				* '" + this->BoxTVA->SelectedItem + "' / 100) * ('" + this->BoxRemise->SelectedItem + "' / 100))\
-			- (((SELECT Cout.Cout_HT FROM Commande LEFT JOIN(contient LEFT JOIN(Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE(commande.ID = '" + id + "'))\
-				+ (SELECT Cout.Cout_HT FROM Commande LEFT JOIN(contient LEFT JOIN(Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE(commande.ID = '" + id + "'))\
-				* '" + this->BoxTVA->SelectedItem + "' / 100) * ('" + this->BoxDemarque->SelectedItem + "' / 100))\
-			* (SELECT Contient.quantite FROM Commande LEFT JOIN contient ON Commande.ID = contient.ID_Commande WHERE(commande.ID = '" + id + "')))");
+			buff->actionRows("UPDATE Commande SET Prix_Total_TVA = (SELECT SUM((Cout.Cout_HT * " + this->BoxTVA->SelectedItem + ") * contient.quantite) FROM Commande FULL JOIN (contient FULL JOIN (Article FULL JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE (Commande.ID = " + id + ")) WHERE (Commande.ID = " + id + ");\
+				UPDATE Commande SET Prix_Total_TTC = (SELECT Prix_Total_TVA + (Prix_Total_TVA * " + this->BoxMarge->SelectedItem + ") - (Prix_Total_TVA * " + this->BoxRemise->SelectedItem + ") - (Prix_Total_TVA * " + this->BoxDemarque->SelectedItem + ") FROM Commande WHERE(Commande.ID = " + id + ")) WHERE(Commande.ID = " + id + ")");
 			/*
 			System::String^ connectionStringCout = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
 			System::Data::SqlClient::SqlConnection^ connectionCout = gcnew System::Data::SqlClient::SqlConnection(connectionStringCout);
@@ -688,6 +672,7 @@ namespace ProjetPOO {
 			this->processusCommande->supprimer(Convert::ToInt32(this->IDCommande->Text));
 		}
 		iniDataSet("Commande", "SELECT Commande.ID, Article.Nom_Article AS Article, contient.quantite, Cout.Cout_HT AS Cout_HT_Par_Article, Commande.Prix_Total_TTC FROM Commande RIGHT JOIN (contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON contient.ID_Commande = Commande.ID");
+		iniDataSetPanier();
 	}
 	private: System::Void Quantite_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
