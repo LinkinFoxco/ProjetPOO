@@ -633,6 +633,7 @@ namespace ProjetPOO {
 			this->processusCommande->supprimer(Convert::ToInt32(this->IDCommande->Text));
 			this->processusContient->supprimer(Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->IDCommande->Text));
 		}
+		iniDataSet("Commande", "SELECT Article.Nom_Article AS Article, contient.quantite, Cout.Cout_HT AS Cout_HT_Par_Article FROM Commande LEFT JOIN (contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON contient.ID_Commande = Commande.ID");
 	}
 	private: System::Void Quantite_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
