@@ -515,8 +515,9 @@ namespace ProjetPOO {
 			{
 				CL_CAD^ buff = gcnew CL_CAD();
 				buff->actionRows(
-					"UPDATE Commande SET Prix_Total_TVA = (SELECT SUM((Cout.Cout_HT * " + 1 + Convert::ToInt32(this->BoxTVA->SelectedItem) / 100 + ") * contient.quantite) FROM Commande FULL JOIN (contient FULL JOIN (Article FULL JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE (Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ")) WHERE (Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ");\
-				UPDATE Commande SET Prix_Total_TTC = (SELECT Prix_Total_TVA + (Prix_Total_TVA * " + Convert::ToInt32(this->BoxMarge->SelectedItem) / 100 + ") - (Prix_Total_TVA * " + Convert::ToInt32(this->BoxRemise->SelectedItem) / 100 + ") - (Prix_Total_TVA * " + Convert::ToInt32(this->BoxDemarque->SelectedItem) / 100 + ") FROM Commande WHERE(Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ")) WHERE(Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ")"
+					"UPDATE Commande SET Prix_Total_TVA = (SELECT SUM((Cout.Cout_HT * " + 1 + Convert::ToInt32(this->BoxTVA->SelectedItem) / 100 + ") * (contient.quantite)) FROM Commande FULL JOIN (contient FULL JOIN (Article FULL JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE (Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ")) WHERE (Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ");\
+				UPDATE Commande SET Prix_Total_TTC = (SELECT Prix_Total_TVA + Prix_Total_TVA * " + Convert::ToInt32(this->BoxMarge->SelectedItem) / 100 + " - Prix_Total_TVA * " + Convert::ToInt32(this->BoxRemise->SelectedItem) / 100 + " - Prix_Total_TVA * " + Convert::ToInt32(this->BoxDemarque->SelectedItem) / 100 + " FROM Commande WHERE(Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ")) WHERE(Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ");\
+				UPDATE Commande SET Prix_Total_TTC = Prix_Total_TTC / 10;"
 				);
 				iniDataSetPanier();
 			}
@@ -668,7 +669,8 @@ namespace ProjetPOO {
 			this->MessageTxT->Text = "L'ID genere est le : " + id + ".";
 			CL_CAD^ buff = gcnew CL_CAD();
 			buff->actionRows("UPDATE Commande SET Prix_Total_TVA = (SELECT SUM((Cout.Cout_HT * " + 1 + Convert::ToInt32(this->BoxTVA->SelectedItem) / 100 + ") * contient.quantite) FROM Commande FULL JOIN (contient FULL JOIN (Article FULL JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE (Commande.ID = " + id + ")) WHERE (Commande.ID = " + id + ");\
-				UPDATE Commande SET Prix_Total_TTC = (SELECT Prix_Total_TVA + (Prix_Total_TVA * " + Convert::ToInt32(this->BoxMarge->SelectedItem) / 100 + ") - (Prix_Total_TVA * " + Convert::ToInt32(this->BoxRemise->SelectedItem) / 100 + ") - (Prix_Total_TVA * " + Convert::ToInt32(this->BoxDemarque->SelectedItem) / 100 + ") FROM Commande WHERE(Commande.ID = " + id + ")) WHERE(Commande.ID = " + id + ")");
+				UPDATE Commande SET Prix_Total_TTC = (SELECT Prix_Total_TVA + (Prix_Total_TVA * " + Convert::ToInt32(this->BoxMarge->SelectedItem) / 100 + ") - (Prix_Total_TVA * " + Convert::ToInt32(this->BoxRemise->SelectedItem) / 100 + ") - (Prix_Total_TVA * " + Convert::ToInt32(this->BoxDemarque->SelectedItem) / 100 + ") FROM Commande WHERE(Commande.ID = " + id + ")) WHERE(Commande.ID = " + id + ");\
+				UPDATE Commande SET Prix_Total_TTC = Prix_Total_TTC / 10;");
 		}
 		else if (this->mode == "maj")
 		{
