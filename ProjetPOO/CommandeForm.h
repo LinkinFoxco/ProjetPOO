@@ -661,7 +661,7 @@ namespace ProjetPOO {
 			System::Data::SqlClient::SqlDataAdapter^ dataadapterCout = gcnew System::Data::SqlClient::SqlDataAdapter(sqlCout, connectionCout);
 			DataSet^ dsCout = gcnew DataSet();
 			connectionCout->Open();
-			dataadapterCout->Fill(dsCout, "Article_table");
+			dataadapterCout->Fill(dsCout);
 			connectionCout->Close();
 
 			Cout^ buffCout = gcnew Cout();
