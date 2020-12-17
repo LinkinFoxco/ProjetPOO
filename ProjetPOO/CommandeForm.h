@@ -655,18 +655,25 @@ namespace ProjetPOO {
 		{
 			int id = this->processusCommande->ajouter(Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->Quantite->Text), Convert::ToInt32(ClientCBox->SelectedValue), (moyenDePaiement)this->MoyenPaiement->SelectedItem, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
 			
+			System::String^ connectionStringCout = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
+			System::Data::SqlClient::SqlConnection^ connectionCout = gcnew System::Data::SqlClient::SqlConnection(connectionStringCout);
+			System::String^ sqlCout = "SELECT Cout_HT FROM Cout LEFT JOIN Article ON Article.ID_Cout = Cout.ID WHERE (Article.Nom_Article = '" + ArticleCBox->SelectedText + "')";
+			System::Data::SqlClient::SqlDataAdapter^ dataadapterCout = gcnew System::Data::SqlClient::SqlDataAdapter(sqlCout, connectionCout);
+			DataSet^ dsCout = gcnew DataSet();
+			connectionCout->Open();
+			dataadapterCout->Fill(dsCout, "Article_table");
+			connectionCout->Close();
+
 			Cout^ buffCout = gcnew Cout();
-			buffCout->modifierCoutHT(Convert::ToInt32(dataGridView1->SelectedRows[0]->Cells[3]->Value));
+			buffCout->modifierCoutHT(Convert::ToInt32(dsCout->Tables[0]->ToString()));
 			Article^ buffArticle = gcnew Article();
 			buffArticle->modifierCoutArticle(buffCout);
 			buffArticle->modifierNomArticle(ArticleCBox->SelectedText);
 			processusCommande->commande->ajouterArticles(buffArticle, Convert::ToInt32(this->Quantite->Text));
 			processusCommande->commande->calculArticles(Convert::ToInt32(BoxTVA->SelectedItem), Convert::ToInt32(BoxMarge->SelectedItem), Convert::ToInt32(BoxRemise->SelectedItem), Convert::ToInt32(BoxDemarque->SelectedItem));
 			processusCommande->commande->calculPanier();
-			System::String^ sql = "UPDATE Commande SET Commande.Prix_Total_TTC = '" + processusCommande->commande->obtenirTotalPrixTTC() + "' WHERE (Commande.ID = '" + id + "' )";
-			CL_CAD^ buffer = gcnew CL_CAD();
-			buffer->actionRows(sql);
-			
+			System::String^ sqlPrix = "UPDATE Commande SET Commande.Prix_Total_TTC = '" + processusCommande->commande->obtenirTotalPrixTTC() + "' WHERE (Commande.ID = '" + id + "' )";
+
 			this->processusContient->ajouter(Convert::ToInt32(ArticleCBox->SelectedValue), id, Convert::ToInt32(this->Quantite->Text));
 			this->MessageTxT->Text = "L'ID genere est le : " + id + ".";
 		}
