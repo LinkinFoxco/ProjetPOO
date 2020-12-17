@@ -669,7 +669,12 @@ namespace ProjetPOO {
 		if (dataGridView1->SelectedRows[0]->Cells[0]->Selected == true)
 		{
 			IDCommande->Text = Convert::ToString(dataGridView1->SelectedRows[0]->Cells[0]->Value);
-			ArticleCBox->SelectedValue = Convert::ToString(dataGridView1->SelectedRows[0]->Cells[1]->Value);
+			int i = 0;
+			while (ArticleCBox->Items[i]->ToString() != Convert::ToString(dataGridView1->SelectedRows[0]->Cells[1]->Value))
+			{
+				i++;
+			}
+			ArticleCBox->SelectedItem = ArticleCBox->Items[i];
 		}
 
 	}
