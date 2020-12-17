@@ -9,7 +9,7 @@ System::String^ ContientArticleCommande::INSERT() {
 }
 
 System::String^ ContientArticleCommande::UPDATE() {
-	return "UPDATE contient SET ID = '" + this->obtenirArticle() + "', Quantite = '" + this->obtenirQuantite() + "');";
+	return "UPDATE contient SET ID = '" + this->obtenirArticle() + "', Quantite = '" + this->obtenirQuantite() + "' WHERE(ID_Commande = '" + this->obtenirCommande() + "');";
 }
 
 System::String^ ContientArticleCommande::DELETE() {

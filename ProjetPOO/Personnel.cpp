@@ -23,6 +23,6 @@ System::String^ Personnel::UPDATE(){
 }
 
 System::String^ Personnel::DELETE(){
-    return "DELETE FROM Personne WHERE(Personne.ID = Personnel.ID_Personne);"
+    return "DELETE FROM Personne WHERE(ID = '" + this->obtenirReferencePersonne() + "');"
         + " DELETE FROM Personnel WHERE(ID = '" + this->obtenirReferencePersonnel() + "');";
 }

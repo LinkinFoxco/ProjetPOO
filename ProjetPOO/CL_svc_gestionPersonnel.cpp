@@ -22,12 +22,13 @@ int NS_Svc::CL_svc_gestionPersonnel::ajouter(String^ Nom, String^ Prenom, String
 	return reference;
 }
 
-void NS_Svc::CL_svc_gestionPersonnel::modifier(String^ Pre, String^ Nom, String^ dateEmbauche, String^ Super)
+void NS_Svc::CL_svc_gestionPersonnel::modifier(int id, String^ Pre, String^ Nom, String^ dateEmbauche, String^ Super)
 {
 	personnel->modifierPPrenom(Pre);
 	personnel->modifierPNom(Nom);
 	personnel->modifierDateEmbauche(dateEmbauche);
 	personnel->modifierSuperieur(Super);
+	personnel->modifierReferencePersonnel(id);
 
 	Pcad->actionRows(personnel->UPDATE());
 }

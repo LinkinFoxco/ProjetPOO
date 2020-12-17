@@ -23,7 +23,7 @@ namespace NS_Svc
 		};
 		DataSet^ listePersonnel(String^);
 		int ajouter(String^, String^, String^, String^);
-		void modifier(String^, String^, String^, String^);
+		void modifier(int, String^, String^, String^, String^);
 		void supprimer(int);
 	};
 

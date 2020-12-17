@@ -553,7 +553,7 @@ namespace ProjetPOO {
 	}
 
 	private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		iniDataSet("Commande", "SELECT Commande.ID, Article.Nom_Article AS Article, contient.quantite, Cout.Cout_HT AS Cout_HT_Par_Article FROM Commande LEFT JOIN (contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON contient.ID_Commande = Commande.ID");
+		iniDataSet("Commande", "SELECT Commande.ID, Article.Nom_Article AS Article, contient.quantite, Cout.Cout_HT AS Cout_HT_Par_Article FROM Commande RIGHT JOIN (contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON contient.ID_Commande = Commande.ID");
 		index = 0;
 		mode = "RIEN";
 		ds = gcnew Data::DataSet();
