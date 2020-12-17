@@ -143,11 +143,15 @@ namespace ProjetPOO {
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Location = System::Drawing::Point(435, 15);
-			this->dataGridView1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(4);
+			this->dataGridView1->MultiSelect = false;
 			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->ReadOnly = true;
 			this->dataGridView1->RowHeadersWidth = 51;
+			this->dataGridView1->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
 			this->dataGridView1->Size = System::Drawing::Size(667, 215);
 			this->dataGridView1->TabIndex = 0;
+			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CommandeForm::dataGridView1_CellClick);
 			// 
 			// MessageTxT
 			// 
@@ -162,7 +166,7 @@ namespace ProjetPOO {
 			// MessageBox
 			// 
 			this->MessageBox->Location = System::Drawing::Point(15, 509);
-			this->MessageBox->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->MessageBox->Margin = System::Windows::Forms::Padding(4);
 			this->MessageBox->Multiline = true;
 			this->MessageBox->Name = L"MessageBox";
 			this->MessageBox->ReadOnly = true;
@@ -173,7 +177,7 @@ namespace ProjetPOO {
 			// 
 			this->Enregistrer->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
 			this->Enregistrer->Location = System::Drawing::Point(939, 426);
-			this->Enregistrer->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Enregistrer->Margin = System::Windows::Forms::Padding(4);
 			this->Enregistrer->Name = L"Enregistrer";
 			this->Enregistrer->Size = System::Drawing::Size(160, 55);
 			this->Enregistrer->TabIndex = 15;
@@ -185,7 +189,7 @@ namespace ProjetPOO {
 			// 
 			this->Supprimer->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
 			this->Supprimer->Location = System::Drawing::Point(771, 426);
-			this->Supprimer->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Supprimer->Margin = System::Windows::Forms::Padding(4);
 			this->Supprimer->Name = L"Supprimer";
 			this->Supprimer->Size = System::Drawing::Size(160, 55);
 			this->Supprimer->TabIndex = 14;
@@ -197,7 +201,7 @@ namespace ProjetPOO {
 			// 
 			this->Modifier->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
 			this->Modifier->Location = System::Drawing::Point(603, 426);
-			this->Modifier->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Modifier->Margin = System::Windows::Forms::Padding(4);
 			this->Modifier->Name = L"Modifier";
 			this->Modifier->Size = System::Drawing::Size(160, 55);
 			this->Modifier->TabIndex = 13;
@@ -209,7 +213,7 @@ namespace ProjetPOO {
 			// 
 			this->Ajouter->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
 			this->Ajouter->Location = System::Drawing::Point(435, 426);
-			this->Ajouter->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Ajouter->Margin = System::Windows::Forms::Padding(4);
 			this->Ajouter->Name = L"Ajouter";
 			this->Ajouter->Size = System::Drawing::Size(160, 55);
 			this->Ajouter->TabIndex = 12;
@@ -230,7 +234,7 @@ namespace ProjetPOO {
 			// IDCommande
 			// 
 			this->IDCommande->Location = System::Drawing::Point(26, 48);
-			this->IDCommande->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->IDCommande->Margin = System::Windows::Forms::Padding(4);
 			this->IDCommande->Name = L"IDCommande";
 			this->IDCommande->ReadOnly = true;
 			this->IDCommande->Size = System::Drawing::Size(380, 20);
@@ -259,7 +263,7 @@ namespace ProjetPOO {
 			// Quantite
 			// 
 			this->Quantite->Location = System::Drawing::Point(26, 139);
-			this->Quantite->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Quantite->Margin = System::Windows::Forms::Padding(4);
 			this->Quantite->Name = L"Quantite";
 			this->Quantite->Size = System::Drawing::Size(380, 20);
 			this->Quantite->TabIndex = 5;
@@ -267,6 +271,7 @@ namespace ProjetPOO {
 			// 
 			// ArticleCBox
 			// 
+			this->ArticleCBox->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->ArticleCBox->FormattingEnabled = true;
 			this->ArticleCBox->Location = System::Drawing::Point(27, 91);
 			this->ArticleCBox->Name = L"ArticleCBox";
@@ -287,7 +292,7 @@ namespace ProjetPOO {
 			// DateLivraison
 			// 
 			this->DateLivraison->Location = System::Drawing::Point(26, 189);
-			this->DateLivraison->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->DateLivraison->Margin = System::Windows::Forms::Padding(4);
 			this->DateLivraison->Name = L"DateLivraison";
 			this->DateLivraison->Size = System::Drawing::Size(380, 20);
 			this->DateLivraison->TabIndex = 18;
@@ -305,7 +310,7 @@ namespace ProjetPOO {
 			// DateEmission
 			// 
 			this->DateEmission->Location = System::Drawing::Point(26, 244);
-			this->DateEmission->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->DateEmission->Margin = System::Windows::Forms::Padding(4);
 			this->DateEmission->Name = L"DateEmission";
 			this->DateEmission->ReadOnly = true;
 			this->DateEmission->Size = System::Drawing::Size(380, 20);
@@ -313,6 +318,7 @@ namespace ProjetPOO {
 			// 
 			// ClientCBox
 			// 
+			this->ClientCBox->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->ClientCBox->FormattingEnabled = true;
 			this->ClientCBox->Location = System::Drawing::Point(26, 296);
 			this->ClientCBox->Name = L"ClientCBox";
@@ -331,7 +337,9 @@ namespace ProjetPOO {
 			// 
 			// MoyenPaiement
 			// 
+			this->MoyenPaiement->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->MoyenPaiement->FormattingEnabled = true;
+			this->MoyenPaiement->ImeMode = System::Windows::Forms::ImeMode::NoControl;
 			this->MoyenPaiement->Location = System::Drawing::Point(26, 346);
 			this->MoyenPaiement->Name = L"MoyenPaiement";
 			this->MoyenPaiement->Size = System::Drawing::Size(380, 21);
@@ -360,7 +368,7 @@ namespace ProjetPOO {
 			// DatePaiement
 			// 
 			this->DatePaiement->Location = System::Drawing::Point(26, 395);
-			this->DatePaiement->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->DatePaiement->Margin = System::Windows::Forms::Padding(4);
 			this->DatePaiement->Name = L"DatePaiement";
 			this->DatePaiement->Size = System::Drawing::Size(380, 20);
 			this->DatePaiement->TabIndex = 26;
@@ -373,7 +381,7 @@ namespace ProjetPOO {
 			// 
 			this->Facture->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
 			this->Facture->Location = System::Drawing::Point(267, 426);
-			this->Facture->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Facture->Margin = System::Windows::Forms::Padding(4);
 			this->Facture->Name = L"Facture";
 			this->Facture->Size = System::Drawing::Size(160, 55);
 			this->Facture->TabIndex = 28;
@@ -385,7 +393,7 @@ namespace ProjetPOO {
 			// 
 			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView2->Location = System::Drawing::Point(435, 238);
-			this->dataGridView2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->dataGridView2->Margin = System::Windows::Forms::Padding(4);
 			this->dataGridView2->Name = L"dataGridView2";
 			this->dataGridView2->RowHeadersWidth = 51;
 			this->dataGridView2->Size = System::Drawing::Size(667, 174);
@@ -397,7 +405,7 @@ namespace ProjetPOO {
 			// 
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Location = System::Drawing::Point(37, 432);
-			this->comboBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->comboBox1->Margin = System::Windows::Forms::Padding(2);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(82, 21);
 			this->comboBox1->TabIndex = 30;
@@ -407,7 +415,7 @@ namespace ProjetPOO {
 			// 
 			this->comboBox2->FormattingEnabled = true;
 			this->comboBox2->Location = System::Drawing::Point(37, 454);
-			this->comboBox2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->comboBox2->Margin = System::Windows::Forms::Padding(2);
 			this->comboBox2->Name = L"comboBox2";
 			this->comboBox2->Size = System::Drawing::Size(82, 21);
 			this->comboBox2->TabIndex = 31;
@@ -416,7 +424,7 @@ namespace ProjetPOO {
 			// 
 			this->comboBox3->FormattingEnabled = true;
 			this->comboBox3->Location = System::Drawing::Point(122, 432);
-			this->comboBox3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->comboBox3->Margin = System::Windows::Forms::Padding(2);
 			this->comboBox3->Name = L"comboBox3";
 			this->comboBox3->Size = System::Drawing::Size(82, 21);
 			this->comboBox3->TabIndex = 32;
@@ -425,7 +433,7 @@ namespace ProjetPOO {
 			// 
 			this->comboBox4->FormattingEnabled = true;
 			this->comboBox4->Location = System::Drawing::Point(122, 454);
-			this->comboBox4->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->comboBox4->Margin = System::Windows::Forms::Padding(2);
 			this->comboBox4->Name = L"comboBox4";
 			this->comboBox4->Size = System::Drawing::Size(82, 21);
 			this->comboBox4->TabIndex = 33;
@@ -512,11 +520,11 @@ namespace ProjetPOO {
 		connection->Open();
 		dataadapter->Fill(ds, "chiffreDaffaire");
 		connection->Close();
-		dataGridView1->DataSource = ds;
-		dataGridView1->DataMember = "chiffreDaffaire";
+		dataGridView2->DataSource = ds;
+		dataGridView2->DataMember = "chiffreDaffaire";
 	}
 
-	private: void iniDataSetArticles() {
+	private: void iniComboBoxArticles() {
 		System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
 		System::String^ sql = "SELECT Nom_Article, ID FROM Article";
 		System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
@@ -530,7 +538,7 @@ namespace ProjetPOO {
 		ArticleCBox->ValueMember = "ID";
 	}
 
-	private: void iniDataSetClient() {
+	private: void iniComboBoxClient() {
 		System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
 		System::String^ sql = "SELECT Nom_Personne, Client.ID FROM Client LEFT JOIN Personne ON Client.ID_Personne = Personne.ID";
 		System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
@@ -545,7 +553,7 @@ namespace ProjetPOO {
 	}
 
 	private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		iniDataSet("Commande", "SELECT Article.Nom_Article AS Article, contient.quantite, Cout.Cout_HT AS Cout_HT_Par_Article FROM Commande LEFT JOIN (contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON contient.ID_Commande = Commande.ID");
+		iniDataSet("Commande", "SELECT Commande.ID, Article.Nom_Article AS Article, contient.quantite, Cout.Cout_HT AS Cout_HT_Par_Article FROM Commande LEFT JOIN (contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON contient.ID_Commande = Commande.ID");
 		index = 0;
 		mode = "RIEN";
 		ds = gcnew Data::DataSet();
@@ -561,8 +569,8 @@ namespace ProjetPOO {
 		this->MoyenPaiement->Items->Add(moyenDePaiement::Fiduciaire);
 		this->MoyenPaiement->Items->Add(moyenDePaiement::Paypal);
 
-		iniDataSetArticles();
-		iniDataSetClient();
+		iniComboBoxArticles();
+		iniComboBoxClient();
 
 		Cout^ buff = gcnew Cout();
 		for (int i = 0; i <= 3; i++)
@@ -633,7 +641,7 @@ namespace ProjetPOO {
 			this->processusCommande->supprimer(Convert::ToInt32(this->IDCommande->Text));
 			this->processusContient->supprimer(Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->IDCommande->Text));
 		}
-		iniDataSet("Commande", "SELECT Article.Nom_Article AS Article, contient.quantite, Cout.Cout_HT AS Cout_HT_Par_Article FROM Commande LEFT JOIN (contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON contient.ID_Commande = Commande.ID");
+		iniDataSet("Commande", "SELECT Commande.ID, Article.Nom_Article AS Article, contient.quantite, Cout.Cout_HT AS Cout_HT_Par_Article FROM Commande LEFT JOIN (contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON contient.ID_Commande = Commande.ID");
 	}
 	private: System::Void Quantite_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -656,6 +664,10 @@ namespace ProjetPOO {
 		processusCommande->commande->calculArticles(Convert::ToInt32(comboBox1->SelectedItem), Convert::ToInt32(comboBox2->SelectedItem), Convert::ToInt32(comboBox3->SelectedItem), Convert::ToInt32(comboBox4->SelectedItem));
 	}
 	private: System::Void ArticleCBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		if (dataGridView1->SelectedRows[0]->Cells[0]->Selected == true)
+			IDCommande->Text = Convert::ToString(dataGridView1->SelectedRows[0]->Cells[0]->Value);
 	}
 };
 }
