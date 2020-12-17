@@ -20,7 +20,7 @@ namespace NS_Svc
 			donneeContient = gcnew DataSet();
 		};
 		DataSet^ listeContient(String^);
-		int ajouter(int, int, int);
+		void ajouter(int, int, int);
 		void modifier(int, int, int);
 		void supprimer(int, int);
 	};

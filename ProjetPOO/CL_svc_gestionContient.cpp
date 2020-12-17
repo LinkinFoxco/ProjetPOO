@@ -7,7 +7,7 @@ DataSet^ NS_Svc::CL_svc_gestionContient::listeContient(String^ dataTableName)
 	return donneeContient;
 }
 
-int NS_Svc::CL_svc_gestionContient::ajouter(int article, int commande, int quantite)
+void NS_Svc::CL_svc_gestionContient::ajouter(int article, int commande, int quantite)
 {
 	contient->modifierArticle(article);
 	contient->modifierCommande(commande);

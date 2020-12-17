@@ -617,18 +617,18 @@ namespace ProjetPOO {
 		this->MessageTxT->Text = "Pour confirmer la suppression de cet article dans la commande, appuyez sur le bouton Enregistrer";
 	}
 	private: System::Void Enregistrer_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (this->mode = "ajout")
+		if (this->mode == "ajout")
 		{
 			int id = this->processusCommande->ajouter(Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->Quantite->Text), Convert::ToInt32(ClientCBox->SelectedValue), (moyenDePaiement)this->MoyenPaiement->SelectedItem, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
 			this->processusContient->ajouter(Convert::ToInt32(ArticleCBox->SelectedValue), id, Convert::ToInt32(this->Quantite->Text));
 			this->MessageTxT->Text = "L'ID genere est le : " + id + ".";
 		}
-		else if (this->mode = "maj")
+		else if (this->mode == "maj")
 		{
 			this->processusCommande->modifier(Convert::ToInt32(this->IDCommande->Text), Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->Quantite->Text), Convert::ToInt32(ClientCBox->SelectedValue), (moyenDePaiement)this->MoyenPaiement->SelectedItem, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
 			this->processusContient->modifier(Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->IDCommande->Text), Convert::ToInt32(this->Quantite->Text));
 		}
-		else if (this->mode = "suppr")
+		else if (this->mode == "suppr")
 		{
 			this->processusCommande->supprimer(Convert::ToInt32(this->IDCommande->Text));
 			this->processusContient->supprimer(Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->IDCommande->Text));
