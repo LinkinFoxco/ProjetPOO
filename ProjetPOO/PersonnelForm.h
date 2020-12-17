@@ -603,7 +603,7 @@ namespace ProjetPOO {
 			MessageBox->Text = "L'ajout à bien été effectuer !";
 		}
 		else if (mode == "modif") {
-			this->processusPersonnel->modifier(Convert::ToInt32(this->IDPersonnel->Text), this->PrenomPersonnel->Text, this->NomPersonnel->Text, this->DateEmbauche->Text, this->comboBox1->Text);
+			this->processusPersonnel->modifier(this->IdPersonne, Convert::ToInt32(this->IDPersonnel->Text), this->PrenomPersonnel->Text, this->NomPersonnel->Text, this->DateEmbauche->Text, this->comboBox1->Text);
 			this->processusAdresse->modifier(System::Convert::ToInt32(this->textBox1->Text), this->textBox4->Text, this->textBox3->Text, this->textBox2->Text);
 			MessageBox->Text = "La modification à bien été effectuer !";
 		}

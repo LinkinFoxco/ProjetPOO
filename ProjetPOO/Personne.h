@@ -30,6 +30,7 @@ public:
 
 	void modifierPNom(System::String^ Nnom) { m_nom = Nnom; }
 	void modifierPPrenom(System::String^ Nprenom) { m_prenom = Nprenom; }
+	void modifierPReferencePersonne(int ID) { referencePersonne = ID; }
 
 	System::String^ SELECT();
 	System::String^ INSERT();
