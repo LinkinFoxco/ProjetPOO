@@ -667,7 +667,11 @@ namespace ProjetPOO {
 	}
 	private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		if (dataGridView1->SelectedRows[0]->Cells[0]->Selected == true)
+		{
 			IDCommande->Text = Convert::ToString(dataGridView1->SelectedRows[0]->Cells[0]->Value);
+			ArticleCBox->SelectedValue = Convert::ToString(dataGridView1->SelectedRows[0]->Cells[1]->Value);
+		}
+
 	}
 };
 }
