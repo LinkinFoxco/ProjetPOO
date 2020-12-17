@@ -96,6 +96,7 @@ namespace ProjetPOO {
 		String^ mode;
 		NS_Svc::CL_svc_gestionPersonnel^ processusPersonnel;
 		NS_Svc::CL_svc_gestionAdresse^ processusAdresse;
+		int IdPersonne;
 	private: System::Windows::Forms::GroupBox^ groupBox1;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label3;
@@ -548,7 +549,7 @@ namespace ProjetPOO {
 	private: void iniDataSet()
 	{
 		System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
-		System::String^ sql = "SELECT Personnel.ID, Personne.Nom_Personne, Personne.Prenom_Personne, Personnel.Date_Embauche, Societe.Nom_Societe, Personnel.ID_Personnel AS ID_Superieur FROM Personne RIGHT JOIN (Personnel LEFT JOIN Societe ON Personnel.ID_Societe = Societe.ID) ON Personne.ID = Personnel.ID_Personne";
+		System::String^ sql = "SELECT Personnel.ID AS Personnel_ID, Personne.ID AS Personne_ID, Personne.Nom_Personne, Personne.Prenom_Personne, Personnel.Date_Embauche, Societe.Nom_Societe, Personnel.ID_Personnel AS ID_Superieur FROM Personne RIGHT JOIN (Personnel LEFT JOIN Societe ON Personnel.ID_Societe = Societe.ID) ON Personne.ID = Personnel.ID_Personne";
 		System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
 		System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
 		DataSet^ ds = gcnew DataSet();
@@ -659,6 +660,7 @@ namespace ProjetPOO {
 		if (dataGridView1->SelectedRows[0]->Cells[0]->Selected == true)
 		{
 			IDPersonnel->Text = Convert::ToString(dataGridView1->SelectedRows[0]->Cells[0]->Value);
+			IdPersonne = Convert::ToInt32(dataGridView1->SelectedRows[0]->Cells[1]->Value);
 		}
 	}
 };
