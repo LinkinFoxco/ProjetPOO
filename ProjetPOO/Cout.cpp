@@ -29,7 +29,7 @@ Cout::Cout()
 
 void Cout::calculerCoutTTC(int margeValeur, int remiseValeur, int demarqueValeur)
 {
-	CoutTTC = CoutTVA + CoutTVA * margeValeur/100 + CoutTVA * remiseValeur/100 + CoutTVA * demarqueValeur/100;
+	CoutTTC = CoutTVA + CoutTVA * margeValeur/100 - CoutTVA * remiseValeur/100 - CoutTVA * demarqueValeur/100;
 }
 
 System::String^ Cout::SELECT(){
