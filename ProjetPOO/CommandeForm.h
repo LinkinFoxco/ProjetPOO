@@ -69,6 +69,7 @@ namespace ProjetPOO {
 		DataSet^ ds;
 		String^ mode;
 		DataSet^ dsClient = gcnew DataSet();
+		bool isLoading;
 	private: System::Windows::Forms::Label^ DateLivraisonTxT;
 	private: System::Windows::Forms::TextBox^ DateLivraison;
 	private: System::Windows::Forms::Label^ DateEmissionTxT;
@@ -508,14 +509,17 @@ namespace ProjetPOO {
 		}
 #pragma endregion
 	private: void UpdatePrixMoy() {
-		if (dataGridView1->SelectedRows[0]->Cells[0]->Selected == true)
+		if (isLoading == false)
 		{
-			CL_CAD^ buff = gcnew CL_CAD();
-			buff->actionRows(
-				"UPDATE Commande SET Prix_Total_TVA = (SELECT SUM((Cout.Cout_HT * " + 1 + Convert::ToInt32(this->BoxTVA->SelectedItem)/100 + ") * contient.quantite) FROM Commande FULL JOIN (contient FULL JOIN (Article FULL JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE (Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ")) WHERE (Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ");\
-			UPDATE Commande SET Prix_Total_TTC = (SELECT Prix_Total_TVA + (Prix_Total_TVA * " + Convert::ToInt32(this->BoxMarge->SelectedItem)/100 + ") - (Prix_Total_TVA * " + Convert::ToInt32(this->BoxRemise->SelectedItem)/100 + ") - (Prix_Total_TVA * " + Convert::ToInt32(this->BoxDemarque->SelectedItem)/100 + ") FROM Commande WHERE(Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ")) WHERE(Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ")"
-			);
-			iniDataSetPanier();
+			if (dataGridView1->SelectedRows[0]->Cells[0]->Selected == true)
+			{
+				CL_CAD^ buff = gcnew CL_CAD();
+				buff->actionRows(
+					"UPDATE Commande SET Prix_Total_TVA = (SELECT SUM((Cout.Cout_HT * " + 1 + Convert::ToInt32(this->BoxTVA->SelectedItem) / 100 + ") * contient.quantite) FROM Commande FULL JOIN (contient FULL JOIN (Article FULL JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE (Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ")) WHERE (Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ");\
+				UPDATE Commande SET Prix_Total_TTC = (SELECT Prix_Total_TVA + (Prix_Total_TVA * " + Convert::ToInt32(this->BoxMarge->SelectedItem) / 100 + ") - (Prix_Total_TVA * " + Convert::ToInt32(this->BoxRemise->SelectedItem) / 100 + ") - (Prix_Total_TVA * " + Convert::ToInt32(this->BoxDemarque->SelectedItem) / 100 + ") FROM Commande WHERE(Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ")) WHERE(Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ")"
+				);
+				iniDataSetPanier();
+			}
 		}
 	}
 	private: void iniDataSet(System::String^ table, System::String^ Query) {
@@ -546,7 +550,7 @@ namespace ProjetPOO {
 
 	private: void iniDataSetChiffreDaffaire() {
 		System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
-		System::String^ sql = "SELECT SUM(Prix_Total_TTC) FROM Commande WHERE (SELECT LEFT(Date_Paiement, 5), RIGHT(Date_Paiement, 5)) = ";// + this + ;
+		System::String^ sql = "SELECT SUM(Prix_Total_TTC) FROM Commande WHERE (SELECT LEFT(Date_Paiement, 5), RIGHT(Date_Paiement, 5)) = "; //+ this + ;
 		System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
 		System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
 		DataSet^ ds = gcnew DataSet();
@@ -586,6 +590,7 @@ namespace ProjetPOO {
 	}
 
 	private: System::Void CommandeForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		isLoading = true;
 		iniDataSet("Commande", "SELECT Commande.ID, Article.Nom_Article AS Article, contient.quantite, Cout.Cout_HT AS Cout_HT_Par_Article, Commande.Prix_Total_TTC FROM Commande RIGHT JOIN (contient INNER JOIN (Article LEFT JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON contient.ID_Commande = Commande.ID");
 		index = 0;
 		mode = "RIEN";
@@ -617,11 +622,11 @@ namespace ProjetPOO {
 				BoxRemise->Items->Add(buff->obtenirRemise(i));
 			}
 		}
-		int indextest = 0;
-		BoxTVA->SelectedIndex = indextest;
-		BoxMarge->SelectedIndex = indextest;
-		BoxDemarque->SelectedIndex = indextest;
-		BoxRemise->SelectedIndex = indextest;
+		BoxTVA->SelectedIndex = 0;
+		BoxMarge->SelectedIndex = 0;
+		BoxDemarque->SelectedIndex = 0;
+		BoxRemise->SelectedIndex = 0;
+		isLoading = false;
 	}
 	private: System::Void Ajouter_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->mode = "ajout";
@@ -639,8 +644,6 @@ namespace ProjetPOO {
 		if (this->mode == "ajout")
 		{
 			int id = this->processusCommande->ajouter(Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->Quantite->Text), Convert::ToInt32(ClientCBox->SelectedValue), (moyenDePaiement)this->MoyenPaiement->SelectedItem, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
-			
-			CL_CAD^ buff = gcnew CL_CAD();
 			/*
 			System::String^ connectionStringCout = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
 			System::Data::SqlClient::SqlConnection^ connectionCout = gcnew System::Data::SqlClient::SqlConnection(connectionStringCout);
@@ -663,6 +666,7 @@ namespace ProjetPOO {
 			*/
 			this->processusContient->ajouter(Convert::ToInt32(ArticleCBox->SelectedValue), id, Convert::ToInt32(this->Quantite->Text));
 			this->MessageTxT->Text = "L'ID genere est le : " + id + ".";
+			CL_CAD^ buff = gcnew CL_CAD();
 			buff->actionRows("UPDATE Commande SET Prix_Total_TVA = (SELECT SUM((Cout.Cout_HT * " + 1 + Convert::ToInt32(this->BoxTVA->SelectedItem) / 100 + ") * contient.quantite) FROM Commande FULL JOIN (contient FULL JOIN (Article FULL JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE (Commande.ID = " + id + ")) WHERE (Commande.ID = " + id + ");\
 				UPDATE Commande SET Prix_Total_TTC = (SELECT Prix_Total_TVA + (Prix_Total_TVA * " + Convert::ToInt32(this->BoxMarge->SelectedItem) / 100 + ") - (Prix_Total_TVA * " + Convert::ToInt32(this->BoxRemise->SelectedItem) / 100 + ") - (Prix_Total_TVA * " + Convert::ToInt32(this->BoxDemarque->SelectedItem) / 100 + ") FROM Commande WHERE(Commande.ID = " + id + ")) WHERE(Commande.ID = " + id + ")");
 		}
