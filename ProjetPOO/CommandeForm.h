@@ -87,6 +87,7 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::ComboBox^ comboBox2;
 	private: System::Windows::Forms::ComboBox^ comboBox3;
 	private: System::Windows::Forms::ComboBox^ comboBox4;
+	private: System::Windows::Forms::Button^ AjouteArticle;
 
 
 
@@ -135,6 +136,7 @@ namespace ProjetPOO {
 			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
 			this->comboBox3 = (gcnew System::Windows::Forms::ComboBox());
 			this->comboBox4 = (gcnew System::Windows::Forms::ComboBox());
+			this->AjouteArticle = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
 			this->SuspendLayout();
@@ -392,11 +394,11 @@ namespace ProjetPOO {
 			// dataGridView2
 			// 
 			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView2->Location = System::Drawing::Point(435, 238);
+			this->dataGridView2->Location = System::Drawing::Point(837, 238);
 			this->dataGridView2->Margin = System::Windows::Forms::Padding(4);
 			this->dataGridView2->Name = L"dataGridView2";
 			this->dataGridView2->RowHeadersWidth = 51;
-			this->dataGridView2->Size = System::Drawing::Size(667, 174);
+			this->dataGridView2->Size = System::Drawing::Size(265, 174);
 			this->dataGridView2->TabIndex = 29;
 			this->dataGridView2->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CommandeForm::dataGridView2_CellContentClick);
 			this->dataGridView2->CellMouseDoubleClick += gcnew System::Windows::Forms::DataGridViewCellMouseEventHandler(this, &CommandeForm::dataGridView2_CellMouseDoubleClick);
@@ -438,12 +440,25 @@ namespace ProjetPOO {
 			this->comboBox4->Size = System::Drawing::Size(82, 21);
 			this->comboBox4->TabIndex = 33;
 			// 
+			// AjouteArticle
+			// 
+			this->AjouteArticle->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->AjouteArticle->Location = System::Drawing::Point(435, 244);
+			this->AjouteArticle->Name = L"AjouteArticle";
+			this->AjouteArticle->Size = System::Drawing::Size(385, 168);
+			this->AjouteArticle->TabIndex = 34;
+			this->AjouteArticle->Text = L"Ajouter Article";
+			this->AjouteArticle->UseVisualStyleBackColor = true;
+			this->AjouteArticle->Click += gcnew System::EventHandler(this, &CommandeForm::AjouteArticle_Click);
+			// 
 			// CommandeForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoSize = true;
 			this->ClientSize = System::Drawing::Size(1112, 630);
+			this->Controls->Add(this->AjouteArticle);
 			this->Controls->Add(this->comboBox4);
 			this->Controls->Add(this->comboBox3);
 			this->Controls->Add(this->comboBox2);
@@ -682,6 +697,9 @@ namespace ProjetPOO {
 			*/
 		}
 
+	}
+	private: System::Void AjouteArticle_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->processusContient->ajouter(Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->IDCommande->Text), Convert::ToInt32(this->Quantite->Text));
 	}
 };
 }
