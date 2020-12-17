@@ -449,11 +449,11 @@ namespace ProjetPOO {
 			// 
 			// AjouteArticle
 			// 
-			this->AjouteArticle->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->AjouteArticle->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->AjouteArticle->Location = System::Drawing::Point(435, 244);
 			this->AjouteArticle->Name = L"AjouteArticle";
-			this->AjouteArticle->Size = System::Drawing::Size(385, 168);
+			this->AjouteArticle->Size = System::Drawing::Size(385, 73);
 			this->AjouteArticle->TabIndex = 34;
 			this->AjouteArticle->Text = L"Ajouter Article";
 			this->AjouteArticle->UseVisualStyleBackColor = true;
@@ -512,8 +512,8 @@ namespace ProjetPOO {
 		{
 			CL_CAD^ buff = gcnew CL_CAD();
 			buff->actionRows(
-				"UPDATE Commande SET Prix_Total_TVA = (SELECT SUM((Cout.Cout_HT * " + this->BoxTVA->SelectedItem + ") * contient.quantite) FROM Commande FULL JOIN (contient FULL JOIN (Article FULL JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE (Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ")) WHERE (Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ");\
-			UPDATE Commande SET Prix_Total_TTC = (SELECT Prix_Total_TVA + (Prix_Total_TVA * " + this->BoxMarge->SelectedItem + ") - (Prix_Total_TVA * " + this->BoxRemise->SelectedItem + ") - (Prix_Total_TVA * " + this->BoxDemarque->SelectedItem + ") FROM Commande WHERE(Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ")) WHERE(Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ")"
+				"UPDATE Commande SET Prix_Total_TVA = (SELECT SUM((Cout.Cout_HT * " + 1+Convert::ToInt32(this->BoxTVA->SelectedItem)/100 + ") * contient.quantite) FROM Commande FULL JOIN (contient FULL JOIN (Article FULL JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE (Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ")) WHERE (Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ");\
+			UPDATE Commande SET Prix_Total_TTC = (SELECT Prix_Total_TVA + (Prix_Total_TVA * " + 1 + Convert::ToInt32(this->BoxMarge->SelectedItem)/100 + ") - (Prix_Total_TVA * " + 1 + Convert::ToInt32(this->BoxRemise->SelectedItem)/100 + ") - (Prix_Total_TVA * " + 1 + Convert::ToInt32(this->BoxDemarque->SelectedItem)/100 + ") FROM Commande WHERE(Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ")) WHERE(Commande.ID = " + Convert::ToInt32(this->IDCommande->Text) + ")"
 			);
 			iniDataSetPanier();
 		}
@@ -546,7 +546,7 @@ namespace ProjetPOO {
 
 	private: void iniDataSetChiffreDaffaire() {
 		System::String^ connectionString = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
-		System::String^ sql = "SELECT SUM(Prix_Total_TTC) FROM Commande WHERE MONTH = (SELECT LEFT(Date_Paiement, 5), RIGHT(Date_Paiement, 5)";
+		System::String^ sql = "SELECT SUM(Prix_Total_TTC) FROM Commande WHERE (SELECT LEFT(Date_Paiement, 5), RIGHT(Date_Paiement, 5)) = " + this + ;
 		System::Data::SqlClient::SqlConnection^ connection = gcnew System::Data::SqlClient::SqlConnection(connectionString);
 		System::Data::SqlClient::SqlDataAdapter^ dataadapter = gcnew System::Data::SqlClient::SqlDataAdapter(sql, connection);
 		DataSet^ ds = gcnew DataSet();
@@ -636,8 +636,8 @@ namespace ProjetPOO {
 			int id = this->processusCommande->ajouter(Convert::ToInt32(ArticleCBox->SelectedValue), Convert::ToInt32(this->Quantite->Text), Convert::ToInt32(ClientCBox->SelectedValue), (moyenDePaiement)this->MoyenPaiement->SelectedItem, this->DateLivraison->Text, this->DateEmission->Text, this->DatePaiement->Text);
 			
 			CL_CAD^ buff = gcnew CL_CAD();
-			buff->actionRows("UPDATE Commande SET Prix_Total_TVA = (SELECT SUM((Cout.Cout_HT * " + this->BoxTVA->SelectedItem + ") * contient.quantite) FROM Commande FULL JOIN (contient FULL JOIN (Article FULL JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE (Commande.ID = " + id + ")) WHERE (Commande.ID = " + id + ");\
-				UPDATE Commande SET Prix_Total_TTC = (SELECT Prix_Total_TVA + (Prix_Total_TVA * " + this->BoxMarge->SelectedItem + ") - (Prix_Total_TVA * " + this->BoxRemise->SelectedItem + ") - (Prix_Total_TVA * " + this->BoxDemarque->SelectedItem + ") FROM Commande WHERE(Commande.ID = " + id + ")) WHERE(Commande.ID = " + id + ")");
+			buff->actionRows("UPDATE Commande SET Prix_Total_TVA = (SELECT SUM((Cout.Cout_HT * " + 1+Convert::ToInt32(this->BoxTVA->SelectedItem)/100 + ") * contient.quantite) FROM Commande FULL JOIN (contient FULL JOIN (Article FULL JOIN Cout ON Article.ID_Cout = Cout.ID) ON contient.ID = Article.ID) ON Commande.ID = contient.ID_Commande WHERE (Commande.ID = " + id + ")) WHERE (Commande.ID = " + id + ");\
+				UPDATE Commande SET Prix_Total_TTC = (SELECT Prix_Total_TVA + (Prix_Total_TVA * " + 1+Convert::ToInt32(this->BoxMarge->SelectedItem)/100 + ") - (Prix_Total_TVA * " + 1+Convert::ToInt32(this->BoxRemise->SelectedItem)/100 + ") - (Prix_Total_TVA * " + 1+Convert::ToInt32(this->BoxDemarque->SelectedItem)/100 + ") FROM Commande WHERE(Commande.ID = " + id + ")) WHERE(Commande.ID = " + id + ")");
 			/*
 			System::String^ connectionStringCout = "Data Source=.;Initial Catalog=ProjetPOO;Integrated Security=True;Pooling=False";
 			System::Data::SqlClient::SqlConnection^ connectionCout = gcnew System::Data::SqlClient::SqlConnection(connectionStringCout);
